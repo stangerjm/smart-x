@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smart-nav.vue has same HTML structure 1`] = `
+<nav class="smart-nav">
+  <header class="smart-nav--header">
+    <main>
+      <img src="/images/wspLogo.png" alt="Logo" width="100" height="50" class="smart-nav--logo">
+      <h5>Test</h5>
+    </main>
+    <aside>
+      <!----><span>JMST225 - 04/23/18 04:00:00</span></aside>
+  </header>
+  <main class="smart-nav--list">
+    <!---->
+  </main>
+</nav>
+`;

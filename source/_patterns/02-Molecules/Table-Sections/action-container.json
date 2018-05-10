@@ -1,0 +1,12 @@
+{
+  "defaultContext": "IIP",
+  "allowDetails": true,
+  "allowEdit": true,
+  "allowDelete": true,
+  "item": {
+    "id": 1,
+    "detailsContext": "Region",
+    "editContext": "Country",
+    "deleteContext": "Manufacturer"
+  }
+}

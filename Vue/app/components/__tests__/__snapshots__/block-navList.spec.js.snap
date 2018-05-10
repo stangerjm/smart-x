@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block-navList.vue has same HTML structure 1`] = `
+<div class="block-navList"><span class="block-navList--expand">|||</span>
+  <ul class="block-navList--items">
+    <li>
+      <a class="wsp-link"></a>
+      <!---->
+    </li>
+  </ul>
+</div>
+`;

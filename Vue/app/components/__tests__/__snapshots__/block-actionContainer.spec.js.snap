@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block-actionContainer.vue has the same HTML structure 1`] = `
+<div class="block-actionContainer">
+  <a href="/Manufacturer/Details/1" class="bit-btn-details"></a>
+  <a href="/County/Edit/1" class="bit-btn-edit"></a>
+  <a href="/Region/Delete/1" class="bit-btn-delete"></a>
+</div>
+`;

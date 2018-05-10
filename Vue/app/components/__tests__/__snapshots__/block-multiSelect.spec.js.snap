@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`block-multiSelect.vue has same HTML structure 1`] = `
+<div class="block-multiSelect">
+  <label for="selectParent-input-id">TestParent</label>
+  <select name="TestParent" id="selectParent-input-id" class="block-multiSelect--parent">
+    <option disabled="disabled">Please select a TestParent</option>
+    <option value="[object Object]">USA</option>
+    <option value="[object Object]">Japan</option>
+  </select>
+  <label for="selectChild-input-id">TestChild</label>
+  <select name="TestChild" id="selectChild-input-id" class="block-multiSelect--child">
+    <option disabled="disabled">Please select a TestParent</option>
+  </select>
+</div>
+`;

@@ -1,0 +1,14 @@
+.smart-grid {
+  @include format-responsive(column, null, null) {
+    display: grid;
+    grid-template-rows: 1fr 1fr 7fr 1fr;
+    height: 100vh;
+  }
+}
+
+.test-cont {
+  background: #0077aa;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin:-1px 0 0 -1px;
+}

@@ -1,0 +1,153 @@
+////
+/// @author James Stanger
+/// @group Templates
+////
+
+/// Mixin to hide element.
+/// @access public
+@mixin hide() {
+  display: none;
+}
+
+/// Mixin to include an image in an icon element.
+/// @access public
+/// @param {String} $iconName - Name of the icon file.
+/// @param {Number} $size [15px] - Size of the icon.
+/// @example scss - Basic use
+///   .user-icon {
+///     @include icon-url("user.png", 13px);
+///  }
+@mixin icon-url($iconName, $size: 15px) {
+  background: url("/images/" + $iconName) center/$size no-repeat;
+}
+
+/// Mixin to set width of an element relative to the number of its siblings.
+/// @access public
+/// @param {String} $columns - Number of elements in parent container.
+/// @example scss - Basic use
+///   .box-col-3 {
+///     @include width-percentage(3);
+///  }
+@mixin width-percentage($columns) {
+  width: percentage(1 / $columns);
+
+  @media screen and (max-width: 400 + (60 * $columns) + px) {
+    width: 100%;
+  }
+}
+
+/// Disables ability to select element.
+/// @access public
+@mixin disable-select() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/// Mixin to counteract specific bootstrap styles.
+/// @access public
+/// @param {String} $element - Bootstrap element to counteract
+/// @example scss - Basic use
+///   .btn--datepicker {
+///     @include counteract-bootstrap('datepicker');
+///   }
+@mixin counteract-bootstrap($element) {
+  @if $element == 'datepicker' {
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+  }
+}
+
+/// Mixin to conditionally use CSS Grid if the browser supports CSS Grid.
+/// @access public
+/// @content CSS Grid options
+/// @example scss - Basic use
+///   .container {
+///     @include gridify() {
+///       grid-template-columns: auto auto auto;
+///     }
+///  }
+@mixin gridify() {
+  @supports (display: grid) {
+    display: grid;
+    @content;
+  }
+}
+
+/// Mixin to make an element responsive across all browsers by defining
+/// CSS Grid properties with Flexbox backups for unsupported browsers.
+/// @access public
+/// @param {String} $direction - Flex-direction value
+/// @param {String} $justify - Justify-content value
+/// @param {String} $wrap - Flex-wrap value
+/// @content CSS Grid options
+/// @example scss - Basic use
+///   .nav {
+///     @include format-responsive(column, center, wrap) {
+///       grid-auto-flow: row;
+///     }
+///  }
+@mixin format-responsive($direction, $justify, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+
+  @include gridify() {
+    @content;
+  }
+}
+
+/// Mixin to alter a responsive element.
+/// @access public
+/// @param {String} $direction - Flex-direction value
+/// @param {String} $justify - Justify-content value
+/// @param {String} $wrap - Flex-wrap value
+/// @content CSS Grid options
+/// @example scss - Basic use
+///   .form {
+///     @include alter-responsive(row, start, nowrap) {
+///       grid-auto-flow: column;
+///     }
+///  }
+@mixin alter-responsive($direction, $justify, $wrap) {
+  flex-direction: $direction;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+
+  @supports (display: grid) {
+    @content;
+  }
+}
+
+/// Makes an element into a flexible box.
+/// @access public
+/// @example scss - Basic use
+///   .smart-box {
+///     @extend %flex-container;
+///  }
+%flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/// Sets base styles for an icon.
+/// @access public
+/// @example scss - Basic use
+///   .icon {
+///     @extend %icon;
+///  }
+%icon {
+  content: " ";
+  height: 13px;
+  display: inline-block;
+  width: 13px;
+}
+
+/// Sets base layout styles for a section of a form.
+%form-segment {
+  width: 100%;
+  box-sizing: border-box;
+}

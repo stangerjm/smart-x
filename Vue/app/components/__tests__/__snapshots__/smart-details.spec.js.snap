@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smart-details.vue has same HTML structure 1`] = `
+<div class="smart-details">
+  <div class="smart-details--container">
+    <h3 class="smart-details--heading">Test</h3>
+    <div class="smart-details--listContainer"></div>
+  </div>
+</div>
+`;

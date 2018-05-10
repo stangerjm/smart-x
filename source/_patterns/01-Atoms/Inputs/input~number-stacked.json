@@ -1,0 +1,6 @@
+{
+  "type": "number",
+  "inputName": "page-number",
+  "labelText": "Test",
+  "stackElements": true
+}

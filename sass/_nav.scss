@@ -1,0 +1,196 @@
+////
+/// @author James Stanger
+/// @group Navigation
+////
+
+/// Sets base styles for a list in a navigation.
+/// List is responsive, mobile oriented, and styled
+/// with themed colors and transitions.
+%nav-list {
+  background-color: inherit;
+  margin: 0;
+
+  /* responsive styles */
+  @include format-responsive(row, left, wrap){
+    grid-auto-flow: column;
+  };
+
+  @media screen and (max-width: $break-med) {
+    /* mobile list style */
+    /* hide by default */
+    @include hide();
+
+    /* show when nav-show class is applied */
+    &.nav-show {
+      @include alter-responsive(column, null, null) {
+        grid-auto-flow: row;
+        grid-template-columns: 100%;
+      }
+    }
+
+    background: $patch-orange--light;
+    width: 100%;
+    padding-left: 0;
+
+    li {
+      /* resize list items on mobile */
+      padding: 5px;
+      border-bottom: 1px solid black;
+      width: inherit !important;
+    }
+  }
+
+  li {
+    list-style: none;
+    box-shadow: 0 1px 2px inset;
+    width: 100px;
+    padding: 3px 0;
+    text-align: center;
+
+    @media screen and (min-width: $break-med + 1) {
+      &:hover {
+        /* apply transitions and border only when not mobile. */
+        transition: border-top-width 100ms;
+        border-top: 2px groove $patch-orange--deep;
+        margin-top: -2px;
+      }
+    }
+
+    &:hover .inline-list {
+      /* show any sublists on hover */
+      display: block;
+    }
+  }
+}
+
+/// Sets layout and basic styles for a navigation
+.smart-nav {
+  @extend %flex-container;
+  border-bottom: 1px solid $patch-orange--deep;
+  background-color: $uniform-blue;
+}
+
+/// Styles the mobile expand button to expand the navigation
+/// when the screen is too small to fit.
+/// @example javascript - Applied by JavaScript (jQuery)
+///   var navList = $("[class^='nav-list']");
+///   $('<span class="nav-expand">|||</span>').click(function() {
+///     navList.toggleClass("nav-show");
+///   }).insertBefore(navList);
+.nav-expand {
+  /* hide expand button by default */
+  @include hide();
+
+  @media screen and (max-width: $break-med) {
+    /* style expand button when screen is small */
+    transform: rotate(90deg);
+    font-size: 2em;
+    display: inline-block;
+    border: 2px solid $patch-orange--light;
+    border-radius: 10px;
+    margin: 10px 20px;
+    padding: 0 15px 5px;
+  }
+}
+
+/// Resets orientation of navigation list when list is expanded on small
+/// screen and resized to larger screen.
+ul.nav-show {
+  @include format-responsive(row, null, null) {
+    grid-auto-flow: column;
+  };
+}
+
+/// Styles a navigation list to be responsive and dynamic with inline-list
+/// capability. Also has option of "tabbed" look.
+/// @example markup - Basic use
+///     <nav class="smart-nav">
+///         <ul class="nav-list">
+///             <li>{{text}}</li>
+///         </ul>
+///     </nav>
+///
+/// @example markup - Tabbed list
+///     <nav class="smart-nav">
+///         <ul class="nav-list--tabbed">
+///             <li>{{listText}}</li>
+///         </ul>
+///     </nav>
+.nav-list {
+  //default nav-list
+  @extend %nav-list;
+
+  //styles the nav to have tabbed items
+  &--tabbed {
+    @extend %nav-list;
+
+    li {
+      @media screen and (min-width: $break-med + 1) {
+        /* only display tabbed items when screen is large */
+        border-radius: 0 20px 0 0;
+        border: 1px solid black;
+        border-bottom: none;
+
+        .inline-list li {
+          /* do not style sublist items to have tabbed style */
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+/// Sets an sublist to display beneath its parent. Will show only on hover.
+.inline-list {
+  /* display beneath parent. Hide by default. Set to outer z-index layer. */
+  position: absolute;
+  padding: 0;
+  display: none;
+  width: inherit;
+  margin-top: 3px;
+  z-index: $level-9;
+
+  li {
+    /* ensure children are not transparent */
+    background: $uniform-blue;
+    padding: 3px 0;
+  }
+}
+
+[class*=nav-list] > li:nth-child(1) {
+  background: linear-gradient(to right, $uniform-blue--dark, lighten($uniform-blue--dark, 10%));
+}
+
+[class*=nav-list] > li:nth-child(2) {
+  background: linear-gradient(to right, lighten($uniform-blue--dark, 10%), lighten($uniform-blue--dark, 20%));
+}
+
+[class*=nav-list] > li:nth-child(3) {
+  background: linear-gradient(to right, lighten($uniform-blue--dark, 20%), lighten($uniform-blue--dark, 30%));
+}
+
+[class*=nav-list] > li:nth-child(4) {
+  background: linear-gradient(to right, lighten($uniform-blue--dark, 30%), lighten($uniform-blue--dark, 40%));
+}
+
+[class*=nav-list] > li:nth-child(5) {
+  background: linear-gradient(to right, lighten($uniform-blue--dark, 40%), lighten($uniform-blue--dark, 50%));
+}
+
+[class*=nav-list] > li:nth-child(6) {
+  background: linear-gradient(to right, lighten($uniform-blue--dark, 50%), lighten($uniform-blue--dark, 60%));
+}
+
+[class*=nav-list] > li > .wsp-link {
+  color: white;
+}
+
+/// Places drop-down symbol on the parent of a sublist.
+.sublist-container::after {
+  content: "▾";
+  margin-left: 4px;
+}
+
+.nav-title {
+  margin: 0 40px;
+}

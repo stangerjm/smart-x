@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smart-accordion.vue has same HTML structure 1`] = `
+<section class="smart-accordion">
+  <input id="input-id" name="accordion-1" type="checkbox" class="smart-accordion--toggle">
+  <label for="input-id" class="smart-accordion--label">Click to expand</label>
+  <article class="smart-accordion--content"></article>
+</section>
+`;

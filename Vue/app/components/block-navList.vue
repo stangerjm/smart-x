@@ -1,0 +1,166 @@
+<template>
+    <div class="block-navList">
+        <span class="block-navList--expand" @click="isExpanded = !isExpanded">|||</span>
+        <ul :class="[isExpanded ? 'nav-show' : '', 'block-navList--items']">
+            <li v-for="item in items">
+                <a :href="item.linkPath" class="wsp-link">{{item.itemTitle}}</a>
+                <bit-drop-list v-if="item.inlineItems" :drop-items="item.inlineItems"></bit-drop-list>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    import bitDropList from './bit-dropList'
+    export default {
+        name: "block-nav-list",
+        props: {
+          type: {
+            type: String
+          },
+          items: {
+            type: Array,
+            required: true
+          }
+        },
+        components: {
+          bitDropList
+        },
+        data: function() {
+            return {
+                isExpanded: false
+            }
+        },
+        mounted: function() {
+            let inlineLists = this.$el.querySelectorAll(".bit-dropList");
+            if (inlineLists.length !== 0) {
+                for(let inlineList of inlineLists) {
+                    if(inlineList.hasChildNodes()) {
+                        inlineList.parentNode.firstChild.classList.add("sublist-container");
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<style scoped lang="scss">
+    @import "../../../sass/variables";
+    @import "../../../sass/templates";
+
+    /// Styles a navigation list to be responsive and dynamic with inline-list
+    /// capability. Also has option of "tabbed" look.
+    /// @example markup - Basic use
+    ///     <nav class="smart-nav">
+    ///         <ul class="nav-list">
+    ///             <li>{{text}}</li>
+    ///         </ul>
+    ///     </nav>
+    ///
+    /// @example markup - Tabbed list
+    ///     <nav class="smart-nav">
+    ///         <ul class="nav-list--tabbed">
+    ///             <li>{{listText}}</li>
+    ///         </ul>
+    ///     </nav>
+    .block-navList {
+        &--items {
+            $listWidth: 250px;
+
+            @include format-responsive(row, null, null){
+                grid-auto-flow: column;
+            };
+
+            background: linear-gradient(to right, #0441ab, #b7d7ff);
+            margin: 0;
+            padding-left: 0;
+            z-index: $level-9;
+
+            li {
+                list-style: none;
+                box-shadow: 0 1px 2px inset;
+                padding: 3px 0;
+                text-align: center;
+                position: relative;
+                flex-grow: 1;
+
+                @media screen and (min-width: $break-med + 1) {
+                    &:hover {
+                        /* apply transitions and border only when not mobile. */
+                        transition: border-top-width 100ms;
+                        border-top: 2px groove $patch-orange--deep;
+                        margin-top: -2px;
+                    }
+                }
+
+                &:hover .bit-dropList {
+                    /* show any sublists on hover */
+                    display: block;
+                }
+            }
+
+            @media screen and (max-width: $break-med) {
+                /* mobile list style */
+                /* hide by default */
+                display: block;
+                transform: translateX(-$listWidth - 50);
+                transition: transform 600ms ease-in-out;
+                background: linear-gradient(to bottom, #0441ab, #b7d7ff);
+                position: absolute;
+                left: 0;
+                width: $listWidth;
+
+                /* show when nav-show class is applied */
+                &.nav-show {
+                    @include format-responsive(column, null, null) {
+                        grid-auto-flow: row;
+                    }
+
+                    transform: none;
+                }
+
+                li {
+                    /* resize list items on mobile */
+                    padding: 5px;
+                    border-bottom: 1px solid black;
+                    width: inherit !important;
+                    position: relative;
+                }
+            }
+        }
+    }
+
+    [class*=block-navList] > li > .wsp-link {
+        color: white;
+    }
+
+    /// Places drop-down symbol on the parent of a sublist.
+    .sublist-container::after {
+        content: "▾";
+        margin-left: 4px;
+    }
+
+    /// Styles the mobile expand button to expand the navigation
+    /// when the screen is too small to fit.
+    /// @example javascript - Applied by JavaScript (jQuery)
+    ///   var navList = $("[class^='nav-list']");
+    ///   $('<span class="nav-expand">|||</span>').click(function() {
+    ///     navList.toggleClass("nav-show");
+    ///   }).insertBefore(navList);
+    .block-navList--expand {
+        /* hide by default */
+        display: none;
+
+        /* style expand button when screen is small */
+        @media screen and (max-width: $break-med) {
+            transform: rotate(90deg);
+            font-size: 2em;
+            display: inline-block;
+            border: 2px solid $patch-orange--light;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 0 15px 5px;
+        }
+    }
+
+</style>

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmartTable.vue has same HTML structure 1`] = `
+<table class="smart-table">
+  <tr class="record table-heading">
+    <th class="sortable">
+      <a href="/Region?sortOrder=id" class="wsp-link">
+        Id
+      </a>
+      <!---->
+    </th>
+    <th class="sortable">
+      <a href="/Region?sortOrder=code" class="wsp-link">
+        Code
+      </a>
+      <!---->
+    </th>
+    <th class="sortable">
+      <a href="/Region?sortOrder=name" class="wsp-link">
+        Name
+      </a>
+      <!---->
+    </th>
+    <th class="sortable">
+      <a href="/Region?sortOrder=testProp" class="wsp-link">
+        Test Prop
+      </a>
+      <!---->
+    </th>
+    <th class="sortable">
+      <a href="/Region?sortOrder=anotherProp" class="wsp-link">
+        Another Prop
+      </a>
+      <!---->
+    </th>
+    <!---->
+    <!---->
+    <th>Actions</th>
+  </tr>
+  <tr class="record">
+    <td class="record-key">1</td>
+    <td class="record-key">01</td>
+    <td>test</td>
+    <td>test</td>
+    <td>more</td>
+    <!---->
+    <!---->
+    <td>
+      <!---->
+    </td>
+    <!---->
+  </tr>
+  <tr class="record">
+    <td class="record-key">2</td>
+    <td class="record-key">02</td>
+    <td>SW Washington</td>
+    <td>test</td>
+    <td>more</td>
+    <!---->
+    <!---->
+    <td>
+      <!---->
+    </td>
+    <!---->
+  </tr>
+  <tr class="record">
+    <td class="record-key">3</td>
+    <td class="record-key">03</td>
+    <td>Central Washington</td>
+    <td>test</td>
+    <td>more</td>
+    <!---->
+    <!---->
+    <td>
+      <!---->
+    </td>
+    <!---->
+  </tr>
+</table>
+`;

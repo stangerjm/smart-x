@@ -1,0 +1,46 @@
+////
+/// @group Miscellaneous
+/// @author James Stanger
+////
+
+/// Sets base styles for a link
+%link {
+  text-decoration: none;
+  color: #5e5e5e;
+}
+
+/// Styles a link with base link styles and defines hover transitions.
+.wsp-link {
+  @extend %link;
+  transition: color 300ms ease-in-out;
+
+  &:hover {
+    color: $link-blue;
+  }
+}
+
+/// Helper class to align an element to the right.
+.align-right {
+  text-align: right;
+}
+
+/// Styles a link with just the base styles and no transitions,
+/// extra colors, or backgrounds.
+.clear-link {
+  @extend %link;
+
+  &:hover {
+    @extend %link;
+  }
+}
+
+///// Styles a user / profile icon.
+//.user-icon {
+//  height: 18px;
+//
+//  &:before {
+//    @extend %icon;
+//    @include icon-url('user.png', 12px);
+//    height: 18px;
+//  }
+//}

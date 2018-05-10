@@ -1,0 +1,14 @@
+{
+  "modalTitle": "Be a Trooper",
+  "listTitle": "Dates",
+  "modalInfo": [
+    {"modalItem": "Cadet Testing in Lynnwood, April 19"},
+    {"modalItem": "Cadet Testing in Yakima, April 21"},
+    {"modalItem": "Cadet Testing in Pasco, April 22"},
+    {"modalItem": "Cadet Testing in Lynnwood, April 27"}
+  ],
+  "imgUrl": "images/interstitial.png",
+  "footerText": "Contact us at: ",
+  "linkUrl": "wsp.wa.gov",
+  "linkText": "Our Website"
+}

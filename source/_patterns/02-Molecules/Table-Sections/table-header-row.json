@@ -1,0 +1,9 @@
+{
+  "headings": [
+    {"thText": "Id"},
+    {"thText": "Name"},
+    {"thText": "Effective Date"},
+    {"thText": "Expire Date"},
+    {"thText": "Actions"}
+  ]
+}

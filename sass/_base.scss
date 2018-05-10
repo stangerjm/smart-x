@@ -1,0 +1,52 @@
+////
+/// @group Base
+/// @author James Stanger
+////
+
+/// Sets default body styles.
+body {
+  font: 14px/1.6 Helvitica, Arial, FreeSans, sans-serif;
+  margin: 0;
+}
+
+/// Sets default header styles.
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+/// Sets default heading 1 styles.
+h1 {
+  font-size: 50px;
+  text-shadow: 1px 1px 0 #fff;
+  font-family: arial black, arial, sans-serif;
+}
+
+/// Sets default heading 2 styles.
+h2 {
+  font-size: 23px;
+}
+
+/// Sets default heading 3 styles.
+h3 {
+  font-size: 21px;
+}
+
+/// Sets default heading 4 styles.
+h4 {
+  font-size: 19px;
+}
+
+/// Sets default heading 5 styles.
+h5 {
+  font-size: 17px;
+}
+
+/// Sets default heading 6 styles.
+h6 {
+  font-size: 15px;
+}
+
+/// Sets default section styles.
+article, aside, dialog, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}

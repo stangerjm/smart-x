@@ -1,0 +1,23 @@
+<div class="smart-modal" id="modal-container" role="dialog" aria-labelledby="be-a-trooper" aria-describedby="Join the Washington State Patrol">
+    <div class="modal-content">
+        <header class="modal-head">
+            <button class="modal-close">CLOSE</button>
+            <h2 class="modal-title">{{modalTitle}}</h2>
+        </header>
+        <main class="modal-body">
+            <h3 class="modal-list-title">{{listTitle}}</h3>
+            <ul class="modal-list">
+                {{#modalInfo}}
+                    <li>{{modalItem}}</li>
+                {{/modalInfo}}
+            </ul>
+        </main>
+        <div class="modal-img-container">
+            <img class="modal-img" src="/{{imgUrl}}" alt="Modal Image">
+        </div>
+        <footer class="modal-footer">
+            {{footerText}}
+            <a class="modal-link" href="{{linkUrl}}">{{linkText}}</a>
+        </footer>
+    </div>
+</div>

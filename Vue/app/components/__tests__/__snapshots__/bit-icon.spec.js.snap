@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bit-icon.vue has same HTML structure 1`] = `<span class="user-icon"></span>`;

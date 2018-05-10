@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bit-dropList.vue has same HTML structure 1`] = `
+<ul class="bit-dropList">
+  <li>
+    <a href="#" class="wsp-link">Home</a>
+  </li>
+  <li>
+    <a href="#" class="wsp-link">WSP</a>
+  </li>
+  <li>
+    <a href="#" class="wsp-link">About</a>
+  </li>
+</ul>
+`;

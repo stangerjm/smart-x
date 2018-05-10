@@ -1,0 +1,238 @@
+{
+  "className": "",
+  "navListItems": "[{'itemTitle': 'Home', 'linkPath': '#'}, {'itemTitle': 'WSP', 'linkPath': '#'}, {'itemTitle': 'More', 'linkPath': '#', 'inlineItems': [{'itemTitle':'Be a Trooper', 'linkPath':'#'}, {'itemTitle':'Media', 'linkPath':'#'}]}, {'itemTitle': 'Links', 'linkPath': '#', 'inlineItems': [{'itemTitle':'breathtest', 'linkPath':'#'}, {'itemTitle':'wsp.wa.gov', 'linkPath':'#'}, {'itemTitle':'Google', 'linkPath':'#'}]}, {'itemTitle': 'Contact', 'linkPath': '#'}]",
+  "user": "JMST225",
+  "time": "Tue April 3 2018",
+  "inputs": [
+    {"inputName": "region", "labelText": "Find by ID/Name"}
+  ],
+  "formButtons": [
+    {"formButtonClass":"search", "formButtonText":"Search"},
+    {"formButtonClass":"reset", "formButtonText":"Reset"},
+    {"formButtonClass":"add", "formButtonText":"Add"}
+  ],
+  "formHeadText": "Region",,
+  "headings": [
+    {"thText": "Region Code"},
+    {"thText": "Region Name"},
+    {"thText": "Actions"}
+  ],
+  "records": [
+    {
+      "recordKeys":[
+        {"keyText": "01"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "02"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "03"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "04"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "05"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "06"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "07"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "08"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "09"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "10"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "11"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "12"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "13"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "14"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "15"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "16"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "17"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "18"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "19"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "20"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "21"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "22"},
+        {"keyText": "SE Washington"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "23"},
+        {"keyText": "TACOMA"}
+      ],
+      "recordEntries": [
+
+      ]
+    },
+    {
+      "recordKeys":[
+        {"keyText": "24"},
+        {"keyText": "EAST PIERCE COUNTY"}
+      ],
+      "recordEntries": [
+
+      ]
+    }
+  ]
+}

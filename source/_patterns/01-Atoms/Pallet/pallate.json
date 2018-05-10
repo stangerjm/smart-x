@@ -1,0 +1,14 @@
+{
+  "colorList": [
+    {"color": "black-block"},
+    {"color": "white-block"},
+    {"color": "lightBlue-block"},
+    {"color": "blue-block"},
+    {"color": "deepBlue-block"},
+    {"color": "darkBlue-block"},
+    {"color": "gold-block"},
+    {"color": "bronze-block"},
+    {"color": "orange-block"},
+    {"color": "deepOrange-block"}
+  ]
+}

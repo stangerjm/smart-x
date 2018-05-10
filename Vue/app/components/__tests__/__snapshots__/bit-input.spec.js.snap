@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bit-input.vue has same HTML structure 1`] = `
+<div class="bit-input-stacked">
+  <label for="input-id" class="bit-input--label">Test</label>
+  <input id="input-id" type="text" class="bit-input--field">
+</div>
+`;

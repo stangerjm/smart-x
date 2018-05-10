@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smart-form.vue has the same HTML structure 1`] = `
+<form action="/" method="get" class="smart-form">
+  <header class="smart-form--titleSection">
+    <h3 class="smart-form--title">Test</h3>
+  </header>
+  <section class="smart-form--fieldSection">
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </section>
+  <!---->
+</form>
+`;

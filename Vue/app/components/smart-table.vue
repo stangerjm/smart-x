@@ -35,7 +35,7 @@
 
 <script>
     import blockActionContainer from './block-actionContainer'
-    import bitBtn from './bit-button'
+    import bitBtn from './bit-btn'
     import bitIcon from './bit-icon'
     export default {
         name: "smart-table",

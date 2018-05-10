@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import bitBtn from './bit-button';
+import bitBtn from './bit-btn';
 import bitIcon from './bit-icon';
 import bitInput from './bit-input';
 import bitDropList from './bit-dropList';

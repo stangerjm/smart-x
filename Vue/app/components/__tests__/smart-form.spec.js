@@ -12,6 +12,7 @@ let formData = {
 };
 
 let disabledInputs = ['id'];
+let formMethod = 'get';
 
 function typeValue(value) {
   if (value === 'true' || value === 'false') {
@@ -33,13 +34,17 @@ Vue.mixin({
   }
 });
 
+let formTitle = 'Test';
+
 function mountForm(props) {
   if (!props) {
     props = {
       propsData: {
         formAction: '/',
         formData: formData,
-        disabledInputs: disabledInputs
+        disabledInputs: disabledInputs,
+        formTitle: formTitle,
+        formMethod: formMethod
       }
     }
   }
@@ -67,6 +72,23 @@ describe('smart-form.vue', () => {
 
     expect(formDataProp.required).toBeTruthy();
     expect(formDataProp.type).toEqual(Object);
+  });
+
+  it('renders a title from a "formTitle" property, or "Form" if nothing is passed', () => {
+    const wrapper = mountForm();
+    let formTitleProp = wrapper.vm.$options.props.formTitle;
+
+    expect(formTitleProp.type).toEqual(String);
+    expect(formTitleProp.default).toEqual('Form');
+    expect(wrapper.find('.smart-form--title').text()).toEqual(formTitle);
+  });
+
+  it('renders a form with a method from the optional string passed into a "formMethod" property', () => {
+    const wrapper = mountForm();
+    let formMethodProp = wrapper.vm.$options.props.formMethod;
+
+    expect(formMethodProp.type).toEqual(String);
+    expect(wrapper.vm.$el.getAttribute('method')).toEqual(formMethod);
   });
 
   it('disables any inputs with names found in the optional "disabledInputs" array property', () => {
@@ -109,5 +131,24 @@ describe('smart-form.vue', () => {
 
       expect(inputType).toEqual(expectedType);
     }
+  });
+
+  it('has the same HTML structure', () => {
+    const renderer = createRenderer();
+    const wrapper = shallow(smartForm, {
+      propsData: {
+        formAction: '/',
+        formData: formData,
+        disabledInputs: disabledInputs,
+        formTitle: formTitle,
+        formMethod: formMethod
+      }
+    });
+    renderer.renderToString(wrapper.vm, (err, str) => {
+      if (err) {
+        throw new Error(err);
+      }
+      expect(str).toMatchSnapshot();
+    });
   });
 });

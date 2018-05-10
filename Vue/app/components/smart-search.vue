@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import bitBtn from './bit-button'
+  import bitBtn from './bit-btn'
   import bitInput from './bit-input'
     export default {
       name: "smart-search",

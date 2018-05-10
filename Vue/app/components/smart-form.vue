@@ -1,25 +1,33 @@
 <template>
-    <form :action="formAction" class="smart-form">
-        <template v-for="(item, key) in formData">
-            <bit-input
-                    class="smart-form--input"
-                    :stack-elements="true"
-                    :input-name="key"
-                    :input-type="getType(item)"
-                    :label-text="formatFromCamelCase(key)"
-                    :input-value="item"
-                    :is-disabled="disabledInputs.includes(key)">
-            </bit-input>
-        </template>
+    <form :action="formAction" :method="formMethod" class="smart-form">
+        <header class="smart-form--titleSection">
+            <h3 class="smart-form--title">{{formTitle}}</h3>
+        </header>
+        <section class="smart-form--fieldSection">
+            <template v-for="(item, key) in formData">
+                <bit-input
+                        class="smart-form--input"
+                        :stack-elements="true"
+                        :input-name="key"
+                        :input-type="getType(item)"
+                        :label-text="formatFromCamelCase(key)"
+                        :input-value="item"
+                        :is-readonly="disabledInputs.includes(key)">
+                </bit-input>
+            </template>
+        </section>
+        <bit-btn type="submit">Submit</bit-btn>
     </form>
 </template>
 
 <script>
   import bitInput from './bit-input';
+  import bitBtn from './bit-btn';
   export default {
     name: "smart-form",
     components: {
-      bitInput
+      bitInput,
+      bitBtn
     },
     props: {
       formAction: {
@@ -32,6 +40,13 @@
       },
       disabledInputs: {
         type: Array
+      },
+      formTitle: {
+        type: String,
+        default: 'Form'
+      },
+      formMethod: {
+        type: String
       }
     },
     methods: {
@@ -49,9 +64,20 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../../../sass/variables";
+
     .smart-form {
         > .smart-form--input {
             margin: 10px 20px;
         }
+    }
+
+    .smart-form--titleSection {
+        background: $generic-grey;
+        padding: 10px;
+    }
+
+    .smart-form--title {
+        margin: 0;
     }
 </style>

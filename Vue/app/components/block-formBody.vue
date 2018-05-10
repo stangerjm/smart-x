@@ -7,7 +7,7 @@
 
 <script>
   import bitInput from './bit-input'
-  import bitBtn from './bit-button'
+  import bitBtn from './bit-btn'
   export default {
     name: "block-form-body",
     components: {

@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import bitBtn from '../bit-button'
+import bitBtn from '../bit-btn'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

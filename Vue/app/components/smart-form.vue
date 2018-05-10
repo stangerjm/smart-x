@@ -17,17 +17,25 @@
             </template>
         </section>
         <bit-btn type="submit">Submit</bit-btn>
+        <date-picker v-model="time" editable lang="en"></date-picker>
     </form>
 </template>
 
 <script>
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
+  import DatePicker from 'vue2-datepicker';
   export default {
     name: "smart-form",
     components: {
       bitInput,
-      bitBtn
+      bitBtn,
+      DatePicker
+    },
+    data() {
+      return {
+        time: ''
+      }
     },
     props: {
       formAction: {

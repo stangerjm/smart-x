@@ -63,7 +63,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
+    @import "../sass/variables";
 
     %drop-arrow {
         content: '';
@@ -72,7 +72,7 @@
         height: 13px;
         right: 10px;
         top: 13px;
-        background: transparent url(../../../source/images/sort.png) 0 -11px / 15px no-repeat;
+        background: transparent url(../source/images/sort.png) 0 -11px / 15px no-repeat;
     }
 
     .smart-accordion {
@@ -107,7 +107,7 @@
             &:hover {
                 &:after {
                     @extend %drop-arrow;
-                    background: url(../../../source/images/sort.png) 0 3px / 15px no-repeat;
+                    background: url(../source/images/sort.png) 0 3px / 15px no-repeat;
                 }
             }
         }

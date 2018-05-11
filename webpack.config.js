@@ -3,7 +3,7 @@ var webpack = require('webpack')
 require('babel-polyfill')
 
 module.exports = {
-  entry: ['babel-polyfill', './Vue/app/components'],
+  entry: ['babel-polyfill', './Vue-components'],
   output: {
     path: path.resolve(__dirname, './source/js/'),
     publicPath: '/js/',

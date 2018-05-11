@@ -83,8 +83,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/templates";
-    @import "../../../sass/variables";
+    @import "../sass/templates";
+    @import "../sass/variables";
 
     /// Sets layout and basic styles for a navigation
     .smart-nav {

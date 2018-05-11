@@ -45,8 +45,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
-    @import "../../../sass/templates";
+    @import "../sass/variables";
+    @import "../sass/templates";
 
     /// Styles a navigation list to be responsive and dynamic with inline-list
     /// capability. Also has option of "tabbed" look.

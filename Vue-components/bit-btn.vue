@@ -42,8 +42,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    @import "../../../sass/variables";
-    @import "../../../sass/templates";
+    @import "../sass/variables";
+    @import "../sass/templates";
 
     ////
     /// @group Button

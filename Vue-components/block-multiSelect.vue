@@ -56,7 +56,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import '../../../sass/variables';
+    @import '../sass/variables';
 
     %select {
         margin: 0 10px;

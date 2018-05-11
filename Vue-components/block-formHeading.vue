@@ -53,8 +53,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/templates";
-    @import "../../../sass/variables";
+    @import "../sass/templates";
+    @import "../sass/variables";
 
     .form-section--heading {
         @extend %form-segment;

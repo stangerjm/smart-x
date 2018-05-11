@@ -18,8 +18,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
-    @import "../../../sass/templates";
+    @import "../sass/variables";
+    @import "../sass/templates";
 
     /// Styles a section of the form. Allows a body to be styled using
     /// .form-section, a heading to be styled using .form-section--heading

@@ -100,8 +100,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/templates";
-    @import "../../../sass/variables";
+    @import "../sass/templates";
+    @import "../sass/variables";
 
     /// Defines a flexible, responsive form. Allows for a "fancy"
     /// option that includes a drop-shadow.

@@ -55,7 +55,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/templates";
+    @import "../sass/templates";
 
     /// Container that holds action items in a table cell.
     /// @example markup - Basic use

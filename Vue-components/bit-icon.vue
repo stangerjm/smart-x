@@ -32,8 +32,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
-    @import "../../../sass/templates";
+    @import "../sass/variables";
+    @import "../sass/templates";
 
     /// Styles a user / profile icon.
     .user-icon {

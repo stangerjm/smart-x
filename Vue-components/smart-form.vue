@@ -72,7 +72,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
+    @import "../sass/variables";
 
     .smart-form {
         > .smart-form--input {

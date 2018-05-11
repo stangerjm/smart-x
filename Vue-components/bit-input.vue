@@ -67,8 +67,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/templates";
-    @import "../../../sass/variables";
+    @import "../sass/templates";
+    @import "../sass/variables";
 
     .bit-input {
         display: flex;

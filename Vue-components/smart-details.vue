@@ -75,8 +75,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
-    @import "../../../sass/templates";
+    @import "../sass/variables";
+    @import "../sass/templates";
 
     .smart-details--heading {
         padding: 5px 10px;

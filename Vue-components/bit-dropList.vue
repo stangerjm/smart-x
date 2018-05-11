@@ -19,7 +19,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../../../sass/variables";
+    @import "../sass/variables";
 
     /// Sets an sublist to display beneath its parent. Will show only on hover.
     .bit-dropList {

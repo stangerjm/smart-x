@@ -13,9 +13,10 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
+    "element-ui": "^2.3.8",
     "gulp-v4": "^4.0.0-alpha.5",
     "vue": "^2.5.11",
-    "vue2-datepicker": "^1.9.7"
+    "vue-i18n": "^7.6.0"
   },
   "browserslist": [
     "> 1%",
@@ -40,6 +41,7 @@
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.2",
+    "babel-plugin-component": "^1.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015-ie": "^6.7.0",
     "babel-preset-stage-2": "^6.24.1",
@@ -61,6 +63,7 @@
     "sass-loader": "^6.0.6",
     "styleguidekit-assets-default": "^3.5.2",
     "styleguidekit-mustache-default": "^3.1.0",
+    "url-loader": "^1.0.1",
     "vue-jest": "^2.5.0",
     "vue-loader": "^13.0.5",
     "vue-server-renderer": "^2.5.16",

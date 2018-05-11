@@ -12,29 +12,31 @@
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
                         :input-value="item"
-                        :is-readonly="disabledInputs.includes(key)">
+                        :is-readonly="disabledInputs.includes(key)"
+                        :input-model="dataCopy[key]"
+                        :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
             </template>
         </section>
         <bit-btn type="submit">Submit</bit-btn>
-        <date-picker v-model="time" editable lang="en"></date-picker>
     </form>
 </template>
 
 <script>
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
-  import DatePicker from 'vue2-datepicker';
+
   export default {
     name: "smart-form",
     components: {
       bitInput,
-      bitBtn,
-      DatePicker
+      bitBtn
     },
     data() {
       return {
-        time: ''
+        time: '',
+        time2: '',
+        dataCopy: Object.assign({}, this.formData)
       }
     },
     props: {
@@ -55,6 +57,10 @@
       },
       formMethod: {
         type: String
+      },
+      dateFormat: {
+        type: String,
+        default: 'MM-dd-yyyy'
       }
     },
     methods: {
@@ -63,6 +69,8 @@
           return 'checkbox';
         } else if (value !== '' && !isNaN(value)) {
           return 'number';
+        } else if (Date.parse(value)) {
+          return 'date'
         } else {
           return 'text';
         }

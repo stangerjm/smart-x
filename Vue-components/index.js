@@ -16,6 +16,10 @@ import smartAccordion from './smart-accordion';
 import blockMultiSelect from './block-multiSelect';
 import stackTableCollapsible from './stack-tableCollapsible';
 import smartForm from './smart-form';
+import VueI18n from 'vue-i18n';
+
+Vue.use(VueI18n);
+
 
 Vue.mixin({
   methods: {

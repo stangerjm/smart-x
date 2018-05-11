@@ -19,6 +19,13 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "syntax-class-properties"
+    "syntax-class-properties",
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
   ]
 }

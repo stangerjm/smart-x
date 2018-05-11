@@ -1,7 +1,8 @@
 <template>
     <div :class="[stackElements ? 'bit-input-stacked' : 'bit-input']">
         <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
-        <input class="bit-input--field"
+        <input v-if="inputType !== 'date'"
+               class="bit-input--field"
                :id="inputId ? inputId : randomId"
                :type="inputType"
                :disabled="isDisabled"
@@ -11,10 +12,27 @@
                :readonly="isReadonly"
                :required="isRequired"
                :value="inputValue">
+        <el-date-picker v-else
+                class="bit-input--field"
+                :id="inputId ? inputId : randomId"
+                v-model="model"
+                :name="inputName"
+                :readonly="isReadonly"
+                :required="isRequired"
+                :disabled="isDisabled"
+                type="date"
+                :format="dateFormat">
+        </el-date-picker>
     </div>
 </template>
 
 <script>
+    import ElDatePicker from 'element-ui';
+    import Vue from 'vue';
+    import en from "element-ui/lib/locale/lang/en"
+
+    Vue.use(ElDatePicker, {locale: en});
+
     export default {
         name: "bit-input",
         props: {
@@ -56,11 +74,22 @@
           },
           inputValue: {
 
+          },
+          inputModel: {
+
+          },
+          dateFormat: {
+            type: String
           }
         },
         data() {
           return {
-            randomId: 'input-' + Math.random().toString(36).substr(2,9)
+            randomId: 'input-' + Math.random().toString(36).substr(2,9),
+            model: {
+              // Setting inputModel to the a data property to avoid accidental overwriting of parent
+              // See: https://vuejs.org/v2/guide/migration.html#Prop-Mutation-deprecated
+              default: this.inputModel
+            }
           }
         }
     }
@@ -94,7 +123,7 @@
 
     /// Styles different types of form inputs, namely input[type=text] and input[type=number].
     .bit-input--field {
-        &:not([type = checkbox]) {
+        &:not([type = checkbox]):not(.el-date-editor) {
             padding: 0.5em;
             border: none;
             box-shadow: 1px 1px 4px inset;
@@ -104,6 +133,10 @@
 
         &[type = number] {
             max-width: 50px;
+        }
+
+        &.el-date-editor {
+            width: 100%;
         }
     }
 </style>

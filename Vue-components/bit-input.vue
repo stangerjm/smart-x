@@ -1,7 +1,21 @@
 <template>
     <div :class="[stackElements ? 'bit-input-stacked' : 'bit-input']">
         <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
-        <input v-if="inputType !== 'date'"
+        <template v-if="inputType === 'checkbox'">
+            <input class="bit-input--field"
+                   :id="inputName"
+                   :type="inputType"
+                   :disabled="isDisabled"
+                   :max="numMax"
+                   :min="numMin"
+                   :name="inputName"
+                   :readonly="isReadonly"
+                   :required="isRequired"
+                   v-model="model"
+                   value="true">
+            <input type="hidden" value="false" :name="inputName">
+        </template>
+        <input v-else-if="inputType !== 'date'"
                class="bit-input--field"
                :id="inputId ? inputId : randomId"
                :type="inputType"
@@ -11,8 +25,9 @@
                :name="inputName"
                :readonly="isReadonly"
                :required="isRequired"
-               :value="inputValue">
-        <el-date-picker v-else
+               :value="inputValue"
+               v-model="model">
+        <date-picker v-else
                 class="bit-input--field"
                 :id="inputId ? inputId : randomId"
                 v-model="model"
@@ -22,19 +37,25 @@
                 :disabled="isDisabled"
                 type="date"
                 :format="dateFormat">
-        </el-date-picker>
+        </date-picker>
     </div>
 </template>
 
 <script>
-    import ElDatePicker from 'element-ui';
+    import { DatePicker } from 'element-ui';
     import Vue from 'vue';
     import en from "element-ui/lib/locale/lang/en"
+    import locale from 'element-ui/lib/locale'
 
-    Vue.use(ElDatePicker, {locale: en});
+    locale.use(en)
+
+    Vue.use(DatePicker);
 
     export default {
         name: "bit-input",
+        components: {
+          DatePicker
+        },
         props: {
           inputType: {
             type: String,
@@ -85,11 +106,9 @@
         data() {
           return {
             randomId: 'input-' + Math.random().toString(36).substr(2,9),
-            model: {
-              // Setting inputModel to the a data property to avoid accidental overwriting of parent
-              // See: https://vuejs.org/v2/guide/migration.html#Prop-Mutation-deprecated
-              default: this.inputModel
-            }
+            // Setting inputModel to the a data property to avoid accidental overwriting of parent
+            // See: https://vuejs.org/v2/guide/migration.html#Prop-Mutation-deprecated
+            model: this.inputModel
           }
         }
     }
@@ -128,7 +147,7 @@
             border: none;
             box-shadow: 1px 1px 4px inset;
             border-radius: 3px;
-            min-height: 20px;
+            min-height: 35px;
         }
 
         &[type = number] {

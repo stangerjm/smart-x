@@ -11,7 +11,6 @@
                         :input-name="key"
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
-                        :input-value="item"
                         :is-readonly="disabledInputs.includes(key)"
                         :input-model="dataCopy[key]"
                         :date-format="getType(item) === 'date' ? dateFormat : null">

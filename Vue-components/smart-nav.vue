@@ -2,7 +2,7 @@
     <nav class="smart-nav">
         <header class="smart-nav--header">
             <main>
-                <img src="/images/wspLogo.png" class="smart-nav--logo" alt="Logo" width="100" height="50">
+                <a href="/"><img src="/images/wspLogo.png" class="smart-nav--logo" alt="Logo" width="100" height="50"></a>
                 <h5>{{navTitle}}</h5>
             </main>
             <aside>

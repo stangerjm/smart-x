@@ -12,7 +12,7 @@
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
                         :is-readonly="disabledInputs.includes(key)"
-                        :input-model="dataCopy[key]"
+                        :input-model="emptyModel ? null : getModel(dataCopy[key])"
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
             </template>
@@ -35,7 +35,7 @@
       return {
         time: '',
         time2: '',
-        dataCopy: Object.assign({}, this.formData)
+        dataCopy: null
       }
     },
     props: {
@@ -48,7 +48,12 @@
         type: Object
       },
       disabledInputs: {
-        type: Array
+        type: Array,
+        default: () => []
+      },
+      requiredInputs: {
+        type: Array,
+        default: () => []
       },
       formTitle: {
         type: String,
@@ -60,19 +65,61 @@
       dateFormat: {
         type: String,
         default: 'MM-dd-yyyy'
+      },
+      emptyModel: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {
+      getModel: function(model) {
+        //console.log(model);
+        return model;
+      },
       getType: function(value) {
         if (typeof(value) === typeof(true)) {
           return 'checkbox';
-        } else if (value !== '' && !isNaN(value)) {
+        } else if (value !== null && value !== '' && !isNaN(value)) {
           return 'number';
         } else if (Date.parse(value)) {
           return 'date'
         } else {
           return 'text';
         }
+      },
+      parseJsonDate: function(date) {
+        let dateRegex = /\/Date\((\d+)(?:-\d+)?\)\//i;
+        if (date === '/Date(-62135568000000)/') {
+          return new Date().toUTCString();
+        } else if (dateRegex.test(date)) {
+          return new Date(parseInt(dateRegex.exec(date)[1], 10));
+        } else {
+          return null;
+        }
+      }
+    },
+    created: function() {
+      let model = this.formData;
+      for (let prop in model) {
+        let jsonDate = this.parseJsonDate(model[prop]);
+        if (jsonDate !== null) {
+          model[prop] = jsonDate.toString();
+        }
+      }
+
+      this.dataCopy = Object.assign({}, model);
+    },
+    mounted: function() {
+      for (let requiredInput of this.requiredInputs) {
+        let domInput;
+
+        if(this.getType(this.dataCopy[requiredInput]) === 'date') {
+          domInput = this.$el.querySelector('.el-date-editor > input[name=' + requiredInput + ']');
+        } else {
+          domInput = this.$el.querySelector('input[name=' + requiredInput + ']');
+        }
+
+        domInput.required = true;
       }
     }
   }

@@ -1,7 +1,7 @@
 <template>
     <div :class="[stackElements ? 'bit-input-stacked' : 'bit-input']">
-        <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
         <template v-if="inputType === 'checkbox'">
+            <label class="bit-input--label" :for="inputName">{{labelText}}</label>
             <input class="bit-input--field"
                    :id="inputName"
                    :type="inputType"
@@ -15,29 +15,33 @@
                    value="true">
             <input type="hidden" value="false" :name="inputName">
         </template>
-        <input v-else-if="inputType !== 'date'"
-               class="bit-input--field"
-               :id="inputId ? inputId : randomId"
-               :type="inputType"
-               :disabled="isDisabled"
-               :max="numMax"
-               :min="numMin"
-               :name="inputName"
-               :readonly="isReadonly"
-               :required="isRequired"
-               :value="inputValue"
-               v-model="model">
-        <date-picker v-else
-                class="bit-input--field"
-                :id="inputId ? inputId : randomId"
-                v-model="model"
-                :name="inputName"
-                :readonly="isReadonly"
-                :required="isRequired"
-                :disabled="isDisabled"
-                type="date"
-                :format="dateFormat">
-        </date-picker>
+        <template v-else-if="inputType !== 'date'">
+            <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
+            <input class="bit-input--field"
+                    :id="inputId ? inputId : randomId"
+                    :type="inputType"
+                    :disabled="isDisabled"
+                    :max="numMax"
+                    :min="numMin"
+                    :name="inputName"
+                    :readonly="isReadonly"
+                    :required="isRequired"
+                    :value="inputValue"
+                    v-model="model">
+        </template>
+        <template v-else>
+            <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
+            <date-picker class="bit-input--field"
+                         :id="inputId ? inputId : randomId"
+                         v-model="model"
+                         :name="inputName"
+                         :readonly="isReadonly"
+                         :required="isRequired"
+                         :disabled="isDisabled"
+                         type="date"
+                         :format="dateFormat">
+            </date-picker>
+        </template>
     </div>
 </template>
 

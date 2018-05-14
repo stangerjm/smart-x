@@ -1,43 +1,71 @@
 <template>
-    <button type="button" :class="btnClass" v-if="!isLink"><slot></slot></button>
-    <a :class="btnClass" v-else><slot></slot></a>
+    <button type="button" :class="btnClass" v-if="!isLink">
+        <slot></slot>
+    </button>
+    <a :class="btnClass" v-else>
+        <slot></slot>
+    </a>
 </template>
 
 <script>
-    export default {
-        name: 'bit-btn',
-        props: ['btnStyle', 'isLink'],
-        data() {
-            return {
-                btnClass: this.getClass(this.btnStyle)
-            }
-        },
-        methods: {
-            getClass: function(type) {
-              let allowedValues = [
-                'search',
-                'add',
-                'reset',
-                'details',
-                'expand',
-                'delete',
-                'edit',
-                'datepicker',
-                'exit',
-                'plainSearch',
-                'plainExit'
-              ];
+  /**
+   * A dynamic button that can be used as an various types of buttons and links.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
+  export default {
+    name: 'bit-btn',
+    props: {
+      /**
+       * Button style options include:
+       * `add, datepicker, delete, details, edit, exit, expand, plainExit, plainSearch, reset, search`
+       */
+      btnStyle: {
+        type: String
+      },
+      /**
+       * Renders the button as a link if set to true
+       */
+      isLink: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data() {
+      return {
+        btnClass: this.getClass(this.btnStyle)
+      }
+    },
+    methods: {
+      /**
+       * Returns the correct class for the string passed into the btnStyle property
+       * @param {string} type - button style
+       */
+      getClass: function (type) {
+        let allowedValues = [
+          'add',
+          'datepicker',
+          'delete',
+          'details',
+          'edit',
+          'exit',
+          'expand',
+          'plainExit',
+          'plainSearch',
+          'reset',
+          'search'
+        ];
 
-              if (!type) {
-                return "bit-btn";
-              } else if (allowedValues.includes(type)) {
-                return "bit-btn-" + type;
-              } else {
-                return "bit-btn";
-              }
-            }
+        if (!type) {
+          return "bit-btn";
+        } else if (allowedValues.includes(type)) {
+          return "bit-btn-" + type;
+        } else {
+          return "bit-btn";
         }
+      }
     }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -51,7 +51,9 @@
     import en from "element-ui/lib/locale/lang/en"
     import locale from 'element-ui/lib/locale'
 
-    locale.use(en)
+    //Mock locale when loading bit-input into vue-styleguidist
+    locale.use = locale.use || function(lang) {};
+    locale.use(en);
 
     Vue.use(DatePicker);
 

@@ -8,8 +8,18 @@
             <div class="smart-search--headingSegment">
                 <div class="smart-search--toggleContainer">
                     <div :class="['smart-search--fieldContainer', isSearchBtn ? 'is-hidden' : '']">
-                        <bit-input :is-disabled="isSearchBtn" input-type="text" label-text="Find by ID/Name"></bit-input>
-                        <bit-input :is-disabled="isSearchBtn" input-type="number" label-text="Number of Results Per Page"></bit-input>
+                        <bit-input
+                                :is-disabled="isSearchBtn"
+                                input-type="text"
+                                label-text="Find by ID/Name"
+                                input-name="search-field">
+                        </bit-input>
+                        <bit-input
+                                :is-disabled="isSearchBtn"
+                                input-type="number"
+                                label-text="Number of Results Per Page"
+                                input-name="page-number">
+                        </bit-input>
                         <bit-btn :disabled="isSearchBtn" type="submit" btn-style="search">Search</bit-btn>
                     </div>
                 </div>

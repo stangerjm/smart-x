@@ -1,9 +1,9 @@
 <template>
     <div class="block-actionContainer">
-        <bit-btn btn-style="details" is-link="true" :href="'/' + detailsContext + '/Details/' + itemId"
+        <bit-btn btn-style="details" :is-link="true" :href="'/' + detailsContext + '/Details/' + itemId"
                  v-if="detailsBtn"></bit-btn>
-        <bit-btn btn-style="edit" is-link="true" :href="'/' + editContext + '/Edit/' + itemId" v-if="editBtn"></bit-btn>
-        <bit-btn btn-style="delete" is-link="true" :href="'/' + deleteContext + '/Delete/' + itemId"
+        <bit-btn btn-style="edit" :is-link="true" :href="'/' + editContext + '/Edit/' + itemId" v-if="editBtn"></bit-btn>
+        <bit-btn btn-style="delete" :is-link="true" :href="'/' + deleteContext + '/Delete/' + itemId"
                  v-if="deleteBtn"></bit-btn>
     </div>
 </template>

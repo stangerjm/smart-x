@@ -11,8 +11,7 @@
         </header>
         <main class="smart-nav--list">
             <block-nav-list
-                    :type="tabType"
-                    :items="navItems">
+                    :list-items="navItems">
             </block-nav-list>
         </main>
     </nav>

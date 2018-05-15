@@ -12,7 +12,7 @@
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
                         :is-readonly="disabledInputs.includes(key)"
-                        :input-model="emptyModel ? null : getModel(dataCopy[key])"
+                        :input-model="emptyModel ? null : dataCopy[key]"
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
             </template>
@@ -25,6 +25,11 @@
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
 
+  /**
+   * A component that renders a dynamic form based on a model.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
   export default {
     name: "smart-form",
     components: {
@@ -33,49 +38,75 @@
     },
     data() {
       return {
-        time: '',
-        time2: '',
+        /**
+         * Will contain a non-reactive copy of the data when the component is created.
+         */
         dataCopy: null
       }
     },
     props: {
+      /**
+       * Corresponds to the native HTML attribute "action"
+       */
       formAction: {
         required: true,
         type: String
       },
+      /**
+       * The model that the form should use as a template.
+       */
       formData: {
         required: true,
         type: Object
       },
+      /**
+       * A list of inputs that should be disabled.
+       */
       disabledInputs: {
         type: Array,
         default: () => []
       },
+      /**
+       * A list of inputs that should be required.
+       */
       requiredInputs: {
         type: Array,
         default: () => []
       },
+      /**
+       * A title that will display at the top of the form.
+       */
       formTitle: {
         type: String,
         default: 'Form'
       },
+      /**
+       * Corresponds to the native HTML attribute "method"
+       */
       formMethod: {
         type: String
       },
+      /**
+       * An optional format for the date-picker input field to use.
+       */
       dateFormat: {
         type: String,
         default: 'MM-dd-yyyy'
       },
+      /**
+       * Indicates the model is empty and the inputs should be empty be default.
+       */
       emptyModel: {
         type: Boolean,
         default: false
       }
     },
     methods: {
-      getModel: function(model) {
-        //console.log(model);
-        return model;
-      },
+      /**
+       * Gets the appropriate input type depending on the value's data type.
+       * @param value
+       * @returns {string}
+       */
       getType: function(value) {
         if (typeof(value) === typeof(true)) {
           return 'checkbox';
@@ -87,6 +118,11 @@
           return 'text';
         }
       },
+      /**
+       * Parses a JSON date into a new Date object.
+       * @param date
+       * @returns {*}
+       */
       parseJsonDate: function(date) {
         let dateRegex = /\/Date\((\d+)(?:-\d+)?\)\//i;
         if (date === '/Date(-62135568000000)/') {
@@ -98,6 +134,9 @@
         }
       }
     },
+    /**
+     * Loop through the properties in the model and replace all of the dates with the expected format.
+     */
     created: function() {
       let model = this.formData;
       for (let prop in model) {
@@ -109,6 +148,9 @@
 
       this.dataCopy = Object.assign({}, model);
     },
+    /**
+     * Set each input specified in the requiredInputs array to have the native HTML attribute "required"
+     */
     mounted: function() {
       for (let requiredInput of this.requiredInputs) {
         let domInput;

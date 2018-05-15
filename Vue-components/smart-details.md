@@ -18,7 +18,7 @@ Examples:
 </smart-details>
 ```
 
-Here is an example of how to use this components.
+Here is an example of how to use this component.
 
 ```html
 <smart-details

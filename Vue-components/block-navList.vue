@@ -21,6 +21,9 @@
   export default {
     name: "block-nav-list",
     props: {
+      /**
+       * An array containing the items and subsequent drop-down items to render.
+       */
       listItems: {
         type: Array,
         required: true
@@ -50,6 +53,7 @@
 <style scoped lang="scss">
     @import "../sass/variables";
     @import "../sass/templates";
+    @import "../sass/misc";
 
     /// Styles a navigation list to be responsive and dynamic with inline-list
     /// capability. Also has option of "tabbed" look.

@@ -16,20 +16,30 @@
 </template>
 
 <script>
-  import smartTable from './smart-table'
+  /**
+   * A component that renders a model as a list of details.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
   export default {
     name: "smart-details",
-    components: {
-      smartTable
-    },
     props: {
+      /**
+       * The object that will be displayed as a list of properties.
+       */
       detailData: {
         type: Object,
         required: true
       },
+      /**
+       * The title to display before the details list.
+       */
       title: {
         type: String
       },
+      /**
+       * Number indicating how many details should display before forcing the next details to the next column.
+       */
       detailsPerColumn: {
         type: Number,
         default: 8
@@ -40,17 +50,21 @@
         detailColumns: []
       }
     },
+    /**
+     * Filter out associated records and break main details object into objects representing columns.
+     */
     created: function() {
-      // filter the details to remove the associated records as they
-      // are beyond the scope of this component
+      // filter the details to remove the associated records or child objects
+      // as they are beyond the scope of this component
       for (let prop in this.detailData) {
-        if (Array.isArray(this.detailData[prop])) {
+        let detailProp = this.detailData[prop];
+        if (Array.isArray(detailProp) || typeof detailProp === 'object') {
           delete this.detailData[prop];
         }
       }
 
-      // Break up details object into smaller objects with eight properties each. This will allow
-      // the view to display the details in dynamic columns of eight properties per column.
+      // Break up details object into smaller objects with the number of properties specified in the "detailsPerColumn"
+      // property. This will allow the view to display the details in dynamic columns.
       let detailKeys = Object.keys(this.detailData);
       let newProps = {};
       for(let [index, key] of detailKeys.entries()) {
@@ -116,6 +130,7 @@
             width: 50%;
             margin: 0;
             padding: 0 10px;
+            box-sizing: border-box;
         }
 
         > dt {

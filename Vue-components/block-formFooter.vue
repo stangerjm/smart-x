@@ -1,9 +1,7 @@
 <template>
-    <div class="form-section--footer">
-        <div class="footer-segment">
-            <bit-btn btn-style="add" is-link="true" href="#">Add</bit-btn>
-        </div>
-    </div>
+    <!--
+        TODO: Implement
+    -->
 </template>
 
 <script>

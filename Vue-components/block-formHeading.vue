@@ -1,54 +1,12 @@
 <template>
-    <div class="form-section--heading">
-        <div class="heading-segment">
-            <h2 class="form-title">{{formTitle}}</h2>
-            <bit-btn btn-style="add" :is-link="true" href="#">Add</bit-btn>
-        </div>
-        <div class="heading-segment">
-            <div class="toggle-container">
-                <div :class="searchContainerClass">
-                    <bit-input input-type="text" label-text="Find by ID/Name"></bit-input>
-                    <bit-input input-type="number" label-text="Number of Results Per Page"></bit-input>
-                    <bit-btn type="submit" btn-style="search">Search</bit-btn>
-                </div>
-            </div>
-            <bit-btn btn-style="search" v-show="isSearchBtn" @click.native="toggle()"></bit-btn>
-            <bit-btn btn-style="exit" v-show="!isSearchBtn" @click.native="toggle()"></bit-btn>
-        </div>
-    </div>
+    <!--
+        TODO: Implement
+    -->
 </template>
 
 <script>
-  import bitBtn from './bit-btn'
-  import bitInput from './bit-input'
   export default {
-    name: "block-form-heading",
-    props: {
-      formTitle: {
-        type: String,
-        required: true
-      }
-    },
-    components: {
-      bitInput,
-      bitBtn
-    },
-    data() {
-      return {
-        isSearchBtn: true,
-        searchContainerClass: "search-container is-hidden"
-      }
-    },
-    methods: {
-      toggle: function() {
-        this.isSearchBtn = !this.isSearchBtn;
-        if(this.isSearchBtn) {
-          this.searchContainerClass = "search-container is-hidden";
-        } else {
-          this.searchContainerClass = "search-container";
-        }
-      }
-    }
+    name: "block-form-heading"
   }
 </script>
 

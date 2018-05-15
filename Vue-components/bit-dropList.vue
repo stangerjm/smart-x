@@ -7,15 +7,15 @@
 </template>
 
 <script>
-    export default {
-        name: "bit-drop-list",
-        props: {
-          dropItems: {
-            type: Array,
-            required: true
-          }
-        }
+  export default {
+    name: "bit-drop-list",
+    props: {
+      dropItems: {
+        type: Array,
+        required: true
+      }
     }
+  }
 </script>
 
 <style scoped lang="scss">

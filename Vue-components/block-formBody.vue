@@ -1,8 +1,7 @@
 <template>
-    <!--<div class="form-section">-->
-        <!--<label for="search">Find by ID/Name</label>-->
-        <!--<bit-input id="search"></bit-input>-->
-    <!--</div>-->
+    <!--
+     TODO: Implement
+     -->
 </template>
 
 <script>

@@ -18,16 +18,16 @@
         <template v-else-if="inputType !== 'date'">
             <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
             <input class="bit-input--field"
-                    :id="inputId ? inputId : randomId"
-                    :type="inputType"
-                    :disabled="isDisabled"
-                    :max="numMax"
-                    :min="numMin"
-                    :name="inputName"
-                    :readonly="isReadonly"
-                    :required="isRequired"
-                    :value="inputValue"
-                    v-model="model">
+                   :id="inputId ? inputId : randomId"
+                   :type="inputType"
+                   :disabled="isDisabled"
+                   :max="numMax"
+                   :min="numMin"
+                   :name="inputName"
+                   :readonly="isReadonly"
+                   :required="isRequired"
+                   :value="inputValue"
+                   v-model="model">
         </template>
         <template v-else>
             <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
@@ -46,78 +46,120 @@
 </template>
 
 <script>
-    import { DatePicker } from 'element-ui';
-    import Vue from 'vue';
-    import en from "element-ui/lib/locale/lang/en"
-    import locale from 'element-ui/lib/locale'
+  import {DatePicker} from 'element-ui';
+  import Vue from 'vue';
+  import en from "element-ui/lib/locale/lang/en"
+  import locale from 'element-ui/lib/locale'
 
-    //Mock locale when loading bit-input into vue-styleguidist
-    locale.use = locale.use || function(lang) {};
-    locale.use(en);
+  //Mock locale when loading bit-input into vue-styleguidist
+  locale.use = locale.use || function (lang) {};
+  locale.use(en);
 
-    Vue.use(DatePicker);
+  Vue.use(DatePicker);
 
-    export default {
-        name: "bit-input",
-        components: {
-          DatePicker
-        },
-        props: {
-          inputType: {
-            type: String,
-            required: true
-          },
-          labelText: {
-            type: String,
-            required: true
-          },
-          stackElements: {
-            type: Boolean,
-            default: false
-          },
-          isDisabled: {
-            type: Boolean,
-            default: false
-          },
-          numMax: {
-            type: Number
-          },
-          numMin: {
-            type: Number
-          },
-          inputName: {
-            type: String
-          },
-          inputId: {
-            type: String
-          },
-          isReadonly: {
-            type: Boolean,
-            default: false
-          },
-          isRequired: {
-            type: Boolean,
-            default: false
-          },
-          inputValue: {
-
-          },
-          inputModel: {
-
-          },
-          dateFormat: {
-            type: String
-          }
-        },
-        data() {
-          return {
-            randomId: 'input-' + Math.random().toString(36).substr(2,9),
-            // Setting inputModel to the a data property to avoid accidental overwriting of parent
-            // See: https://vuejs.org/v2/guide/migration.html#Prop-Mutation-deprecated
-            model: this.inputModel
-          }
-        }
+  /**
+   * A component that can be rendered as a text, number, or datepicker input.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
+  export default {
+    name: "bit-input",
+    components: {
+      DatePicker
+    },
+    props: {
+      /**
+       * Corresponds to the native HTML input attribute "type"
+       */
+      inputType: {
+        type: String,
+        required: true
+      },
+      /**
+       * Display text for the related input label
+       */
+      labelText: {
+        type: String,
+        required: true
+      },
+      /**
+       * Corresponds to the native HTML input attribute "name"
+       */
+      inputName: {
+        type: String,
+        required: true
+      },
+      /**
+       * Flag to have input and label stack horizontally if set to true
+       */
+      stackElements: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * Corresponds to the native HTML input attribute "disabled"
+       */
+      isDisabled: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * Corresponds to the native HTML input attribute "max"
+       */
+      numMax: {
+        type: Number
+      },
+      /**
+       * Corresponds to the native HTML input attribute "min"
+       */
+      numMin: {
+        type: Number
+      },
+      /**
+       * Corresponds to the native HTML input attribute "id"
+       */
+      inputId: {
+        type: String
+      },
+      /**
+       * Corresponds to the native HTML input attribute "readonly"
+       */
+      isReadonly: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * Corresponds to the native HTML input attribute "required"
+       */
+      isRequired: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * Corresponds to the native HTML input attribute "value"
+       */
+      inputValue: {},
+      /**
+       * Optional date format for the input[type=date] element
+       */
+      dateFormat: {
+        type: String
+      },
+      /**
+       * Model for form inputs
+       * @model
+       */
+      inputModel: {}
+    },
+    data() {
+      return {
+        randomId: 'input-' + Math.random().toString(36).substr(2, 9),
+        // Setting inputModel to the a data property to avoid accidental overwriting of parent
+        // See: https://vuejs.org/v2/guide/migration.html#Prop-Mutation-deprecated
+        model: this.inputModel
+      }
     }
+  }
 </script>
 
 <style scoped lang="scss">

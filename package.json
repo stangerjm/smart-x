@@ -9,8 +9,8 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "unit": "jest",
-    "styleguide": "vue-styleguidist server",
-    "styleguide:build": "vue-styleguidist build"
+    "docs": "vue-styleguidist server",
+    "docs:build": "vue-styleguidist build"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

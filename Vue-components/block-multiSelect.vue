@@ -1,13 +1,15 @@
 <template>
     <div class="block-multiSelect">
         <label :for="'selectParent-' + inputId">{{parentTitle}}</label>
-        <select class="block-multiSelect--parent" :name="parentTitle" v-model="selectedParent" :id="'selectParent-' + inputId">
+        <select class="block-multiSelect--parent" :name="parentTitle" v-model="selectedParent"
+                :id="'selectParent-' + inputId">
             <option disabled>Please select a {{parentTitle}}</option>
             <option v-for="parentNode in optionsData" :value="parentNode">{{parentNode[displayKey]}}</option>
         </select>
 
         <label :for="'selectChild-' + inputId">{{childTitle}}</label>
-        <select class="block-multiSelect--child" :name="childTitle" v-model="selectedChild" :id="'selectChild-' + inputId">
+        <select class="block-multiSelect--child" :name="childTitle" v-model="selectedChild"
+                :id="'selectChild-' + inputId">
             <option disabled>Please select a {{Object.keys(selectedParent).length !== 0 ? childTitle : parentTitle}}</option>
             <option v-for="childNode in selectedParent[arrayKey]">{{childNode}}</option>
         </select>
@@ -15,21 +17,38 @@
 </template>
 
 <script>
+  /**
+   * A component that renders two select elements that have a parent-child relationship.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
   export default {
     name: "block-multi-select",
     props: {
+      /**
+       * An array of objects that contains both the parent and child data. See object structure below.
+       */
       optionsData: {
         required: true,
         type: Array
       },
+      /**
+       * The title to display before the parent select element.
+       */
       parentTitle: {
         required: true,
         type: String
       },
+      /**
+       * The title to display before the child select element.
+       */
       childTitle: {
         required: true,
         type: String
       },
+      /**
+       * The object key to use for displaying the parent information.
+       */
       displayKey: {
         required: true,
         type: String
@@ -39,11 +58,11 @@
       return {
         selectedParent: {},
         selectedChild: {},
-        inputId: Math.random().toString(36).substr(2,9)
+        inputId: Math.random().toString(36).substr(2, 9)
       }
     },
     computed: {
-      arrayKey: function() {
+      arrayKey: function () {
         let firstData = this.optionsData[0];
         for (let option in firstData) {
           if (Array.isArray(firstData[option])) {

@@ -2,11 +2,13 @@
     <nav class="smart-nav">
         <header class="smart-nav--header">
             <main>
-                <a href="/"><img src="/images/wspLogo.png" class="smart-nav--logo" alt="Logo" width="100" height="50"></a>
+                <a href="/"><img src="/images/wspLogo.png" class="smart-nav--logo" alt="Logo" width="100"
+                                 height="50"></a>
                 <h5>{{navTitle}}</h5>
             </main>
             <aside>
-                <bit-icon icon-type="user"></bit-icon> <span>{{usr}} - {{currentDateTime}}</span>
+                <bit-icon icon-type="user"></bit-icon>
+                <span>{{usr}} - {{currentDateTime}}</span>
             </aside>
         </header>
         <main class="smart-nav--list">
@@ -18,67 +20,95 @@
 </template>
 
 <script>
-    import bitIcon from './bit-icon'
-    import blockNavList from './block-navList'
-    export default {
-        name: "smart-nav",
-        props: {
-          navTitle: {
-            required: true,
-            type: String
-          },
-          usr: {
-            required: true,
-            type: String
-          },
-          navItems: {
-            required: true,
-            type: Array
-          },
-          tabType: {
-            type: String
-          }
-        },
-        components: {
-            bitIcon,
-            blockNavList
-        },
-        data() {
-            return {
-                currentDateTime: null
-            }
-        },
-        methods: {
-            getTime: function(fromDate = null) {
-              let currentTime = fromDate ? fromDate : new Date();
-              let year = currentTime.getFullYear().toString().slice(-2);
-              let day = this.formatTime(currentTime.getDate());
-              let month = this.formatTime(currentTime.getMonth() + 1);
-              let hours = this.formatTime(currentTime.getHours());
-              let minutes = this.formatTime(currentTime.getMinutes());
-              let seconds = this.formatTime(currentTime.getSeconds());
+  import bitIcon from './bit-icon'
+  import blockNavList from './block-navList'
 
-              //format hours to reflect 12hr time
-              if(hours > 12) {
-                hours = this.formatTime(hours - 12);
-              } else if(hours == 0) {
-                hours = this.formatTime(12);
-              }
+  /**
+   * A component that renders a responsive navigation.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
+  export default {
+    name: "smart-nav",
+    components: {
+      bitIcon,
+      blockNavList
+    },
+    props: {
+      /**
+       * Title to display at the top of the navigation.
+       */
+      navTitle: {
+        required: true,
+        type: String
+      },
+      /**
+       * The current user's username.
+       */
+      usr: {
+        required: true,
+        type: String
+      },
+      /**
+       * List of items to render in the navigation.
+       */
+      navItems: {
+        required: true,
+        type: Array
+      }
+    },
+    data() {
+      return {
+        currentDateTime: null
+      }
+    },
+    methods: {
+      /**
+       * Gets the current date and time in the format: "MM/DD/YY HH:MM:SS"
+       * @param fromDate
+       * @returns {string}
+       */
+      getTime: function (fromDate = null) {
+        let currentTime = fromDate ? fromDate : new Date();
+        let year = currentTime.getFullYear().toString().slice(-2);
+        let day = this.formatTime(currentTime.getDate());
+        let month = this.formatTime(currentTime.getMonth() + 1);
+        let hours = this.formatTime(currentTime.getHours());
+        let minutes = this.formatTime(currentTime.getMinutes());
+        let seconds = this.formatTime(currentTime.getSeconds());
 
-              return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
-            },
-            startClock: function() {
-              this.currentDateTime = this.getTime();
-              setTimeout(this.startClock, 1000);
-            },
-            formatTime: function(value) {
-                return (value < 10 ? '0' : '') + value;
-            }
-        },
-        mounted: function() {
-            this.startClock()
+        //format hours to reflect 12hr time
+        if (hours > 12) {
+          hours = this.formatTime(hours - 12);
+        } else if (hours == 0) {
+          hours = this.formatTime(12);
         }
+
+        return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+      },
+      /**
+       * Starts the clock that will update every second.
+       */
+      startClock: function () {
+        this.currentDateTime = this.getTime();
+        setTimeout(this.startClock, 1000);
+      },
+      /**
+       * Formats the passed in value to have a leading 0 if needed.
+       * @param value
+       * @returns {string}
+       */
+      formatTime: function (value) {
+        return (value < 10 ? '0' : '') + value;
+      }
+    },
+    /**
+     * Start the clock when mounted.
+     */
+    mounted: function () {
+      this.startClock()
     }
+  }
 </script>
 
 <style scoped lang="scss">
@@ -89,11 +119,13 @@
     .smart-nav {
         border-bottom: 1px solid $patch-orange--deep;
         background-color: $uniform-blue;
+        position: relative;
 
         &--header {
             @include format-responsive(row, space-between, null) {
                 grid-template-columns: 1fr 1fr 1fr;
-            };
+            }
+        ;
 
             align-items: center;
 

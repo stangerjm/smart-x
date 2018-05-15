@@ -131,7 +131,6 @@
                     /* resize list items on mobile */
                     padding: 5px;
                     border-bottom: 1px solid black;
-                    width: inherit !important;
                     position: relative;
                 }
             }

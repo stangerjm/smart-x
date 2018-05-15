@@ -1,3 +1,6 @@
+_This component is not displayed if it is on its own. For an example, see <a href="#blocknavlist">block-navList</a>
+ and hover over one of the items with a drop arrow._
+
 Examples:
 
 HTML Markup: 

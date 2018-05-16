@@ -26,7 +26,6 @@
                    :name="inputName"
                    :readonly="isReadonly"
                    :required="isRequired"
-                   :value="inputValue"
                    v-model="model">
         </template>
         <template v-else>

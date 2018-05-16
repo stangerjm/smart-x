@@ -33,11 +33,11 @@
       getClass: function (type) {
         let allowedTypes = ['user', 'sort'];
         if (!type) {
-          return 'error-icon';
+          return 'bit-icon-error';
         } else if (allowedTypes.includes(type)) {
-          return type + '-icon';
+          return 'bit-icon-' + type;
         } else {
-          return 'error-icon';
+          return 'bit-icon-error';
         }
       }
     }
@@ -49,7 +49,7 @@
     @import "../sass/templates";
 
     /// Styles a user / profile icon.
-    .user-icon {
+    .bit-icon-user {
         height: 18px;
 
         &:before {
@@ -61,7 +61,7 @@
 
     /// Icon that is added to a sortable table column to indicate the
     /// column is sortable.
-    .sort-icon {
+    .bit-icon-sort {
         display: inline-block;
 
         &:before {
@@ -71,7 +71,7 @@
         }
     }
 
-    .error-icon {
+    .bit-icon-error {
         &:before {
             @extend %icon;
             content: '!';

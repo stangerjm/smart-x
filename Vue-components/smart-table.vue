@@ -15,7 +15,9 @@
             <th>Actions</th>
         </tr>
         <tr class="record" v-for="item in tableData">
-            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)" :class="{'record-key': index < 2}">{{item[key]}}</td>
+            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)"
+                :class="{'record-key': index < 2}">{{item[key]}}
+            </td>
             <td>
                 <block-action-container
                         :default-ctx="defaultContext"
@@ -34,66 +36,108 @@
 </template>
 
 <script>
-    import blockActionContainer from './block-actionContainer'
-    import bitBtn from './bit-btn'
-    import bitIcon from './bit-icon'
-    export default {
-        name: "smart-table",
-        components: {
-          blockActionContainer,
-          bitBtn,
-          bitIcon
-        },
-        props: {
-            tableData: {
-                type: Array,
-                required: true
-            },
-            defaultContext: {
-                type: String,
-                required: true
-            },
-            unsearchableHeadings: {
-                type: Array,
-                default: () => []
-            },
-            allowDelete: {
-                type: Boolean,
-                default: true
-            },
-            allowEdit: {
-              type: Boolean,
-              default: true
-            },
-            allowDetails: {
-              type: Boolean,
-              default: true
-            },
-        },
-        methods: {
-            expandRecord: function(event) {
-                let row = event.target.parentNode;
-                if (row.classList.contains("record-is-expanded")) {
-                    row.classList.remove("record-is-expanded");
-                } else {
-                    row.classList.add("record-is-expanded");
-                }
+  import blockActionContainer from './block-actionContainer'
+  import bitBtn from './bit-btn'
+  import bitIcon from './bit-icon'
 
-                //emit to parent that a record has been expanded so parent can resize appropriately
-                this.$emit('recordExpanded');
-            },
-            isDisplayHeading: function(heading) {
-              switch(heading) {
-                case 'detailsContext':
-                case 'editContext':
-                case 'deleteContext':
-                  return false;
-                default:
-                  return true;
-              }
-            }
+  /**
+   * A component that renders a responsive table from a data-set.
+   * @author James Stanger, Washington State Patrol
+   * @version 1.0
+   */
+  export default {
+    name: "smart-table",
+    components: {
+      blockActionContainer,
+      bitBtn,
+      bitIcon
+    },
+    props: {
+      /**
+       * The data that will render as a table.
+       */
+      tableData: {
+        type: Array,
+        required: true
+      },
+      /**
+       * The default context passed into the action container component
+       * @see block-actionContainer
+       */
+      defaultContext: {
+        type: String,
+        required: true
+      },
+      /**
+       * An array of key names that will render each
+       * heading associated with the key as literal text and not a searchable link.
+       */
+      unsearchableHeadings: {
+        type: Array,
+        default: () => []
+      },
+      /**
+       * Optionally renders the delete action link if true
+       * @see block-actionContainer
+       */
+      allowDelete: {
+        type: Boolean,
+        default: true
+      },
+      /**
+       * Optionally renders the edit action link if true
+       * @see block-actionContainer
+       */
+      allowEdit: {
+        type: Boolean,
+        default: true
+      },
+      /**
+       * Optionally renders the details action link if true
+       * @see block-actionContainer
+       */
+      allowDetails: {
+        type: Boolean,
+        default: true
+      },
+    },
+    methods: {
+      /**
+       * Expands record on mobile screen.
+       * @param event
+       */
+      expandRecord: function (event) {
+        let row = event.target.parentNode;
+        if (row.classList.contains("record-is-expanded")) {
+          row.classList.remove("record-is-expanded");
+        } else {
+          row.classList.add("record-is-expanded");
         }
+
+        /**
+         * Emit to parent that a record has been expanded so parent can resize appropriately.
+         * @event recordExpanded
+         * @type null
+         */
+        this.$emit('recordExpanded');
+      },
+      /**
+       * Ignores the detailsContext, editContext, and deleteContext keys needed to build action container
+       * @param heading
+       * @returns {boolean}
+       */
+      isDisplayHeading: function (heading) {
+        switch (heading) {
+          case 'detailsContext':
+          case 'editContext':
+          case 'deleteContext':
+            return false;
+          default:
+            return true;
+        }
+      }
     }
+  }
 </script>
 
 <style scoped lang="scss">
@@ -166,7 +210,6 @@
             }
         }
     }
-
 
     /// Set each record to fill container and be center aligned.
     .record {

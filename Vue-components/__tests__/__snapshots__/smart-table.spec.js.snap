@@ -38,11 +38,16 @@ exports[`SmartTable.vue has same HTML structure 1`] = `
     <th>Actions</th>
   </tr>
   <tr class="record">
-    <td class="record-key">1</td>
-    <td class="record-key">01</td>
-    <td>test</td>
-    <td>test</td>
-    <td>more</td>
+    <td class="record-key">1
+    </td>
+    <td class="record-key">01
+    </td>
+    <td>test
+    </td>
+    <td>test
+    </td>
+    <td>more
+    </td>
     <!---->
     <!---->
     <td>
@@ -51,11 +56,16 @@ exports[`SmartTable.vue has same HTML structure 1`] = `
     <!---->
   </tr>
   <tr class="record">
-    <td class="record-key">2</td>
-    <td class="record-key">02</td>
-    <td>SW Washington</td>
-    <td>test</td>
-    <td>more</td>
+    <td class="record-key">2
+    </td>
+    <td class="record-key">02
+    </td>
+    <td>SW Washington
+    </td>
+    <td>test
+    </td>
+    <td>more
+    </td>
     <!---->
     <!---->
     <td>
@@ -64,11 +74,16 @@ exports[`SmartTable.vue has same HTML structure 1`] = `
     <!---->
   </tr>
   <tr class="record">
-    <td class="record-key">3</td>
-    <td class="record-key">03</td>
-    <td>Central Washington</td>
-    <td>test</td>
-    <td>more</td>
+    <td class="record-key">3
+    </td>
+    <td class="record-key">03
+    </td>
+    <td>Central Washington
+    </td>
+    <td>test
+    </td>
+    <td>more
+    </td>
     <!---->
     <!---->
     <td>

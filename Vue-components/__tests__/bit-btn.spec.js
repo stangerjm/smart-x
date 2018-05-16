@@ -4,6 +4,11 @@ import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 
 describe('BitButton.vue', () => {
+  it('class begins with "bit-btn"', () => {
+    const wrapper = mount(bitBtn);
+    expect(wrapper.vm.$el.className.startsWith('bit-btn')).toBeTruthy();
+  });
+
   it('allows a string to be passed into a "btnStyle" property and correctly renders the appropriate style', () => {
     const wrapper = mount(bitBtn);
     expect(wrapper.vm.$options.props.btnStyle.type).toEqual(String);

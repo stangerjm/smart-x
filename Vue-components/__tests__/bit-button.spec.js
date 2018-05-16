@@ -4,8 +4,9 @@ import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 
 describe('BitButton.vue', () => {
-  it('allows type property to be null', () => {
+  it('allows a string to be passed into a "btnStyle" property and correctly renders the appropriate style', () => {
     const wrapper = mount(bitBtn);
+    expect(wrapper.vm.$options.props.btnStyle.type).toEqual(String);
 
     let allowedValues = ['search', 'add', 'reset', 'details', 'expand', 'delete', 'edit', 'datepicker', 'exit', 'plainSearch', 'plainExit'];
     for (let variation of allowedValues) {
@@ -18,6 +19,8 @@ describe('BitButton.vue', () => {
 
   it('renders as a link if isLink property is true', () => {
     const wrapper = mount(bitBtn);
+    expect(wrapper.vm.$options.props.isLink.type).toEqual(Boolean);
+
     wrapper.setProps({'isLink': true});
     expect(wrapper.vm.$el.tagName).toBe('A');
   });

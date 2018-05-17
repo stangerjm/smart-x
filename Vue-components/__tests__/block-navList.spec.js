@@ -17,7 +17,7 @@ function mountNavList(props) {
   if (!props) {
     props = {
       propsData: {
-        items: navItems
+        listItems: navItems
       }
     };
   }
@@ -33,10 +33,10 @@ describe('block-navList.vue', () => {
 
   it('requires items to be passed in', () => {
     const wrapper = mountNavList();
-    expect(wrapper.vm.$options.props.items.required).toBeTruthy();
+    expect(wrapper.vm.$options.props.listItems.required).toBeTruthy();
   });
 
-  it('correctly displays all of the items passed in', () => {
+  it('correctly displays all of the items passed in with associated drop-down lists if needed', () => {
     const wrapper = mountNavList();
     let listItems = wrapper.findAll('ul[class*=block-navList--items] > li');
 

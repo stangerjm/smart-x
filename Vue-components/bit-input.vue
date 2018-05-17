@@ -6,11 +6,8 @@
                    :id="inputName"
                    :type="inputType"
                    :disabled="isDisabled"
-                   :max="numMax"
-                   :min="numMin"
                    :name="inputName"
                    :readonly="isReadonly"
-                   :required="isRequired"
                    v-model="model"
                    value="true">
             <input type="hidden" value="false" :name="inputName">
@@ -45,17 +42,6 @@
 </template>
 
 <script>
-  import {DatePicker} from 'element-ui';
-  import Vue from 'vue';
-  import en from "element-ui/lib/locale/lang/en"
-  import locale from 'element-ui/lib/locale'
-
-  //Mock locale when loading bit-input into vue-styleguidist
-  locale.use = locale.use || function (lang) {};
-  locale.use(en);
-
-  Vue.use(DatePicker);
-
   /**
    * A component that can be rendered as a text, number, or datepicker input.
    * @author James Stanger, Washington State Patrol
@@ -63,9 +49,6 @@
    */
   export default {
     name: "bit-input",
-    components: {
-      DatePicker
-    },
     props: {
       /**
        * Corresponds to the native HTML input attribute "type"
@@ -135,10 +118,6 @@
         default: false
       },
       /**
-       * Corresponds to the native HTML input attribute "value"
-       */
-      inputValue: {},
-      /**
        * Optional date format for the input[type=date] element
        */
       dateFormat: {
@@ -195,6 +174,7 @@
             box-shadow: 1px 1px 4px inset;
             border-radius: 3px;
             min-height: 35px;
+            width: 100%;
         }
 
         &[type = number] {

@@ -1,0 +1,6 @@
+{
+  "type": "date",
+  "inputName": "date-input",
+  "labelText": "Test",
+  "stackElements": false
+}

@@ -16,6 +16,13 @@ import smartAccordion from './smart-accordion';
 import blockMultiSelect from './block-multiSelect';
 import stackTableCollapsible from './stack-tableCollapsible';
 import smartForm from './smart-form';
+import {DatePicker} from 'element-ui';
+import en from "element-ui/lib/locale/lang/en";
+import locale from 'element-ui/lib/locale';
+
+locale.use(en);
+
+Vue.component('date-picker', DatePicker);
 
 Vue.mixin({
   methods: {
@@ -46,6 +53,7 @@ new Vue({
         smartAccordion,
         blockMultiSelect,
         stackTableCollapsible,
-        smartForm
+        smartForm,
+        DatePicker
     }
 });

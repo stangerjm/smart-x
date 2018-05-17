@@ -11,7 +11,7 @@
                         :input-name="key"
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
-                        :is-readonly="disabledInputs.includes(key)"
+                        :is-readonly="readonlyInputs.includes(key)"
                         :input-model="emptyModel ? null : dataCopy[key]"
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
@@ -60,9 +60,9 @@
         type: Object
       },
       /**
-       * A list of inputs that should be disabled.
+       * A list of inputs that should be readonly.
        */
-      disabledInputs: {
+      readonlyInputs: {
         type: Array,
         default: () => []
       },
@@ -125,9 +125,7 @@
        */
       parseJsonDate: function(date) {
         let dateRegex = /\/Date\((\d+)(?:-\d+)?\)\//i;
-        if (date === '/Date(-62135568000000)/') {
-          return new Date().toUTCString();
-        } else if (dateRegex.test(date)) {
+        if (dateRegex.test(date)) {
           return new Date(parseInt(dateRegex.exec(date)[1], 10));
         } else {
           return null;

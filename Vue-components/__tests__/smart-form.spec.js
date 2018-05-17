@@ -11,8 +11,9 @@ let formData = {
   isActive: true
 };
 
-let disabledInputs = ['id'];
+let readonlyInputs = ['id'];
 let formMethod = 'get';
+let requiredInputs = ['id', 'name'];
 
 function typeValue(value) {
   if (value === 'true' || value === 'false') {
@@ -42,9 +43,10 @@ function mountForm(props) {
       propsData: {
         formAction: '/',
         formData: formData,
-        disabledInputs: disabledInputs,
+        readonlyInputs: readonlyInputs,
         formTitle: formTitle,
-        formMethod: formMethod
+        formMethod: formMethod,
+        requiredInputs: requiredInputs
       }
     }
   }
@@ -91,18 +93,36 @@ describe('smart-form.vue', () => {
     expect(wrapper.vm.$el.getAttribute('method')).toEqual(formMethod);
   });
 
-  it('disables any inputs with names found in the optional "disabledInputs" array property', () => {
+  it('marks any inputs with names found in the optional "readonlyInputs" array property as readonly', () => {
     const wrapper = mountForm();
-    let disabledInputsProp = wrapper.vm.$options.props.disabledInputs;
+    let readonlyInputsProp = wrapper.vm.$options.props.readonlyInputs;
 
-    expect(disabledInputsProp.type).toEqual(Array);
+    expect(readonlyInputsProp.type).toEqual(Array);
 
-    let disabledInputElements = wrapper.findAll('input[disabled]');
-    expect(disabledInputElements.length).toEqual(disabledInputs.length);
+    let readonlyInputElements = wrapper.findAll('input[readonly]');
+    expect(readonlyInputElements.length).toEqual(readonlyInputs.length);
 
-    for (let disabledInput of disabledInputs) {
-      let results = disabledInputElements.wrappers.filter((input) => {
-        return input.attributes().name === disabledInput
+    for (let readonlyInput of readonlyInputs) {
+      let results = readonlyInputElements.wrappers.filter((input) => {
+        return input.attributes().name === readonlyInput
+      });
+
+      expect(results.length > 0).toBeTruthy();
+    }
+  });
+
+  it('marks any inputs with names found in the optional "requiredInputs" array property as required', () => {
+    const wrapper = mountForm();
+    let requiredInputsProp = wrapper.vm.$options.props.requiredInputs;
+
+    expect(requiredInputsProp.type).toEqual(Array);
+
+    let requiredInputElements = wrapper.findAll('input[required]');
+    expect(requiredInputElements.length).toEqual(requiredInputs.length);
+
+    for (let requiredInput of requiredInputs) {
+      let results = requiredInputElements.wrappers.filter((input) => {
+        return input.attributes().name === requiredInput
       });
 
       expect(results.length > 0).toBeTruthy();
@@ -116,6 +136,12 @@ describe('smart-form.vue', () => {
     let formDataValues = Object.values(formData);
     for (let input of inputs.wrappers) {
       let inputType = input.attributes().type;
+
+      //ignore the hidden inputs
+      if (inputType === 'hidden') {
+        continue;
+      }
+
       let inputValue = typeValue(input.element.value);
       let dataValue = formDataValues.find((element) => {
         return element === inputValue
@@ -139,7 +165,7 @@ describe('smart-form.vue', () => {
       propsData: {
         formAction: '/',
         formData: formData,
-        disabledInputs: disabledInputs,
+        readonlyInputs: readonlyInputs,
         formTitle: formTitle,
         formMethod: formMethod
       }
@@ -150,5 +176,15 @@ describe('smart-form.vue', () => {
       }
       expect(str).toMatchSnapshot();
     });
+  });
+
+  it('can parse a JSON date formatted by the .NET MVC framework', () => {
+    const wrapper = mountForm();
+
+    let parseDate = wrapper.vm.parseJsonDate;
+
+    expect(parseDate('\/Date(1000000000000)\/')).not.toBeNull();
+    expect(parseDate('\/Date(1234656000000)\/')).not.toBeNull();
+    expect(parseDate('\/Date(1198908717056)\/')).not.toBeNull();
   });
 });

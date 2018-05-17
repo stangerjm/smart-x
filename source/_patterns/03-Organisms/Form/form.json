@@ -1,6 +1,6 @@
 {
   "formAction": "/Region/Create",
-  "formData": "{ id: 1, name: 'James', date: '\/Date(1262505600000)\/', isActive: true }",
+  "formData": "{ id: 1, name: 'James', date: '1/1/2010', isActive: true }",
   "disabledInputs": "['id']",
   "formMethod": "get",
   "formTitle": "Create - Region",

@@ -37,6 +37,12 @@ function mountNav(props) {
 }
 
 describe('smart-nav.vue', () => {
+  it('has "smart-nav" as a class value', () => {
+    const wrapper = mountNav();
+
+    expect(wrapper.vm.$el.className).toEqual("smart-nav");
+  });
+
   it('requires navTitle, usr, and navItems to be passed in', () => {
     const wrapper = mountNav();
     const props = wrapper.vm.$options.props;

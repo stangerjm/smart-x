@@ -1,12 +1,14 @@
 <template>
-    <smart-accordion :title="title">
-        <smart-table
-            v-on:recordExpanded="updateAccordionHeight"
-            :table-data="tableData"
-            :default-context="defaultContext"
-            :unsearchable-headings="Object.keys(tableData)">
-        </smart-table>
-    </smart-accordion>
+    <div class="stack-tableCollapsible">
+        <smart-accordion :title="title">
+            <smart-table
+                    v-on:recordExpanded="updateAccordionHeight"
+                    :table-data="tableData"
+                    :default-context="defaultContext"
+                    :unsearchable-headings="Object.keys(tableData)">
+            </smart-table>
+        </smart-accordion>
+    </div>
 </template>
 
 <script>
@@ -54,6 +56,7 @@
        * Event handler for smart-table's recordExpanded event.
        */
       updateAccordionHeight: function() {
+        //call the smart-accordion component's expandData method
         this.$children[0].expandData();
       }
     }

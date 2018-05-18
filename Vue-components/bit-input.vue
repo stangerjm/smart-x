@@ -21,6 +21,8 @@
                    :name="inputName"
                    :readonly="isReadonly"
                    :required="isRequired"
+                   :max="numMax"
+                   :min="numMin"
                    v-model="model">
         </template>
         <template v-else>
@@ -29,8 +31,6 @@
                          :id="inputId ? inputId : randomId"
                          v-model="model"
                          :name="inputName"
-                         :max="numMax"
-                         :min="numMin"
                          :readonly="isReadonly"
                          :required="isRequired"
                          :disabled="isDisabled"

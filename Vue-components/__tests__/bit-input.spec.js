@@ -172,7 +172,7 @@ describe('bit-input.vue', () => {
 
     it('allows the HTML input attributes "disabled", "max", "min", "name", "readonly", "required", to be set', () => {
       let props = {
-        inputType: 'text',
+        inputType: 'number',
         labelText: 'test',
         isDisabled: true,
         numMax: 999,

@@ -147,7 +147,7 @@
     .bit-input {
         display: flex;
         align-items: center;
-        margin: 10px;
+        margin: 0 10px;
 
         @media screen and (max-width: $break-xs) {
             flex-direction: column;

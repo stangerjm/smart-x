@@ -4,13 +4,15 @@ import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 import Vue from "vue";
 
+let formatFromCamelCase = text => {
+  return text
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (substr) => { return substr.toUpperCase(); });
+};
+
 Vue.mixin({
   methods: {
-    formatFromCamelCase: text => {
-      return text
-        .replace(/([A-Z])/g, ' $1')
-        .replace(/^./, (substr) => { return substr.toUpperCase(); });
-    }
+    formatFromCamelCase: formatFromCamelCase
   }
 });
 
@@ -46,6 +48,8 @@ let tableData = [
 
 let defaultContext = 'Region';
 
+let ignoredHeadings = ['detailsContext', 'deleteContext', 'editContext'];
+
 function mountTable(props) {
   if(!props) {
     props = {
@@ -59,11 +63,46 @@ function mountTable(props) {
   return mount(smartTable, props);
 }
 
-describe('SmartTable.vue', () => {
-  it('allows unrequired properties to be undefined', () => {
+describe('smart-table.vue', () => {
+  it('has "smart-table" as a class value', () => {
     const wrapper = mountTable();
 
-    expect(wrapper.vm).not.toBeNull();
+    expect(wrapper.vm.$el.className).toEqual('smart-table');
+  });
+
+  it('requires an array to be passed into a "tableData" property', () => {
+    const wrapper = mountTable();
+    let tableDataProp = wrapper.vm.$options.props.tableData;
+
+    expect(tableDataProp.required).toBeTruthy();
+    expect(tableDataProp.type).toEqual(Array);
+  });
+
+  it('requires a string to be passed into a "defaultContext" property', () => {
+    const wrapper = mountTable();
+    let defaultContextProp = wrapper.vm.$options.props.defaultContext;
+
+    expect(defaultContextProp.required).toBeTruthy();
+    expect(defaultContextProp.type).toEqual(String);
+  });
+
+  it('allows an array to be passed into an "unsearchableHeadings" property', () => {
+    const wrapper = mountTable();
+    let unsearchableHeadingsProp = wrapper.vm.$options.props.unsearchableHeadings;
+
+    expect(unsearchableHeadingsProp.type).toEqual(Array);
+    expect(unsearchableHeadingsProp.default()).toEqual([]);
+  });
+
+  it('allows a boolean to be passed into an "allowDelete", "allowEdit", and "allowDelete" property', () => {
+    const wrapper = mountTable();
+    const allowBtns = ['allowDetails', 'allowEdit', 'allowDelete'];
+
+    for (let btn of allowBtns) {
+      let allowedBtn = wrapper.vm.$options.props[btn];
+      expect(allowedBtn.type).toEqual(Boolean);
+      expect(allowedBtn.default).toEqual(true);
+    }
   });
 
   it('renders all action buttons by default', () => {
@@ -149,6 +188,38 @@ describe('SmartTable.vue', () => {
       let recordContext = record.detailsContext ? record.detailsContext : defaultContext;
       expect(detailsLink.element.getAttribute('href')).toEqual('/' + recordContext + '/Details/' + record.id);
       i++;
+    }
+  });
+
+  it('renders the headings based off of an object in the "tableData" array', () => {
+    const wrapper = mountTable();
+
+    let tableHeadings = wrapper.findAll('th');
+    for (let prop in tableData[0]) {
+      if (ignoredHeadings.includes(prop)) {
+        continue;
+      }
+
+      let result = tableHeadings.wrappers.find((heading) => {
+        return heading.element.textContent.trim() === formatFromCamelCase(prop);
+      });
+
+      expect(result).toBeDefined();
+    }
+  });
+
+  it('correctly renders all of the data in the "tableData" array', () => {
+    const wrapper = mountTable();
+
+    for (let [i, record] of wrapper.findAll('.record:not(.table-heading)').wrappers.entries()) {
+      for (let [j, data] of record.findAll('td:not(:last-child)').wrappers.entries()) {
+        let dataValue = data.element.textContent.trim();
+        let expectedObject = tableData[i];
+        let expectedValue = expectedObject[Object.keys(expectedObject)[j]];
+        if (dataValue === '') continue;
+
+        expect(dataValue == expectedValue).toBeTruthy();
+      }
     }
   });
 

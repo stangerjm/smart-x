@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SmartTable.vue has same HTML structure 1`] = `
+exports[`smart-table.vue has same HTML structure 1`] = `
 <table class="smart-table">
   <tr class="record table-heading">
     <th class="sortable">

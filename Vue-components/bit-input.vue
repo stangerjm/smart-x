@@ -158,6 +158,7 @@
             @extend %flex-container;
             flex-direction: column;
             margin: 10px;
+            align-items: flex-start;
         }
     }
 

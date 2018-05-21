@@ -14,12 +14,12 @@
             <footer class="modal-footer">
                 <slot name="footer"></slot>
             </footer>
-            </footer>
         </div>
     </section>
 </template>
 
 <script>
+  import { EventBus } from './event-bus';
   export default {
     name: "smart-modal",
     props: {
@@ -129,6 +129,10 @@
         this.addEventListeners('.open-dialog', '.modal-close');
         this.open();
       }
+
+      EventBus.$on('modal-open', () => {
+        this.open();
+      });
     }
   }
 </script>

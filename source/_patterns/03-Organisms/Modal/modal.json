@@ -1,14 +1,8 @@
 {
-  "modalTitle": "Be a Trooper",
-  "listTitle": "Dates",
-  "modalInfo": [
-    {"modalItem": "Cadet Testing in Lynnwood, April 19"},
-    {"modalItem": "Cadet Testing in Yakima, April 21"},
-    {"modalItem": "Cadet Testing in Pasco, April 22"},
-    {"modalItem": "Cadet Testing in Lynnwood, April 27"}
-  ],
-  "imgUrl": "images/interstitial.png",
-  "footerText": "Contact us at: ",
-  "linkUrl": "wsp.wa.gov",
-  "linkText": "Our Website"
+  "formAction": "/Region/Create",
+  "formData": "{ id: 1, name: 'James', date: '1/1/2010', isActive: true }",
+  "disabledInputs": "['id']",
+  "formMethod": "get",
+  "formTitle": "Create - Region",
+  "emptyModel": false
 }

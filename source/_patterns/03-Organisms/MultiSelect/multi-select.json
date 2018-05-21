@@ -1,3 +1,3 @@
 {
-  "optionsData": "[{id: 1, name: 'USA', locations: ['Washington', 'Oregon', 'California']}, {id: 2, name: 'Japan', locations: ['Kyoto', 'Osaka', 'Uwajima']}]"
+  "optionsData": "[{'ManufacturerID': 1, 'ManufacturerName': 'Intoxalock', 'ServiceCenters': [ { 'ServiceCenterID': 3, 'ServiceCenterName': 'Goodall Auto Service' }, { 'ServiceCenterID': 5, 'ServiceCenterName': 'Randall Auto and Body'} ]}, {'ManufacturerID': 2, 'ManufacturerName': 'Draeger', 'ServiceCenters': [ { 'ServiceCenterID': 2, 'ServiceCenterName': 'Lacey Autozone' }, { 'ServiceCenterID': 5, 'ServiceCenterName': 'Miller Auto and Body'} ]}]"
 }

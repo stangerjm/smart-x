@@ -7,12 +7,20 @@ let optionsData = [
   {
     id: 1,
     name: 'USA',
-    locations: ['Washington', 'Oregon', 'California']
+    locations: [
+      {place: 'Washington'},
+      {place: 'Oregon'},
+      {place: 'California'}
+    ]
   },
   {
     id: 2,
     name: 'Japan',
-    locations: ['Kyoto', 'Osaka', 'Uwajima']
+    locations: [
+      {place: 'Kyoto'},
+      {place: 'Osaka'},
+      {place: 'Uwajima'}
+    ]
   }
 ];
 
@@ -23,7 +31,8 @@ function mountMultiSelect(props) {
         optionsData: optionsData,
         parentTitle: 'TestParent',
         childTitle: 'TestChild',
-        displayKey: 'name'
+        parentDisplayKey: 'name',
+        childDisplayKey: 'place'
       }
     }
   }
@@ -44,16 +53,23 @@ describe('block-multiSelect.vue', () => {
     expect(optionsDataProp.type).toEqual(Array);
   });
 
-  it('requires a string to be passed in to both the parentTitle and childTitle properties', () => {
+  it('requires a string to be passed in to the parentTitle, childTitle, parentDisplayKey, and childDisplayKey properties', () => {
     const wrapper = mountMultiSelect();
     let parentTitleProp = wrapper.vm.$options.props.parentTitle;
+    let parentKeyProp = wrapper.vm.$options.props.parentDisplayKey;
+
     let childTitleProp = wrapper.vm.$options.props.childTitle;
+    let childKeyProp = wrapper.vm.$options.props.childDisplayKey;
 
     expect(parentTitleProp.required).toBeTruthy();
     expect(parentTitleProp.type).toEqual(String);
+    expect(parentKeyProp.required).toBeTruthy();
+    expect(parentKeyProp.type).toEqual(String);
 
     expect(childTitleProp.required).toBeTruthy();
     expect(childTitleProp.type).toEqual(String);
+    expect(childKeyProp.required).toBeTruthy();
+    expect(childKeyProp.type).toEqual(String);
   });
 
   it('has a unique id for both select elements that matches the associated label', () => {
@@ -69,21 +85,14 @@ describe('block-multiSelect.vue', () => {
     expect(selectChild.element.id).toEqual(selectChildLabel.getAttribute('for'));
   });
 
-  it('allows a string to be passed into the displayKey property', () => {
-    const wrapper = mountMultiSelect();
-    let displayKeyProp = wrapper.vm.$options.props.displayKey;
-
-    expect(displayKeyProp.required).toBeTruthy();
-    expect(displayKeyProp.type).toEqual(String);
-  });
-
   it('correctly renders each object and its associated options', () => {
     const wrapper = mountMultiSelect({
       propsData: {
         optionsData: optionsData,
         parentTitle: 'TestParent',
         childTitle: 'TestChild',
-        displayKey: 'name'
+        parentDisplayKey: 'name',
+        childDisplayKey: 'place'
       }
     });
 
@@ -91,8 +100,8 @@ describe('block-multiSelect.vue', () => {
     let selectChild = wrapper.find('.block-multiSelect--child');
 
     //filter function for filtering out results that are not options and are disabled
-    let filterOptions = (option) => {
-      return !option.disabled && option.tagName === 'OPTION';
+    let filterOptions = (element) => {
+      return !element.disabled && element.tagName === 'OPTION';
     };
 
     //filter children with above filter function
@@ -119,7 +128,8 @@ describe('block-multiSelect.vue', () => {
         optionsData: optionsData,
         parentTitle: 'TestParent',
         childTitle: 'TestChild',
-        displayKey: 'name'
+        parentDisplayKey: 'name',
+        childDisplayKey: 'place'
       }
     });
 

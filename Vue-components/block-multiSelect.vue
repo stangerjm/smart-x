@@ -4,14 +4,14 @@
         <select class="block-multiSelect--parent" :name="parentTitle" v-model="selectedParent"
                 :id="'selectParent-' + inputId">
             <option disabled>Please select a {{parentTitle}}</option>
-            <option v-for="parentNode in optionsData" :value="parentNode">{{parentNode[displayKey]}}</option>
+            <option v-for="parentNode in optionsData" :value="parentNode">{{parentNode[parentDisplayKey]}}</option>
         </select>
 
         <label :for="'selectChild-' + inputId">{{childTitle}}</label>
         <select class="block-multiSelect--child" :name="childTitle" v-model="selectedChild"
                 :id="'selectChild-' + inputId">
             <option disabled>Please select a {{Object.keys(selectedParent).length !== 0 ? childTitle : parentTitle}}</option>
-            <option v-for="childNode in selectedParent[arrayKey]">{{childNode}}</option>
+            <option v-for="childNode in selectedParent[arrayKey]">{{childNode[childDisplayKey]}}</option>
         </select>
     </div>
 </template>
@@ -49,7 +49,11 @@
       /**
        * The object key to use for displaying the parent information.
        */
-      displayKey: {
+      parentDisplayKey: {
+        required: true,
+        type: String
+      },
+      childDisplayKey: {
         required: true,
         type: String
       }

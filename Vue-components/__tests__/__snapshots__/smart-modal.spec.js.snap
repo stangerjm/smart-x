@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`smart-modal.vue has the same HTML structure 1`] = `
+<section role="dialog" aria-labelledby="be-a-trooper" aria-describedby="Join the Washington State Patrol" class="smart-modal">
+  <div class="smart-modal--content">
+    <header class="smart-modal--head">
+      <button class="smart-modal--close">CLOSE</button>
+      <h2 class="smart-modal--title">Test</h2>
+    </header>
+    <main class="smart-modal--body"></main>
+    <footer class="smart-modal--footer"></footer>
+  </div>
+</section>
+`;

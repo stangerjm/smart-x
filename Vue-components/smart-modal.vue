@@ -3,15 +3,15 @@
              role="dialog"
              aria-labelledby="be-a-trooper"
              aria-describedby="Join the Washington State Patrol">
-        <div class="modal-content">
-            <header class="modal-head">
-                <button class="modal-close">CLOSE</button>
-                <h2 class="modal-title">{{modalTitle}}</h2>
+        <div class="smart-modal--content">
+            <header class="smart-modal--head">
+                <button class="smart-modal--close">CLOSE</button>
+                <h2 class="smart-modal--title">{{modalTitle}}</h2>
             </header>
-            <main class="modal-body">
+            <main class="smart-modal--body">
                 <slot name="main"></slot>
             </main>
-            <footer class="modal-footer">
+            <footer class="smart-modal--footer">
                 <slot name="footer"></slot>
             </footer>
         </div>
@@ -126,7 +126,7 @@
       let navDialogEl = this.$el;
 
       if (navDialogEl) {
-        this.addEventListeners('.open-dialog', '.modal-close');
+        this.addEventListeners('.open-dialog', '.smart-modal--close');
         this.open();
       }
 
@@ -147,7 +147,7 @@
     ////
 
     /// Styles Modal Close button
-    .modal-close {
+    .smart-modal--close {
         height: 30px;
         background: none;
         margin: 5px;
@@ -170,7 +170,7 @@
     }
 
     /// Sets styles for main content portion of a smart-modal
-    .modal-content {
+    .smart-modal--content {
         position: fixed;
         background: white;
         top: 50%;
@@ -192,7 +192,7 @@
     }
 
     /// Sets styles for smart-modal title
-    .modal-title {
+    .smart-modal--title {
         color: white;
         font-size: 35px;
         margin: 5px 20px;
@@ -203,17 +203,17 @@
     }
 
     /// Sets head section of a smart-modal
-    .modal-head {
+    .smart-modal--head {
         background: #13355b;
     }
 
     /// Sets body section of a smart-modal
-    .modal-body {
+    .smart-modal--body {
 
     }
 
     /// Sets styles for smart-modal footer section
-    .modal-footer {
+    .smart-modal--footer {
         padding: 20px;
     }
 </style>

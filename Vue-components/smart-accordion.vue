@@ -97,7 +97,7 @@
         height: 13px;
         right: 10px;
         top: 13px;
-        background: transparent url(../source/images/sort.png) 0 -11px / 15px no-repeat;
+        background: transparent url(/images/sort.png) 0 -11px / 15px no-repeat;
     }
 
     .smart-accordion {
@@ -132,7 +132,7 @@
             &:hover {
                 &:after {
                     @extend %drop-arrow;
-                    background: url(../source/images/sort.png) 0 3px / 15px no-repeat;
+                    background: url(/images/sort.png) 0 3px / 15px no-repeat;
                 }
             }
         }

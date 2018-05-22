@@ -36,6 +36,7 @@ Examples:
 </bit-input>
 ```
 
+&ast;_Due to the nature of vue-styleguidist, the date-picker is not loaded correctly. Please refer to patternlab for a working example._
 ```vue
 <bit-input 
     input-type="date" 

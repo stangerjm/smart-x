@@ -4,7 +4,7 @@
         <select class="block-multiSelect--parent" :name="parentTitle" v-model="selectedParent"
                 :id="'selectParent-' + inputId">
             <option disabled>Please select a {{parentTitle}}</option>
-            <option v-for="parentNode in optionsData" :value="parentNode">{{parentNode[parentDisplayKey]}}</option>
+            <option v-for="parentNode in selectData" :value="parentNode">{{parentNode[parentDisplayKey]}}</option>
         </select>
 
         <label :for="'selectChild-' + inputId">{{childTitle}}</label>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+  import { EventBus } from './event-bus';
+
   /**
    * A component that renders two select elements that have a parent-child relationship.
    * @author James Stanger, Washington State Patrol
@@ -62,18 +64,31 @@
       return {
         selectedParent: {},
         selectedChild: {},
-        inputId: Math.random().toString(36).substr(2, 9)
+        inputId: Math.random().toString(36).substr(2, 9),
+        selectData: this.optionsData
       }
     },
     computed: {
       arrayKey: function () {
-        let firstData = this.optionsData[0];
+        let firstData = this.selectData[0];
         for (let option in firstData) {
           if (Array.isArray(firstData[option])) {
             return option;
           }
         }
       }
+    },
+    mounted: function () {
+      EventBus.$on('modal-data-received', (payload) => {
+        this.selectData = payload;
+      });
+
+      EventBus.$on('modal-closed', () => {
+        //Reset all data closed
+        this.selectData = [];
+        this.selectedParent = {};
+        this.selectedChild = {};
+      });
     }
   }
 </script>

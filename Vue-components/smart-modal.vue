@@ -10,14 +10,7 @@
                 <h2 class="smart-modal--title">{{modalTitle}}</h2>
             </header>
             <main class="smart-modal--body">
-              <!--<slot name="main"></slot>-->
-              <block-multi-select slot="main"
-                                  :options-data="selectData"
-                                  parent-title="Manufacturers"
-                                  child-title="Service Centers"
-                                  parent-display-key="ManufacturerName"
-                                  child-display-key="ServiceCenterName">
-              </block-multi-select>
+              <slot name="main"></slot>
             </main>
             <footer class="smart-modal--footer">
                 <slot name="footer"></slot>
@@ -29,13 +22,9 @@
 <script>
   import { EventBus } from './event-bus';
   import Axios from 'axios';
-  import BlockMultiSelect from './block-multiSelect';
 
   export default {
     name: "smart-modal",
-    components: {
-      BlockMultiSelect
-    },
     props: {
       modalTitle: {
         type: String,
@@ -73,6 +62,8 @@
         if(this.focusedElBeforeOpen) {
           this.focusedElBeforeOpen.focus();
         }
+
+        EventBus.$emit('modal-closed');
       },
       _handleKeyDown: function(e) {
         let Dialog = this;
@@ -148,7 +139,7 @@
         if (payload) {
           Axios.get(payload)
             .then(response => {
-              this.selectData = response.data;
+              EventBus.$emit('modal-data-received', response.data);
             });
         }
 

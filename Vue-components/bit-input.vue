@@ -174,8 +174,8 @@
             border: none;
             box-shadow: 1px 1px 4px inset;
             border-radius: 3px;
-            min-height: 35px;
-            width: 100%;
+            min-height: 25px;
+            width: 97%;
         }
 
         &[type = number] {

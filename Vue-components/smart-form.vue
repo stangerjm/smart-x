@@ -4,9 +4,9 @@
             <h3 class="smart-form--title">{{formTitle}}</h3>
         </header>
         <section class="smart-form--fieldSection">
+            <slot></slot>
             <template v-for="(item, key) in formData">
-                <bit-input
-                        class="smart-form--input"
+                <bit-input class="smart-form--input"
                         :stack-elements="true"
                         :input-name="key"
                         :input-type="getType(item)"
@@ -24,6 +24,7 @@
 <script>
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
+  import blockMultiSelect from './block-multiSelect';
 
   /**
    * A component that renders a dynamic form based on a model.
@@ -34,7 +35,8 @@
     name: "smart-form",
     components: {
       bitInput,
-      bitBtn
+      bitBtn,
+      blockMultiSelect
     },
     data() {
       return {
@@ -125,7 +127,9 @@
        */
       parseJsonDate: function(date) {
         let dateRegex = /\/Date\((\d+)(?:-\d+)?\)\//i;
-        if (dateRegex.test(date)) {
+        if (date === '/Date(-62135568000000)/') {
+          return new Date('1/1/0001');
+        } else if (dateRegex.test(date)) {
           return new Date(parseInt(dateRegex.exec(date)[1], 10));
         } else {
           return null;

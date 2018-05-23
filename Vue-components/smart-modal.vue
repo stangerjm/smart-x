@@ -164,7 +164,6 @@
         background: none;
         margin: 5px;
         border: none;
-        color: white;
     }
 
     /// Styles a responsive, accessible modal
@@ -205,7 +204,6 @@
 
     /// Sets styles for smart-modal title
     .smart-modal--title {
-        color: white;
         font-size: 35px;
         margin: 5px 20px;
 
@@ -216,7 +214,7 @@
 
     /// Sets head section of a smart-modal
     .smart-modal--head {
-        background: #13355b;
+      background: $generic-grey;
     }
 
     /// Sets body section of a smart-modal

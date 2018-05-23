@@ -4,5 +4,6 @@
   "disabledInputs": "['id']",
   "formMethod": "get",
   "formTitle": "Create - Region",
-  "emptyModel": false
+  "emptyModel": false,
+  "selectData": "[{petType: 'Cat', petOptions: [{petName: 'Ramona'}, {petName: 'Frank'}]},{petType: 'Dog', petOptions: [{petName: 'Shadow'}, {petName: 'Kuma'}]}]"
 }

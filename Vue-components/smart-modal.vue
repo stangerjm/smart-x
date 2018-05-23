@@ -2,14 +2,22 @@
     <section class="smart-modal"
              role="dialog"
              aria-labelledby="be-a-trooper"
-             aria-describedby="Join the Washington State Patrol">
+             aria-describedby="Join the Washington State Patrol"
+             style="display: none">
         <div class="smart-modal--content">
             <header class="smart-modal--head">
                 <button class="smart-modal--close">CLOSE</button>
                 <h2 class="smart-modal--title">{{modalTitle}}</h2>
             </header>
             <main class="smart-modal--body">
-                <slot name="main"></slot>
+              <!--<slot name="main"></slot>-->
+              <block-multi-select slot="main"
+                                  :options-data="selectData"
+                                  parent-title="Manufacturers"
+                                  child-title="Service Centers"
+                                  parent-display-key="ManufacturerName"
+                                  child-display-key="ServiceCenterName">
+              </block-multi-select>
             </main>
             <footer class="smart-modal--footer">
                 <slot name="footer"></slot>
@@ -20,8 +28,14 @@
 
 <script>
   import { EventBus } from './event-bus';
+  import Axios from 'axios';
+  import BlockMultiSelect from './block-multiSelect';
+
   export default {
     name: "smart-modal",
+    components: {
+      BlockMultiSelect
+    },
     props: {
       modalTitle: {
         type: String,
@@ -33,7 +47,8 @@
         focusableEls: null,
         firstFocusableEl: null,
         lastFocusableEl: null,
-        focusedElBeforeOpen: null
+        focusedElBeforeOpen: null,
+        selectData: []
       }
     },
     methods: {
@@ -127,10 +142,16 @@
 
       if (navDialogEl) {
         this.addEventListeners('.open-dialog', '.smart-modal--close');
-        this.open();
       }
 
-      EventBus.$on('modal-open', () => {
+      EventBus.$on('modal-open', (payload) => {
+        if (payload) {
+          Axios.get(payload)
+            .then(response => {
+              this.selectData = response.data;
+            });
+        }
+
         this.open();
       });
     }

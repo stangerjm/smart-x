@@ -1,5 +1,5 @@
 <template>
-    <button type="button" :class="btnClass" v-if="!isLink">
+    <button type="button" :class="btnClass" v-if="!isLink" @click="emitEvent">
         <slot></slot>
     </button>
     <a :class="btnClass" v-else>
@@ -8,6 +8,8 @@
 </template>
 
 <script>
+  import { EventBus } from './event-bus';
+
   /**
    * A dynamic button that can be used as an various types of buttons and links.
    * @author James Stanger, Washington State Patrol
@@ -29,6 +31,12 @@
       isLink: {
         type: Boolean,
         default: false
+      },
+      btnEvent: {
+        type: String
+      },
+      eventPayload: {
+        type: String
       }
     },
     data() {
@@ -62,6 +70,11 @@
           return "bit-btn-" + type;
         } else {
           return "bit-btn";
+        }
+      },
+      emitEvent: function () {
+        if (this.btnEvent) {
+          EventBus.$emit(this.btnEvent, this.eventPayload);
         }
       }
     }

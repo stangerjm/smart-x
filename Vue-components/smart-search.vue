@@ -107,11 +107,16 @@
           let heading = this.$el.querySelector('.smart-search--heading');
           let search = heading.querySelector('.smart-search--fieldContainer');
           let titleSegment = heading.querySelector('.smart-search--headingSegment');
+          let documentWidth = document.body.clientWidth + 15;
 
           //do not add search height if screen is less than breakpoint
-          let searchHeight = document.body.clientWidth < 950 ? search.offsetHeight + 30 : 0;
+          let searchHeight = documentWidth < 1000 ? search.offsetHeight + 30 : 0;
+          let segmentHeight = documentWidth < 1000 ? titleSegment.offsetHeight : 0;
 
-          heading.style.minHeight = searchHeight + titleSegment.offsetHeight + 'px';
+          console.log('Search height is: ' + searchHeight);
+          console.log('Segment height is: ' + segmentHeight);
+
+          heading.style.minHeight = searchHeight + segmentHeight + 'px';
         }
       }
     },
@@ -125,6 +130,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/base";
     @import "../sass/templates";
     @import "../sass/variables";
 
@@ -190,7 +196,7 @@
     ///    Set transition on min-height and cause search to appear from top
     ///    Hide search by positioning absolutely and placing off screen
     ///    Ensure all elements line up to the left
-    @media screen and (max-width: 950px) {
+    @media screen and (max-width: 1000px) {
         .smart-search--heading {
             position: relative;
             align-content: start;

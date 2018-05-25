@@ -89,6 +89,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/base";
     @import "../sass/templates";
 
     /// Container that holds action items in a table cell.

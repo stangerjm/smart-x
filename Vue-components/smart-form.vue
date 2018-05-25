@@ -199,20 +199,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/variables";
-
-    .smart-form {
-        > .smart-form--input {
-            margin: 10px 20px;
-        }
-    }
-
-    .smart-form--titleSection {
-        background: $generic-grey;
-        padding: 10px;
-    }
-
-    .smart-form--title {
-        margin: 0;
-    }
+    @import "../sass/smart-form";
 </style>

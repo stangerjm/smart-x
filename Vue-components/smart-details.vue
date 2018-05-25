@@ -89,6 +89,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/base";
     @import "../sass/variables";
     @import "../sass/templates";
 
@@ -119,6 +120,8 @@
 
     .smart-details--detail {
         @extend %flex-container;
+        padding: 5px;
+
         @media screen and (max-width: $break-xs) {
             font-size: 0.75em;
             overflow-wrap: break-word;

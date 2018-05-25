@@ -5,11 +5,10 @@
             <input class="bit-input--field"
                    :id="inputName"
                    :type="inputType"
-                   :disabled="isDisabled"
                    :name="inputName"
-                   :readonly="isReadonly"
                    v-model="model"
-                   value="true">
+                   value="true"
+                   v-bind="$attrs">
             <input type="hidden" value="false" :name="inputName">
         </template>
         <template v-else-if="inputType !== 'date'">
@@ -17,13 +16,9 @@
             <input class="bit-input--field"
                    :id="inputId ? inputId : randomId"
                    :type="inputType"
-                   :disabled="isDisabled"
                    :name="inputName"
-                   :readonly="isReadonly"
-                   :required="isRequired"
-                   :max="numMax"
-                   :min="numMin"
-                   v-model="model">
+                   v-model="model"
+                   v-bind="$attrs">
         </template>
         <template v-else>
             <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
@@ -31,11 +26,9 @@
                          :id="inputId ? inputId : randomId"
                          v-model="model"
                          :name="inputName"
-                         :readonly="isReadonly"
-                         :required="isRequired"
-                         :disabled="isDisabled"
                          type="date"
-                         :format="dateFormat">
+                         :format="dateFormat"
+                         v-bind="$attrs">
             </date-picker>
         </template>
     </div>
@@ -79,43 +72,10 @@
         default: false
       },
       /**
-       * Corresponds to the native HTML input attribute "disabled"
-       */
-      isDisabled: {
-        type: Boolean,
-        default: false
-      },
-      /**
-       * Corresponds to the native HTML input attribute "max"
-       */
-      numMax: {
-        type: Number
-      },
-      /**
-       * Corresponds to the native HTML input attribute "min"
-       */
-      numMin: {
-        type: Number
-      },
-      /**
        * Corresponds to the native HTML input attribute "id"
        */
       inputId: {
         type: String
-      },
-      /**
-       * Corresponds to the native HTML input attribute "readonly"
-       */
-      isReadonly: {
-        type: Boolean,
-        default: false
-      },
-      /**
-       * Corresponds to the native HTML input attribute "required"
-       */
-      isRequired: {
-        type: Boolean,
-        default: false
       },
       /**
        * Optional date format for the input[type=date] element
@@ -169,12 +129,19 @@
 
     /// Styles different types of form inputs, namely input[type=text] and input[type=number].
     .bit-input--field {
-        &:not([type = checkbox]):not(.el-date-editor) {
-            padding: 0.5em;
+        padding: 5px;
+
+        /* Select inputs that are not checkboxes.
+         * Omit .el-date-editor, the container of the third party datepicker component.
+         * Use the /deep/ selector to style the .el-input__inner input field, which is
+         * outside of the scope of this element, but still a child.
+         */
+        &:not([type = checkbox]):not(.el-date-editor),
+        & /deep/ .el-input__inner {
             border: none;
-            box-shadow: 1px 1px 4px inset;
+            box-shadow: inset 1px 1px 4px black;
             border-radius: 3px;
-            min-height: 25px;
+            height: 35px;
             width: 97%;
         }
 
@@ -184,12 +151,7 @@
 
         &.el-date-editor {
             width: 100%;
+            padding: 0;
         }
-    }
-
-    /* Use the /deep/ selector to style .el-input__inner which is outside of this component's scope, but still a child. */
-    .bit-input--field /deep/ .el-input__inner {
-      box-shadow: inset 1px 1px 4px black;
-      border: none;
     }
 </style>

@@ -1,8 +1,6 @@
 <template>
     <section class="smart-modal"
              role="dialog"
-             aria-labelledby="be-a-trooper"
-             aria-describedby="Join the Washington State Patrol"
              style="display: none">
         <div class="smart-modal--content">
             <header class="smart-modal--head">

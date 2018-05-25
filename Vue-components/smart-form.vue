@@ -12,7 +12,7 @@
                         :input-name="key"
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
-                        :is-readonly="readonlyInputs.includes(key)"
+                        :readonly="readonlyInputs.includes(key)"
                         :input-model="determineIsEmpty(dataCopy[key]) ? dataCopy[key] : null"
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
@@ -25,7 +25,6 @@
 <script>
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
-  import blockMultiSelect from './block-multiSelect';
   import { EventBus } from './event-bus';
 
   /**
@@ -37,8 +36,7 @@
     name: "smart-form",
     components: {
       bitInput,
-      bitBtn,
-      blockMultiSelect
+      bitBtn
     },
     data() {
       return {
@@ -132,7 +130,7 @@
         }
       },
       determineIsEmpty: function (value) {
-        if (value === null) {
+        if (!value || value === null) {
           return false;
         }
 
@@ -170,7 +168,7 @@
      * Loop through the properties in the model and replace all of the dates with the expected format.
      */
     created: function () {
-      if (!this.masterData) {
+      if (this.masterData) {
         this.mountModel();
       }
 

@@ -1,3 +1,6 @@
+@import "./variables";
+@import "./templates";
+
 ////
 /// @group Button
 /// @author James Stanger
@@ -11,17 +14,17 @@
   &--no-background {
     @extend %btn;
     padding: 0 6px !important;
-    height: 30px;
+    height: 30px !important;
     background: none !important;
   }
 }
 
 /// Sets base styles for a button.
 %btn {
-  padding: .5em 1.5em;
+  padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
-  max-height: 35px;
+  height: 15px;
   max-width: 150px;
   background: $uniform-blue--deep;
   border: none;
@@ -29,6 +32,7 @@
   font: 14px sans-serif;
   box-sizing: content-box;
   text-align: center;
+  text-decoration: none;
 }
 
 /// Styles a button to have a click animation. Also gives the option to
@@ -69,7 +73,7 @@
     @extend %clickable;
   }
 
-  &--search {
+  &-search {
     @extend %bit-btn;
     @extend %clickable;
 
@@ -79,7 +83,7 @@
     }
   }
 
-  &--add {
+  &-add {
     @extend %bit-btn;
     @extend %clickable;
     &:before {
@@ -89,7 +93,7 @@
     }
   }
 
-  &--reset {
+  &-reset {
     @extend %bit-btn;
     @extend %clickable;
     &:before {
@@ -98,7 +102,7 @@
     }
   }
 
-  &--details {
+  &-details {
     @extend %bit-btn--no-background;
     @extend %clickable--shadowless;
 
@@ -112,7 +116,7 @@
     }
   }
 
-  &--expand {
+  &-expand {
     @extend %bit-btn--no-background;
     @extend %clickable--shadowless;
     line-height: 1.6;
@@ -130,7 +134,7 @@
     }
   }
 
-  &--delete {
+  &-delete {
     @extend %bit-btn--no-background;
     @extend %clickable--shadowless;
 
@@ -144,20 +148,20 @@
     }
   }
 
-  &--edit {
+  &-edit {
     @extend %clickable--shadowless;
     @extend %bit-btn--no-background;
 
     &:after {
-      @include icon-url('edit.png', 16px);
+      @include icon-url('edit.png', 17px);
       @extend %icon;
       width: 20px;
-      height: 20px;
+      height: 25px;
     }
   }
 
   $datepicker-height: 25px;
-  &--datepicker {
+  &-datepicker {
     @extend %bit-btn;
     @extend %clickable;
     height: $datepicker-height;
@@ -170,6 +174,48 @@
       @include icon-url('calendar.png', $datepicker-height - 5);
       height: $datepicker-height;
       width: $datepicker-height - 5;
+    }
+  }
+
+  &-exit {
+    @extend %bit-btn;
+    @extend %clickable;
+
+    &:before {
+      content: '+';
+      @extend %icon;
+      transform: translateX(8px) rotate(45deg);
+      height: 0;
+      font-size: 1.5em;
+    }
+  }
+
+  &-plainSearch {
+    height: 65px;
+    width: 65px;
+    background: $uniform-blue--deep;
+    border: none;
+
+    &:before {
+      @extend %icon;
+      height: 20px;
+      width: 20px;
+      @include icon-url('search.png', 18px);
+    }
+  }
+
+  &-plainExit {
+    height: 65px;
+    width: 65px;
+    background: $uniform-blue--deep;
+    border: none;
+
+    &:before {
+      @extend %icon;
+      content: '+';
+      color: white;
+      font-size: 2em;
+      transform: translateX(5px) rotate(45deg);
     }
   }
 }

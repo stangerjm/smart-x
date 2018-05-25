@@ -27,6 +27,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/base";
     @import "../sass/variables";
     @import "../sass/misc";
 

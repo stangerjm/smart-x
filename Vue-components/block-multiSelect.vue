@@ -1,16 +1,16 @@
 <template>
-    <div class="block-multiSelect">
-        <label :for="'selectParent-' + inputId">{{parentTitle}}</label>
-        <select class="block-multiSelect--parent" :name="parentTitle" v-model="selectedParent"
+    <div :class="stackElements ? 'block-multiSelect-stacked' : 'block-multiSelect'">
+        <label :for="'selectParent-' + inputId">{{formatFromCamelCase(parentName)}}</label>
+        <select class="block-multiSelect--parent" :name="parentName" v-model="selectedParent"
                 :id="'selectParent-' + inputId">
-            <option disabled>Please select a {{parentTitle}}</option>
+            <option disabled>Please select a {{formatFromCamelCase(parentName)}}</option>
             <option v-for="parentNode in selectData" :value="parentNode">{{parentNode[parentDisplayKey]}}</option>
         </select>
 
-        <label :for="'selectChild-' + inputId">{{childTitle}}</label>
-        <select class="block-multiSelect--child" :name="childTitle" v-model="selectedChild"
+        <label :for="'selectChild-' + inputId">{{formatFromCamelCase(childName)}}</label>
+        <select class="block-multiSelect--child" :name="childName" v-model="selectedChild"
                 :id="'selectChild-' + inputId">
-            <option disabled>Please select a {{Object.keys(selectedParent).length !== 0 ? childTitle : parentTitle}}</option>
+            <option disabled>Please select a {{Object.keys(selectedParent).length !== 0 ? childName : parentName}}</option>
             <option v-for="childNode in selectedParent[arrayKey]">{{childNode[childDisplayKey]}}</option>
         </select>
     </div>
@@ -31,20 +31,20 @@
        * An array of objects that contains both the parent and child data. See object structure below.
        */
       optionsData: {
-        required: true,
-        type: Array
+        type: Array,
+        default: () => []
       },
       /**
        * The title to display before the parent select element.
        */
-      parentTitle: {
+      parentName: {
         required: true,
         type: String
       },
       /**
        * The title to display before the child select element.
        */
-      childTitle: {
+      childName: {
         required: true,
         type: String
       },
@@ -58,6 +58,10 @@
       childDisplayKey: {
         required: true,
         type: String
+      },
+      stackElements: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -79,15 +83,16 @@
       }
     },
     mounted: function () {
-      EventBus.$on('modal-data-received', (payload) => {
-        this.selectData = payload;
-      });
-
       EventBus.$on('modal-closed', () => {
         //Reset all data closed
         this.selectData = [];
         this.selectedParent = {};
         this.selectedChild = {};
+      });
+
+      EventBus.$on('form-data-updated', (payload) => {
+        this.selectData = payload;
+        console.log(this.selectData);
       });
     }
   }
@@ -110,6 +115,15 @@
         @media screen and (max-width: $break-med) {
             flex-direction: column;
             align-items: stretch;
+        }
+
+        &-stacked {
+            display: flex;
+            flex-direction: column;
+
+            & > [class^="block-multiSelect--"], & > label {
+                margin: 5px 10px;
+            }
         }
     }
 

@@ -2,7 +2,7 @@
     <button type="button" :class="btnClass" v-if="!isLink" @click="emitEvent">
         <slot></slot>
     </button>
-    <a :class="btnClass" v-else>
+    <a :class="btnClass" href="path" v-else>
         <slot></slot>
     </a>
 </template>
@@ -35,7 +35,7 @@
       btnEvent: {
         type: String
       },
-      eventPayload: {
+      path: {
         type: String
       }
     },
@@ -74,7 +74,7 @@
       },
       emitEvent: function () {
         if (this.btnEvent) {
-          EventBus.$emit(this.btnEvent, this.eventPayload);
+          EventBus.$emit(this.btnEvent, this.path);
         }
       }
     }

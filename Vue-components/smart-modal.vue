@@ -10,7 +10,7 @@
                 <h2 class="smart-modal--title">{{modalTitle}}</h2>
             </header>
             <main class="smart-modal--body">
-              <slot name="main"></slot>
+              <slot></slot>
             </main>
             <footer class="smart-modal--footer">
                 <slot name="footer"></slot>
@@ -27,8 +27,7 @@
     name: "smart-modal",
     props: {
       modalTitle: {
-        type: String,
-        required: true
+        type: String
       }
     },
     data() {
@@ -139,7 +138,10 @@
         if (payload) {
           Axios.get(payload)
             .then(response => {
-              EventBus.$emit('modal-data-received', response.data);
+              EventBus.$emit('modal-data-received', {
+                data: response.data,
+                path: payload
+              });
             });
         }
 
@@ -189,6 +191,7 @@
         transform: translate(-50%, -50%);
         overflow: auto;
         width: 500px;
+        height: 100%;
 
         @media screen and (max-width: 820px) {
             width: 80%;

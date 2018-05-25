@@ -186,4 +186,10 @@
             width: 100%;
         }
     }
+
+    /* Use the /deep/ selector to style .el-input__inner which is outside of this component's scope, but still a child. */
+    .bit-input--field /deep/ .el-input__inner {
+      box-shadow: inset 1px 1px 4px black;
+      border: none;
+    }
 </style>

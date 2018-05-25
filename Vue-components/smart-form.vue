@@ -1,18 +1,19 @@
 <template>
-    <form :action="formAction" :method="formMethod" class="smart-form">
-        <header class="smart-form--titleSection">
+    <form :action="action" :method="formMethod" class="smart-form">
+        <header class="smart-form--titleSection" v-if="formTitle">
             <h3 class="smart-form--title">{{formTitle}}</h3>
         </header>
         <section class="smart-form--fieldSection">
             <slot></slot>
-            <template v-for="(item, key) in formData">
+            <template v-for="(item, key) in masterData">
                 <bit-input class="smart-form--input"
+                        v-if="!Array.isArray(item)"
                         :stack-elements="true"
                         :input-name="key"
                         :input-type="getType(item)"
                         :label-text="formatFromCamelCase(key)"
                         :is-readonly="readonlyInputs.includes(key)"
-                        :input-model="emptyModel ? null : dataCopy[key]"
+                        :input-model="determineIsEmpty(dataCopy[key]) ? dataCopy[key] : null"
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
             </template>
@@ -25,6 +26,7 @@
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
   import blockMultiSelect from './block-multiSelect';
+  import { EventBus } from './event-bus';
 
   /**
    * A component that renders a dynamic form based on a model.
@@ -43,7 +45,9 @@
         /**
          * Will contain a non-reactive copy of the data when the component is created.
          */
-        dataCopy: null
+        dataCopy: {},
+        masterData: this.formData,
+        action: this.formAction
       }
     },
     props: {
@@ -51,15 +55,15 @@
        * Corresponds to the native HTML attribute "action"
        */
       formAction: {
-        required: true,
-        type: String
+        type: String,
+        default: '/'
       },
       /**
        * The model that the form should use as a template.
        */
       formData: {
-        required: true,
-        type: Object
+        type: Object,
+        default: () => { }
       },
       /**
        * A list of inputs that should be readonly.
@@ -79,8 +83,7 @@
        * A title that will display at the top of the form.
        */
       formTitle: {
-        type: String,
-        default: 'Form'
+        type: String
       },
       /**
        * Corresponds to the native HTML attribute "method"
@@ -94,13 +97,6 @@
       dateFormat: {
         type: String,
         default: 'MM-dd-yyyy'
-      },
-      /**
-       * Indicates the model is empty and the inputs should be empty be default.
-       */
-      emptyModel: {
-        type: Boolean,
-        default: false
       }
     },
     methods: {
@@ -134,37 +130,72 @@
         } else {
           return null;
         }
+      },
+      determineIsEmpty: function (value) {
+        if (value === null) {
+          return false;
+        }
+
+        return value !== 0 && value.toString() !== new Date('1/1/0001').toString();
+      },
+      setRequiredInputs: function () {
+        for (let requiredInput of this.requiredInputs) {
+          let domInput;
+
+          if (this.getType(this.dataCopy[requiredInput]) === 'date') {
+            domInput = this.$el.querySelector('.el-date-editor > input[name=' + requiredInput + ']');
+          } else {
+            domInput = this.$el.querySelector('input[name=' + requiredInput + ']');
+          }
+
+          if (domInput !== null) {
+            domInput.required = true;
+          }
+        }
+      },
+      mountModel: function () {
+        let model = this.masterData;
+
+        for (let prop in model) {
+          let jsonDate = this.parseJsonDate(model[prop]);
+          if (jsonDate !== null) {
+            model[prop] = jsonDate.toString();
+          }
+        }
+
+        this.dataCopy = Object.assign({}, model);
       }
     },
     /**
      * Loop through the properties in the model and replace all of the dates with the expected format.
      */
-    created: function() {
-      let model = this.formData;
-      for (let prop in model) {
-        let jsonDate = this.parseJsonDate(model[prop]);
-        if (jsonDate !== null) {
-          model[prop] = jsonDate.toString();
-        }
+    created: function () {
+      if (!this.masterData) {
+        this.mountModel();
       }
 
-      this.dataCopy = Object.assign({}, model);
+      //Set up event listener for the modal recieving data
+      EventBus.$on('modal-data-received', (payload) => {
+        this.masterData = payload.data;
+        this.action = payload.path;
+        this.mountModel();
+
+        for (let value of Object.values(payload.data)) {
+          if (Array.isArray(value)) {
+            EventBus.$emit('form-data-updated', value);
+          }
+        }
+      });
+
+      EventBus.$on('modal-closed', () => {
+        this.masterData = {};
+      });
     },
     /**
      * Set each input specified in the requiredInputs array to have the native HTML attribute "required"
      */
-    mounted: function() {
-      for (let requiredInput of this.requiredInputs) {
-        let domInput;
-
-        if(this.getType(this.dataCopy[requiredInput]) === 'date') {
-          domInput = this.$el.querySelector('.el-date-editor > input[name=' + requiredInput + ']');
-        } else {
-          domInput = this.$el.querySelector('input[name=' + requiredInput + ']');
-        }
-
-        domInput.required = true;
-      }
+    updated: function() {
+      this.setRequiredInputs();
     }
   }
 </script>

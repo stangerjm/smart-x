@@ -61,6 +61,15 @@
         }
 
         contentContainer.style.height = totalHeight + 'px';
+
+        /* Force page to re-render height. This prevents a bug on
+         * small screens where the width causes the scroll bar to
+         * interfere with the height. This causes the container to
+         * render short and the inner content is hidden.
+         */
+        setTimeout(function() {
+          window.dispatchEvent(new Event('resize'));
+        }, 10);
       },
       /**
        * Collapses the accordion by setting the container to have no height.

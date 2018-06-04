@@ -6,7 +6,7 @@
   width: 15px;
   height: 13px;
   right: 10px;
-  top: 13px;
+  top: 17px;
   background: transparent url(/images/sort.png) 0 -11px / 15px no-repeat;
 }
 
@@ -15,14 +15,17 @@
   margin: 10px auto;
 }
 
-.smart-accordion--label {
+.smart-accordion--toggle {
   padding: 5px 20px;
   position: relative;
   z-index: 20;
   display: block;
   cursor: pointer;
-  line-height: 33px;
+  min-height: 50px;
+  width: 100%;
   background: $generic-grey;
+  border: none;
+  text-align: left;
 
   &:hover {
     background: lighten($generic-grey, 5%);
@@ -31,12 +34,8 @@
       @extend %drop-arrow;
     }
   }
-}
 
-.smart-accordion--toggle {
-  display: none;
-
-  &:checked + .smart-accordion--label {
+  &.is-expanded {
     background: saturate($uniform-blue, 10%);
 
     &:hover {

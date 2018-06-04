@@ -1,7 +1,6 @@
 <template>
     <section class="smart-accordion">
-        <input :id="inputId" class="smart-accordion--toggle" name="accordion-1" type="checkbox" @click="toggleExpand">
-        <label :for="inputId" class="smart-accordion--label">{{title}}</label>
+        <button :class="['smart-accordion--toggle', isExpanded ? 'is-expanded' : '']" type="button" @click="toggleExpand">{{title}}</button>
         <article class="smart-accordion--content">
             <!-- @slot Allows content to be passed into the expanded portion. -->
             <slot></slot>

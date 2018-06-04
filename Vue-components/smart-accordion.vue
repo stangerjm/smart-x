@@ -9,6 +9,8 @@
 </template>
 
 <script>
+  import {fillCustomEvent} from './polyfill';
+  fillCustomEvent();
   /**
    * A component that renders a responsive accordion that can contain any HTML content.
    * @author James Stanger, Washington State Patrol

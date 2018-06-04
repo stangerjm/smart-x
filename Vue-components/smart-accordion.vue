@@ -29,7 +29,9 @@
     data() {
       return {
         isExpanded: false,
-        inputId: 'ac-' + Math.random().toString(36).substr(2, 9)
+        inputId: 'ac-' + Math.random().toString(36).substr(2, 9),
+        contentContainer: null,
+        previousHeight: 0
       }
     },
     methods: {
@@ -38,8 +40,17 @@
        */
       toggleExpand: function () {
         if (!this.isExpanded) {
-          this.expandData();
           this.isExpanded = true;
+          this.expandData();
+
+          /* Force page to re-render height. This prevents a bug on
+           * small screens where the width causes the scroll bar to
+           * interfere with the height. This causes the container to
+           * render short and the inner content is hidden.
+           */
+          setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('resize'));
+          }, 500);
         } else {
           this.collapseData();
           this.isExpanded = false;
@@ -49,7 +60,8 @@
        * Expands the accordion relative to the combined height of each of its children.
        */
       expandData: function () {
-        let contentContainer = this.$el.querySelector(".smart-accordion--content");
+        let contentContainer = this.contentContainer;
+
         let totalHeight = 0;
 
         //loop through each child and add the height of each
@@ -60,23 +72,19 @@
           }
         }
 
-        contentContainer.style.height = totalHeight + 'px';
-
-        /* Force page to re-render height. This prevents a bug on
-         * small screens where the width causes the scroll bar to
-         * interfere with the height. This causes the container to
-         * render short and the inner content is hidden.
-         */
-        setTimeout(function() {
-          window.dispatchEvent(new Event('resize'));
-        }, 10);
+        //do not update DOM unless the height needs to be updated
+        if(this.previousHeight !== totalHeight) {
+          contentContainer.style.height = totalHeight + 'px';
+          this.previousHeight = totalHeight;
+        }
       },
       /**
        * Collapses the accordion by setting the container to have no height.
        */
       collapseData: function () {
-        let contentContainer = this.$el.querySelector(".smart-accordion--content");
+        let contentContainer = this.contentContainer;
         contentContainer.style.height = 0 + 'px';
+        this.previousHeight = 0;
       },
       /**
        * Event handler that will continually resize the container if it is expanded.
@@ -92,6 +100,9 @@
      */
     created: function () {
       window.addEventListener('resize', this.handleResize);
+    },
+    mounted: function() {
+      this.contentContainer = this.$el.querySelector('.smart-accordion--content');
     }
   }
 </script>

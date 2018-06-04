@@ -20,6 +20,10 @@ import smartModal from './smart-modal';
 import {DatePicker} from 'element-ui';
 import en from "element-ui/lib/locale/lang/en";
 import locale from 'element-ui/lib/locale';
+import { fillCustomEvent } from './polyfill';
+
+//Fill CustomEvent for IE
+fillCustomEvent();
 
 //Apply base styles to all components
 require('../sass/_base.scss');

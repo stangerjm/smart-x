@@ -6,8 +6,12 @@
         <section class="smart-form--fieldSection">
             <slot></slot>
             <template v-for="(item, key) in masterData">
+                <input v-if="key.toLowerCase() === 'id'"
+                       :name="key"
+                       type="hidden"
+                       v-model="dataCopy[key]">
                 <bit-input class="smart-form--input"
-                        v-if="isValidField(item, key)"
+                        v-else-if="isValidField(item, key)"
                         :stack-elements="true"
                         :input-name="key"
                         :input-type="getType(item)"
@@ -127,7 +131,7 @@
         return value !== 0 && value.toString() !== new Date('1/1/0001').toString();
       },
       isValidField: function (item, key) {
-        return (!Array.isArray(item) && !this.ignoreFields.includes(key) && key.toLowerCase() !== 'id');
+        return (!Array.isArray(item) && !this.ignoreFields.includes(key));
       },
       setRequiredInputs: function () {
         for (let requiredInput of this.requiredInputs) {

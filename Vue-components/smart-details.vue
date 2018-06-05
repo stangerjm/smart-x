@@ -6,7 +6,7 @@
                 <dl v-for="column in detailColumns" class="smart-details--list" :style="{width: 100 / detailColumns.length + '%'}">
                     <div v-for="(detail, key) in column" class="smart-details--detail">
                         <dt>{{formatFromCamelCase(key)}}</dt>
-                        <dd v-if="typeof(detail) !== typeof(true)">{{detail}}</dd>
+                        <dd v-if="typeof(detail) !== typeof(true)">{{getValue(detail)}}</dd>
                         <dd v-else><input type="checkbox" :checked="detail" disabled></dd>
                     </div>
                 </dl>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import { parseJsonDate } from './helpers';
+
   /**
    * A component that renders a model as a list of details.
    * @author James Stanger, Washington State Patrol
@@ -48,6 +50,17 @@
     data() {
       return {
         detailColumns: []
+      }
+    },
+    methods: {
+      getValue: function(detail) {
+        let detailValue = parseJsonDate(detail);
+        if (detailValue !== null) {
+            let options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+            return detailValue.toLocaleDateString('en-us', options);
+        } else {
+          return detail;
+        }
       }
     },
     /**

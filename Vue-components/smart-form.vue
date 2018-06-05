@@ -26,6 +26,7 @@
   import bitInput from './bit-input';
   import bitBtn from './bit-btn';
   import { EventBus } from './event-bus';
+  import { parseJsonDate } from './helpers';
 
   /**
    * A component that renders a dynamic form based on a model.
@@ -118,21 +119,6 @@
           return 'text';
         }
       },
-      /**
-       * Parses a JSON date into a new Date object.
-       * @param date
-       * @returns {*}
-       */
-      parseJsonDate: function(date) {
-        let dateRegex = /\/Date\((\d+)(?:-\d+)?\)\//i;
-        if (date === '/Date(-62135568000000)/') {
-          return new Date('1/1/0001');
-        } else if (dateRegex.test(date)) {
-          return new Date(parseInt(dateRegex.exec(date)[1], 10));
-        } else {
-          return null;
-        }
-      },
       determineIsEmpty: function (value) {
         if (!value || value === null) {
           return false;
@@ -162,7 +148,7 @@
         let model = this.masterData;
 
         for (let prop in model) {
-          let jsonDate = this.parseJsonDate(model[prop]);
+          let jsonDate = parseJsonDate(model[prop]);
           if (jsonDate !== null) {
             model[prop] = jsonDate.toString();
           }

@@ -12,13 +12,13 @@
                                 :is-disabled="isHidden"
                                 input-type="text"
                                 label-text="Find by ID/Name"
-                                input-name="search-field">
+                                input-name="searchField">
                         </bit-input>
                         <bit-input
                                 :is-disabled="isHidden"
                                 input-type="number"
                                 label-text="Number of Results Per Page"
-                                input-name="page-number">
+                                input-name="pageNumber">
                         </bit-input>
                         <bit-btn :disabled="isHidden" type="submit" btn-style="search">Search</bit-btn>
                     </div>

@@ -7,7 +7,7 @@
             <slot></slot>
             <template v-for="(item, key) in masterData">
                 <bit-input class="smart-form--input"
-                        v-if="!Array.isArray(item)"
+                        v-if="isValidField(item, key)"
                         :stack-elements="true"
                         :input-name="key"
                         :input-type="getType(item)"
@@ -77,6 +77,10 @@
         type: Array,
         default: () => []
       },
+      ignoreFields: {
+        type: Array,
+        default: () => []
+      },
       /**
        * A title that will display at the top of the form.
        */
@@ -135,6 +139,9 @@
         }
 
         return value !== 0 && value.toString() !== new Date('1/1/0001').toString();
+      },
+      isValidField: function (item, key) {
+        return (!Array.isArray(item) && !this.ignoreFields.includes(key) && key.toLowerCase() !== 'id');
       },
       setRequiredInputs: function () {
         for (let requiredInput of this.requiredInputs) {

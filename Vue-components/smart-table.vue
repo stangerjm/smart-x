@@ -15,13 +15,18 @@
             <th>Actions</th>
         </tr>
         <tr class="record" v-for="item in tableData">
-            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)"
-                :class="{'record-key': index < 2}">{{item[key]}}
+            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)" :class="{'record-key': index < 2}">
+                <template v-if="typeof(item[key]) === typeof(true)">
+                    <input type="checkbox" :checked="item[key]" disabled>
+                </template>
+                <template v-else>
+                    {{getValue(item[key])}}
+                </template>
             </td>
             <td>
                 <block-action-container
                         :default-ctx="defaultContext"
-                        :item-id="item.id"
+                        :item-id="getItemId(item)"
                         :details-btn="allowDetails"
                         :details-ctx="item.detailsContext"
                         :edit-btn="allowEdit"
@@ -39,6 +44,7 @@
   import blockActionContainer from './block-actionContainer'
   import bitBtn from './bit-btn'
   import bitIcon from './bit-icon'
+  import { parseJsonDate } from "./helpers";
 
   /**
    * A component that renders a responsive table from a data-set.
@@ -100,6 +106,10 @@
         type: Boolean,
         default: true
       },
+      ignoreFields: {
+        type: Array,
+        default: () => []
+      }
     },
     methods: {
       /**
@@ -127,6 +137,10 @@
        * @returns {boolean}
        */
       isDisplayHeading: function (heading) {
+        if (this.ignoreFields.includes(heading)) {
+          return false;
+        }
+
         switch (heading) {
           case 'detailsContext':
           case 'editContext':
@@ -134,6 +148,20 @@
             return false;
           default:
             return true;
+        }
+      },
+      getItemId: function (item) {
+        let keys = Object.keys(item);
+        let idKey = keys.find(id => id.toLowerCase() === 'id');
+        return item[idKey];
+      },
+      getValue: function(detail) {
+        let detailValue = parseJsonDate(detail);
+        if (detailValue !== null) {
+          let options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+          return detailValue.toLocaleDateString('en-us', options);
+        } else {
+          return detail;
         }
       }
     }

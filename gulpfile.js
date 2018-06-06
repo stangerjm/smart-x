@@ -193,6 +193,7 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
             // Ignore all HTML files within the templates folder
             blacklist: ['/index.html', '/', '/?*']
         },
+        browser: 'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
         notify: {
             styles: [
                 'display: none',

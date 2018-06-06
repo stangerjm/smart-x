@@ -45,7 +45,7 @@
     @include hide();
   }
 
-  @media screen and (max-width: $break-sml) {
+  @media screen and (max-width: $break-med) {
     td:not(.record-key), th {
       @include hide();
     }
@@ -81,12 +81,13 @@
 ///             $(this).parent().toggleClass("record-is-expanded");
 ///     });
 .record-is-expanded {
-  @media screen and (max-width: $break-sml) {
+  @media screen and (max-width: $break-med) {
     @include alter-responsive(column, null, null);
     position: relative;
 
     .record-key {
       max-width: none;
+      flex: 1;
     }
 
     td:last-of-type {
@@ -132,7 +133,7 @@
 .smart-table {
   @extend %table;
 
-  @media screen and (min-width: $break-sml + 1) {
+  @media screen and (min-width: $break-med + 1) {
     &, th, td {
       border: 1px solid black;
     }
@@ -144,7 +145,7 @@
     }
   }
 
-  @media screen and (max-width: $break-med) {
+  @media screen and (max-width: $break-lrg) {
     table-layout: fixed;
   }
 
@@ -161,6 +162,10 @@
 ///     </td>
 .record-key {
   max-width: 200px;
+
+  @media screen and (max-width: $break-med) {
+    flex: 1 100px;
+  }
 }
 
 /// Applied to a sortable table column heading to disable select

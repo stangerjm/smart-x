@@ -1,9 +1,9 @@
 <template>
     <table class="smart-table">
-        <tr class="record table-heading">
-            <th class="sortable" v-for="heading in Object.keys(tableData[0])" v-if="isDisplayHeading(heading)">
+        <tr class="smart-table--row smart-table--head">
+            <th class="smart-table--heading smart-table--sortableHeading" v-for="heading in Object.keys(tableData[0])" v-if="isDisplayHeading(heading)">
                 <template v-if="!unsearchableHeadings.includes(heading)">
-                    <a class="wsp-link" :href="'/' + defaultContext + '?sortOrder=' + heading">
+                    <a class="smart-table--link" :href="'/' + defaultContext + '?sortOrder=' + heading">
                         {{formatFromCamelCase(heading)}}
                     </a>
                     <bit-icon icon-type="sort"></bit-icon>
@@ -12,10 +12,11 @@
                     {{formatFromCamelCase(heading)}}
                 </template>
             </th>
-            <th>Actions</th>
+            <th class="smart-table--heading">Actions</th>
         </tr>
-        <tr class="record" v-for="item in tableData">
-            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)" :class="{'record-key': index < 2}">
+        <tr class="smart-table--row" v-for="item in tableData">
+            <td v-for="(key, index) in Object.keys(item)" v-if="isDisplayHeading(key)" :class="{'smart-table--cell': true, 'smart-table--key': index < 2}">
+                <span class="smart-table--inlineHeading">{{formatFromCamelCase(key)}}:</span>
                 <template v-if="typeof(item[key]) === typeof(true)">
                     <input type="checkbox" :checked="item[key]" disabled>
                 </template>
@@ -23,7 +24,7 @@
                     {{getValue(item[key])}}
                 </template>
             </td>
-            <td>
+            <td class="smart-table--cell">
                 <block-action-container
                         :default-ctx="defaultContext"
                         :item-id="getItemId(item)"
@@ -35,7 +36,7 @@
                         :delete-ctx="item.deleteContext">
                 </block-action-container>
             </td>
-            <bit-btn btn-style="expand" @click.native="expandRecord"></bit-btn>
+            <bit-btn class="smart-table--expand" btn-style="expand" @click.native="expandRecord"></bit-btn>
         </tr>
     </table>
 </template>

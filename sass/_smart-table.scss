@@ -6,72 +6,121 @@
 /// @author James Stanger
 ////
 
-/// Sets base styles for tables.
-/// @example scss - Basic use
-///    .my-table {
-///      @extend %table;
-///    }
-%table {
+/// Sets responsive styling on an HTML table.
+/// @example markup - Basic use
+///     <table class="smart-table">
+///         <!-- TABLE -->
+///     </table>
+.smart-table {
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
+  border: 1px solid black;
 
-  .record:nth-child(even) {
+  @media screen and (max-width: $break-lrg) {
+    table-layout: fixed;
+  }
+}
+
+.smart-table--head {
+  text-align: center;
+  background: #cecece;
+
+  @media screen and (max-width: $break-med) {
+    font-size: 0.75em;
+  }
+}
+
+.smart-table--heading {
+  border: 1px solid black;
+
+  @media screen and (max-width: $break-med) {
+    @include hide();
+  }
+}
+
+.smart-table--inlineHeading {
+  display: none;
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+/// Applied to a sortable table column heading to disable select
+/// so user does not accidentally select text when trying to sort.
+.smart-table--sortableHeading {
+  @include disable-select();
+}
+
+/// Set each record to fill container and be center aligned.
+.smart-table--row {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  justify-content: space-between;
+
+  &:nth-child(even) {
     background: $uniform-blue--light;
   }
 
-  .table-heading {
-    text-align: center;
-    background: #cecece;
-
-    @media screen and (max-width: $break-med) {
-      font-size: 0.75em;
-    }
-  }
-
-  .wsp-link {
-    color: black;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .heading-cell {
-    text-align: center;
-  }
-
-  .bit-btn-expand {
-    @include hide();
-  }
-
   @media screen and (max-width: $break-med) {
-    td:not(.record-key), th {
-      @include hide();
-    }
-
-    td:empty {
-      border: none;
-    }
-
-    tr:not(.table-heading) {
+    &:not(.smart-table--head) {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      align-items: center;
       padding: 10px 0;
     }
 
-    .bit-btn-expand {
-      display: inherit;
-      display: unset;
+    &.record-is-expanded {
+      align-items: stretch;
     }
   }
 }
 
-/// Set each record to fill container and be center aligned.
-.record {
-  width: 100%;
-  text-align: center;
+.smart-table--cell {
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media screen and (max-width: $break-med) {
+    border: none;
+
+    &:not(.smart-table--key) {
+      @include hide();
+    }
+
+    //TODO: Make empty cells look good
+  }
+}
+
+/// Class indicating that a part of the record is key information
+/// and should be displayed even when the record is expanded.
+/// @example markup - HTML Use
+///     <td class="smart-table--key">
+///         {{recordId}}
+///     </td>
+.smart-table--key {
+  min-width: 50px;
+  flex: 1;
+}
+
+.smart-table--link {
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.smart-table--expand {
+  @include hide();
+  position: relative;
+  right: 0;
+  top: 0;
+
+  @media screen and (max-width: $break-med) {
+    display: inherit;
+    display: unset;
+  }
 }
 
 /// Expand record into vertical view. Set expand button to indicate record is expanded.
@@ -85,91 +134,52 @@
     @include alter-responsive(column, null, null);
     position: relative;
 
-    .record-key {
+    .smart-table--key {
       max-width: none;
-      flex: 1;
+      flex: none;
     }
 
-    td:last-of-type {
-      border-bottom: none;
-    }
-
-    td:not(.record-key) {
-      display: inline-block;
-    }
-
-    td {
+    .smart-table--cell {
       text-align: left;
       border-bottom: 1px solid black;
       border-collapse: collapse;
       margin: 5px 0;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
 
       //for IE. Has no effect on Chrome or Firefox
       float: right;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      /* Beat .smart-table--cell:not(.smart-table--key) selector to override display: none property */
+      &:not(.smart-table--key) {
+        display: inline-block;
+      }
+
+      &:first-child {
+        padding-bottom: 10px;
+      }
     }
 
-    td:first-child {
-      padding-bottom: 10px;
-    }
-
-    .bit-btn-expand {
+    .smart-table--expand {
       max-width: 50px;
       position: absolute;
-      right: 0;
-      top: 5px;
+      top: 10px;
 
       &:after {
-        content: "-" !important;
+        content: "-";
+      }
+    }
+
+    .smart-table--inlineHeading {
+      @media screen and (max-width: $break-med) {
+        display: inline;
+        margin: 0 auto;
       }
     }
   }
-}
-
-/// Sets responsive styling on an HTML table.
-/// @example markup - Basic use
-///     <table class="smart-table">
-///         <!-- TABLE -->
-///     </table>
-.smart-table {
-  @extend %table;
-
-  @media screen and (min-width: $break-med + 1) {
-    &, th, td {
-      border: 1px solid black;
-    }
-
-    td {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  }
-
-  @media screen and (max-width: $break-lrg) {
-    table-layout: fixed;
-  }
-
-  &--no-border {
-    @extend %table;
-  }
-}
-
-/// Class indicating that a part of the record is key information
-/// and should be displayed even when the record is expanded.
-/// @example markup - HTML Use
-///     <td class="record-key">
-///         {{recordId}}
-///     </td>
-.record-key {
-  max-width: 200px;
-
-  @media screen and (max-width: $break-med) {
-    flex: 1 100px;
-  }
-}
-
-/// Applied to a sortable table column heading to disable select
-/// so user does not accidentally select text when trying to sort.
-.sortable {
-  @include disable-select();
 }

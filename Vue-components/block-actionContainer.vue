@@ -1,10 +1,49 @@
 <template>
     <div class="block-actionContainer">
-        <bit-btn btn-style="details" :is-link="true" :href="'/' + detailsContext + '/Details/' + itemId"
-                 v-if="detailsBtn"></bit-btn>
-        <bit-btn btn-style="edit" :is-link="true" :href="'/' + editContext + '/Edit/' + itemId" v-if="editBtn"></bit-btn>
-        <bit-btn btn-style="delete" :is-link="true" :href="'/' + deleteContext + '/Delete/' + itemId"
-                 v-if="deleteBtn"></bit-btn>
+        <template v-if="detailsBtn">
+            <template v-if="openModalDetails">
+                <bit-btn btn-style="details"
+                         btn-event="modal-open"
+                         :path="getActionPath('Details', detailsContext)">
+                </bit-btn>
+            </template>
+            <template v-else>
+                <bit-btn btn-style="details"
+                         :is-link="true"
+                         :href="getActionPath('Details', detailsContext)">
+                </bit-btn>
+            </template>
+        </template>
+
+        <template v-if="editBtn">
+            <template v-if="openModalEdit">
+                <bit-btn btn-style="edit"
+                         btn-event="modal-open"
+                         :path="getActionPath('Edit', editContext)">
+                </bit-btn>
+            </template>
+            <template v-else>
+                <bit-btn btn-style="edit"
+                         :is-link="true"
+                         :href="getActionPath('Edit', editContext)">
+                </bit-btn>
+            </template>
+        </template>
+
+        <template v-if="deleteBtn">
+            <template v-if="openModalDelete">
+                <bit-btn btn-style="delete"
+                         btn-event="modal-open"
+                         :path="getActionPath('Delete', deleteContext)">
+                </bit-btn>
+            </template>
+            <template v-else>
+                <bit-btn btn-style="delete"
+                         :is-link="true"
+                         :href="getActionPath('Delete', deleteContext)">
+                </bit-btn>
+            </template>
+        </template>
     </div>
 </template>
 
@@ -73,6 +112,18 @@
        */
       deleteCtx: {
         type: String
+      },
+      openModalEdit: {
+        type: Boolean,
+        default: false
+      },
+      openModalDelete: {
+        type: Boolean,
+        default: false
+      },
+      openModalDetails: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -84,6 +135,11 @@
     },
     components: {
       bitBtn
+    },
+    methods: {
+      getActionPath: function(action, context) {
+        return '/' + context + '/' + action + '/' + this.itemId;
+      }
     }
   }
 </script>

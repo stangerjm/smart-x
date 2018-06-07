@@ -135,12 +135,12 @@
       EventBus.$on('modal-open', (payload) => {
         if (payload) {
           Axios.get(payload)
-            .then(response => {
-              EventBus.$emit('modal-data-received', {
-                data: response.data,
-                path: payload
-              });
-            });
+               .then(response => {
+                 EventBus.$emit('modal-data-received', {
+                   data: response.data,
+                   path: payload
+                 });
+               });
         }
 
         this.open();

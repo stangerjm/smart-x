@@ -30,10 +30,13 @@
                         :item-id="getItemId(item)"
                         :details-btn="allowDetails"
                         :details-ctx="item.detailsContext"
+                        :open-modal-details="openModalAll || openModalDetails"
                         :edit-btn="allowEdit"
                         :edit-ctx="item.editContext"
+                        :open-modal-edit="openModalAll || openModalEdit"
                         :delete-btn="allowDelete"
-                        :delete-ctx="item.deleteContext">
+                        :delete-ctx="item.deleteContext"
+                        :open-modal-delete="openModalAll || openModalDelete">
                 </block-action-container>
             </td>
             <bit-btn class="smart-table--expand" btn-style="expand" @click.native="expandRecord"></bit-btn>
@@ -110,6 +113,22 @@
       ignoreFields: {
         type: Array,
         default: () => []
+      },
+      openModalAll: {
+        type: Boolean,
+        default: false
+      },
+      openModalEdit: {
+        type: Boolean,
+        default: false
+      },
+      openModalDelete: {
+        type: Boolean,
+        default: false
+      },
+      openModalDetails: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {

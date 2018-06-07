@@ -22,7 +22,7 @@ import en from "element-ui/lib/locale/lang/en";
 import locale from 'element-ui/lib/locale';
 
 //Apply base styles to all components
-require('../sass/_base.scss');
+require('../sass/base/_base.scss');
 
 locale.use(en);
 

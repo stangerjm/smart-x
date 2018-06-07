@@ -11,8 +11,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/templates";
-    @import "../sass/variables";
+    @import "../sass/global/templates";
+    @import "../sass/global/variables";
 
     .form-section--heading {
         @extend %form-segment;

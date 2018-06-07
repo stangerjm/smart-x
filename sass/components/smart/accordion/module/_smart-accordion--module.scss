@@ -1,0 +1,62 @@
+@import "../../../../global/variables";
+
+%drop-arrow {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 13px;
+  right: 10px;
+  top: 17px;
+  background: transparent url(/images/sort.png) 0 -11px / 15px no-repeat;
+}
+
+.smart-accordion {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.smart-accordion--toggle {
+  padding: 5px 20px;
+  position: relative;
+  z-index: 20;
+  display: block;
+  cursor: pointer;
+  min-height: 50px;
+  width: 100%;
+  background: $generic-grey;
+  border: none;
+  text-align: left;
+
+  &:hover {
+    background: lighten($generic-grey, 5%);
+
+    &:after {
+      @extend %drop-arrow;
+    }
+  }
+
+  &.is-expanded {
+    background: saturate($uniform-blue, 10%);
+
+    &:hover {
+      &:after {
+        @extend %drop-arrow;
+        background: url(/images/sort.png) 0 3px / 15px no-repeat;
+      }
+    }
+  }
+}
+
+.smart-accordion--content {
+  overflow: hidden;
+  height: 0;
+  position: relative;
+  z-index: 10;
+  transition: height 500ms ease-in-out;
+  background: #E9E9E9;
+  box-shadow: 0 0 2px 0 inset;
+
+  > * {
+    margin: 0;
+  }
+}

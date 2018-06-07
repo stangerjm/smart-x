@@ -101,5 +101,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/bit-input";
+    @import "../sass/components/bit/input/bit-input";
 </style>

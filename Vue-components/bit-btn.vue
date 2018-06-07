@@ -82,5 +82,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/bit-btn";
+    @import "../sass/components/bit/btn/bit-btn";
 </style>

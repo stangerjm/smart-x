@@ -1,0 +1,33 @@
+@import "../../../../global/variables";
+@import "../../../../global/templates";
+
+/// Styles a user / profile icon.
+.bit-icon-user {
+  height: 18px;
+
+  &:before {
+    @extend %icon;
+    @include icon-url('user.png', 12px);
+    height: 18px;
+  }
+}
+
+/// Icon that is added to a sortable table column to indicate the
+/// column is sortable.
+.bit-icon-sort {
+  display: inline-block;
+
+  &:before {
+    @extend %icon;
+    @include icon-url('sort.png', 0.6em);
+    height: 1em;
+  }
+}
+
+.bit-icon-error {
+  &:before {
+    @extend %icon;
+    content: '!';
+    color: red;
+  }
+}

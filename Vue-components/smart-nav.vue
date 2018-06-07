@@ -112,5 +112,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-nav";
+    @import "../sass/components/smart/nav/smart-nav";
 </style>

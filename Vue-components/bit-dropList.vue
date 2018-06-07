@@ -27,5 +27,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/bit-dropList";
+    @import "../sass/components/bit/dropList/bit-dropList";
 </style>

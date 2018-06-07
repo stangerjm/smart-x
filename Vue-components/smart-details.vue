@@ -102,5 +102,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-details";
+    @import "../sass/components/smart/details/smart-details";
 </style>

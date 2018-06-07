@@ -99,5 +99,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/block-multiSelect";
+    @import "../sass/components/block/multiSelect/block-multiSelect";
 </style>

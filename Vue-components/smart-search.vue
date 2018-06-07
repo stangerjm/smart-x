@@ -130,5 +130,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-search";
+    @import "../sass/components/smart/search/smart-search";
 </style>

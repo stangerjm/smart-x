@@ -145,5 +145,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/block-actionContainer";
+    @import "../sass/components/block/actionContainer/block-actionContainer";
 </style>

@@ -15,9 +15,9 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/templates";
-    @import "../sass/variables";
-    @import "../sass/misc";
+    @import "../sass/global/templates";
+    @import "../sass/global/variables";
+    @import "../sass/global/misc";
 
     .form-section--footer {
         @extend %form-segment;

@@ -109,5 +109,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-accordion";
+    @import "../sass/components/smart/accordion/smart-accordion";
 </style>

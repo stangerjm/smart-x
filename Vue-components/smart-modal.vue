@@ -150,5 +150,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-modal";
+    @import "../sass/components/smart/modal/smart-modal";
 </style>

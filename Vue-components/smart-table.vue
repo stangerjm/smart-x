@@ -189,5 +189,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/smart-table";
+    @import "../sass/components/smart/table/smart-table";
 </style>

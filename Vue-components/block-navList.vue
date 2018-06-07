@@ -51,5 +51,5 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/block-navList";
+    @import "../sass/components/block/navList/block-navList";
 </style>

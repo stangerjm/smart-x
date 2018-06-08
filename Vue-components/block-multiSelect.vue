@@ -100,5 +100,6 @@
 
 <style scoped lang="scss">
     @import "../sass/global/templates";
+    @import "../sass/global/variables";
     @import "../sass/components/block/multiSelect/block-multiSelect";
 </style>

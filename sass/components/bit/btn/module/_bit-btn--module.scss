@@ -78,7 +78,7 @@
 
     &:before {
       @include icon-url('search.png', 13px);
-      @extend %icon;
+      @include icon;
     }
   }
 
@@ -88,7 +88,7 @@
     &:before {
       content: '+';
       font-weight: bolder;
-      @extend %icon;
+      @include icon;
     }
   }
 
@@ -97,7 +97,7 @@
     @extend %clickable;
     &:before {
       @include icon-url('reset.png', 13px);
-      @extend %icon;
+      @include icon;
     }
   }
 
@@ -107,7 +107,7 @@
 
     &:after {
       @include icon-url('details-blue.png', 25px);
-      @extend %icon;
+      @include icon;
 
       height: 25px;
       width: 18px;
@@ -121,7 +121,7 @@
     line-height: 1.6;
 
     &:after {
-      @extend %icon;
+      @include icon;
       content: "+";
       font-size: 15px;
       font-weight: 900;
@@ -138,7 +138,7 @@
     @extend %clickable--shadowless;
 
     &:after {
-      @extend %icon;
+      @include icon;
       content: "+";
       transform: rotate(45deg) translate(3px, -4px);
       color: red;
@@ -153,7 +153,7 @@
 
     &:after {
       @include icon-url('edit.png', 17px);
-      @extend %icon;
+      @include icon;
       width: 20px;
       height: 25px;
     }
@@ -169,7 +169,7 @@
     @include counteract-bootstrap('datepicker');
 
     &:before {
-      @extend %icon;
+      @include icon;
       @include icon-url('calendar.png', $datepicker-height - 5);
       height: $datepicker-height;
       width: $datepicker-height - 5;
@@ -182,7 +182,7 @@
 
     &:before {
       content: '+';
-      @extend %icon;
+      @include icon;
       transform: translateX(8px) rotate(45deg);
       height: 0;
       font-size: 1.5em;
@@ -196,7 +196,7 @@
     border: none;
 
     &:before {
-      @extend %icon;
+      @include icon;
       height: 20px;
       width: 20px;
       @include icon-url('search.png', 18px);
@@ -210,7 +210,7 @@
     border: none;
 
     &:before {
-      @extend %icon;
+      @include icon;
       content: '+';
       color: white;
       font-size: 2em;

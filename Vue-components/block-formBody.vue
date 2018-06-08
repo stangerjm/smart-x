@@ -24,7 +24,7 @@
     /// .form-section, a heading to be styled using .form-section--heading
     /// , and a footer to be styled using .form-section--footer.
     .form-section {
-        @extend %form-segment;
+        @include form-segment;
         align-items: center;
         @include format-responsive(row, null, null) {
             grid-template-columns: 125px 1fr;

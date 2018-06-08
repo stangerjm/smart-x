@@ -27,7 +27,7 @@
 }
 
 .smart-details--detail {
-  @extend %flex-container;
+  @include flex-container;
   padding: 5px;
 
   @media screen and (max-width: $break-xs) {

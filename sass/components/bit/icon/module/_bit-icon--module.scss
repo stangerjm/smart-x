@@ -6,7 +6,7 @@
   height: 18px;
 
   &:before {
-    @extend %icon;
+    @include icon;
     @include icon-url('user.png', 12px);
     height: 18px;
   }
@@ -18,7 +18,7 @@
   display: inline-block;
 
   &:before {
-    @extend %icon;
+    @include icon;
     @include icon-url('sort.png', 0.6em);
     height: 1em;
   }
@@ -26,7 +26,7 @@
 
 .bit-icon-error {
   &:before {
-    @extend %icon;
+    @include icon;
     content: '!';
     color: red;
   }

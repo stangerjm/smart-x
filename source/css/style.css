@@ -9,37 +9,6 @@
  * BIT-BTN STYLES
  *************************/
 
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .bit-btn-details,
 .bit-btn-expand,
 .bit-btn-delete,
@@ -105,19 +74,35 @@
 
 .bit-btn-search:before {
     background: url("/images/search.png") center/13px no-repeat;
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
 }
 
 .bit-btn-add:before {
     content: '+';
     font-weight: bolder;
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
 }
 
 .bit-btn-reset:before {
     background: url("/images/reset.png") center/13px no-repeat;
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
 }
 
 .bit-btn-details:after {
     background: url("/images/details-blue.png") center/25px no-repeat;
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     height: 25px;
     width: 18px;
     margin-right: 0;
@@ -128,6 +113,10 @@
 }
 
 .bit-btn-expand:after {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     content: "+";
     font-size: 15px;
     font-weight: 900;
@@ -139,6 +128,10 @@
 }
 
 .bit-btn-delete:after {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     content: "+";
     transform: rotate(45deg) translate(3px, -4px);
     color: red;
@@ -148,6 +141,10 @@
 
 .bit-btn-edit:after {
     background: url("/images/edit.png") center/17px no-repeat;
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     width: 20px;
     height: 25px;
 }
@@ -161,6 +158,10 @@
 }
 
 .bit-btn-datepicker:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     background: url("/images/calendar.png") center/20px no-repeat;
     height: 25px;
     width: 20px;
@@ -168,6 +169,10 @@
 
 .bit-btn-exit:before {
     content: '+';
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     transform: translateX(8px) rotate(45deg);
     height: 0;
     font-size: 1.5em;
@@ -181,6 +186,10 @@
 }
 
 .bit-btn-plainSearch:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     height: 20px;
     width: 20px;
     background: url("/images/search.png") center/18px no-repeat;
@@ -194,6 +203,10 @@
 }
 
 .bit-btn-plainExit:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     content: '+';
     color: white;
     font-size: 2em;
@@ -204,42 +217,15 @@
  * BIT-ICON STYLES
  *************************/
 
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .bit-icon-user {
     height: 18px;
 }
 
 .bit-icon-user:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     background: url("/images/user.png") center/12px no-repeat;
     height: 18px;
 }
@@ -249,11 +235,19 @@
 }
 
 .bit-icon-sort:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     background: url("/images/sort.png") center/0.6em no-repeat;
     height: 1em;
 }
 
 .bit-icon-error:before {
+    content: " ";
+    height: 13px;
+    display: inline-block;
+    width: 13px;
     content: '!';
     color: red;
 }
@@ -310,37 +304,6 @@
  * BIT-INPUT STYLES
  *************************/
 
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .bit-input {
     display: flex;
     align-items: center;
@@ -355,6 +318,8 @@
 }
 
 .bit-input-stacked {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     margin: 10px;
     align-items: flex-start;
@@ -401,37 +366,6 @@
 /**************************
  * BLOCK-ACTIONCONTAINER STYLES
  *************************/
-
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .block-actionContainer {
     display: flex;
@@ -522,37 +456,6 @@
 /**************************
  * BLOCK-NAVLIST STYLES
  *************************/
-
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .wsp-link,
 .clear-link,
@@ -740,37 +643,6 @@
  * SMART-DETAILS STYLES
  *************************/
 
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .smart-details--heading {
     padding: 5px 10px;
     margin: 0;
@@ -798,6 +670,8 @@
 }
 
 .smart-details--detail {
+    display: flex;
+    flex-wrap: wrap;
     padding: 5px;
 }
 
@@ -849,37 +723,6 @@
 /**************************
  * SMART-MODAL STYLES
  *************************/
-
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .smart-modal--close {
     height: 30px;
@@ -949,37 +792,6 @@
 /**************************
  * SMART-NAV STYLES
  *************************/
-
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .smart-nav {
     border-bottom: 1px solid #f79111;
@@ -1054,37 +866,6 @@
  * SMART-SEARCH STYLES
  *************************/
 
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .smart-search {
     display: flex;
     flex-direction: column;
@@ -1103,6 +884,8 @@
 
 .smart-search--heading {
     transition: min-height 500ms;
+    width: 100%;
+    box-sizing: border-box;
     border-radius: 10px 10px 0 0;
     align-items: center;
     display: flex;
@@ -1164,37 +947,6 @@
 /**************************
  * SMART-TABLE STYLES
  *************************/
-
-.bit-input-stacked,
-.smart-details--detail {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.bit-btn-search:before,
-.bit-btn-add:before,
-.bit-btn-reset:before,
-.bit-btn-details:after,
-.bit-btn-expand:after,
-.bit-btn-delete:after,
-.bit-btn-edit:after,
-.bit-btn-datepicker:before,
-.bit-btn-exit:before,
-.bit-btn-plainSearch:before,
-.bit-btn-plainExit:before,
-.bit-icon-user:before,
-.bit-icon-sort:before,
-.bit-icon-error:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-}
-
-.smart-search--heading {
-    width: 100%;
-    box-sizing: border-box;
-}
 
 .smart-table {
     width: 100%;

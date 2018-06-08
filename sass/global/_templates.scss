@@ -128,7 +128,7 @@
 ///   .smart-box {
 ///     @extend %flex-container;
 ///  }
-%flex-container {
+@mixin flex-container {
   display: flex;
   flex-wrap: wrap;
 }
@@ -139,7 +139,7 @@
 ///   .icon {
 ///     @extend %icon;
 ///  }
-%icon {
+@mixin icon {
   content: " ";
   height: 13px;
   display: inline-block;
@@ -147,7 +147,7 @@
 }
 
 /// Sets base layout styles for a section of a form.
-%form-segment {
+@mixin form-segment {
   width: 100%;
   box-sizing: border-box;
 }

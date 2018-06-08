@@ -24,8 +24,8 @@
   height: 100%;
   overflow: auto;
   /* fallback color */
-  background-color: #0d0908;
-  background-color: rgba(13, 9, 8, 0.5);
+  background-color: $theme-black;
+  background-color: rgba($theme-black, 0.5);
 }
 
 /// Sets styles for main content portion of a smart-modal
@@ -63,7 +63,7 @@
 
 /// Sets head section of a smart-modal
 .smart-modal--head {
-  background: $generic-grey;
+  background: $theme-generic;
 }
 
 /// Sets body section of a smart-modal

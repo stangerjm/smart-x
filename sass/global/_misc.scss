@@ -6,7 +6,7 @@
 /// Sets base styles for a link
 %link {
   text-decoration: none;
-  color: #5e5e5e;
+  color: darken($theme-generic, 40%);
 }
 
 /// Styles a link with base link styles and defines hover transitions.
@@ -15,7 +15,7 @@
   transition: color 300ms ease-in-out;
 
   &:hover {
-    color: $link-blue;
+    color: $theme-link;
   }
 }
 

@@ -5,14 +5,14 @@
   padding: 5px 10px;
   margin: 0;
   border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid grey;
-  background: $generic-grey;
+  border-bottom: 1px solid $theme-black;
+  background: $theme-generic;
 }
 
 .smart-details--container {
   width: 80%;
   margin: 10px auto;
-  border: 1px solid black;
+  border: 1px solid $theme-black;
   border-radius: 5px;
   //padding: 10px;
 }

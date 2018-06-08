@@ -15,7 +15,7 @@
   width: 100%;
   border-spacing: 0;
   border-collapse: separate;
-  border: 1px solid black;
+  border: 1px solid $theme-black;
 
   @media screen and (max-width: $break-lrg) {
     table-layout: fixed;
@@ -24,7 +24,7 @@
 
 .smart-table--head {
   text-align: center;
-  background: #cecece;
+  background: darken($theme-generic, 10%);
 
   @media screen and (max-width: $break-med) {
     font-size: 0.75em;
@@ -32,7 +32,7 @@
 }
 
 .smart-table--heading {
-  border: 1px solid black;
+  border: 1px solid $theme-black;
 
   @media screen and (max-width: $break-med) {
     @include hide();
@@ -59,7 +59,7 @@
   justify-content: space-between;
 
   &:nth-child(even) {
-    background: $uniform-blue--light;
+    background: $theme-main--light;
   }
 
   @media screen and (max-width: $break-med) {
@@ -76,7 +76,7 @@
 }
 
 .smart-table--cell {
-  border: 1px solid black;
+  border: 1px solid $theme-black;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -104,7 +104,7 @@
 }
 
 .smart-table--link {
-  color: black;
+  color: $theme-black;
 
   &:hover {
     text-decoration: underline;
@@ -141,7 +141,7 @@
 
     .smart-table--cell {
       text-align: left;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid $theme-black;
       border-collapse: collapse;
       margin: 5px 0;
       white-space: normal;

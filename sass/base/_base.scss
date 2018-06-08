@@ -1,3 +1,5 @@
+@import "../global/variables";
+
 ////
 /// @group Base
 /// @author James Stanger
@@ -10,14 +12,14 @@ body {
 
 /// Sets default header styles.
 h1, h2, h3, h4, h5, h6 {
-  color: black;
+  color: $theme-black;
 }
 
 /// Sets default heading 1 styles.
 h1 {
   font-size: 50px;
-  text-shadow: 1px 1px 0 #fff;
-  font-family: arial black, arial, sans-serif;
+  text-shadow: 1px 1px 0 $theme-white;
+  font-family: arial $theme-black, arial, sans-serif;
 }
 
 /// Sets default heading 2 styles.

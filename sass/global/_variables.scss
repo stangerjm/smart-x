@@ -2,6 +2,57 @@
 /// @group Variables
 ////
 
+//////////////////////////
+// THEME COLORS
+//////////////////////////
+
+/// Theme White
+/// @type Color
+$theme-white: #f9f9f9;
+
+/// Main Theme Color
+/// @type Color
+$theme-main: #a1bae1;
+
+/// Main Color Dark
+/// @type Color
+$theme-main--dark: darken($theme-main, 55%);
+
+/// Main Color Deep
+/// @type Color
+$theme-main--deep: darken($theme-main, 30%);
+
+/// Main Color Light
+/// @type Color
+$theme-main--light: lighten($theme-main, 10%);
+
+/// Link Theme Color
+/// @type Color
+$theme-link: #0063ff;
+
+/// Secondary Theme Color
+$theme-secondary: #fea104;
+
+/// Secondary Color Light
+/// @type Color
+$theme-secondary--light: lighten($theme-secondary, 10%);
+
+/// Secondary Color Deep
+/// @type Color
+$theme-secondary--deep: saturate($theme-secondary, 20%);
+
+/// Black Theme Color
+/// @type Color
+$theme-black: #0d0908;
+
+/// Generic Theme Color
+/// @type Color
+$theme-generic: #d9d9d9;
+
+//////////////////////////
+// MEDIA BREAKS
+//////////////////////////
+
 /// Smallest break
 /// @type Number
 $break-xs: 480px;
@@ -18,53 +69,9 @@ $break-med: 768px;
 /// @type Number
 $break-lrg: 1024px;
 
-/// Theme White
-/// @type Color
-$pearl-white: #f9f9f9;
-
-/// Theme Blue
-/// @type Color
-$uniform-blue: #a1bae1;
-
-/// Dark Blue
-/// @type Color
-$uniform-blue--dark: #103770;
-
-/// Deep Blue
-/// @type Color
-$uniform-blue--deep: #346bab;
-
-/// Light Blue
-/// @type Color
-$uniform-blue--light: #b1c6e1;
-
-/// Link Blue
-/// @type Color
-$link-blue: #0063ff;
-
-/// Theme Gold
-/// @type Color
-$decoration-gold: #c0a248;
-
-/// Theme Bronze
-/// @type Color
-$button-bronze: #bf8929;
-
-/// Light Orange
-/// @type Color
-$patch-orange--light: #feb437;
-
-/// Deep Orange
-/// @type Color
-$patch-orange--deep: #f79111;
-
-/// Theme Black
-/// @type Color
-$hat-black: #0d0908;
-
-/// Generic Grey
-/// @type Color
-$generic-grey: #d9d9d9;
+//////////////////////////
+// Z-INDICES
+//////////////////////////
 
 /// Smallest Z-index level
 /// @type Number

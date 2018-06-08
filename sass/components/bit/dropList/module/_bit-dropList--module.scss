@@ -16,13 +16,13 @@
 
   li {
     /* ensure children are not transparent */
-    background: $uniform-blue;
+    background: $theme-main;
     padding: 3px 0;
     box-shadow: 0 0 3px inset;
 
     &:hover {
       transition: border-top-width 100ms;
-      border-top: 2px groove $patch-orange--deep;
+      border-top: 2px groove $theme-secondary--deep;
     }
   }
 }

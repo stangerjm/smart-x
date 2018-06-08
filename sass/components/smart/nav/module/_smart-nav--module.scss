@@ -3,8 +3,8 @@
 
 /// Sets layout and basic styles for a navigation
 .smart-nav {
-  border-bottom: 1px solid $patch-orange--deep;
-  background-color: $uniform-blue;
+  border-bottom: 1px solid $theme-secondary--deep;
+  background-color: $theme-main;
   position: relative;
 
   &--header {

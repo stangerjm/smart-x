@@ -12,7 +12,7 @@
 ///         @extend %clickable;
 ///     }
 @mixin clickable {
-  box-shadow: 2px 1px 1px $hat-black;
+  box-shadow: 2px 1px 1px $theme-black;
 
   &:active {
     box-shadow: 1px 1px 0;
@@ -37,9 +37,9 @@
   padding: 0;
   min-height: 40px;
   min-width: 60px;
-  background: $uniform-blue--deep;
+  background: $theme-main--deep;
   border: none;
-  color: $pearl-white;
+  color: $theme-white;
   box-sizing: content-box;
   text-align: center;
   text-decoration: none;
@@ -110,7 +110,7 @@ a.bit-btn {
     height: 1.8em;
     text-align: center;
     border-radius: 1em;
-    background: lighten($patch-orange--deep, 20%);
+    background: $theme-secondary--deep;
   }
 }
 
@@ -152,7 +152,7 @@ a.bit-btn {
   padding: 0;
   height: 60px;
   width: 60px;
-  background: $uniform-blue--deep;
+  background: $theme-main--deep;
   border: none;
 
   &:before {
@@ -167,12 +167,12 @@ a.bit-btn {
   padding: 0;
   height: 60px;
   width: 60px;
-  background: $uniform-blue--deep;
+  background: $theme-main--deep;
   border: none;
 
   &:before {
     @include icon("+");
-    color: white;
+    color: $theme-white;
     transform: scale(2) rotateZ(45deg);
   }
 }

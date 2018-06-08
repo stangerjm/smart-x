@@ -14,15 +14,15 @@
   left: 0;
   right: 0;
 
-  li {
+  &--item {
     /* ensure children are not transparent */
     background: $theme-main;
     padding: 3px 0;
-    box-shadow: 0 0 3px inset;
+    box-shadow: $theme-secondary--deep 0 0 3px inset;
 
     &:hover {
       transition: border-top-width 100ms;
-      border-top: 2px groove $theme-secondary--deep;
+      border-top: 2px groove $theme-secondary--light;
     }
   }
 }

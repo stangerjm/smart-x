@@ -1,6 +1,6 @@
 <template>
     <ul class="bit-dropList">
-        <li v-for="item in dropItems">
+        <li class="bit-dropList--item" v-for="item in dropItems">
             <a :href="item.linkPath" class="wsp-link">{{item.itemTitle}}</a>
         </li>
     </ul>

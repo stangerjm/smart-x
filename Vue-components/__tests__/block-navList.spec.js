@@ -43,7 +43,7 @@ describe('block-navList.vue', () => {
     expect(listItems.length).toEqual(navItems.length);
 
     for (let [index, listItem] of listItems.wrappers.entries()) {
-      let link = listItem.find('.wsp-link');
+      let link = listItem.find('.bit-link');
       expect(link.text()).toEqual(navItems[index].itemTitle);
       expect(link.element.getAttribute('href')).toEqual(navItems[index].linkPath);
 

@@ -1,16 +1,17 @@
 @charset "UTF-8";
-.wsp-link,
-.clear-link,
-.clear-link:hover {
+/**********************************************************************
+ *
+ *                         MISC STYLES
+ *
+ *********************************************************************/
+
+.bit-link {
     text-decoration: none;
     color: #737373;
-}
-
-.wsp-link {
     transition: color 300ms ease-in-out;
 }
 
-.wsp-link:hover {
+.bit-link:hover {
     color: #0063ff;
 }
 
@@ -481,7 +482,7 @@ a.bit-btn {
     }
 }
 
-[class*=block-navList]>li>.wsp-link {
+[class*=block-navList]>li>.bit-link {
     color: #f9f9f9;
 }
 

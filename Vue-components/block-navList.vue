@@ -3,7 +3,7 @@
         <span class="block-navList--expand" @click="isExpanded = !isExpanded">|||</span>
         <ul :class="[isExpanded ? 'nav-show' : '', 'block-navList--items']">
             <li v-for="item in listItems">
-                <a :href="item.linkPath" class="wsp-link">{{item.itemTitle}}</a>
+                <a :href="item.linkPath" class="bit-link">{{item.itemTitle}}</a>
                 <bit-drop-list v-if="item.inlineItems" :drop-items="item.inlineItems"></bit-drop-list>
             </li>
         </ul>

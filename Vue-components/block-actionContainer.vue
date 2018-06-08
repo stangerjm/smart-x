@@ -145,5 +145,6 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/global/templates";
     @import "../sass/components/block/actionContainer/block-actionContainer";
 </style>

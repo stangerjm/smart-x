@@ -102,5 +102,7 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../sass/global/variables";
+    @import "../sass/global/templates";
     @import "../sass/components/smart/details/smart-details";
 </style>

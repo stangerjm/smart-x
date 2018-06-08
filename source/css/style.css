@@ -226,32 +226,25 @@ a.bit-btn {
  * BIT-ICON STYLES
  *************************/
 
-.bit-icon-user {
-    height: 18px;
-}
-
 .bit-icon-user:before {
     content: " ";
     display: inline-block;
     background: url("/images/user.png") center/12px no-repeat;
     height: 18px;
-}
-
-.bit-icon-sort {
-    display: inline-block;
+    width: 12px;
 }
 
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
-    background: url("/images/sort.png") center/0.6em no-repeat;
-    height: 1em;
+    background: url("/images/sort.png") center/10px no-repeat;
+    height: 18px;
+    width: 10px;
 }
 
 .bit-icon-error:before {
-    content: " ";
+    content: "!";
     display: inline-block;
-    content: '!';
     color: red;
 }
 

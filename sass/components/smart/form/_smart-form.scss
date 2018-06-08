@@ -1,2 +1,16 @@
-@import "layout/smart-form--layout";
-@import "module/smart-form--module";
+@import "../../../global/variables";
+
+.smart-form {
+  > .smart-form--input {
+    margin: 10px 20px;
+  }
+}
+
+.smart-form--titleSection {
+  background: $theme-generic;
+  padding: 10px;
+}
+
+.smart-form--title {
+  margin: 0;
+}

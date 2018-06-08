@@ -32,7 +32,7 @@
 .bit-btn {
     border-radius: 5px;
     padding: 0;
-    min-height: 40px;
+    min-height: 35px;
     min-width: 60px;
     background: #3867b1;
     border: none;
@@ -45,7 +45,7 @@
 /* Center links by setting line height to equal button height */
 
 a.bit-btn {
-    line-height: 40px;
+    line-height: 35px;
 }
 
 .bit-btn-clickable {
@@ -337,6 +337,7 @@ a.bit-btn {
  *************************/
 
 .block-actionContainer {
+    height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -352,10 +353,7 @@ a.bit-btn {
 
 .block-actionContainer>[class*=bit-btn] {
     margin: 0;
-}
-
-.block-actionContainer a {
-    text-decoration: none;
+    min-width: 30px;
 }
 
 /**************************

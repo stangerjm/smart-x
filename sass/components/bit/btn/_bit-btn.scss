@@ -31,7 +31,7 @@
 .bit-btn {
   border-radius: 5px;
   padding: 0;
-  min-height: 40px;
+  min-height: 35px;
   min-width: 60px;
   background: $theme-main--deep;
   border: none;
@@ -43,7 +43,7 @@
 
 /* Center links by setting line height to equal button height */
 a.bit-btn {
-  line-height: 40px;
+  line-height: 35px;
 }
 
 .bit-btn-clickable {

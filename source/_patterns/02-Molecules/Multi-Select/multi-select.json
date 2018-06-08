@@ -1,0 +1,7 @@
+{
+  "optionsData": "[{'id': 1,'name': 'USA','locations': [{'place': 'Washington'},{'place': 'Oregon'},{'place': 'California'}]},{'id': 2,'name': 'Japan','locations': [{'place': 'Kyoto'},{'place': 'Osaka'},{'place': 'Uwajima'}]}]",
+  "parentName": "Location",
+  "childName": "Place",
+  "parentKey": "name",
+  "childKey": "place"
+}

@@ -360,14 +360,6 @@ a.bit-btn {
  * BLOCK-MUTLISELECT STYLES
  *************************/
 
-.block-multiSelect--parent,
-.block-multiSelect--child {
-    margin: 0 10px;
-    padding: 2px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 3px #d9d9d9;
-}
-
 .block-multiSelect {
     display: flex;
     align-items: center;
@@ -385,9 +377,15 @@ a.bit-btn {
     flex-direction: column;
 }
 
-.block-multiSelect-stacked>[class^="block-multiSelect--"],
-.block-multiSelect-stacked>label {
+.block-multiSelect--label {
     margin: 5px 10px;
+}
+
+.block-multiSelect--select {
+    margin: 5px 10px;
+    padding: 2px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #d9d9d9;
 }
 
 /**************************

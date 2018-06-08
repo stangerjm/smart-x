@@ -1,10 +1,3 @@
-%select {
-  margin: 0 10px;
-  padding: 2px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px $theme-generic;
-}
-
 .block-multiSelect {
   display: flex;
   align-items: center;
@@ -17,17 +10,16 @@
   &-stacked {
     display: flex;
     flex-direction: column;
-
-    & > [class^="block-multiSelect--"], & > label {
-      margin: 5px 10px;
-    }
   }
 }
 
-.block-multiSelect--parent {
-  @extend %select;
+.block-multiSelect--label {
+  margin: 5px 10px;
 }
 
-.block-multiSelect--child {
-  @extend %select;
+.block-multiSelect--select {
+  margin: 5px 10px;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px $theme-generic;
 }

@@ -26,12 +26,9 @@
   padding: 5px;
 
   /* Select inputs that are not checkboxes.
-   * Omit .el-date-editor, the container of the third party datepicker component.
-   * Use the /deep/ selector to style the .el-input__inner input field, which is
-   * outside of the scope of this element, but still a child.
+   * Omit .el-date-editor, the container of a third-party datepicker Vue.js component.
    */
-  &:not([type = checkbox]):not(.el-date-editor),
-  & /deep/ .el-input__inner {
+  &:not([type = checkbox]):not(.el-date-editor) {
     border: none;
     box-shadow: inset 1px 1px 4px $theme-black;
     border-radius: 3px;
@@ -41,10 +38,5 @@
 
   &[type = number] {
     max-width: 50px;
-  }
-
-  &.el-date-editor {
-    width: 100%;
-    padding: 0;
   }
 }

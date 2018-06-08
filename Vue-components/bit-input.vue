@@ -105,4 +105,19 @@
     @import "../sass/global/templates";
     @import "../sass/global/misc";
     @import "../sass/components/bit/input/bit-input";
+
+    .bit-input--field {
+        & /deep/ .el-input__inner {
+            border: none;
+            box-shadow: inset 1px 1px 4px $theme-black;
+            border-radius: 3px;
+            height: 35px;
+            width: 97%;
+        }
+
+        &.el-date-editor {
+            width: 100%;
+            padding: 0;
+        }
+    }
 </style>

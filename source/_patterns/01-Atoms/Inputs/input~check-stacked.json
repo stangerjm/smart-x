@@ -1,0 +1,6 @@
+{
+  "type": "checkbox",
+  "inputName": "bool-input-stacked",
+  "labelText": "Test",
+  "stackElements": true
+}

@@ -310,14 +310,11 @@ a.bit-btn {
 .bit-input--field {
     padding: 5px;
     /* Select inputs that are not checkboxes.
-   * Omit .el-date-editor, the container of the third party datepicker component.
-   * Use the /deep/ selector to style the .el-input__inner input field, which is
-   * outside of the scope of this element, but still a child.
+   * Omit .el-date-editor, the container of a third-party datepicker Vue.js component.
    */
 }
 
-.bit-input--field:not([type=checkbox]):not(.el-date-editor),
-.bit-input--field /deep/ .el-input__inner {
+.bit-input--field:not([type=checkbox]):not(.el-date-editor) {
     border: none;
     box-shadow: inset 1px 1px 4px #0d0908;
     border-radius: 3px;
@@ -327,11 +324,6 @@ a.bit-btn {
 
 .bit-input--field[type=number] {
     max-width: 50px;
-}
-
-.bit-input--field.el-date-editor {
-    width: 100%;
-    padding: 0;
 }
 
 /**********************************************************************

@@ -9,30 +9,11 @@
  * BIT-BTN STYLES
  *************************/
 
-.bit-btn-details,
-.bit-btn-expand,
-.bit-btn-delete,
-.bit-btn-edit {
-    padding: 0 6px !important;
-    height: 30px !important;
-    background: none !important;
-}
-
-.bit-btn,
-.bit-btn-search,
-.bit-btn-add,
-.bit-btn-reset,
-.bit-btn-datepicker,
-.bit-btn-exit,
-.bit-btn-details,
-.bit-btn-expand,
-.bit-btn-delete,
-.bit-btn-edit {
-    padding: 10px 20px;
-    margin: 5px;
+.bit-btn {
     border-radius: 5px;
-    height: 15px;
-    max-width: 150px;
+    padding: 0;
+    min-height: 40px;
+    min-width: 60px;
     background: #346bab;
     border: none;
     color: #f9f9f9;
@@ -41,83 +22,101 @@
     text-decoration: none;
 }
 
-.bit-btn,
-.bit-btn-search,
-.bit-btn-add,
-.bit-btn-reset,
-.bit-btn-datepicker,
-.bit-btn-exit {
+/* Center links by setting line height to equal button height */
+
+a.bit-btn {
+    line-height: 40px;
+}
+
+.bit-btn-clickable {
     box-shadow: 2px 1px 1px #0d0908;
 }
 
-.bit-btn:active,
-.bit-btn-search:active,
-.bit-btn-add:active,
-.bit-btn-reset:active,
-.bit-btn-datepicker:active,
-.bit-btn-exit:active {
+.bit-btn-clickable:active {
     box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
 }
 
-.bit-btn-details:active,
-.bit-btn-expand:active,
-.bit-btn-delete:active,
-.bit-btn-edit:active,
-.bit-btn:active,
-.bit-btn-search:active,
-.bit-btn-add:active,
-.bit-btn-reset:active,
-.bit-btn-datepicker:active,
-.bit-btn-exit:active {
+.bit-btn-search {
+    box-shadow: 2px 1px 1px #0d0908;
+}
+
+.bit-btn-search:active {
+    box-shadow: 1px 1px 0;
     transform: translate(2px, 2px);
 }
 
 .bit-btn-search:before {
     background: url("/images/search.png") center/13px no-repeat;
-    content: " ";
     height: 13px;
+    width: 20px;
+    content: " ";
     display: inline-block;
-    width: 13px;
+}
+
+.bit-btn-add {
+    box-shadow: 2px 1px 1px #0d0908;
+}
+
+.bit-btn-add:active {
+    box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
 }
 
 .bit-btn-add:before {
-    content: '+';
-    font-weight: bolder;
-    content: " ";
-    height: 13px;
+    content: "+";
     display: inline-block;
-    width: 13px;
+    font-weight: bolder;
+}
+
+.bit-btn-reset {
+    box-shadow: 2px 1px 1px #0d0908;
+}
+
+.bit-btn-reset:active {
+    box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
 }
 
 .bit-btn-reset:before {
     background: url("/images/reset.png") center/13px no-repeat;
-    content: " ";
     height: 13px;
+    width: 18px;
+    content: " ";
     display: inline-block;
-    width: 13px;
+}
+
+.bit-btn-details {
+    height: 30px;
+    background: none;
+}
+
+.bit-btn-details:active {
+    transform: translate(2px, 2px);
 }
 
 .bit-btn-details:after {
     background: url("/images/details-blue.png") center/25px no-repeat;
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
-    height: 25px;
+    height: 35px;
     width: 18px;
     margin-right: 0;
 }
 
 .bit-btn-expand {
+    height: 30px;
+    background: none;
     line-height: 1.6;
 }
 
+.bit-btn-expand:active {
+    transform: translate(2px, 2px);
+}
+
 .bit-btn-expand:after {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
     content: "+";
+    display: inline-block;
     font-size: 15px;
     font-weight: 900;
     width: 1.8em;
@@ -127,90 +126,84 @@
     background: #fabf74;
 }
 
+.bit-btn-delete {
+    height: 30px;
+    background: none;
+}
+
+.bit-btn-delete:active {
+    transform: translate(2px, 2px);
+}
+
 .bit-btn-delete:after {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
     content: "+";
-    transform: rotate(45deg) translate(3px, -4px);
+    display: inline-block;
+    transform: scale(2) rotateZ(45deg);
     color: red;
     margin: 0;
-    font-size: 2em;
+}
+
+.bit-btn-edit {
+    height: 30px;
+    background: none;
+}
+
+.bit-btn-edit:active {
+    transform: translate(2px, 2px);
 }
 
 .bit-btn-edit:after {
     background: url("/images/edit.png") center/17px no-repeat;
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
     width: 20px;
-    height: 25px;
+    height: 35px;
 }
 
-.bit-btn-datepicker {
-    height: 25px;
-    width: 20px;
-    display: inline-block;
-    border-top-left-radius: 5px !important;
-    border-bottom-left-radius: 5px !important;
+.bit-btn-exit {
+    box-shadow: 2px 1px 1px #0d0908;
 }
 
-.bit-btn-datepicker:before {
-    content: " ";
-    height: 13px;
-    display: inline-block;
-    width: 13px;
-    background: url("/images/calendar.png") center/20px no-repeat;
-    height: 25px;
-    width: 20px;
+.bit-btn-exit:active {
+    box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
 }
 
 .bit-btn-exit:before {
-    content: '+';
-    content: " ";
-    height: 13px;
+    content: "+";
     display: inline-block;
-    width: 13px;
-    transform: translateX(8px) rotate(45deg);
-    height: 0;
-    font-size: 1.5em;
+    transform: scale(2) rotateZ(45deg);
 }
 
 .bit-btn-plainSearch {
-    height: 65px;
-    width: 65px;
+    padding: 0;
+    height: 60px;
+    width: 60px;
     background: #346bab;
     border: none;
 }
 
 .bit-btn-plainSearch:before {
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
     height: 20px;
     width: 20px;
     background: url("/images/search.png") center/18px no-repeat;
 }
 
 .bit-btn-plainExit {
-    height: 65px;
-    width: 65px;
+    padding: 0;
+    height: 60px;
+    width: 60px;
     background: #346bab;
     border: none;
 }
 
 .bit-btn-plainExit:before {
-    content: " ";
-    height: 13px;
+    content: "+";
     display: inline-block;
-    width: 13px;
-    content: '+';
     color: white;
-    font-size: 2em;
-    transform: translateX(5px) rotate(45deg);
+    transform: scale(2) rotateZ(45deg);
 }
 
 /**************************
@@ -223,9 +216,7 @@
 
 .bit-icon-user:before {
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
     background: url("/images/user.png") center/12px no-repeat;
     height: 18px;
 }
@@ -236,18 +227,14 @@
 
 .bit-icon-sort:before {
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
     background: url("/images/sort.png") center/0.6em no-repeat;
     height: 1em;
 }
 
 .bit-icon-error:before {
     content: " ";
-    height: 13px;
     display: inline-block;
-    width: 13px;
     content: '!';
     color: red;
 }

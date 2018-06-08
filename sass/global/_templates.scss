@@ -139,11 +139,9 @@
 ///   .icon {
 ///     @extend %icon;
 ///  }
-@mixin icon {
-  content: " ";
-  height: 13px;
+@mixin icon($content: " ") {
+  content: $content;
   display: inline-block;
-  width: 13px;
 }
 
 /// Sets base layout styles for a section of a form.

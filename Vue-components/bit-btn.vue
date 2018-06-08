@@ -41,7 +41,7 @@
     },
     data() {
       return {
-        btnClass: this.getClass(this.btnStyle)
+        btnClass: 'bit-btn ' + this.getClass(this.btnStyle)
       }
     },
     methods: {
@@ -50,26 +50,25 @@
        * @param {string} type - button style
        */
       getClass: function (type) {
-        let allowedValues = [
-          'add',
-          'datepicker',
-          'delete',
-          'details',
-          'edit',
-          'exit',
-          'expand',
-          'plainExit',
-          'plainSearch',
-          'reset',
-          'search'
-        ];
-
         if (!type) {
-          return "bit-btn";
-        } else if (allowedValues.includes(type)) {
-          return "bit-btn-" + type;
-        } else {
-          return "bit-btn";
+          return "bit-btn-clickable";
+        }
+
+        switch(type) {
+          case 'add':
+          case 'exit':
+            return 'bit-btn-' + type;
+          case 'delete':
+          case 'details':
+          case 'edit':
+          case 'expand':
+          case 'plainExit':
+          case 'plainSearch':
+          case 'reset':
+          case 'search':
+            return 'bit-btn-' + type;
+          default:
+            return 'bit-btn-clickable';
         }
       },
       emitEvent: function () {

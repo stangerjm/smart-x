@@ -6,26 +6,37 @@
 /// @author James Stanger
 ////
 
-/// Sets base styles for a button.
-/// @requires {placeholder} btn <#btn>
-%bit-btn {
-  @extend %btn;
+/// Styles a button to have a click animation.
+/// @example scss - Basic use
+///     .btn {
+///         @extend %clickable;
+///     }
+@mixin clickable {
+  box-shadow: 2px 1px 1px $hat-black;
 
-  &--no-background {
-    @extend %btn;
-    padding: 0 6px !important;
-    height: 30px !important;
-    background: none !important;
+  &:active {
+    box-shadow: 1px 1px 0;
+    transform: translate(2px, 2px);
   }
 }
 
+@mixin clickable-shadowless {
+  &:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+@mixin bit-btn-noBackground {
+  height: 30px;
+  background: none;
+}
+
 /// Sets base styles for a button.
-%btn {
-  padding: 10px 20px;
-  margin: 5px;
+.bit-btn {
   border-radius: 5px;
-  height: 15px;
-  max-width: 150px;
+  padding: 0;
+  min-height: 40px;
+  min-width: 60px;
   background: $uniform-blue--deep;
   border: none;
   color: $pearl-white;
@@ -34,187 +45,134 @@
   text-decoration: none;
 }
 
-/// Styles a button to have a click animation. Also gives the option to
-/// have the button be "shadowless" and exclude the drop-shadow.
-/// @example scss - Basic use
-///     .btn {
-///         @extend %clickable;
-///     }
-///
-/// @example scss - Shadowless
-///     .btn-clear {
-///         @extend %clickable--shadowless;
-///     }
-%clickable {
-  box-shadow: 2px 1px 1px $hat-black;
+/* Center links by setting line height to equal button height */
+a.bit-btn {
+  line-height: 40px;
+}
 
-  &:active {
-    box-shadow: 1px 1px 0;
-  }
+.bit-btn-clickable {
+  @include clickable;
+}
 
-  &--shadowless:active, &:active {
-    transform: translate(2px, 2px);
+.bit-btn-search {
+  @include clickable;
+
+  &:before {
+    @include icon-url('search.png', 13px);
+    height: 13px;
+    width: 20px;
+    @include icon;
   }
 }
 
-/// Styles the bit-btn and several other variations. Such variations include: <br>
-/// .bit-btn--search (Adds magnifying glass)<br>
-/// .bit-btn--add (Adds plus sign: +)<br>
-/// .bit-btn--reset (Adds circular reset arrow)<br>
-/// .bit-btn--details (Adds details icon)<br>
-/// .bit-btn--expand (Adds plus sign: +)<br>
-/// .bit-btn--delete (Adds rotated plus sign)<br>
-/// .bit-btn--edit (Adds edit icon)<br>
-/// .bit-btn--datepicker (Adds datepicker icon)<br>
-.bit-btn {
-  & {
-    @extend %bit-btn;
-    @extend %clickable;
+.bit-btn-add {
+  @include clickable;
+  &:before {
+    @include icon("+");
+    font-weight: bolder;
   }
+}
 
-  &-search {
-    @extend %bit-btn;
-    @extend %clickable;
-
-    &:before {
-      @include icon-url('search.png', 13px);
-      @include icon;
-    }
+.bit-btn-reset {
+  @include clickable;
+  &:before {
+    @include icon-url('reset.png', 13px);
+    height: 13px;
+    width: 18px;
+    @include icon;
   }
+}
 
-  &-add {
-    @extend %bit-btn;
-    @extend %clickable;
-    &:before {
-      content: '+';
-      font-weight: bolder;
-      @include icon;
-    }
+.bit-btn-details {
+  @include bit-btn-noBackground;
+  @include clickable-shadowless;
+
+  &:after {
+    @include icon-url('details-blue.png', 25px);
+    @include icon;
+
+    height: 35px;
+    width: 18px;
+    margin-right: 0;
   }
+}
 
-  &-reset {
-    @extend %bit-btn;
-    @extend %clickable;
-    &:before {
-      @include icon-url('reset.png', 13px);
-      @include icon;
-    }
+.bit-btn-expand {
+  @include bit-btn-noBackground;
+  @include clickable-shadowless;
+  line-height: 1.6;
+
+  &:after {
+    @include icon("+");
+    font-size: 15px;
+    font-weight: 900;
+    width: 1.8em;
+    height: 1.8em;
+    text-align: center;
+    border-radius: 1em;
+    background: lighten($patch-orange--deep, 20%);
   }
+}
 
-  &-details {
-    @extend %bit-btn--no-background;
-    @extend %clickable--shadowless;
+.bit-btn-delete {
+  @include bit-btn-noBackground;
+  @include clickable-shadowless;
 
-    &:after {
-      @include icon-url('details-blue.png', 25px);
-      @include icon;
-
-      height: 25px;
-      width: 18px;
-      margin-right: 0;
-    }
+  &:after {
+    @include icon("+");
+    transform: scale(2) rotateZ(45deg);
+    color: red;
+    margin: 0;
   }
+}
 
-  &-expand {
-    @extend %bit-btn--no-background;
-    @extend %clickable--shadowless;
-    line-height: 1.6;
+.bit-btn-edit {
+  @include bit-btn-noBackground;
+  @include clickable-shadowless;
 
-    &:after {
-      @include icon;
-      content: "+";
-      font-size: 15px;
-      font-weight: 900;
-      width: 1.8em;
-      height: 1.8em;
-      text-align: center;
-      border-radius: 1em;
-      background: lighten($patch-orange--deep, 20%);
-    }
+  &:after {
+    @include icon-url('edit.png', 17px);
+    @include icon;
+    width: 20px;
+    height: 35px;
   }
+}
 
-  &-delete {
-    @extend %bit-btn--no-background;
-    @extend %clickable--shadowless;
+.bit-btn-exit {
+  @include clickable;
 
-    &:after {
-      @include icon;
-      content: "+";
-      transform: rotate(45deg) translate(3px, -4px);
-      color: red;
-      margin: 0;
-      font-size: 2em;
-    }
+  &:before {
+    @include icon("+");
+    transform: scale(2) rotateZ(45deg);
+    //font-size: 1.5em;
   }
+}
 
-  &-edit {
-    @extend %clickable--shadowless;
-    @extend %bit-btn--no-background;
+.bit-btn-plainSearch {
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  background: $uniform-blue--deep;
+  border: none;
 
-    &:after {
-      @include icon-url('edit.png', 17px);
-      @include icon;
-      width: 20px;
-      height: 25px;
-    }
+  &:before {
+    @include icon;
+    height: 20px;
+    width: 20px;
+    @include icon-url('search.png', 18px);
   }
+}
 
-  $datepicker-height: 25px;
-  &-datepicker {
-    @extend %bit-btn;
-    @extend %clickable;
-    height: $datepicker-height;
-    width: $datepicker-height - 5;
-    display: inline-block;
-    @include counteract-bootstrap('datepicker');
+.bit-btn-plainExit {
+  padding: 0;
+  height: 60px;
+  width: 60px;
+  background: $uniform-blue--deep;
+  border: none;
 
-    &:before {
-      @include icon;
-      @include icon-url('calendar.png', $datepicker-height - 5);
-      height: $datepicker-height;
-      width: $datepicker-height - 5;
-    }
-  }
-
-  &-exit {
-    @extend %bit-btn;
-    @extend %clickable;
-
-    &:before {
-      content: '+';
-      @include icon;
-      transform: translateX(8px) rotate(45deg);
-      height: 0;
-      font-size: 1.5em;
-    }
-  }
-
-  &-plainSearch {
-    height: 65px;
-    width: 65px;
-    background: $uniform-blue--deep;
-    border: none;
-
-    &:before {
-      @include icon;
-      height: 20px;
-      width: 20px;
-      @include icon-url('search.png', 18px);
-    }
-  }
-
-  &-plainExit {
-    height: 65px;
-    width: 65px;
-    background: $uniform-blue--deep;
-    border: none;
-
-    &:before {
-      @include icon;
-      content: '+';
-      color: white;
-      font-size: 2em;
-      transform: translateX(5px) rotate(45deg);
-    }
+  &:before {
+    @include icon("+");
+    color: white;
+    transform: scale(2) rotateZ(45deg);
   }
 }

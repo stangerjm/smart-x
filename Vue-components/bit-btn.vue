@@ -57,7 +57,6 @@
         switch(type) {
           case 'add':
           case 'exit':
-            return 'bit-btn-' + type;
           case 'delete':
           case 'details':
           case 'edit':

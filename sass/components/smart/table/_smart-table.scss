@@ -11,7 +11,6 @@
 .smart-table {
   width: 100%;
   border-spacing: 0;
-  border-collapse: separate;
   border: 1px solid $theme-black;
 
   @media screen and (max-width: $break-lrg) {
@@ -20,12 +19,7 @@
 }
 
 .smart-table--head {
-  text-align: center;
   background: darken($theme-generic, 10%);
-
-  @media screen and (max-width: $break-med) {
-    font-size: 0.75em;
-  }
 }
 
 .smart-table--heading {
@@ -42,18 +36,11 @@
   font-size: 1.1em;
 }
 
-/// Applied to a sortable table column heading to disable select
-/// so user does not accidentally select text when trying to sort.
-.smart-table--sortableHeading {
-  @include disable-select();
-}
+.smart-table--sortableHeading {}
 
 /// Set each record to fill container and be center aligned.
 .smart-table--row {
-  width: 100%;
   text-align: center;
-  position: relative;
-  justify-content: space-between;
 
   &:nth-child(even) {
     background: $theme-main--light;
@@ -84,8 +71,6 @@
     &:not(.smart-table--key) {
       @include hide();
     }
-
-    //TODO: Make empty cells look good
   }
 }
 
@@ -115,8 +100,7 @@
   top: 0;
 
   @media screen and (max-width: $break-med) {
-    display: inherit;
-    display: unset;
+    display: block;
   }
 }
 
@@ -128,18 +112,12 @@
 ///     });
 .record-is-expanded {
   @media screen and (max-width: $break-med) {
-    @include alter-responsive(column, null, null);
+    flex-direction: column;
     position: relative;
-
-    .smart-table--key {
-      max-width: none;
-      flex: none;
-    }
 
     .smart-table--cell {
       text-align: left;
       border-bottom: 1px solid $theme-black;
-      border-collapse: collapse;
       margin: 5px 0;
       white-space: normal;
       overflow: visible;
@@ -154,16 +132,16 @@
 
       /* Beat .smart-table--cell:not(.smart-table--key) selector to override display: none property */
       &:not(.smart-table--key) {
-        display: inline-block;
+        display: block;
       }
 
       &:first-child {
+        /* Make room for collapse button */
         padding-bottom: 10px;
       }
     }
 
     .smart-table--expand {
-      max-width: 50px;
       position: absolute;
       top: 10px;
 
@@ -175,7 +153,6 @@
     .smart-table--inlineHeading {
       @media screen and (max-width: $break-med) {
         display: inline;
-        margin: 0 auto;
       }
     }
   }

@@ -829,7 +829,6 @@ a.bit-btn {
 .smart-table {
     width: 100%;
     border-spacing: 0;
-    border-collapse: separate;
     border: 1px solid #0d0908;
 }
 
@@ -840,14 +839,7 @@ a.bit-btn {
 }
 
 .smart-table--head {
-    text-align: center;
     background: silver;
-}
-
-@media screen and (max-width: 768px) {
-    .smart-table--head {
-        font-size: 0.75em;
-    }
 }
 
 .smart-table--heading {
@@ -866,19 +858,8 @@ a.bit-btn {
     font-size: 1.1em;
 }
 
-.smart-table--sortableHeading {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .smart-table--row {
-    width: 100%;
     text-align: center;
-    position: relative;
-    justify-content: space-between;
 }
 
 .smart-table--row:nth-child(even) {
@@ -934,8 +915,7 @@ a.bit-btn {
 
 @media screen and (max-width: 768px) {
     .smart-table--expand {
-        display: inherit;
-        display: unset;
+        display: block;
     }
 }
 
@@ -944,14 +924,9 @@ a.bit-btn {
         flex-direction: column;
         position: relative;
     }
-    .record-is-expanded .smart-table--key {
-        max-width: none;
-        flex: none;
-    }
     .record-is-expanded .smart-table--cell {
         text-align: left;
         border-bottom: 1px solid #0d0908;
-        border-collapse: collapse;
         margin: 5px 0;
         white-space: normal;
         overflow: visible;
@@ -963,13 +938,13 @@ a.bit-btn {
         border-bottom: none;
     }
     .record-is-expanded .smart-table--cell:not(.smart-table--key) {
-        display: inline-block;
+        display: block;
     }
     .record-is-expanded .smart-table--cell:first-child {
+        /* Make room for collapse button */
         padding-bottom: 10px;
     }
     .record-is-expanded .smart-table--expand {
-        max-width: 50px;
         position: absolute;
         top: 10px;
     }
@@ -981,6 +956,5 @@ a.bit-btn {
 @media screen and (max-width: 768px) and (max-width: 768px) {
     .record-is-expanded .smart-table--inlineHeading {
         display: inline;
-        margin: 0 auto;
     }
 }

@@ -1,16 +1,14 @@
 <template>
     <div class="smart-details">
-        <div class="smart-details--container">
-            <h3 class="smart-details--heading">{{title ? title : 'Details'}}</h3>
-            <div class="smart-details--listContainer">
-                <dl v-for="column in detailColumns" class="smart-details--list" :style="{width: 100 / detailColumns.length + '%'}">
-                    <div v-for="(detail, key) in column" class="smart-details--detail">
-                        <dt>{{formatFromCamelCase(key)}}</dt>
-                        <dd v-if="typeof(detail) !== typeof(true)">{{getValue(detail)}}</dd>
-                        <dd v-else><input type="checkbox" :checked="detail" disabled></dd>
-                    </div>
-                </dl>
-            </div>
+        <h3 class="smart-details--heading">{{title ? title : 'Details'}}</h3>
+        <div class="smart-details--listContainer">
+            <dl v-for="column in detailColumns" class="smart-details--list" :style="{width: 100 / detailColumns.length + '%'}">
+                <div v-for="(detail, key) in column" class="smart-details--detail">
+                    <dt class="smart-details--detailKey">{{formatFromCamelCase(key)}}</dt>
+                    <dd class="smart-details--detailValue" v-if="typeof(detail) !== typeof(true)">{{getValue(detail)}}</dd>
+                    <dd class="smart-details--detailValue" v-else><input type="checkbox" :checked="detail" disabled></dd>
+                </div>
+            </dl>
         </div>
     </div>
 </template>

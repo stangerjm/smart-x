@@ -1,3 +1,8 @@
+.smart-details {
+  border: 1px solid $theme-black;
+  border-radius: 5px;
+}
+
 .smart-details--heading {
   padding: 5px 10px;
   margin: 0;
@@ -6,20 +11,18 @@
   background: $theme-generic;
 }
 
-.smart-details--container {
-  width: 80%;
-  margin: 10px auto;
-  border: 1px solid $theme-black;
-  border-radius: 5px;
-  //padding: 10px;
-}
-
 .smart-details--listContainer {
   display: flex;
-  flex-direction: row;
 
   @media screen and (max-width: $break-med) {
     flex-direction: column;
+  }
+}
+
+.smart-details--list {
+  margin: 0;
+  @media screen and (max-width: $break-med) {
+    width: 100% !important;
   }
 }
 
@@ -30,25 +33,18 @@
   @media screen and (max-width: $break-xs) {
     font-size: 0.75em;
     overflow-wrap: break-word;
-    margin: 10px 0;
-  }
-
-  > dt, > dd {
-    display: inline-block;
-    width: 50%;
-    margin: 0;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
-
-  > dt {
-    text-align: right;
-    font-weight: bolder;
   }
 }
 
-.smart-details--list {
-  @media screen and (max-width: $break-med) {
-    width: 100% !important;
-  }
+.smart-details--detailKey,
+.smart-details--detailValue {
+  width: 50%;
+  margin: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.smart-details--detailKey {
+  text-align: right;
+  font-weight: bolder;
 }

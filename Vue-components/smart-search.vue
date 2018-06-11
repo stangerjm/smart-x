@@ -9,12 +9,14 @@
                 <div class="smart-search--toggleContainer">
                     <div :class="['smart-search--fieldContainer', isHidden ? 'is-hidden' : '']">
                         <bit-input
+                                class="smart-search--field"
                                 :is-disabled="isHidden"
                                 input-type="text"
                                 label-text="Find by ID/Name"
                                 input-name="searchField">
                         </bit-input>
                         <bit-input
+                                class="smart-search--field"
                                 :is-disabled="isHidden"
                                 input-type="number"
                                 label-text="Number of Results Per Page"
@@ -110,8 +112,8 @@
           let documentWidth = document.body.clientWidth + 15;
 
           //do not add search height if screen is less than breakpoint
-          let searchHeight = documentWidth < 1000 ? search.offsetHeight + 30 : 0;
-          let segmentHeight = documentWidth < 1000 ? titleSegment.offsetHeight : 0;
+          let searchHeight = documentWidth < 1024 ? search.offsetHeight + 30 : 0;
+          let segmentHeight = documentWidth < 1024 ? titleSegment.offsetHeight : 0;
 
           console.log('Search height is: ' + searchHeight);
           console.log('Segment height is: ' + segmentHeight);

@@ -10,23 +10,18 @@
 ///       <!-- FORM SECTIONS, FIELDS, ETC. -->
 ///     </form>
 .smart-search {
-  @include format-responsive(column, flex-start, null) {
-    grid-template-columns: 100%;
-    grid-auto-flow: row;
-  }
-;
-
   background: $theme-generic;
-  align-items: flex-end;
 }
 
 .smart-search--heading {
   transition: min-height 500ms;
-  @include form-segment;
-  border-radius: 10px 10px 0 0;
-  align-items: center;
-  @include format-responsive(row, space-between, wrap) {
-    grid-auto-flow: column;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $break-lrg) {
+    position: relative;
+    align-content: start;
   }
 }
 
@@ -41,6 +36,13 @@
 
 .smart-search--toggleContainer {
   overflow: hidden;
+
+  @media screen and (max-width: $break-lrg) {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    padding: 10px;
+  }
 }
 
 .smart-search--fieldContainer {
@@ -51,30 +53,21 @@
   top: 0;
   padding-right: 10px;
 
-  &.is-hidden {
-    transform: translateX(1000px);
-  }
-}
-
-/// Break down into mobile view.
-///    Set transition on min-height and cause search to appear from top
-///    Hide search by positioning absolutely and placing off screen
-///    Ensure all elements line up to the left
-@media screen and (max-width: 1000px) {
-  .smart-search--heading {
-    position: relative;
-    align-content: start;
-  }
-
-  .smart-search--toggleContainer {
-    position: absolute;
-    left: 0;
-    top: 60px;
-  }
-
-  .smart-search--fieldContainer {
-    @include alter-responsive(column, null, null);
+  @media screen and (max-width: $break-lrg) {
+    flex-direction: column;
     align-items: flex-start;
     width: 100%;
   }
+}
+
+.smart-search--field {
+  padding: 0 10px;
+
+  @media screen and (max-width: $break-lrg) {
+    padding: 10px 0;
+  }
+}
+
+.is-hidden {
+  transform: translateX(1000px);
 }

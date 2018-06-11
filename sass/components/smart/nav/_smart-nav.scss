@@ -3,59 +3,33 @@
   border-bottom: 1px solid $theme-secondary--deep;
   background-color: $theme-main;
   position: relative;
+}
 
-  &--header {
-    @include format-responsive(row, space-between, null) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  ;
+.smart-nav--header {
+  display: flex;
+  align-items: center;
 
-    align-items: center;
-
-    > main {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-
-      @media screen and (min-width: $break-med) {
-        /* Force width on Flexbox version to guarantee width */
-        width: 350px;
-
-        /* override above width rule on Grid version */
-        @supports (display: grid) {
-          width: auto;
-        }
-      }
-    }
-
-    > aside {
-      @supports (display: grid) {
-        grid-column: 3;
-        justify-self: center;
-      }
-    }
-
-    @media screen and (max-width: $break-med) {
-      display: block;
-
-      > aside {
-        margin-left: 20px;
-      }
-
-      > main {
-        justify-content: flex-start;
-      }
-    }
+  @media screen and (max-width: $break-med) {
+    flex-direction: column;
   }
+}
 
-  &--list {
-    @media screen and (max-width: $break-med) {
-      margin-left: 20px;
-    }
-  }
+.smart-nav--headerMain {
+  flex: 2;
+  display: flex;
+  align-items: center;
+}
 
-  &--logo {
-    margin: 10px 20px;
+.smart-nav--headerAside {
+  flex: 1;
+}
+
+.smart-nav--logo {
+  margin: 10px;
+}
+
+.smart-nav--list {
+  @media screen and (max-width: $break-med) {
+    margin: 10px;
   }
 }

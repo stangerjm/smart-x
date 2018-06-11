@@ -718,65 +718,33 @@ a.bit-btn {
 
 .smart-nav--header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-}
-
-@supports (display: grid) {
-    .smart-nav--header {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-.smart-nav--header>main {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-@media screen and (min-width: 768px) {
-    .smart-nav--header>main {
-        /* Force width on Flexbox version to guarantee width */
-        width: 350px;
-        /* override above width rule on Grid version */
-    }
-    @supports (display: grid) {
-        .smart-nav--header>main {
-            width: auto;
-        }
-    }
-}
-
-@supports (display: grid) {
-    .smart-nav--header>aside {
-        grid-column: 3;
-        justify-self: center;
-    }
 }
 
 @media screen and (max-width: 768px) {
     .smart-nav--header {
-        display: block;
+        flex-direction: column;
     }
-    .smart-nav--header>aside {
-        margin-left: 20px;
-    }
-    .smart-nav--header>main {
-        justify-content: flex-start;
-    }
+}
+
+.smart-nav--headerMain {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+.smart-nav--headerAside {
+    flex: 1;
+}
+
+.smart-nav--logo {
+    margin: 10px;
 }
 
 @media screen and (max-width: 768px) {
     .smart-nav--list {
-        margin-left: 20px;
+        margin: 10px;
     }
-}
-
-.smart-nav--logo {
-    margin: 10px 20px;
 }
 
 /**************************

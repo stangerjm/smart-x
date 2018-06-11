@@ -1,16 +1,15 @@
-%drop-arrow {
+@mixin drop-arrow($position, $size) {
   content: '';
   position: absolute;
   width: 15px;
-  height: 13px;
+  height: 15px;
   right: 10px;
   top: 17px;
-  background: transparent url(/images/sort.png) 0 -11px / 15px no-repeat;
+  background: transparent url(/images/sort.png) 0 $position unquote("/") $size no-repeat;
 }
 
 .smart-accordion {
   width: 100%;
-  margin: 10px auto;
 }
 
 .smart-accordion--toggle {
@@ -28,18 +27,20 @@
   &:hover {
     background: lighten($theme-generic, 5%);
 
+    /* Only apply drop-arrow on hover */
     &:after {
-      @extend %drop-arrow;
+      @include drop-arrow(-11px, 15px);
     }
   }
 
+  /* Styles for expanded smart-accordion */
   &.is-expanded {
     background: saturate($theme-main, 10%);
 
+    /* Only apply drop-arrow on hover */
     &:hover {
       &:after {
-        @extend %drop-arrow;
-        background: url(/images/sort.png) 0 3px / 15px no-repeat;
+        @include drop-arrow(3px, 15px);
       }
     }
   }
@@ -54,6 +55,7 @@
   background: lighten($theme-generic, 10%);
   box-shadow: 0 0 2px 0 inset;
 
+  /* Immediate children of smart-accordion--content should not have a margin so content can be resized properly. */
   > * {
     margin: 0;
   }

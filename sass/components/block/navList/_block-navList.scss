@@ -1,3 +1,7 @@
+@mixin apply-gradient($direction) {
+  background: linear-gradient($direction, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
+}
+
 /// Styles a navigation list to be responsive and dynamic with inline-list
 /// capability. Also has option of "tabbed" look.
 /// @example markup - Basic use
@@ -13,81 +17,83 @@
 ///             <li>{{listText}}</li>
 ///         </ul>
 ///     </nav>
-.block-navList {
-  &--items {
-    $listWidth: 250px;
+.block-navList {}
 
-    @include format-responsive(row, null, null) {
-      grid-auto-flow: column;
-    }
-  ;
+.block-navList--list {
+  display: flex;
+  flex-direction: row;
 
-    background: linear-gradient(to right, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
-    margin: 0;
-    padding-left: 0;
-    z-index: $level-9;
+  @include apply-gradient(to right);
+  margin: 0;
+  padding-left: 0;
+  z-index: $level-9;
 
-    li {
-      list-style: none;
-      box-shadow: 0 1px 2px inset;
-      padding: 3px 0;
-      text-align: center;
-      position: relative;
-      flex-grow: 1;
+  @media screen and (max-width: $break-med) {
+    /* mobile list style */
+    /* hide by default */
+    display: block;
 
-      @media screen and (min-width: $break-med + 1) {
-        &:hover {
-          /* apply transitions and border only when not mobile. */
-          transition: border-top-width 100ms;
-          border-top: 2px groove $theme-secondary--deep;
-          margin-top: -2px;
-        }
-      }
+    /* Translate nav list the width of the nav minus an extra 50px to be just off of the left side of the screen */
+    $listWidth: 100%;
+    width: $listWidth;
+    transform: translateX(-$listWidth - 50);
+    transition: transform 600ms ease-in-out;
 
-      &:hover .bit-dropList {
-        /* show any sublists on hover */
-        display: block;
-      }
-    }
+    @include apply-gradient(to bottom);
+    position: absolute;
+    left: 0;
 
-    @media screen and (max-width: $break-med) {
-      /* mobile list style */
-      /* hide by default */
-      display: block;
-      transform: translateX(-$listWidth - 50);
-      transition: transform 600ms ease-in-out;
-      background: linear-gradient(to bottom, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
-      position: absolute;
-      left: 0;
-      width: $listWidth;
-
-      /* show when nav-show class is applied */
-      &.nav-show {
-        @include format-responsive(column, null, null) {
-          grid-auto-flow: row;
-        }
-
-        transform: none;
-      }
-
-      li {
-        /* resize list items on mobile */
-        padding: 5px;
-        border-bottom: 1px solid $theme-black;
-        position: relative;
-      }
+    /* show when nav-show class is applied and only on medium screen */
+    &.nav-show {
+      display: flex;
+      flex-direction: column;
+      transform: none;
     }
   }
 }
 
-[class*=block-navList] > li > .bit-link {
+.block-navList--item {
+  list-style: none;
+  box-shadow: 0 0 1px inset;
+  padding: 3px 0;
+  text-align: center;
+  position: relative;
+  flex: 1 auto;
+
+  &:hover {
+    /* apply transitions and border only when not mobile. */
+    transition: border-top-width 100ms;
+    border-top: 2px groove $theme-secondary--deep;
+    margin-top: -2px;
+
+    .bit-dropList {
+      /* show any sublists on hover */
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: $break-med) {
+    /* resize list items on mobile */
+    padding: 5px;
+    position: relative;
+
+    &:hover {
+      border: none;
+      margin: 0;
+    }
+  }
+}
+
+.block-navList--item > .bit-link {
   color: $theme-white;
 }
 
 /// Places drop-down symbol on the parent of a sublist.
-.sublist-container::after {
-  content: "▾";
-  margin-left: 4px;
+.block-navList--sublistHeading {
+  &:after {
+    content: "▾";
+    margin-left: 4px;
+  }
 }
 
 /// Styles the mobile expand button to expand the navigation
@@ -103,12 +109,20 @@
 
   /* style expand button when screen is small */
   @media screen and (max-width: $break-med) {
-    transform: rotate(90deg);
-    font-size: 2em;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     border: 2px solid $theme-secondary--light;
     border-radius: 10px;
-    margin: 10px 0;
-    padding: 0 15px 5px;
+    width: 60px;
+    height: 60px;
   }
+}
+
+.block-navList--expandLine {
+  width: 60%;
+  margin: 4px;
+  border: 2px solid $theme-black;
 }

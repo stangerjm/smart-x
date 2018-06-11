@@ -1,8 +1,12 @@
 <template>
     <div class="block-navList">
-        <span class="block-navList--expand" @click="isExpanded = !isExpanded">|||</span>
-        <ul :class="[isExpanded ? 'nav-show' : '', 'block-navList--items']">
-            <li v-for="item in listItems">
+        <div class="block-navList--expand" @click="isExpanded = !isExpanded">
+            <div class="block-navList--expandLine"></div>
+            <div class="block-navList--expandLine"></div>
+            <div class="block-navList--expandLine"></div>
+        </div>
+        <ul :class="[isExpanded ? 'nav-show' : '', 'block-navList--list']">
+            <li class="block-navList--item" v-for="item in listItems">
                 <a :href="item.linkPath" class="bit-link">{{item.itemTitle}}</a>
                 <bit-drop-list v-if="item.inlineItems" :drop-items="item.inlineItems"></bit-drop-list>
             </li>
@@ -42,7 +46,7 @@
       if (inlineLists.length !== 0) {
         for (let inlineList of inlineLists) {
           if (inlineList.hasChildNodes()) {
-            inlineList.parentNode.firstChild.classList.add("sublist-container");
+            inlineList.parentNode.firstChild.classList.add("block-navList--sublistHeading");
           }
         }
       }
@@ -52,7 +56,7 @@
 
 <style scoped lang="scss">
     @import "../sass/global/variables";
-    @import "../sass/global/templates";
+    @import "../sass/global/mixins";
     @import "../sass/global/misc";
     @import "../sass/components/block/navList/block-navList";
 </style>

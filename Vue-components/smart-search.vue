@@ -130,7 +130,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/templates";
+    @import "../sass/global/mixins";
     @import "../sass/global/variables";
     @import "../sass/components/smart/search/smart-search";
 </style>

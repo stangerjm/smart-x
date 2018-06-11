@@ -18,7 +18,7 @@
 
 <style scoped lang="scss">
     @import "../sass/global/variables";
-    @import "../sass/global/templates";
+    @import "../sass/global/mixins";
 
     /// Styles a section of the form. Allows a body to be styled using
     /// .form-section, a heading to be styled using .form-section--heading

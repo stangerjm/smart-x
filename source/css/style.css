@@ -31,7 +31,7 @@
 
 .bit-btn {
     border-radius: 5px;
-    padding: 0;
+    padding: 0 3px;
     min-height: 35px;
     min-width: 60px;
     background: #3867b1;
@@ -629,7 +629,7 @@ a.bit-btn {
 
 .smart-form--titleSection {
     background: #d9d9d9;
-    padding: 10px;
+    padding: 10px 5px;
 }
 
 .smart-form--title {
@@ -647,13 +647,6 @@ a.bit-btn {
 /**************************
  * SMART-MODAL STYLES
  *************************/
-
-.smart-modal--close {
-    height: 30px;
-    background: none;
-    margin: 5px;
-    border: none;
-}
 
 .smart-modal {
     position: fixed;
@@ -676,27 +669,31 @@ a.bit-btn {
     transform: translate(-50%, -50%);
     overflow: auto;
     width: 500px;
-    height: 100%;
+    max-height: 100%;
 }
 
 @media screen and (max-width: 820px) {
     .smart-modal--content {
         width: 80%;
-        height: 80%;
     }
 }
 
-@supports (display: grid) {
-    .smart-modal--content {
-        display: grid;
-        grid-template-rows: 2fr 7fr 1fr;
-        height: 85%;
-    }
+.smart-modal--head {
+    background: #d9d9d9;
+    padding: 5px;
+}
+
+.smart-modal--close {
+    height: 30px;
+    background: none;
+    border: none;
+    box-shadow: #0d0908 0 0 2px;
+    border-radius: 5px;
 }
 
 .smart-modal--title {
     font-size: 35px;
-    margin: 5px 20px;
+    margin: 25px 0;
 }
 
 @media screen and (max-width: 820px) {
@@ -705,12 +702,8 @@ a.bit-btn {
     }
 }
 
-.smart-modal--head {
-    background: #d9d9d9;
-}
-
 .smart-modal--footer {
-    padding: 20px;
+    padding: 5px;
 }
 
 /**************************

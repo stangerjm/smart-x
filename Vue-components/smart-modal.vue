@@ -10,9 +10,6 @@
             <main class="smart-modal--body">
               <slot></slot>
             </main>
-            <footer class="smart-modal--footer">
-                <slot name="footer"></slot>
-            </footer>
         </div>
     </section>
 </template>

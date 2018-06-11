@@ -106,13 +106,14 @@
     @import "../sass/global/misc";
     @import "../sass/components/bit/input/bit-input";
 
+    /* Styles to correct third-party datepicker component styles */
     .bit-input--field {
         & /deep/ .el-input__inner {
             border: none;
             box-shadow: inset 1px 1px 4px $theme-black;
             border-radius: 3px;
             height: 35px;
-            width: 97%;
+            width: 100%;
         }
 
         &.el-date-editor {

@@ -284,7 +284,6 @@ a.bit-btn {
 .bit-input {
     display: flex;
     align-items: center;
-    margin: 0 10px;
 }
 
 @media screen and (max-width: 480px) {
@@ -298,7 +297,6 @@ a.bit-btn {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin: 10px;
     align-items: flex-start;
 }
 
@@ -319,7 +317,7 @@ a.bit-btn {
     box-shadow: inset 1px 1px 4px #0d0908;
     border-radius: 3px;
     height: 35px;
-    width: 97%;
+    width: 100%;
 }
 
 .bit-input--field[type=number] {

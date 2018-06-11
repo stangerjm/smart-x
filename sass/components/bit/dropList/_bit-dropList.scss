@@ -15,7 +15,7 @@
     /* ensure children are not transparent */
     background: $theme-main;
     padding: 3px 0;
-    box-shadow: $theme-secondary--deep 0 0 3px inset;
+    box-shadow: $theme-black 0 0 3px inset;
 
     &:hover {
       transition: border-top-width 100ms;

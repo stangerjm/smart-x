@@ -269,7 +269,7 @@ a.bit-btn {
     /* ensure children are not transparent */
     background: #a1bae1;
     padding: 3px 0;
-    box-shadow: #ffa103 0 0 3px inset;
+    box-shadow: #0d0908 0 0 3px inset;
 }
 
 .bit-dropList--item:hover {

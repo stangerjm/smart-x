@@ -30,7 +30,7 @@
 /// Sets base styles for a button.
 .bit-btn {
   border-radius: 5px;
-  padding: 0;
+  padding: 0 3px;
   min-height: 35px;
   min-width: 60px;
   background: $theme-main--deep;

@@ -1,7 +1,5 @@
 .smart-form {
-  > .smart-form--input {
-    margin: 10px 20px;
-  }
+  box-shadow: $theme-black 0 0 2px;
 }
 
 .smart-form--titleSection {
@@ -11,4 +9,12 @@
 
 .smart-form--title {
   margin: 0;
+}
+
+.smart-form--fieldSection {
+  padding: 5px;
+}
+
+.smart-form--field {
+  margin: 10px 0;
 }

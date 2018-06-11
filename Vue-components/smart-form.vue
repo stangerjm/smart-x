@@ -10,7 +10,7 @@
                        :name="key"
                        type="hidden"
                        v-model="dataCopy[key]">
-                <bit-input class="smart-form--input"
+                <bit-input class="smart-form--field"
                         v-else-if="isValidField(item, key)"
                         :stack-elements="true"
                         :input-name="key"
@@ -21,8 +21,8 @@
                         :date-format="getType(item) === 'date' ? dateFormat : null">
                 </bit-input>
             </template>
+            <bit-btn type="submit">Submit</bit-btn>
         </section>
-        <bit-btn type="submit">Submit</bit-btn>
     </form>
 </template>
 

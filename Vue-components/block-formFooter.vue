@@ -20,7 +20,6 @@
     @import "../sass/global/misc";
 
     .form-section--footer {
-        @include form-segment;
         border-radius: 0 0 10px 10px;
 
         @include format-responsive(row, space-between, wrap) {

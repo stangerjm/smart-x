@@ -15,7 +15,6 @@
     @import "../sass/global/variables";
 
     .form-section--heading {
-        @include form-segment;
         border-radius: 10px 10px 0 0;
         align-items: center;
         @include format-responsive(row, space-between, wrap) {

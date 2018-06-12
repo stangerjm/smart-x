@@ -1,5 +1,73 @@
-<smart-details
-        :detail-data="{{detailData}}"
-        title="{{detailTitle}}"
-        :details-per-column="{{detailColumns}}">
-</smart-details>
+<div class="smart-details">
+    <h3 class="smart-details--heading">{{detailTitle}}</h3>
+    <div class="smart-details--listContainer">
+        <dl class="smart-details--list" style="width: 50%">
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Id</dt>
+                <dd class="smart-details--detailValue">{{id}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Technician Identifier</dt>
+                <dd class="smart-details--detailValue">{{technicianIdentifier}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Technician Name</dt>
+                <dd class="smart-details--detailValue">{{technicianName}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Manufacturer Name</dt>
+                <dd class="smart-details--detailValue">{{manufacturerName}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Service Center Name</dt>
+                <dd class="smart-details--detailValue">{{serviceCenterName}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Driver License Number</dt>
+                <dd class="smart-details--detailValue">{{driverLicenseNumber}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Phone</dt>
+                <dd class="smart-details--detailValue">{{phone}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Email</dt>
+                <dd class="smart-details--detailValue">{{email}}</dd>
+            </div>
+        </dl>
+        <dl class="smart-details--list" style="width: 50%">
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Birth Date</dt>
+                <dd class="smart-details--detailValue">{{birthDate}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Mobile Technician</dt>
+                <dd class="smart-details--detailValue">{{mobileTechnician}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Shop Manager</dt>
+                <dd class="smart-details--detailValue">{{shopManager}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Deactivation Date Notes</dt>
+                <dd class="smart-details--detailValue">{{deactivationDateNotes}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Created By</dt>
+                <dd class="smart-details--detailValue">{{createdBy}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Created Date</dt>
+                <dd class="smart-details--detailValue">{{createdDate}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Updated By</dt>
+                <dd class="smart-details--detailValue">{{updatedBy}}</dd>
+            </div>
+            <div class="smart-details--detail">
+                <dt class="smart-details--detailKey">Updated Date</dt>
+                <dd class="smart-details--detailValue">{{updatedDate}}</dd>
+            </div>
+        </dl>
+    </div>
+</div>

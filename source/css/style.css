@@ -871,6 +871,8 @@ a.bit-btn {
         display: flex;
         align-items: center;
         padding: 10px 0;
+        /* justify content for IE layout */
+        justify-content: space-between;
     }
     .smart-table--row.record-is-expanded {
         align-items: stretch;
@@ -931,14 +933,13 @@ a.bit-btn {
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
+        display: block;
+        flex: none;
         float: right;
-        /* Beat .smart-table--cell:not(.smart-table--key) selector to override display: none property */
     }
     .record-is-expanded .smart-table--cell:last-of-type {
+        /* Omit border on the last cell */
         border-bottom: none;
-    }
-    .record-is-expanded .smart-table--cell:not(.smart-table--key) {
-        display: block;
     }
     .record-is-expanded .smart-table--cell:first-child {
         /* Make room for collapse button */
@@ -949,6 +950,7 @@ a.bit-btn {
         top: 10px;
     }
     .record-is-expanded .smart-table--expand:after {
+        /* Toggle the expand button to a collapse button */
         content: "-";
     }
 }

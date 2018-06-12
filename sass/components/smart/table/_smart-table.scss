@@ -51,6 +51,9 @@
       display: flex;
       align-items: center;
       padding: 10px 0;
+
+      /* justify content for IE layout */
+      justify-content: space-between;
     }
 
     &.record-is-expanded {
@@ -122,17 +125,15 @@
       white-space: normal;
       overflow: visible;
       text-overflow: clip;
+      display: block;
+      flex: none;
 
       //for IE. Has no effect on Chrome or Firefox
       float: right;
 
       &:last-of-type {
+        /* Omit border on the last cell */
         border-bottom: none;
-      }
-
-      /* Beat .smart-table--cell:not(.smart-table--key) selector to override display: none property */
-      &:not(.smart-table--key) {
-        display: block;
       }
 
       &:first-child {
@@ -146,6 +147,7 @@
       top: 10px;
 
       &:after {
+        /* Toggle the expand button to a collapse button */
         content: "-";
       }
     }

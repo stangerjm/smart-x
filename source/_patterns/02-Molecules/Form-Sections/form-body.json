@@ -1,7 +1,0 @@
-{
-  "inputs": [
-    {"inputName": "region", "labelText": "Find by ID/Name"},
-    {"inputName": "city", "labelText": "City Name"},
-    {"inputName": "county", "labelText": "County Name"}
-  ]
-}

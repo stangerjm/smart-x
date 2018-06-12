@@ -1,9 +1,0 @@
-{
-  "formButtons": [
-    {"formButtonClass":"search", "formButtonText":"Search"},
-    {"formButtonClass":"reset", "formButtonText":"Reset"},
-    {"formButtonClass":"add", "formButtonText":"Add"}
-  ],
-  "type": "number",
-  "inputName": "search"
-}

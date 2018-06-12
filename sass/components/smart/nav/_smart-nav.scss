@@ -18,6 +18,11 @@
   flex: 2;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: $break-med) {
+    flex: none;
+    flex-direction: column;
+  }
 }
 
 .smart-nav--headerAside {

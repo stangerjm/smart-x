@@ -1,4 +1,17 @@
-<block-nav-list
-        type="{{className}}"
-        :list-items="{{navListItems}}">
-</block-nav-list>
+<div class="block-navList">
+    <div class="block-navList--expand">
+        <div class="block-navList--expandLine"></div>
+        <div class="block-navList--expandLine"></div>
+        <div class="block-navList--expandLine"></div>
+    </div>
+    <ul class="block-navList--list">
+        {{#navListItems}}
+            <li class="block-navList--item">
+                <a href="{{linkPath}}" class="bit-link">{{itemTitle}}</a>
+                {{#inlineListItems}}
+                    {{>Atoms-inline-list}}
+                {{/inlineListItems}}
+            </li>
+        {{/navListItems}}
+    </ul>
+</div>

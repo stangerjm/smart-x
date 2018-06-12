@@ -1,3 +1,17 @@
 {
-  "inlineListItems": "[{'itemTitle':'Home','linkPath':'#'}, {'itemTitle':'WSP','linkPath':'#'}, {'itemTitle':'About','linkPath':'#'}]"
+  "inlineListItems":
+    [
+      {
+        "itemTitle": "Home",
+        "linkPath": "#"
+      },
+      {
+        "itemTitle": "WSP",
+        "linkPath": "#"
+      },
+      {
+        "itemTitle": "About",
+        "linkPath": "#"
+      }
+    ]
 }

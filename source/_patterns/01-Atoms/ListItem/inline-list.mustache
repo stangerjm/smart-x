@@ -1,3 +1,7 @@
-<bit-drop-list
-    :drop-items="{{inlineListItems}}">
-</bit-drop-list>
+<ul class="bit-dropList">
+    {{#inlineListItems}}
+        <li class="bit-dropList--item">
+            <a class="bit-link" href="{{linkPath}}">{{itemTitle}}</a>
+        </li>
+    {{/inlineListItems}}
+</ul>

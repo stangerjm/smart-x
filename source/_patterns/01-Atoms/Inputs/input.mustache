@@ -1,6 +1,4 @@
-<bit-input
-        input-type="{{type}}"
-        label-text="{{labelText}}"
-        :stack-elements="{{stackElements}}"
-        input-name="{{inputName}}">
-</bit-input>
+<div class="bit-input">
+    <label for="{{inputName}}-id" class="bit-input--label">{{labelText}}</label>
+    <input id="{{inputName}}-id" type="{{type}}" class="bit-input--field" name="{{inputName}}">
+</div>

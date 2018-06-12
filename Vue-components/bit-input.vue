@@ -103,7 +103,6 @@
 <style scoped lang="scss">
     @import "../sass/global/variables";
     @import "../sass/global/mixins";
-    @import "../sass/global/misc";
     @import "../sass/components/bit/input/bit-input";
 
     /* Styles to correct third-party datepicker component styles */

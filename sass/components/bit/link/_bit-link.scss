@@ -1,8 +1,3 @@
-////
-/// @group Miscellaneous
-/// @author James Stanger
-////
-
 /// Styles a link with base link styles and defines hover transitions.
 .bit-link {
   text-decoration: none;
@@ -12,9 +7,4 @@
   &:hover {
     color: $theme-link;
   }
-}
-
-/// Helper class to align an element to the right.
-.align-right {
-  text-align: right;
 }

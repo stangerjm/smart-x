@@ -1,0 +1,6 @@
+{
+  "id": 1,
+  "detailsContext": "Region",
+  "editContext": "Country",
+  "deleteContext": "Manufacturer"
+}

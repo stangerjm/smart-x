@@ -1,8 +1,20 @@
-<smart-form
-    form-action="{{formAction}}"
-    :form-data="{{formData}}"
-    :readonly-inputs="{{disabledInputs}}"
-    form-method="{{formMethod}}"
-    form-title="{{formTitle}}"
-    :required-inputs="['date', 'name']">
-</smart-form>
+<form action="{{formAction}}" method="{{formMethod}}" class="smart-form">
+    <header class="smart-form--titleSection">
+        <h3 class="smart-form--title">{{formTitle}}</h3>
+    </header>
+    <section class="smart-form--fieldSection">
+        <div class="smart-form--field bit-input-stacked">
+            <label for="name" class="bit-input--label">Name</label>
+            <input id="name" type="text" class="bit-input--field" value="{{ formData.name }}">
+        </div>
+        <div class="smart-form--field bit-input-stacked">
+            <label for="date" class="bit-input--label">Date</label>
+            <input id="date" type="text" class="bit-input--field" value="{{ formData.date }}">
+        </div>
+        <div class="smart-form--field bit-input-stacked">
+            <label for="isActive" class="bit-input--label">Is Active</label>
+            <input id="isActive" type="checkbox" class="bit-input--field" value="{{ formData.isActive }}" checked="{{ formData.isActive }}">
+        </div>
+        <button class="bit-btn bit-btn-clickable" type="submit">Submit</button>
+    </section>
+</form>

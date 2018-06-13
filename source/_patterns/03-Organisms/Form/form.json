@@ -1,9 +1,13 @@
 {
   "formAction": "/Region/Create",
-  "formData": "{ id: 1, name: 'James', date: '1/1/2010', isActive: true }",
-  "disabledInputs": "['id']",
+  "formData":
+    {
+      "id": 1,
+      "name": "James",
+      "date": "1/1/2010",
+      "isActive": true
+    },
   "formMethod": "get",
   "formTitle": "Region",
-  "emptyModel": false,
-  "selectData": "[{petType: 'Cat', petOptions: [{petName: 'Ramona'}, {petName: 'Frank'}]},{petType: 'Dog', petOptions: [{petName: 'Shadow'}, {petName: 'Kuma'}]}]"
+  "emptyModel": false
 }

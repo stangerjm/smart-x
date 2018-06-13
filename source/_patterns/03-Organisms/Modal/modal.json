@@ -1,8 +1,15 @@
 {
   "formAction": "/Region/Create",
-  "formData": "{ id: 1, name: 'James', date: '1/1/2010', isActive: true }",
-  "disabledInputs": "['id']",
+  "formData":
+  {
+    "id": 1,
+    "name": "James",
+    "date": "1/1/2010",
+    "isActive": true
+  },
   "formMethod": "get",
-  "formTitle": "Create - Region",
-  "emptyModel": false
+  "formTitle": "Region",
+  "emptyModel": false,
+  "modalTitle": "Modal Test",
+  "modalBtn": "Open Modal"
 }

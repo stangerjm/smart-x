@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import { EventBus } from './event-bus';
+  import { EventBus } from '../event-bus';
 
   /**
    * A component that renders two select elements that have a parent-child relationship.
@@ -99,7 +99,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
-    @import "../sass/components/block/multiSelect/block-multiSelect";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/block/multiSelect/block-multiSelect";
 </style>

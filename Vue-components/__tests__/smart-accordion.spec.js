@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartAccordion from '../smart-accordion'
+import smartAccordion from '../components/smart-accordion'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

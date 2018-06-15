@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import bitInput from '../bit-input'
+import bitInput from '../components/bit-input'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

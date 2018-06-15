@@ -1,22 +1,14 @@
 import Vue from 'vue';
-import bitBtn from './bit-btn';
-import bitIcon from './bit-icon';
-import bitInput from './bit-input';
-import bitDropList from './bit-dropList';
-import blockActionContainer from './block-actionContainer';
-import blockFormHeading from './block-formHeading';
-import blockFormFooter from './block-formFooter';
-import blockFormBody from './block-formBody';
-import blockNavList from './block-navList';
-import smartSearch from './smart-search';
-import smartNav from './smart-nav';
-import smartTable from './smart-table';
-import smartDetails from './smart-details';
-import smartAccordion from './smart-accordion';
-import blockMultiSelect from './block-multiSelect';
-import stackTableCollapsible from './stack-tableCollapsible';
-import smartForm from './smart-form';
-import smartModal from './smart-modal';
+import bitBtn from './components/bit-btn';
+import bitInput from './components/bit-input';
+import bitIcon from './components/bit-icon';
+
+//Manually polyfill promise for asynchronous component loading
+require('es6-promise').polyfill();
+
+Vue.component('bit-btn', bitBtn);
+Vue.component('bit-input', bitInput);
+Vue.component('bit-icon', bitIcon);
 
 //Apply base styles to all components
 require('../sass/base/_base.scss');
@@ -34,23 +26,18 @@ Vue.mixin({
 new Vue({
     el: '#app',
     components: {
-        bitBtn,
-        bitIcon,
-        bitInput,
-        bitDropList,
-        blockActionContainer,
-        blockFormHeading,
-        blockFormFooter,
-        blockFormBody,
-        blockNavList,
-        smartSearch,
-        smartNav,
-        smartTable,
-        smartDetails,
-        smartAccordion,
-        blockMultiSelect,
-        stackTableCollapsible,
-        smartForm,
-        smartModal
+        //Load components asynchronously so that we only load the components that we need when we need them.
+        bitDropList: () => import('./components/bit-dropList'),
+        blockActionContainer: () => import('./components/block-actionContainer'),
+        blockNavList: () => import('./components/block-navList'),
+        blockMultiSelect: () => import('./components/block-multiSelect'),
+        smartSearch: () => import('./components/smart-search'),
+        smartNav: () => import('./components/smart-nav'),
+        smartTable: () => import('./components/smart-table'),
+        smartDetails: () => import('./components/smart-details'),
+        smartAccordion: () => import('./components/smart-accordion'),
+        smartForm: () => import('./components/smart-form'),
+        smartModal: () => import('./components/smart-modal'),
+        stackTableCollapsible: () => import('./components/stack-tableCollapsible')
     }
 });

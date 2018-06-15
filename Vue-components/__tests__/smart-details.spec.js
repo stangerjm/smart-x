@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartDetails from '../smart-details'
+import smartDetails from '../components/smart-details'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 import Vue from "vue";

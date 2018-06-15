@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartNav from '../smart-nav'
+import smartNav from '../components/smart-nav'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

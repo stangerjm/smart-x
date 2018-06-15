@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import { parseJsonDate } from './helpers';
+  import { parseJsonDate } from '../helpers';
 
   /**
    * A component that renders a model as a list of details.
@@ -100,7 +100,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
-    @import "../sass/components/smart/details/smart-details";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/smart/details/smart-details";
 </style>

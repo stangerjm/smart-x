@@ -1,13 +1,13 @@
-var path = require('path')
-var webpack = require('webpack')
-require('babel-polyfill');
+var path = require('path');
+var webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: ['./Vue-components'],
   output: {
-    path: path.resolve(__dirname, './source/js/'),
-    publicPath: '/js/',
+    path: path.resolve(__dirname, './source/js/dist/'),
+    publicPath: '/js/dist/',
     filename: 'build.js'
   },
   module: {
@@ -120,6 +120,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new CleanWebpackPlugin(['source/js/dist/'])
   ])
 }

@@ -20,9 +20,6 @@
 </template>
 
 <script>
-  import bitIcon from './bit-icon'
-  import blockNavList from './block-navList'
-
   /**
    * A component that renders a responsive navigation.
    * @author James Stanger, Washington State Patrol
@@ -31,8 +28,7 @@
   export default {
     name: "smart-nav",
     components: {
-      bitIcon,
-      blockNavList
+      blockNavList: () => import('./block-navList')
     },
     props: {
       /**
@@ -112,7 +108,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
-    @import "../sass/components/smart/nav/smart-nav";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/smart/nav/smart-nav";
 </style>

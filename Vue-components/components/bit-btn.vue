@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import { EventBus } from './event-bus';
+  import { EventBus } from '../event-bus';
 
   /**
    * A dynamic button that can be used as an various types of buttons and links.
@@ -80,7 +80,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
-    @import "../sass/components/bit/btn/bit-btn";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/bit/btn/bit-btn";
 </style>

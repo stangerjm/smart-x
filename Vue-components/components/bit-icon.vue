@@ -45,7 +45,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
-    @import "../sass/components/bit/icon/bit-icon";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/bit/icon/bit-icon";
 </style>

@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import blockMultiSelect from '../block-multiSelect'
+import blockMultiSelect from '../components/block-multiSelect'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

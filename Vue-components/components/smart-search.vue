@@ -35,9 +35,6 @@
 </template>
 
 <script>
-  import bitBtn from './bit-btn'
-  import bitInput from './bit-input'
-
   /**
    * A component that renders a mobile oriented search bar.
    * @author James Stanger, Washington State Patrol
@@ -45,10 +42,6 @@
    */
   export default {
     name: "smart-search",
-    components: {
-      bitBtn,
-      bitInput
-    },
     data() {
       return {
         /**
@@ -132,7 +125,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
-    @import "../sass/components/smart/search/smart-search";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/smart/search/smart-search";
 </style>

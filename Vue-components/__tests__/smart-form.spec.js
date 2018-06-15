@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartForm from '../smart-form'
+import smartForm from '../components/smart-form'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 import Vue from "vue";

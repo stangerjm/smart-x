@@ -5,18 +5,14 @@
 </template>
 
 <script>
-  import bitBtn from './bit-btn'
   export default {
-    name: "block-form-footer",
-    components: {
-      bitBtn
-    }
+    name: "block-form-footer"
   }
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
 
     .form-section--footer {
         border-radius: 0 0 10px 10px;

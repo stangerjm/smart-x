@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartSearch from '../smart-search'
+import smartSearch from '../components/smart-search'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

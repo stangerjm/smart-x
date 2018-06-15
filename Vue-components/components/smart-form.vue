@@ -27,10 +27,8 @@
 </template>
 
 <script>
-  import bitInput from './bit-input';
-  import bitBtn from './bit-btn';
-  import { EventBus } from './event-bus';
-  import { parseJsonDate } from './helpers';
+  import { EventBus } from '../event-bus';
+  import { parseJsonDate } from '../helpers';
 
   /**
    * A component that renders a dynamic form based on a model.
@@ -39,10 +37,6 @@
    */
   export default {
     name: "smart-form",
-    components: {
-      bitInput,
-      bitBtn
-    },
     data() {
       return {
         /**
@@ -196,6 +190,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/components/smart/form/smart-form";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/smart/form/smart-form";
 </style>

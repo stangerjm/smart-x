@@ -33,7 +33,6 @@
 </template>
 
 <script>
-  import flatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
 
   /**
@@ -44,7 +43,7 @@
   export default {
     name: "bit-input",
     components: {
-      flatPickr
+      flatPickr: () => import('vue-flatpickr-component')
     },
     props: {
       /**
@@ -105,9 +104,9 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
-    @import "../sass/components/bit/input/bit-input";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/bit/input/bit-input";
 
     .flatpickr-input {
         background: url('/images/calendar.png') 5px / 20px no-repeat;

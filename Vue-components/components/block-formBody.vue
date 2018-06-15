@@ -5,20 +5,14 @@
 </template>
 
 <script>
-  import bitInput from './bit-input'
-  import bitBtn from './bit-btn'
   export default {
-    name: "block-form-body",
-    components: {
-      bitInput,
-      bitBtn
-    }
+    name: "block-form-body"
   }
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
 
     /// Styles a section of the form. Allows a body to be styled using
     /// .form-section, a heading to be styled using .form-section--heading

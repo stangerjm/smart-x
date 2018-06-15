@@ -45,10 +45,7 @@
 </template>
 
 <script>
-  import blockActionContainer from './block-actionContainer'
-  import bitBtn from './bit-btn'
-  import bitIcon from './bit-icon'
-  import { parseJsonDate } from "./helpers";
+  import { parseJsonDate } from "../helpers";
 
   /**
    * A component that renders a responsive table from a data-set.
@@ -58,9 +55,7 @@
   export default {
     name: "smart-table",
     components: {
-      blockActionContainer,
-      bitBtn,
-      bitIcon
+      blockActionContainer: () => import('./block-actionContainer')
     },
     props: {
       /**
@@ -189,7 +184,7 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
-    @import "../sass/components/smart/table/smart-table";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/smart/table/smart-table";
 </style>

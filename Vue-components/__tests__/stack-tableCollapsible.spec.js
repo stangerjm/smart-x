@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import stackTableCollapsible from '../stack-tableCollapsible'
+import stackTableCollapsible from '../components/stack-tableCollapsible'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 import Vue from "vue";

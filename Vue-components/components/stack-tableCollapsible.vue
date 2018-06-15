@@ -12,9 +12,6 @@
 </template>
 
 <script>
-  import smartTable from './smart-table'
-  import smartAccordion from './smart-accordion'
-
   /**
    * A component that renders a smart-table inside of a smart-accordion.
    * @author James Stanger, Washington State Patrol
@@ -25,8 +22,8 @@
   export default {
     name: "stack-table-collapsible",
     components: {
-      smartTable,
-      smartAccordion
+      smartTable: () => import('./smart-table'),
+      smartAccordion: () => import('./smart-accordion')
     },
     props: {
       /**

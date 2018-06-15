@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     argv = require('minimist')(process.argv.slice(2));
 
+var compress = require('compression');
 var sass = require('gulp-sass');
 var beautify = require('gulp-jsbeautifier');
 var clean = require('gulp-clean-css');
@@ -187,7 +188,11 @@ function watch() {
 gulp.task('patternlab:connect', gulp.series(function(done) {
     browserSync.init({
         server: {
-            baseDir: path.resolve(paths().public.root)
+            baseDir: path.resolve(paths().public.root),
+            middleware: function(req, res, next) {
+                var gzip = compress();
+                gzip(req, res, next);
+            }
         },
         snippetOptions: {
             // Ignore all HTML files within the templates folder

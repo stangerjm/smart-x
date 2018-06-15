@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import bitDropList from '../bit-dropList'
+import bitDropList from '../components/bit-dropList'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

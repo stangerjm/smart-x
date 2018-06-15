@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import blockNavList from '../block-navList'
+import blockNavList from '../components/block-navList'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

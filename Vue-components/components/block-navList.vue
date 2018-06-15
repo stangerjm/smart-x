@@ -15,8 +15,6 @@
 </template>
 
 <script>
-  import bitDropList from './bit-dropList'
-
   /**
    * A component that renders a flexible and mobile responsive list with drop-down capability.
    * @author James Stanger
@@ -34,7 +32,7 @@
       }
     },
     components: {
-      bitDropList
+      bitDropList: () => import('./bit-dropList')
     },
     data: function () {
       return {
@@ -55,8 +53,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/global/mixins";
-    @import "../sass/components/bit/link/bit-link";
-    @import "../sass/components/block/navList/block-navList";
+    @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/bit/link/bit-link";
+    @import "../../sass/components/block/navList/block-navList";
 </style>

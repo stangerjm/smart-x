@@ -48,8 +48,6 @@
 </template>
 
 <script>
-  import bitBtn from './bit-btn';
-
   /**
    * A component that renders an action container to be part of a table or other such structure.
    * The action container should be linked to a record or item in a table-like structure.
@@ -133,9 +131,6 @@
         detailsContext: this.detailsCtx ? this.detailsCtx : this.defaultCtx,
       }
     },
-    components: {
-      bitBtn
-    },
     methods: {
       getActionPath: function(action, context) {
         return '/' + context + '/' + action + '/' + this.itemId;
@@ -145,6 +140,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/components/block/actionContainer/block-actionContainer";
+    @import "../../sass/global/mixins";
+    @import "../../sass/components/block/actionContainer/block-actionContainer";
 </style>

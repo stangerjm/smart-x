@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartModal from '../smart-modal'
+import smartModal from '../components/smart-modal'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 

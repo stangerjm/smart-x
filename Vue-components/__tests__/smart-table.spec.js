@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import smartTable from '../smart-table'
+import smartTable from '../components/smart-table'
 import {shallow} from 'vue-test-utils'
 import {createRenderer} from 'vue-server-renderer'
 import Vue from "vue";

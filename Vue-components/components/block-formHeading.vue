@@ -11,8 +11,8 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/mixins";
-    @import "../sass/global/variables";
+    @import "../../sass/global/mixins";
+    @import "../../sass/global/variables";
 
     .form-section--heading {
         border-radius: 10px 10px 0 0;

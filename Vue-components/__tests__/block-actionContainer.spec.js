@@ -1,5 +1,5 @@
 import {mount} from 'vue-test-utils'
-import blockActionContainer from '../block-actionContainer'
+import blockActionContainer from '../components/block-actionContainer'
 import {createRenderer} from 'vue-server-renderer'
 
 function mountActionContainer(props) {

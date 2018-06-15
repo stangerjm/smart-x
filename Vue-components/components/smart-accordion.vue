@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {fillCustomEvent} from './polyfill';
+  import {fillCustomEvent} from '../polyfill';
   fillCustomEvent();
   /**
    * A component that renders a responsive accordion that can contain any HTML content.
@@ -109,6 +109,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "../sass/global/variables";
-    @import "../sass/components/smart/accordion/smart-accordion";
+    @import "../../sass/global/variables";
+    @import "../../sass/components/smart/accordion/smart-accordion";
 </style>

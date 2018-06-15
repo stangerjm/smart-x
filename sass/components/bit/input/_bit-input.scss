@@ -23,10 +23,8 @@
 .bit-input--field {
   padding: 5px;
 
-  /* Select inputs that are not checkboxes.
-   * Omit .el-date-editor, the container of a third-party datepicker Vue.js component.
-   */
-  &:not([type = checkbox]):not(.el-date-editor) {
+  &:not([type = checkbox]) {
+    /* Select inputs that are not checkboxes. */
     border: none;
     box-shadow: inset 1px 1px 4px $theme-black;
     border-radius: 3px;

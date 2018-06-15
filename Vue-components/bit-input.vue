@@ -22,19 +22,20 @@
         </template>
         <template v-else>
             <label class="bit-input--label" :for="inputId ? inputId : randomId">{{labelText}}</label>
-            <date-picker class="bit-input--field"
-                         :id="inputId ? inputId : randomId"
-                         v-model="model"
-                         :name="inputName"
-                         type="date"
-                         :format="dateFormat"
-                         v-bind="$attrs">
-            </date-picker>
+            <flat-pickr class="bit-input--field"
+                        :id="inputId ? inputId : randomId"
+                        v-model="model"
+                        :name="inputName"
+                        v-bind="$attrs">
+            </flat-pickr>
         </template>
     </div>
 </template>
 
 <script>
+  import flatPickr from 'vue-flatpickr-component';
+  import 'flatpickr/dist/flatpickr.css';
+
   /**
    * A component that can be rendered as a text, number, or datepicker input.
    * @author James Stanger, Washington State Patrol
@@ -42,6 +43,9 @@
    */
   export default {
     name: "bit-input",
+    components: {
+      flatPickr
+    },
     props: {
       /**
        * Corresponds to the native HTML input attribute "type"
@@ -105,19 +109,8 @@
     @import "../sass/global/mixins";
     @import "../sass/components/bit/input/bit-input";
 
-    /* Styles to correct third-party datepicker component styles */
-    .bit-input--field {
-        & /deep/ .el-input__inner {
-            border: none;
-            box-shadow: inset 1px 1px 4px $theme-black;
-            border-radius: 3px;
-            height: 35px;
-            width: 100%;
-        }
-
-        &.el-date-editor {
-            width: 100%;
-            padding: 0;
-        }
+    .flatpickr-input {
+        background: url('/images/calendar.png') 5px / 20px no-repeat;
+        padding-left: 30px;
     }
 </style>

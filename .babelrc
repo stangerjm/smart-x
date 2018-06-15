@@ -1,18 +1,17 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
         "browsers": [
           "Chrome >= 52",
           "FireFox >= 44",
           "Safari >= 7",
-          "Explorer 11",
+          "ie 11",
           "last 4 Edge versions"
         ]
       },
-      "useBuiltIns": true
-    }],
-    "stage-2"
+      "useBuiltIns": "usage"
+    }]
   ],
   "ignore": [
     "node_modules"

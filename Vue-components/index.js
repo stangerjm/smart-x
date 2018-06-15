@@ -17,16 +17,9 @@ import blockMultiSelect from './block-multiSelect';
 import stackTableCollapsible from './stack-tableCollapsible';
 import smartForm from './smart-form';
 import smartModal from './smart-modal';
-import {DatePicker} from 'element-ui';
-import en from "element-ui/lib/locale/lang/en";
-import locale from 'element-ui/lib/locale';
 
 //Apply base styles to all components
 require('../sass/base/_base.scss');
-
-locale.use(en);
-
-Vue.component('date-picker', DatePicker);
 
 Vue.mixin({
   methods: {
@@ -58,7 +51,6 @@ new Vue({
         blockMultiSelect,
         stackTableCollapsible,
         smartForm,
-        smartModal,
-        DatePicker
+        smartModal
     }
 });

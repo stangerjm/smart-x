@@ -1,9 +1,10 @@
 var path = require('path')
 var webpack = require('webpack')
-require('babel-polyfill')
+require('babel-polyfill');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  entry: ['babel-polyfill', './Vue-components'],
+  entry: ['./Vue-components'],
   output: {
     path: path.resolve(__dirname, './source/js/'),
     publicPath: '/js/',
@@ -68,9 +69,6 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        options: {
-          presets: ['es2015-ie']
-        },
         exclude: /node_modules/
       },
       {
@@ -99,8 +97,11 @@ module.exports = {
   performance: {
     hints: false
   },
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ],
   devtool: '#eval-source-map'
-}
+};
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'

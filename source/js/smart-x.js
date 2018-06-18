@@ -226,3 +226,20 @@ SmartSearch.prototype.toggle = function() {
 };
 
 new SmartSearch();
+
+/**
+ * smart-table
+ */
+
+let tableExpandBtns = document.querySelectorAll('.smart-table--expand > .bit-btn-expand');
+tableExpandBtns.forEach(btn => {
+  btn.onclick = function() {
+    let row = findAncestor(btn, 'smart-table--row');
+    row.classList.toggle('record-is-expanded');
+  };
+});
+
+function findAncestor (el, cls) {
+  while ((el = el.parentElement) && !el.classList.contains(cls));
+  return el;
+}

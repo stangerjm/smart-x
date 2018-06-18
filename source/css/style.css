@@ -938,19 +938,19 @@ a.bit-btn {
         flex: none;
         float: right;
     }
-    .record-is-expanded .smart-table--cell:last-of-type {
-        /* Omit border on the last cell */
-        border-bottom: none;
-    }
     .record-is-expanded .smart-table--cell:first-child {
         /* Make room for collapse button */
         padding-bottom: 10px;
+    }
+    .record-is-expanded td:nth-last-of-type(2) {
+        /* Hide last border */
+        border-bottom: none;
     }
     .record-is-expanded .smart-table--expand {
         position: absolute;
         top: 10px;
     }
-    .record-is-expanded .smart-table--expand:after {
+    .record-is-expanded .bit-btn-expand:after {
         /* Toggle the expand button to a collapse button */
         content: "-";
     }

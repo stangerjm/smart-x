@@ -3,9 +3,7 @@
         <tr class="smart-table--row smart-table--head">
             <th class="smart-table--heading smart-table--sortableHeading" v-for="heading in Object.keys(tableData[0])" v-if="isDisplayHeading(heading)">
                 <template v-if="!unsearchableHeadings.includes(heading)">
-                    <a class="smart-table--link" :href="'/' + defaultContext + '?sortOrder=' + heading">
-                        {{formatFromCamelCase(heading)}}
-                    </a>
+                    <a class="smart-table--link" :href="'/' + defaultContext + '?sortOrder=' + heading">{{formatFromCamelCase(heading)}}</a>
                     <bit-icon icon-type="sort"></bit-icon>
                 </template>
                 <template v-else>
@@ -39,7 +37,9 @@
                         :open-modal-delete="openModalAll || openModalDelete">
                 </block-action-container>
             </td>
-            <bit-btn class="smart-table--expand" btn-style="expand" @click.native="expandRecord"></bit-btn>
+            <td class="smart-table--expand">
+                <bit-btn btn-style="expand" @click.native="expandRecord"></bit-btn>
+            </td>
         </tr>
     </table>
 </template>
@@ -132,12 +132,9 @@
        * @param event
        */
       expandRecord: function (event) {
-        let row = event.target.parentNode;
-        if (row.classList.contains("record-is-expanded")) {
-          row.classList.remove("record-is-expanded");
-        } else {
-          row.classList.add("record-is-expanded");
-        }
+        let btn = event.target;
+        let row = findAncestor(btn, 'smart-table--row');
+        row.classList.toggle('record-is-expanded');
 
         /**
          * Emit to parent that a record has been expanded so parent can resize appropriately.
@@ -145,6 +142,10 @@
          * @type null
          */
         this.$emit('recordExpanded');
+      },
+      findAncestor: function(el, cls) {
+        while ((el = el.parentElement) && !el.classList.contains(cls));
+        return el;
       },
       /**
        * Ignores the detailsContext, editContext, and deleteContext keys needed to build action container

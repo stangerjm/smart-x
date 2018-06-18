@@ -1,0 +1,10 @@
+{
+  "headings": [
+    {"thText": "Id"},
+    {"thText": "Name"},
+    {"thText": "Effective Date"},
+    {"thText": "Expire Date"},
+    {"thText": "Actions"}
+  ],
+  "tableData": "[{'id': 1, 'name': 'test', 'testProp': 'test', 'anotherProp': 'more', 'detailsContext': 'Manufacturer', 'deleteContext': 'County'}, {'id': 2, 'name': 'SW Washington', 'testProp': 'test', 'anotherProp': 'more', 'editContext': 'Bottle', 'deleteContext': 'Google'}, {'id': 3, 'name': 'Central Washington', 'testProp': 'test', 'anotherProp': 'more', 'editContext': 'Else', 'detailsContext': 'Test'}]"
+}

@@ -131,21 +131,23 @@
       //for IE. Has no effect on Chrome or Firefox
       float: right;
 
-      &:last-of-type {
-        /* Omit border on the last cell */
-        border-bottom: none;
-      }
-
       &:first-child {
         /* Make room for collapse button */
         padding-bottom: 10px;
       }
     }
 
+    td:nth-last-of-type(2) {
+      /* Hide last border */
+      border-bottom: none;
+    }
+
     .smart-table--expand {
       position: absolute;
       top: 10px;
+    }
 
+    .bit-btn-expand {
       &:after {
         /* Toggle the expand button to a collapse button */
         content: "-";

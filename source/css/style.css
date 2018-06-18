@@ -677,6 +677,8 @@ a.bit-btn {
 
 .smart-modal--close {
     height: 30px;
+    width: 45px;
+    padding: 0;
     background: none;
     border: none;
     box-shadow: #0d0908 0 0 2px;

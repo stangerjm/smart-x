@@ -8,19 +8,16 @@
             <a href="/Region?sortOrder=name" class="smart-table--link">Name</a>
             <span class="bit-icon-sort"></span>
         </th>
-        <th class="smart-table--heading smart-table--sortableHeading">
-            <a href="/Region?sortOrder=testProp" class="smart-table--link">Test Prop</a>
-            <span class="bit-icon-sort"></span>
-        </th>
-        <th class="smart-table--heading smart-table--sortableHeading">Another Prop</th>
         <th class="smart-table--heading">Actions</th>
     </tr>
     {{#tableData}}
         <tr class="smart-table--row">
-            <td class="smart-table--cell smart-table--key">{{id}}</td>
-            <td class="smart-table--cell smart-table--key">{{name}}</td>
-            <td class="smart-table--cell">{{testProp}}</td>
-            <td class="smart-table--cell">{{anotherProp}}</td>
+            <td class="smart-table--cell smart-table--key">
+                <span class="smart-table--inlineHeading">Id: </span>{{id}}
+            </td>
+            <td class="smart-table--cell smart-table--key">
+                <span class="smart-table--inlineHeading">Name: </span>{{name}}
+            </td>
             <td class="smart-table--cell">
                 {{> Molecules-action-container}}
             </td>

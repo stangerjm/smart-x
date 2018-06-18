@@ -1,0 +1,17 @@
+{
+  "className": "nav-list",
+  "navListItems": "[{'itemTitle': 'Home', 'linkPath': '#'}, {'itemTitle': 'WSP', 'linkPath': '#'}, {'itemTitle': 'More', 'linkPath': '#', 'inlineItems': [{'itemTitle':'Be a Trooper', 'linkPath':'#'}, {'itemTitle':'Media', 'linkPath':'#'}]}, {'itemTitle': 'Links', 'linkPath': '#', 'inlineItems': [{'itemTitle':'breathtest', 'linkPath':'#'}, {'itemTitle':'wsp.wa.gov', 'linkPath':'#'}, {'itemTitle':'Google', 'linkPath':'#'}]}, {'itemTitle': 'Contact', 'linkPath': '#'}]",
+  "user": "JMST225",
+  "time": "Tue April 3 2018",
+  "navTitle": "IIP Management System",
+  "inputs": [
+    {"inputName": "region", "labelText": "Find by ID/Name"}
+  ],
+  "formButtons": [
+    {"formButtonClass":"search", "formButtonText":"Search"},
+    {"formButtonClass":"reset", "formButtonText":"Reset"},
+    {"formButtonClass":"add", "formButtonText":"Add"}
+  ],
+  "formHeadText": "Region",
+  "tableData": "[{'id': 1, 'RegionCode': 1, 'RegionName': 'WESTERN WA', 'detailsContext': 'Manufacturer', 'deleteContext': 'County'}, {'id': 2, 'RegionCode': 2, 'RegionName': 'SOUTHWEST WA', 'editContext': 'Bottle', 'deleteContext': 'Google'}, {'id': 3, 'RegionCode': 3, 'RegionName': 'CENTRAL WA', 'editContext': 'Else', 'detailsContext': 'Test'}, {'id': 4, 'RegionCode': 4, 'RegionName': 'EASTERN WA'}, {'id': 5, 'RegionCode': 5, 'RegionName': 'SOUTH WA'}, {'id': 6, 'RegionCode': 6, 'RegionName': 'SOUTHEAST WA'}, {'id': 7, 'RegionCode': 7, 'RegionName': 'NORTH WA'}, {'id': 8, 'RegionCode': 8, 'RegionName': 'ANOTHER REGION'}, {'id': 9, 'RegionCode': 9, 'RegionName': 'TEST REGION'}, {'id': 10, 'RegionCode': 10, 'RegionName': 'REGION TESTING'}, {'id': 11, 'RegionCode': 11, 'RegionName': 'TEST DATA'}, {'id': 12, 'RegionCode': 12, 'RegionName': 'MORE REGION'}, {'id': 13, 'RegionCode': 13, 'RegionName': 'DUMMY REGION'}, {'id': 14, 'RegionCode': 14, 'RegionName': 'NORTHWEST WA'}, {'id': 15, 'RegionCode': 15, 'RegionName': 'MORE WA'}, {'id': 16, 'RegionCode': 16, 'RegionName': 'ANOTHER WA'}, {'id': 17, 'RegionCode': 17, 'RegionName': 'TEST WA'}, {'id': 18, 'RegionCode': 18, 'RegionName': 'NORTHEAST WA'}, {'id': 19, 'RegionCode': 19, 'RegionName': 'SOUTHEAST WA'}, {'id': 20, 'RegionCode': 20, 'RegionName': 'MAIN WA'}]"
+}

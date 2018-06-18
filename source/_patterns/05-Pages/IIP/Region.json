@@ -1,17 +1,135 @@
 {
-  "className": "nav-list",
-  "navListItems": "[{'itemTitle': 'Home', 'linkPath': '#'}, {'itemTitle': 'WSP', 'linkPath': '#'}, {'itemTitle': 'More', 'linkPath': '#', 'inlineItems': [{'itemTitle':'Be a Trooper', 'linkPath':'#'}, {'itemTitle':'Media', 'linkPath':'#'}]}, {'itemTitle': 'Links', 'linkPath': '#', 'inlineItems': [{'itemTitle':'breathtest', 'linkPath':'#'}, {'itemTitle':'wsp.wa.gov', 'linkPath':'#'}, {'itemTitle':'Google', 'linkPath':'#'}]}, {'itemTitle': 'Contact', 'linkPath': '#'}]",
-  "user": "JMST225",
-  "time": "Tue April 3 2018",
-  "navTitle": "IIP Management System",
-  "inputs": [
-    {"inputName": "region", "labelText": "Find by ID/Name"}
-  ],
-  "formButtons": [
-    {"formButtonClass":"search", "formButtonText":"Search"},
-    {"formButtonClass":"reset", "formButtonText":"Reset"},
-    {"formButtonClass":"add", "formButtonText":"Add"}
+  "navListItems":
+  [
+    {
+      "itemTitle": "Home",
+      "linkPath": "#"
+    },
+    {
+      "itemTitle": "WSP",
+      "linkPath": "#"
+    },
+    {
+      "itemTitle": "More",
+      "linkPath": "#",
+      "inlineListItems":
+      [
+        {
+          "itemTitle": "Be a Trooper",
+          "linkPath": "#"
+        },
+        {
+          "itemTitle": "Media",
+          "linkPath": "#"
+        }
+      ]
+    },
+    {
+      "itemTitle": "Links",
+      "linkPath": "#",
+      "inlineListItems":
+      [
+        {
+          "itemTitle": "breathtest",
+          "linkPath": "#"
+        },
+        {
+          "itemTitle": "wsp.wa.gov",
+          "linkPath": "#"
+        },
+        {
+          "itemTitle": "Google",
+          "linkPath": "#"
+        }
+      ]
+    },
+    {
+      "itemTitle": "Contact",
+      "linkPath": "#"
+    }
   ],
   "formHeadText": "Region",
-  "tableData": "[{'RegionCode': 1, 'RegionName': 'WESTERN WA', 'detailsContext': 'Manufacturer', 'deleteContext': 'County'}, {'RegionCode': 2, 'RegionName': 'SOUTHWEST WA', 'editContext': 'Bottle', 'deleteContext': 'Google'}, {'RegionCode': 3, 'RegionName': 'CENTRAL WA', 'editContext': 'Else', 'detailsContext': 'Test'}, {'RegionCode': 4, 'RegionName': 'EASTERN WA'}, {'RegionCode': 5, 'RegionName': 'SOUTH WA'}, {'RegionCode': 6, 'RegionName': 'SOUTHEAST WA'}, {'RegionCode': 7, 'RegionName': 'NORTH WA'}, {'RegionCode': 8, 'RegionName': 'ANOTHER REGION'}, {'RegionCode': 9, 'RegionName': 'TEST REGION'}, {'RegionCode': 10, 'RegionName': 'REGION TESTING'}, {'RegionCode': 11, 'RegionName': 'TEST DATA'}, {'RegionCode': 12, 'RegionName': 'MORE REGION'}, {'RegionCode': 13, 'RegionName': 'DUMMY REGION'}, {'RegionCode': 14, 'RegionName': 'NORTHWEST WA'}, {'RegionCode': 15, 'RegionName': 'MORE WA'}, {'RegionCode': 16, 'RegionName': 'ANOTHER WA'}, {'RegionCode': 17, 'RegionName': 'TEST WA'}, {'RegionCode': 18, 'RegionName': 'NORTHEAST WA'}, {'RegionCode': 19, 'RegionName': 'SOUTHEAST WA'}, {'RegionCode': 20, 'RegionName': 'MAIN WA'}]"
+  "tableData":
+  [
+    {
+      "id": 1,
+      "name": "WESTERN WA"
+    },
+    {
+      "id": 2,
+      "name": "SOUTHWEST WA"
+    },
+    {
+      "id": 3,
+      "name": "CENTRAL WA"
+    },
+    {
+      "id": 4,
+      "name": "EASTERN WA"
+    },
+    {
+      "id": 5,
+      "name": "SOUTH WA"
+    },
+    {
+      "id": 6,
+      "name": "SOUTHEAST WA"
+    },
+    {
+      "id": 7,
+      "name": "NORTH WA"
+    },
+    {
+      "id": 8,
+      "name": "ANOTHER REGION"
+    },
+    {
+      "id": 9,
+      "name": "TEST REGION"
+    },
+    {
+      "id": 10,
+      "name": "REGION TESTING"
+    },
+    {
+      "id": 11,
+      "name": "TEST DATA"
+    },
+    {
+      "id": 12,
+      "name": "MORE REGION"
+    },
+    {
+      "id": 13,
+      "name": "DUMMY REGION"
+    },
+    {
+      "id": 14,
+      "name": "NORTHWEST WA"
+    },
+    {
+      "id": 15,
+      "name": "MORE WA"
+    },
+    {
+      "id": 16,
+      "name": "ANOTHER WA"
+    },
+    {
+      "id": 17,
+      "name": "TEST WA"
+    },
+    {
+      "id": 18,
+      "name": "NORTHEAST WA"
+    },
+    {
+      "id": 19,
+      "name": "SOUTHEAST WA"
+    },
+    {
+      "id": 20,
+      "name": "MAIN WA"
+    }
+  ]
 }

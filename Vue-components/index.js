@@ -14,6 +14,12 @@ Vue.component('bit-icon', bitIcon);
 require('../sass/base/_base.scss');
 
 Vue.mixin({
+  mounted() {
+    this.$emit('mounted');
+  }
+});
+
+Vue.mixin({
   methods: {
     formatFromCamelCase: text => {
       return text

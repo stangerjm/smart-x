@@ -108,9 +108,6 @@
           let searchHeight = documentWidth < 1024 ? search.offsetHeight + 30 : 0;
           let segmentHeight = documentWidth < 1024 ? titleSegment.offsetHeight : 0;
 
-          console.log('Search height is: ' + searchHeight);
-          console.log('Segment height is: ' + segmentHeight);
-
           heading.style.minHeight = searchHeight + segmentHeight + 'px';
         }
       }

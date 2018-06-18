@@ -121,3 +121,48 @@ function openModal() {
     modal.open();
   }
 }
+
+/**
+ * samrt-nav
+ */
+
+function Clock(user, outputSelector) {
+  this.user = user;
+  let outputArea = document.querySelector(outputSelector);
+  if (outputArea) {
+    this.outputEl = outputArea;
+    this.startClock();
+  }
+}
+
+Clock.prototype.startClock = function() {
+  this.currentDateTime = this.getTime();
+  this.outputEl.innerHTML = this.user + ' ' + this.currentDateTime;
+  setTimeout(this.startClock.bind(this), 1000);
+};
+
+Clock.prototype.formatTime = function(value) {
+  return (value < 10 ? '0' : '') + value;
+};
+
+Clock.prototype.getTime = function() {
+  let currentTime = new Date();
+  let year = currentTime.getFullYear().toString().slice(-2);
+  let day = this.formatTime(currentTime.getDate());
+  let month = this.formatTime(currentTime.getMonth() + 1);
+  let hours = this.formatTime(currentTime.getHours());
+  let minutes = this.formatTime(currentTime.getMinutes());
+  let seconds = this.formatTime(currentTime.getSeconds());
+
+  //format hours to reflect 12hr time
+  if (hours > 12) {
+    hours = this.formatTime(hours - 12);
+  } else if (hours == 0) {
+    hours = this.formatTime(12);
+  }
+
+  return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
+};
+
+let user = 'JMST225';
+new Clock(user, '.smart-nav--userTime');

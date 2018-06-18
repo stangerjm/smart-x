@@ -8,7 +8,7 @@
             </main>
             <aside class="smart-nav--headerAside">
                 <bit-icon icon-type="user"></bit-icon>
-                <span>{{usr}} - {{currentDateTime}}</span>
+                <span class="smart-nav--userTime">{{usr}} - {{currentDateTime}}</span>
             </aside>
         </header>
         <main class="smart-nav--list">

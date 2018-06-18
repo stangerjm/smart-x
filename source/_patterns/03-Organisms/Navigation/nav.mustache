@@ -1,6 +1,17 @@
-<smart-nav
-        nav-title="{{navTitle}}"
-        usr="JMST225"
-        tab-type="{{className}}"
-        :nav-items="{{navListItems}}">
-</smart-nav>
+<nav class="smart-nav">
+    <header class="smart-nav--header">
+        <main class="smart-nav--headerMain">
+            <a href="/">
+                <img src="/images/wspLogo.png" alt="Logo" width="100" height="50" class="smart-nav--logo">
+            </a>
+            <h5>Admin Console</h5>
+        </main>
+        <aside class="smart-nav--headerAside">
+            <span class="bit-icon-user"></span>
+            <span class="smart-nav--userTime"></span>
+        </aside>
+    </header>
+    <main class="smart-nav--list">
+        {{> Molecules-nav-list }}
+    </main>
+</nav>

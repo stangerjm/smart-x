@@ -166,3 +166,63 @@ Clock.prototype.getTime = function() {
 
 let user = 'JMST225';
 new Clock(user, '.smart-nav--userTime');
+
+/**
+ * smart-search
+ */
+
+function SmartSearch() {
+  this.smartSearch = document.querySelector('.smart-search');
+  this.isHidden = true;
+
+  if (this.smartSearch) {
+    window.addEventListener('resize', this.resize.bind(this));
+    this.searchBtn = this.smartSearch.querySelector('.smart-search--btnSearch');
+    this.exitBtn = this.smartSearch.querySelector('.smart-search--btnExit');
+    this.fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
+    this.initButtons();
+  }
+}
+
+SmartSearch.prototype.initButtons = function() {
+  this.searchBtn.onclick = this.toggle.bind(this);
+  this.exitBtn.onclick = this.toggle.bind(this);
+
+  //hide by default
+  this.exitBtn.style.display = 'none';
+};
+
+SmartSearch.prototype.resize = function() {
+  if (!this.isHidden) {
+    let heading = this.smartSearch.querySelector('.smart-search--heading');
+    let search = this.fieldContainer;
+    let titleSegment = heading.querySelector('.smart-search--headingSegment');
+    let documentWidth = document.body.clientWidth + 15;
+
+    //do not add search height if screen is less than breakpoint
+    let searchHeight = documentWidth < 1024 ? search.offsetHeight + 30 : 0;
+    let segmentHeight = documentWidth < 1024 ? titleSegment.offsetHeight : 0;
+
+    heading.style.minHeight = searchHeight + segmentHeight + 'px';
+  }
+};
+
+SmartSearch.prototype.toggle = function() {
+  this.fieldContainer.classList.toggle('is-hidden');
+  if (this.isHidden) {
+    this.isHidden = false;
+    this.exitBtn.style.display = 'block';
+    this.searchBtn.style.display = 'none';
+    this.resize();
+  } else {
+    this.isHidden = true;
+    let self = this;
+    setTimeout(function () {
+      self.smartSearch.querySelector('.smart-search--heading').style.minHeight = 0;
+    }, 400);
+    this.exitBtn.style.display = 'none';
+    this.searchBtn.style.display = 'block';
+  }
+};
+
+new SmartSearch();

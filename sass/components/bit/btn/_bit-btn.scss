@@ -84,11 +84,11 @@ a.bit-btn {
   @include clickable-shadowless;
 
   &:after {
-    @include icon-url('details-blue.png', 25px);
+    @include sprite($details);
     @include icon;
 
-    height: 35px;
-    width: 18px;
+    height: $details-height;
+    width: $details-width;
     margin-right: 0;
   }
 }

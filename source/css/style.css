@@ -101,11 +101,14 @@ a.bit-btn {
 }
 
 .bit-btn-details:after {
-    background: url("/images/details-blue.png") center/25px no-repeat;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -45px -30px;
+    width: 15px;
+    height: 11px;
     content: " ";
     display: inline-block;
-    height: 35px;
-    width: 18px;
+    height: 11px;
+    width: 15px;
     margin-right: 0;
 }
 

@@ -127,10 +127,10 @@ a.bit-btn {
   @include clickable-shadowless;
 
   &:after {
-    @include icon-url('edit.png', 17px);
+    @include sprite($edit);
     @include icon;
-    width: 20px;
-    height: 35px;
+    width: $edit-width;
+    height: $edit-height;
   }
 }
 

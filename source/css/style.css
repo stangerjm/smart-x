@@ -158,11 +158,14 @@ a.bit-btn {
 }
 
 .bit-btn-edit:after {
-    background: url("/images/edit.png") center/17px no-repeat;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -30px 0px;
+    width: 15px;
+    height: 19px;
     content: " ";
     display: inline-block;
-    width: 20px;
-    height: 35px;
+    width: 15px;
+    height: 19px;
 }
 
 .bit-btn-exit {

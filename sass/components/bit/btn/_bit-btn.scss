@@ -54,9 +54,9 @@ a.bit-btn {
   @include clickable;
 
   &:before {
-    @include icon-url('search.png', 13px);
-    height: 13px;
-    width: 20px;
+    @include sprite($search);
+    height: $search-width;
+    width: $search-height;
     @include icon;
   }
 }
@@ -72,9 +72,9 @@ a.bit-btn {
 .bit-btn-reset {
   @include clickable;
   &:before {
-    @include icon-url('reset.png', 13px);
-    height: 13px;
-    width: 18px;
+    @include sprite($reset);
+    height: $reset-height;
+    width: $reset-width;
     @include icon;
   }
 }

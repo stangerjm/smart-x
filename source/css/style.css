@@ -47,9 +47,12 @@ a.bit-btn {
 }
 
 .bit-btn-search:before {
-    background: url("/images/search.png") center/13px no-repeat;
-    height: 13px;
-    width: 20px;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -45px -15px;
+    width: 15px;
+    height: 15px;
+    height: 15px;
+    width: 15px;
     content: " ";
     display: inline-block;
 }
@@ -79,9 +82,12 @@ a.bit-btn {
 }
 
 .bit-btn-reset:before {
-    background: url("/images/reset.png") center/13px no-repeat;
-    height: 13px;
-    width: 18px;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -30px -24px;
+    width: 15px;
+    height: 15px;
+    height: 15px;
+    width: 15px;
     content: " ";
     display: inline-block;
 }

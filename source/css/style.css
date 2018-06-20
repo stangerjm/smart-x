@@ -234,9 +234,12 @@ a.bit-btn {
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
-    background: url("/images/sort.png") center/10px no-repeat;
-    height: 18px;
-    width: 10px;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: 0px 0px;
+    width: 15px;
+    height: 24px;
+    height: 24px;
+    width: 15px;
 }
 
 .bit-icon-error:before {

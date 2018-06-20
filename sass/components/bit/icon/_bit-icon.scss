@@ -13,9 +13,9 @@
 .bit-icon-sort {
   &:before {
     @include icon;
-    @include icon-url('sort.png', 10px);
-    height: 18px;
-    width: 10px;
+    @include sprite($sort);
+    height: $sort-height;
+    width: $sort-width;
   }
 }
 

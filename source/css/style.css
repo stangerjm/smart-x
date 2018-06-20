@@ -223,9 +223,12 @@ a.bit-btn {
 .bit-icon-user:before {
     content: " ";
     display: inline-block;
-    background: url("/images/user.png") center/12px no-repeat;
-    height: 18px;
-    width: 12px;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -15px 0px;
+    width: 15px;
+    height: 24px;
+    height: 24px;
+    width: 15px;
 }
 
 .bit-icon-sort:before {
@@ -518,7 +521,7 @@ a.bit-btn {
     height: 15px;
     right: 10px;
     top: 17px;
-    background: transparent url(/images/sort.png) 0 -11px / 15px no-repeat;
+    background: transparent url(/images/icons/sort.png) 0 -11px / 15px no-repeat;
 }
 
 .smart-accordion--toggle.is-expanded {
@@ -534,7 +537,7 @@ a.bit-btn {
     height: 15px;
     right: 10px;
     top: 17px;
-    background: transparent url(/images/sort.png) 0 3px / 15px no-repeat;
+    background: transparent url(/images/icons/sort.png) 0 3px / 15px no-repeat;
 }
 
 .smart-accordion--content {

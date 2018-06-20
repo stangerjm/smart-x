@@ -2,9 +2,9 @@
 .bit-icon-user {
   &:before {
     @include icon;
-    @include icon-url('user.png', 12px);
-    height: 18px;
-    width: 12px;
+    @include sprite($user);
+    height: $user-height;
+    width: $user-width;
   }
 }
 

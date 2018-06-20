@@ -99,7 +99,8 @@ module.exports = {
   },
   plugins: [
     new BundleAnalyzerPlugin({
-      openAnalyzer: false
+      openAnalyzer: false,
+      analyzerMode: 'static'
     })
   ],
   devtool: '#eval-source-map'

@@ -4,83 +4,114 @@
  * The gulp wrapper around patternlab-node core, providing tasks to interact with the core library and move supporting frontend assets.
  ******************************************************/
 var gulp = require('gulp'),
-    path = require('path'),
-    browserSync = require('browser-sync').create(),
-    argv = require('minimist')(process.argv.slice(2));
+  path = require('path'),
+  browserSync = require('browser-sync').create(),
+  argv = require('minimist')(process.argv.slice(2));
 
 var compress = require('compression');
 var sass = require('gulp-sass');
 var beautify = require('gulp-jsbeautifier');
 var clean = require('gulp-clean-css');
 var rename = require('gulp-rename');
+var imageResize = require('gulp-image-resize');
+var spritesmith = require('gulp.spritesmith');
+var merge = require('merge-stream');
 
 /******************************************************
  * COPY TASKS - stream assets from source to destination
  ******************************************************/
+gulp.task('conform-icon-sizes', function () {
+  return gulp.src('./images/icons/*.png')
+    .pipe(imageResize(
+      {
+        width: 15,
+        imageMagick: false
+      }))
+    .pipe(gulp.dest('./source/images/icons'));
+});
+
+gulp.task('generate-sprite', function() {
+  var spriteData = gulp.src('./source/images/icons/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    imgPath: '/images/spritesheet/sprite.png',
+    cssName: '_sprite.scss'
+  }));
+
+  var imgStream = spriteData.img
+    .pipe(gulp.dest('./source/images/spritesheet/'));
+
+  var cssStream = spriteData.css
+    .pipe(gulp.dest('./sass/global/'));
+
+  return merge(imgStream, cssStream);
+});
+
+gulp.task('sprite', gulp.series('conform-icon-sizes', 'generate-sprite'));
+
 //Compile all SASS and output the result to style.css
-gulp.task('sass', function(){
-    var cssPath = './source/css';
-    return gulp.src('./sass/*.scss')
-        .pipe(sass())
-        .pipe(beautify())
-        .pipe(rename({
-            basename: 'style'
-        }))
-        .pipe(gulp.dest(cssPath))
-        .pipe(clean({compatibility: 'ie8'}))
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(gulp.dest(cssPath))
+gulp.task('sass', function () {
+  var cssPath = './source/css';
+  return gulp.src('./sass/*.scss')
+    .pipe(sass())
+    .pipe(beautify())
+    .pipe(rename({
+      basename: 'style'
+    }))
+    .pipe(gulp.dest(cssPath))
+    .pipe(clean({compatibility: 'ie8'}))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(cssPath))
 });
 
 // JS copy
-gulp.task('pl-copy:js', function(){
-    return gulp.src('**/*.js', {cwd: path.resolve(paths().source.js)} )
-        .pipe(gulp.dest(path.resolve(paths().public.js)));
+gulp.task('pl-copy:js', function () {
+  return gulp.src('**/*.js', {cwd: path.resolve(paths().source.js)})
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
 });
 
 // Images copy
-gulp.task('pl-copy:img', function(){
-    return gulp.src('**/*.*',{cwd: path.resolve(paths().source.images)} )
-        .pipe(gulp.dest(path.resolve(paths().public.images)));
+gulp.task('pl-copy:img', function () {
+  return gulp.src('**/*.*', {cwd: path.resolve(paths().source.images)})
+    .pipe(gulp.dest(path.resolve(paths().public.images)));
 });
 
 // Favicon copy
-gulp.task('pl-copy:favicon', function(){
-    return gulp.src('favicon.ico', {cwd: path.resolve(paths().source.root)} )
-        .pipe(gulp.dest(path.resolve(paths().public.root)));
+gulp.task('pl-copy:favicon', function () {
+  return gulp.src('favicon.ico', {cwd: path.resolve(paths().source.root)})
+    .pipe(gulp.dest(path.resolve(paths().public.root)));
 });
 
 // Fonts copy
-gulp.task('pl-copy:font', function(){
-    return gulp.src('*', {cwd: path.resolve(paths().source.fonts)})
-        .pipe(gulp.dest(path.resolve(paths().public.fonts)));
+gulp.task('pl-copy:font', function () {
+  return gulp.src('*', {cwd: path.resolve(paths().source.fonts)})
+    .pipe(gulp.dest(path.resolve(paths().public.fonts)));
 });
 
 // CSS Copy
-gulp.task('pl-copy:css', function(){
-    return gulp.src(path.resolve(paths().source.css, '*.css'))
-        .pipe(gulp.dest(path.resolve(paths().public.css)))
-        .pipe(browserSync.stream());
+gulp.task('pl-copy:css', function () {
+  return gulp.src(path.resolve(paths().source.css, '*.css'))
+    .pipe(gulp.dest(path.resolve(paths().public.css)))
+    .pipe(browserSync.stream());
 });
 
 // Styleguide Copy everything but css
-gulp.task('pl-copy:styleguide', function(){
-    return gulp.src(path.resolve(paths().source.styleguide, '**/!(*.css)'))
-        .pipe(gulp.dest(path.resolve(paths().public.root)))
-        .pipe(browserSync.stream());
+gulp.task('pl-copy:styleguide', function () {
+  return gulp.src(path.resolve(paths().source.styleguide, '**/!(*.css)'))
+    .pipe(gulp.dest(path.resolve(paths().public.root)))
+    .pipe(browserSync.stream());
 });
 
 // Styleguide Copy and flatten css
-gulp.task('pl-copy:styleguide-css', function(){
-    return gulp.src(path.resolve(paths().source.styleguide, '**/*.css'))
-        .pipe(gulp.dest(function(file){
-            //flatten anything inside the styleguide into a single output dir per http://stackoverflow.com/a/34317320/1790362
-            file.path = path.join(file.base, path.basename(file.path));
-            return path.resolve(path.join(paths().public.styleguide, 'css'));
-        }))
-        .pipe(browserSync.stream());
+gulp.task('pl-copy:styleguide-css', function () {
+  return gulp.src(path.resolve(paths().source.styleguide, '**/*.css'))
+    .pipe(gulp.dest(function (file) {
+      //flatten anything inside the styleguide into a single output dir per http://stackoverflow.com/a/34317320/1790362
+      file.path = path.join(file.base, path.basename(file.path));
+      return path.resolve(path.join(paths().public.styleguide, 'css'));
+    }))
+    .pipe(browserSync.stream());
 });
 
 /******************************************************
@@ -88,61 +119,61 @@ gulp.task('pl-copy:styleguide-css', function(){
  ******************************************************/
 //read all paths from our namespaced config file
 var config = require('./patternlab-config.json'),
-    patternlab = require('patternlab-node')(config);
+  patternlab = require('patternlab-node')(config);
 
 function paths() {
-    return config.paths;
+  return config.paths;
 }
 
 function getConfiguredCleanOption() {
-    return config.cleanPublic;
+  return config.cleanPublic;
 }
 
 function build(done) {
-    patternlab.build(done, getConfiguredCleanOption());
+  patternlab.build(done, getConfiguredCleanOption());
 }
 
 gulp.task('pl-assets', gulp.series(
-    gulp.parallel(
-        'pl-copy:js',
-        'pl-copy:img',
-        'pl-copy:favicon',
-        'pl-copy:font',
-        'pl-copy:css',
-        'pl-copy:styleguide',
-        'pl-copy:styleguide-css'
-    ),
-    function(done){
-        done();
-    })
+  gulp.parallel(
+    'pl-copy:js',
+    'pl-copy:img',
+    'pl-copy:favicon',
+    'pl-copy:font',
+    'pl-copy:css',
+    'pl-copy:styleguide',
+    'pl-copy:styleguide-css'
+  ),
+  function (done) {
+    done();
+  })
 );
 
 gulp.task('patternlab:version', function (done) {
-    patternlab.version();
-    done();
+  patternlab.version();
+  done();
 });
 
 gulp.task('patternlab:help', function (done) {
-    patternlab.help();
-    done();
+  patternlab.help();
+  done();
 });
 
 gulp.task('patternlab:patternsonly', function (done) {
-    patternlab.patternsonly(done, getConfiguredCleanOption());
+  patternlab.patternsonly(done, getConfiguredCleanOption());
 });
 
 gulp.task('patternlab:liststarterkits', function (done) {
-    patternlab.liststarterkits();
-    done();
+  patternlab.liststarterkits();
+  done();
 });
 
 gulp.task('patternlab:loadstarterkit', function (done) {
-    patternlab.loadstarterkit(argv.kit, argv.clean);
-    done();
+  patternlab.loadstarterkit(argv.kit, argv.clean);
+  done();
 });
 
-gulp.task('patternlab:build', gulp.series('pl-assets', build, function(done){
-    done();
+gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
+  done();
 }));
 
 /******************************************************
@@ -150,77 +181,78 @@ gulp.task('patternlab:build', gulp.series('pl-assets', build, function(done){
  ******************************************************/
 // watch task utility functions
 function getSupportedTemplateExtensions() {
-    var engines = require('./node_modules/patternlab-node/core/lib/pattern_engines');
-    return engines.getSupportedFileExtensions();
+  var engines = require('./node_modules/patternlab-node/core/lib/pattern_engines');
+  return engines.getSupportedFileExtensions();
 }
+
 function getTemplateWatches() {
-    return getSupportedTemplateExtensions().map(function (dotExtension) {
-        return path.resolve(paths().source.patterns, '**/*' + dotExtension);
-    });
+  return getSupportedTemplateExtensions().map(function (dotExtension) {
+    return path.resolve(paths().source.patterns, '**/*' + dotExtension);
+  });
 }
 
 function reload() {
-    browserSync.reload();
+  browserSync.reload();
 }
 
 function reloadCSS() {
-    browserSync.reload('*.css');
+  browserSync.reload('*.css');
 }
 
 function watch() {
-    gulp.watch(path.resolve(paths().source.css, '**/*.css'), { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:css', reloadCSS));
-    gulp.watch(path.resolve(paths().source.styleguide, '**/*.*'), { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
-    gulp.watch('./sass/**/*.scss', {awaitWriteFinish: true}).on('change', gulp.series('sass', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
+  gulp.watch(path.resolve(paths().source.css, '**/*.css'), {awaitWriteFinish: true}).on('change', gulp.series('pl-copy:css', reloadCSS));
+  gulp.watch(path.resolve(paths().source.styleguide, '**/*.*'), {awaitWriteFinish: true}).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
+  gulp.watch('./sass/**/*.scss', {awaitWriteFinish: true}).on('change', gulp.series('sass', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
 
-    var patternWatches = [
-        path.resolve(paths().source.patterns, '**/*.json'),
-        path.resolve(paths().source.patterns, '**/*.md'),
-        path.resolve(paths().source.data, '*.json'),
-        path.resolve(paths().source.fonts + '/*'),
-        path.resolve(paths().source.images + '/*'),
-        path.resolve(paths().source.meta, '*'),
-        path.resolve(paths().source.annotations + '/*')
-    ].concat(getTemplateWatches());
+  var patternWatches = [
+    path.resolve(paths().source.patterns, '**/*.json'),
+    path.resolve(paths().source.patterns, '**/*.md'),
+    path.resolve(paths().source.data, '*.json'),
+    path.resolve(paths().source.fonts + '/*'),
+    path.resolve(paths().source.images + '/*'),
+    path.resolve(paths().source.meta, '*'),
+    path.resolve(paths().source.annotations + '/*')
+  ].concat(getTemplateWatches());
 
-    gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
+  gulp.watch(patternWatches, {awaitWriteFinish: true}).on('change', gulp.series(build, reload));
 }
 
-gulp.task('patternlab:connect', gulp.series(function(done) {
-    browserSync.init({
-        server: {
-            baseDir: path.resolve(paths().public.root),
-            middleware: function(req, res, next) {
-                var gzip = compress();
-                gzip(req, res, next);
-            }
-        },
-        snippetOptions: {
-            // Ignore all HTML files within the templates folder
-            blacklist: ['/index.html', '/', '/?*']
-        },
-        browser: 'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
-        notify: {
-            styles: [
-                'display: none',
-                'padding: 15px',
-                'font-family: sans-serif',
-                'position: fixed',
-                'font-size: 1em',
-                'z-index: 9999',
-                'bottom: 0px',
-                'right: 0px',
-                'border-top-left-radius: 5px',
-                'background-color: #1B2032',
-                'opacity: 0.4',
-                'margin: 0',
-                'color: white',
-                'text-align: center'
-            ]
-        }
-    }, function(){
-        console.log('PATTERN LAB NODE WATCHING FOR CHANGES');
-        done();
-    });
+gulp.task('patternlab:connect', gulp.series(function (done) {
+  browserSync.init({
+    server: {
+      baseDir: path.resolve(paths().public.root),
+      middleware: function (req, res, next) {
+        var gzip = compress();
+        gzip(req, res, next);
+      }
+    },
+    snippetOptions: {
+      // Ignore all HTML files within the templates folder
+      blacklist: ['/index.html', '/', '/?*']
+    },
+    browser: 'C:\\Program Files\\Firefox Developer Edition\\firefox.exe',
+    notify: {
+      styles: [
+        'display: none',
+        'padding: 15px',
+        'font-family: sans-serif',
+        'position: fixed',
+        'font-size: 1em',
+        'z-index: 9999',
+        'bottom: 0px',
+        'right: 0px',
+        'border-top-left-radius: 5px',
+        'background-color: #1B2032',
+        'opacity: 0.4',
+        'margin: 0',
+        'color: white',
+        'text-align: center'
+      ]
+    }
+  }, function () {
+    console.log('PATTERN LAB NODE WATCHING FOR CHANGES');
+    done();
+  });
 }));
 
 /******************************************************

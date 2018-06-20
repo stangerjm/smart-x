@@ -153,9 +153,9 @@ a.bit-btn {
 
   &:before {
     @include icon;
-    height: 20px;
-    width: 20px;
-    @include icon-url('search.png', 18px);
+    height: $search-height;
+    width: $search-width;
+    @include sprite($search);
   }
 }
 

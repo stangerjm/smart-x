@@ -194,9 +194,12 @@ a.bit-btn {
 .bit-btn-plainSearch:before {
     content: " ";
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    background: url("/images/search.png") center/18px no-repeat;
+    height: 15px;
+    width: 15px;
+    background-image: url(/images/spritesheet/sprite.png);
+    background-position: -45px -15px;
+    width: 15px;
+    height: 15px;
 }
 
 .bit-btn-plainExit {

@@ -17,8 +17,10 @@
 ///   .user-icon {
 ///     @include icon-url("user.png", 13px);
 ///  }
-@mixin icon-url($iconName, $size: 15px) {
-  background: url("/images/" + $iconName) center/$size no-repeat;
+@mixin icon-url($iconName, $width: 15px, $height: 15px) {
+  background: url("/images/svg/sprites.svg#" + $iconName + "-usage");
+  width: $width;
+  height: $height;
 }
 
 /// Mixin to set width of an element relative to the number of its siblings.

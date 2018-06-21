@@ -208,6 +208,9 @@ a.bit-btn {
 .bit-icon-user:before {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#user-usage");
+    width: 25px;
+    height: 25px;
 }
 
 .bit-icon-sort {
@@ -217,9 +220,9 @@ a.bit-btn {
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#calendar-usage");
-    width: 25px;
-    height: 25px;
+    background: url("/images/svg/sprites.svg#sort-usage");
+    width: 20px;
+    height: 20px;
 }
 
 .bit-icon-error:before {

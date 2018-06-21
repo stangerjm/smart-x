@@ -24,7 +24,8 @@ gulp.task('conform-icon-sizes', function () {
   return gulp.src('./images/icons/*.png')
     .pipe(imageResize(
       {
-        width: 15,
+        width: 20,
+        height: 25,
         imageMagick: false
       }))
     .pipe(gulp.dest('./source/images/icons'));

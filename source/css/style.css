@@ -48,11 +48,9 @@ a.bit-btn {
 
 .bit-btn-search:before {
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -45px -15px;
-    width: 15px;
-    height: 15px;
-    height: 15px;
-    width: 15px;
+    background-position: 0px -25px;
+    width: 20px;
+    height: 21px;
     content: " ";
     display: inline-block;
 }
@@ -83,11 +81,9 @@ a.bit-btn {
 
 .bit-btn-reset:before {
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -30px -24px;
-    width: 15px;
-    height: 15px;
-    height: 15px;
-    width: 15px;
+    background-position: -40px -25px;
+    width: 20px;
+    height: 19px;
     content: " ";
     display: inline-block;
 }
@@ -102,13 +98,11 @@ a.bit-btn {
 
 .bit-btn-details:after {
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -45px -30px;
-    width: 15px;
-    height: 11px;
+    background-position: -15px -46px;
+    width: 20px;
+    height: 15px;
     content: " ";
     display: inline-block;
-    height: 11px;
-    width: 15px;
     margin-right: 0;
 }
 
@@ -159,13 +153,11 @@ a.bit-btn {
 
 .bit-btn-edit:after {
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -30px 0px;
-    width: 15px;
-    height: 19px;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 25px;
     content: " ";
     display: inline-block;
-    width: 15px;
-    height: 19px;
 }
 
 .bit-btn-exit {
@@ -185,21 +177,19 @@ a.bit-btn {
 
 .bit-btn-plainSearch {
     padding: 0;
-    height: 60px;
-    width: 60px;
     background: #3867b1;
     border: none;
+    height: 60px;
+    width: 60px;
 }
 
 .bit-btn-plainSearch:before {
     content: " ";
     display: inline-block;
-    height: 15px;
-    width: 15px;
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -45px -15px;
-    width: 15px;
-    height: 15px;
+    background-position: 0px -25px;
+    width: 20px;
+    height: 21px;
 }
 
 .bit-btn-plainExit {
@@ -239,22 +229,18 @@ a.bit-btn {
     content: " ";
     display: inline-block;
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: -15px 0px;
+    background-position: 0px -46px;
     width: 15px;
-    height: 24px;
-    height: 24px;
-    width: 15px;
+    height: 25px;
 }
 
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
     background-image: url(/images/spritesheet/sprite.png);
-    background-position: 0px 0px;
+    background-position: -60px 0px;
     width: 15px;
-    height: 24px;
-    height: 24px;
-    width: 15px;
+    height: 25px;
 }
 
 .bit-icon-error:before {

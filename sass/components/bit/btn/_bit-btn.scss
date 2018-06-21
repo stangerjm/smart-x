@@ -55,8 +55,6 @@ a.bit-btn {
 
   &:before {
     @include sprite($search);
-    height: $search-width;
-    width: $search-height;
     @include icon;
   }
 }
@@ -73,8 +71,6 @@ a.bit-btn {
   @include clickable;
   &:before {
     @include sprite($reset);
-    height: $reset-height;
-    width: $reset-width;
     @include icon;
   }
 }
@@ -87,8 +83,6 @@ a.bit-btn {
     @include sprite($details);
     @include icon;
 
-    height: $details-height;
-    width: $details-width;
     margin-right: 0;
   }
 }
@@ -129,8 +123,6 @@ a.bit-btn {
   &:after {
     @include sprite($edit);
     @include icon;
-    width: $edit-width;
-    height: $edit-height;
   }
 }
 
@@ -146,15 +138,13 @@ a.bit-btn {
 
 .bit-btn-plainSearch {
   padding: 0;
-  height: 60px;
-  width: 60px;
   background: $theme-main--deep;
   border: none;
+  height: 60px;
+  width: 60px;
 
   &:before {
     @include icon;
-    height: $search-height;
-    width: $search-width;
     @include sprite($search);
   }
 }

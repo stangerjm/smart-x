@@ -3,8 +3,6 @@
   &:before {
     @include icon;
     @include sprite($user);
-    height: $user-height;
-    width: $user-width;
   }
 }
 
@@ -14,8 +12,6 @@
   &:before {
     @include icon;
     @include sprite($sort);
-    height: $sort-height;
-    width: $sort-width;
   }
 }
 

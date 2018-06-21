@@ -2,9 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const glob = require('glob').sync;
 
-module.exports = {
-  entry: ['./Vue-components'],
+const vueConfig = {
+  name: 'vue',
+  entry: './Vue-components',
   output: {
     path: path.resolve(__dirname, './source/js/dist/'),
     publicPath: '/js/dist/',
@@ -34,18 +37,6 @@ module.exports = {
           'css-loader',
           'sass-loader?indentedSyntax'
         ],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-
-            }
-          },
-          'svgo-loader'
-        ]
       },
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2)(\?.+)?$/,
@@ -118,10 +109,35 @@ module.exports = {
   devtool: '#eval-source-map'
 };
 
+const svgConfig = {
+  name: 'svg',
+  entry: glob('./images/svg/*.svg'),
+  output: {
+    path: path.resolve(__dirname, 'source/images/svg'),
+    publicPath: '/images/svg',
+    filename: 'sprites.svg'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true,
+          spriteFilename: 'sprites.svg'
+        }
+      }
+    ]
+  },
+  plugins: [
+    new SpriteLoaderPlugin()
+  ]
+};
+
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  vueConfig.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  vueConfig.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -139,3 +155,5 @@ if (process.env.NODE_ENV === 'production') {
     new CleanWebpackPlugin(['source/js/dist/'])
   ])
 }
+
+module.exports = [vueConfig, svgConfig];

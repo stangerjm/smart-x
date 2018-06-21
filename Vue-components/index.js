@@ -4,7 +4,7 @@ import bitInput from './components/bit-input';
 import bitIcon from './components/bit-icon';
 
 //require all svg icons
-require('./svg').svg();
+// require('./svg').svg();
 
 //Manually polyfill promise for asynchronous component loading
 require('es6-promise').polyfill();

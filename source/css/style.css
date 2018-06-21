@@ -210,9 +210,16 @@ a.bit-btn {
     display: inline-block;
 }
 
+.bit-icon-sort {
+    display: inline-block;
+}
+
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#calendar-usage");
+    width: 25px;
+    height: 25px;
 }
 
 .bit-icon-error:before {

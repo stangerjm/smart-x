@@ -8,8 +8,12 @@
 /// Icon that is added to a sortable table column to indicate the
 /// column is sortable.
 .bit-icon-sort {
+  display: inline-block;
   &:before {
     @include icon;
+    background: url('/images/svg/sprites.svg#calendar-usage');
+    width: 25px;
+    height: 25px;
   }
 }
 

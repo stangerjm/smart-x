@@ -47,10 +47,6 @@ a.bit-btn {
 }
 
 .bit-btn-search:before {
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: 0px -25px;
-    width: 20px;
-    height: 21px;
     content: " ";
     display: inline-block;
 }
@@ -80,10 +76,6 @@ a.bit-btn {
 }
 
 .bit-btn-reset:before {
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: -40px -25px;
-    width: 20px;
-    height: 19px;
     content: " ";
     display: inline-block;
 }
@@ -97,10 +89,6 @@ a.bit-btn {
 }
 
 .bit-btn-details:after {
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: -15px -46px;
-    width: 20px;
-    height: 15px;
     content: " ";
     display: inline-block;
     margin-right: 0;
@@ -152,10 +140,6 @@ a.bit-btn {
 }
 
 .bit-btn-edit:after {
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: 0px 0px;
-    width: 20px;
-    height: 25px;
     content: " ";
     display: inline-block;
 }
@@ -186,10 +170,6 @@ a.bit-btn {
 .bit-btn-plainSearch:before {
     content: " ";
     display: inline-block;
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: 0px -25px;
-    width: 20px;
-    height: 21px;
 }
 
 .bit-btn-plainExit {
@@ -228,19 +208,11 @@ a.bit-btn {
 .bit-icon-user:before {
     content: " ";
     display: inline-block;
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: 0px -46px;
-    width: 15px;
-    height: 25px;
 }
 
 .bit-icon-sort:before {
     content: " ";
     display: inline-block;
-    background-image: url(/images/spritesheet/sprite.png);
-    background-position: -60px 0px;
-    width: 15px;
-    height: 25px;
 }
 
 .bit-icon-error:before {

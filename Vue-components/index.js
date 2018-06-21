@@ -3,9 +3,13 @@ import bitBtn from './components/bit-btn';
 import bitInput from './components/bit-input';
 import bitIcon from './components/bit-icon';
 
+//require all svg icons
+require('./svg').svg();
+
 //Manually polyfill promise for asynchronous component loading
 require('es6-promise').polyfill();
 
+//Render base components globally
 Vue.component('bit-btn', bitBtn);
 Vue.component('bit-input', bitInput);
 Vue.component('bit-icon', bitIcon);

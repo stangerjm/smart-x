@@ -82,6 +82,5 @@
 <style scoped lang="scss">
     @import "../../sass/global/variables";
     @import "../../sass/global/mixins";
-    @import "../../sass/global/sprite";
     @import "../../sass/components/bit/btn/bit-btn";
 </style>

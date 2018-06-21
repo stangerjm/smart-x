@@ -2,7 +2,6 @@
 .bit-icon-user {
   &:before {
     @include icon;
-    @include sprite($user);
   }
 }
 
@@ -11,7 +10,6 @@
 .bit-icon-sort {
   &:before {
     @include icon;
-    @include sprite($sort);
   }
 }
 

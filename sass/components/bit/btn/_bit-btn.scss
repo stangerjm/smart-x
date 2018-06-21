@@ -54,7 +54,6 @@ a.bit-btn {
   @include clickable;
 
   &:before {
-    @include sprite($search);
     @include icon;
   }
 }
@@ -70,7 +69,6 @@ a.bit-btn {
 .bit-btn-reset {
   @include clickable;
   &:before {
-    @include sprite($reset);
     @include icon;
   }
 }
@@ -80,7 +78,6 @@ a.bit-btn {
   @include clickable-shadowless;
 
   &:after {
-    @include sprite($details);
     @include icon;
 
     margin-right: 0;
@@ -121,7 +118,6 @@ a.bit-btn {
   @include clickable-shadowless;
 
   &:after {
-    @include sprite($edit);
     @include icon;
   }
 }
@@ -145,7 +141,6 @@ a.bit-btn {
 
   &:before {
     @include icon;
-    @include sprite($search);
   }
 }
 

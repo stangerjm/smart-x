@@ -13,42 +13,10 @@ var sass = require('gulp-sass');
 var beautify = require('gulp-jsbeautifier');
 var clean = require('gulp-clean-css');
 var rename = require('gulp-rename');
-var imageResize = require('gulp-image-resize');
-var spritesmith = require('gulp.spritesmith');
-var merge = require('merge-stream');
 
 /******************************************************
  * COPY TASKS - stream assets from source to destination
  ******************************************************/
-gulp.task('conform-icon-sizes', function () {
-  return gulp.src('./images/icons/*.png')
-    .pipe(imageResize(
-      {
-        width: 20,
-        height: 25,
-        imageMagick: false
-      }))
-    .pipe(gulp.dest('./source/images/icons'));
-});
-
-gulp.task('generate-sprite', function() {
-  var spriteData = gulp.src('./source/images/icons/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    imgPath: '/images/spritesheet/sprite.png',
-    cssName: '_sprite.scss'
-  }));
-
-  var imgStream = spriteData.img
-    .pipe(gulp.dest('./source/images/spritesheet/'));
-
-  var cssStream = spriteData.css
-    .pipe(gulp.dest('./sass/global/'));
-
-  return merge(imgStream, cssStream);
-});
-
-gulp.task('sprite', gulp.series('conform-icon-sizes', 'generate-sprite'));
-
 //Compile all SASS and output the result to style.css
 gulp.task('sass', function () {
   var cssPath = './source/css';

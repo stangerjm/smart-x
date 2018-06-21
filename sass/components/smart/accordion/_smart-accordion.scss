@@ -1,11 +1,11 @@
-@mixin drop-arrow($position, $size) {
+@mixin drop-arrow($position, $size, $top: 17px) {
   content: '';
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 23px;
   right: 10px;
-  top: 17px;
-  background: transparent url(/images/icons/sort.png) 0 $position unquote("/") $size no-repeat;
+  top: $top;
+  background: url(/images/svg/sprites.svg#sort-usage) 0 $position unquote("/") $size no-repeat;
 }
 
 .smart-accordion {
@@ -40,7 +40,7 @@
     &:hover {
       &:after {
         /* Only apply drop-arrow on hover */
-        @include drop-arrow(3px, 15px);
+        @include drop-arrow(10px, 15px, 10px);
       }
     }
   }

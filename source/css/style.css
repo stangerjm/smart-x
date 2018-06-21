@@ -518,11 +518,11 @@ a.bit-btn {
     /* Only apply drop-arrow on hover */
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 23px;
     right: 10px;
     top: 17px;
-    background: transparent url(/images/icons/sort.png) 0 -11px / 15px no-repeat;
+    background: url(/images/svg/sprites.svg#sort-usage) 0 -11px / 15px no-repeat;
 }
 
 .smart-accordion--toggle.is-expanded {
@@ -534,11 +534,11 @@ a.bit-btn {
     /* Only apply drop-arrow on hover */
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 23px;
     right: 10px;
-    top: 17px;
-    background: transparent url(/images/icons/sort.png) 0 3px / 15px no-repeat;
+    top: 10px;
+    background: url(/images/svg/sprites.svg#sort-usage) 0 10px / 15px no-repeat;
 }
 
 .smart-accordion--content {

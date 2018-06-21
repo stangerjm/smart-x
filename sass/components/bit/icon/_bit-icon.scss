@@ -2,7 +2,7 @@
 .bit-icon-user {
   &:before {
     @include icon;
-    @include icon-url('user', 25px, 25px);
+    @include icon-url('user', 20px, 20px);
   }
 }
 

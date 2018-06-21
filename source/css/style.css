@@ -98,8 +98,8 @@ a.bit-btn {
     content: " ";
     display: inline-block;
     background: url("/images/svg/sprites.svg#details-usage");
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 35px;
     margin-right: 0;
 }
 
@@ -152,8 +152,8 @@ a.bit-btn {
     content: " ";
     display: inline-block;
     background: url("/images/svg/sprites.svg#edit-usage");
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 35px;
 }
 
 .bit-btn-exit {
@@ -224,8 +224,8 @@ a.bit-btn {
     content: " ";
     display: inline-block;
     background: url("/images/svg/sprites.svg#user-usage");
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
 }
 
 .bit-icon-sort {

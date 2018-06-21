@@ -81,7 +81,7 @@ a.bit-btn {
 
   &:after {
     @include icon;
-    @include icon-url('details', 20px, 20px);
+    @include icon-url('details', 17px, 35px);
 
     margin-right: 0;
   }
@@ -122,7 +122,7 @@ a.bit-btn {
 
   &:after {
     @include icon;
-    @include icon-url('edit', 20px, 20px);
+    @include icon-url('edit', 17px, 35px);
   }
 }
 

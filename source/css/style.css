@@ -49,6 +49,9 @@ a.bit-btn {
 .bit-btn-search:before {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#search-usage");
+    width: 15px;
+    height: 15px;
 }
 
 .bit-btn-add {
@@ -78,6 +81,9 @@ a.bit-btn {
 .bit-btn-reset:before {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#reset-usage");
+    width: 15px;
+    height: 15px;
 }
 
 .bit-btn-details {
@@ -91,6 +97,9 @@ a.bit-btn {
 .bit-btn-details:after {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#details-usage");
+    width: 20px;
+    height: 20px;
     margin-right: 0;
 }
 
@@ -142,6 +151,9 @@ a.bit-btn {
 .bit-btn-edit:after {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#edit-usage");
+    width: 20px;
+    height: 20px;
 }
 
 .bit-btn-exit {
@@ -170,6 +182,9 @@ a.bit-btn {
 .bit-btn-plainSearch:before {
     content: " ";
     display: inline-block;
+    background: url("/images/svg/sprites.svg#search-usage");
+    width: 25px;
+    height: 25px;
 }
 
 .bit-btn-plainExit {

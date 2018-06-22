@@ -2,6 +2,9 @@ import Vue from 'vue';
 import bitBtn from './components/bit-btn';
 import bitInput from './components/bit-input';
 import bitIcon from './components/bit-icon';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
 
 //Manually polyfill promise for asynchronous component loading
 require('es6-promise').polyfill();

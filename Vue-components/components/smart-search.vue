@@ -10,14 +10,14 @@
                     <div :class="['smart-search--fieldContainer', isHidden ? 'is-hidden' : '']">
                         <bit-input
                                 class="smart-search--field"
-                                :is-disabled="isHidden"
+                                :disabled="isHidden"
                                 input-type="text"
                                 label-text="Find by ID/Name"
                                 input-name="searchField">
                         </bit-input>
                         <bit-input
                                 class="smart-search--field"
-                                :is-disabled="isHidden"
+                                :disabled="isHidden"
                                 input-type="number"
                                 label-text="Number of Results Per Page"
                                 input-name="pageNumber">

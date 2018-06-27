@@ -24,6 +24,7 @@
 
 .smart-table--heading {
   border: 1px solid $theme-black;
+  text-align: center;
 
   @media screen and (max-width: $break-med) {
     @include hide();

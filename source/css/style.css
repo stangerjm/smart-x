@@ -849,6 +849,7 @@ a.bit-btn {
 
 .smart-table--heading {
     border: 1px solid #0d0908;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {

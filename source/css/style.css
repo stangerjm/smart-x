@@ -708,6 +708,11 @@ a.bit-btn {
     }
 }
 
+.smart-modal--warningTitle {
+    text-align: center;
+    color: red;
+}
+
 .smart-modal--footer {
     padding: 5px;
 }

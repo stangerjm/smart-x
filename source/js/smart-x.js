@@ -185,13 +185,13 @@ new Clock(user, '.smart-nav--userTime');
 
 function SmartSearch() {
   this.smartSearch = document.querySelector('.smart-search');
-  this.isHidden = true;
 
   if (this.smartSearch) {
     window.addEventListener('resize', this.resize.bind(this));
     this.searchBtn = this.smartSearch.querySelector('.smart-search--btnSearch');
     this.exitBtn = this.smartSearch.querySelector('.smart-search--btnExit');
     this.fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
+    this.isHidden = this.fieldContainer.classList.contains('is-hidden');
     this.initButtons();
   }
 }
@@ -200,9 +200,13 @@ SmartSearch.prototype.initButtons = function() {
   this.searchBtn.onclick = this.toggle.bind(this);
   this.exitBtn.onclick = this.toggle.bind(this);
 
-  //hide by default
-  this.exitBtn.style.display = 'none';
-  this.toggleDisabled(true);
+  //hide by default unless explicitly specified
+  if (this.isHidden) {
+    this.exitBtn.style.display = 'none';
+    this.toggleDisabled(true);
+  } else {
+    this.searchBtn.style.display = 'none';
+  }
 };
 
 SmartSearch.prototype.resize = function() {

@@ -571,12 +571,22 @@ a.bit-btn {
     border-radius: 5px;
 }
 
-.smart-details--heading {
-    padding: 5px 10px;
-    margin: 0;
+.smart-details--header {
     border-radius: 5px 5px 0 0;
     border-bottom: 1px solid #0d0908;
     background: #d9d9d9;
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-details--header {
+        flex-direction: column;
+    }
+}
+
+.smart-details--heading {
+    padding: 5px 10px;
+    margin: 0;
 }
 
 .smart-details--listContainer {

@@ -1,6 +1,8 @@
 <template>
     <div class="smart-details">
-        <h3 class="smart-details--heading">{{title ? title : 'Details'}}</h3>
+        <header class="smart-details--header">
+            <h3 class="smart-details--heading">{{title ? title : 'Details'}}</h3>
+        </header>
         <div class="smart-details--listContainer">
             <dl v-for="column in detailColumns" class="smart-details--list" :style="{width: 100 / detailColumns.length + '%'}">
                 <div v-for="(detail, key) in column" class="smart-details--detail">

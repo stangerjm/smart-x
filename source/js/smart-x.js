@@ -225,6 +225,9 @@ SmartSearch.prototype.toggle = function() {
     this.isHidden = false;
     this.exitBtn.style.display = 'block';
     this.searchBtn.style.display = 'none';
+
+    this.toggleDisabled(false);
+
     this.resize();
   } else {
     this.isHidden = true;
@@ -234,7 +237,15 @@ SmartSearch.prototype.toggle = function() {
     }, 400);
     this.exitBtn.style.display = 'none';
     this.searchBtn.style.display = 'block';
+    this.toggleDisabled(true);
   }
+};
+
+SmartSearch.prototype.toggleDisabled = function(isDisabled) {
+  let elsToDisable = this.fieldContainer.querySelectorAll('input, button');
+  elsToDisable.forEach(function(el) {
+    el.disabled = isDisabled;
+  })
 };
 
 new SmartSearch();

@@ -202,6 +202,7 @@ SmartSearch.prototype.initButtons = function() {
 
   //hide by default
   this.exitBtn.style.display = 'none';
+  this.toggleDisabled(true);
 };
 
 SmartSearch.prototype.resize = function() {

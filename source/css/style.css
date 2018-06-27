@@ -670,7 +670,7 @@ a.bit-btn {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
-    width: 500px;
+    width: 600px;
     max-height: 100%;
 }
 

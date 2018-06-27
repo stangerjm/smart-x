@@ -210,6 +210,8 @@ a.bit-btn {
     text-decoration: none;
     color: #737373;
     transition: color 300ms ease-in-out;
+    display: inline-block;
+    width: 100%;
 }
 
 .bit-link:hover {

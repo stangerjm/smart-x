@@ -3,6 +3,8 @@
   text-decoration: none;
   color: darken($theme-generic, 40%);
   transition: color 300ms ease-in-out;
+  display: inline-block;
+  width: 100%;
 
   &:hover {
     color: $theme-link;

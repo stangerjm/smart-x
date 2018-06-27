@@ -576,6 +576,7 @@ a.bit-btn {
     border-bottom: 1px solid #0d0908;
     background: #d9d9d9;
     display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {

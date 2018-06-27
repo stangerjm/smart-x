@@ -11,6 +11,10 @@
 ///     </form>
 .smart-search {
   background: $theme-generic;
+
+  /* Ensure smart-search cannot cover other elements */
+  position: relative;
+  z-index: $level-1;
 }
 
 .smart-search--heading {

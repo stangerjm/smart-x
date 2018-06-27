@@ -1,6 +1,6 @@
 /// Styles a user / profile icon.
 .bit-icon-user {
-  &:before {
+  &:after {
     @include icon;
     @include icon-url('user', 20px, 20px);
   }
@@ -10,14 +10,14 @@
 /// column is sortable.
 .bit-icon-sort {
   display: inline-block;
-  &:before {
+  &:after {
     @include icon;
     @include icon-url('sort', 15px, 15px);
   }
 }
 
 .bit-icon-error {
-  &:before {
+  &:after {
     @include icon('!');
     color: red;
   }

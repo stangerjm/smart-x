@@ -206,6 +206,7 @@ SmartSearch.prototype.initButtons = function() {
     this.toggleDisabled(true);
   } else {
     this.searchBtn.style.display = 'none';
+    this.resize();
   }
 };
 

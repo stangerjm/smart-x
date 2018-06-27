@@ -222,7 +222,7 @@ a.bit-btn {
  * BIT-ICON STYLES
  *************************/
 
-.bit-icon-user:before {
+.bit-icon-user:after {
     content: " ";
     display: inline-block;
     background: url("/images/svg/sprites.svg#user-usage");
@@ -234,7 +234,7 @@ a.bit-btn {
     display: inline-block;
 }
 
-.bit-icon-sort:before {
+.bit-icon-sort:after {
     content: " ";
     display: inline-block;
     background: url("/images/svg/sprites.svg#sort-usage");
@@ -242,7 +242,7 @@ a.bit-btn {
     height: 15px;
 }
 
-.bit-icon-error:before {
+.bit-icon-error:after {
     content: "!";
     display: inline-block;
     color: red;
@@ -320,6 +320,10 @@ a.bit-btn {
 
 .bit-input--field[type=number] {
     max-width: 50px;
+}
+
+.bit-input--field[readonly] {
+    background: #e6e6e6;
 }
 
 /**********************************************************************

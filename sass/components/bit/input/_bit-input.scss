@@ -35,4 +35,8 @@
   &[type = number] {
     max-width: 50px;
   }
+
+  &[readonly] {
+    background: lighten($theme-generic, 5%);
+  }
 }

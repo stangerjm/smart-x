@@ -38,6 +38,7 @@
 .smart-modal--head {
   background: $theme-generic;
   padding: 5px;
+  text-align: right;
 }
 
 /// Styles Modal Close button
@@ -54,7 +55,8 @@
 /// Sets styles for smart-modal title
 .smart-modal--title {
   font-size: 35px;
-  margin: 25px 0;
+  margin: 5px 0;
+  text-align: center;
 
   @media screen and (max-width: 820px) {
     font-size: 25px;

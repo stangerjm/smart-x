@@ -138,8 +138,7 @@ function openModal() {
  * samrt-nav
  */
 
-function Clock(user, outputSelector) {
-  this.user = user;
+function Clock(outputSelector) {
   var outputArea = document.querySelector(outputSelector);
   if (outputArea) {
     this.outputEl = outputArea;
@@ -149,7 +148,7 @@ function Clock(user, outputSelector) {
 
 Clock.prototype.startClock = function() {
   this.currentDateTime = this.getTime();
-  this.outputEl.innerHTML = this.user + ' ' + this.currentDateTime;
+  this.outputEl.textContent = this.currentDateTime;
   setTimeout(this.startClock.bind(this), 1000);
 };
 
@@ -176,8 +175,7 @@ Clock.prototype.getTime = function() {
   return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
 };
 
-var user = 'JMST225';
-new Clock(user, '.smart-nav--userTime');
+new Clock('.smart-nav--userTime');
 
 /**
  * smart-search

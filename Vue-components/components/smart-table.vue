@@ -3,8 +3,7 @@
         <tr class="smart-table--row smart-table--head">
             <th class="smart-table--heading smart-table--sortableHeading" v-for="heading in Object.keys(tableData[0])" v-if="isDisplayHeading(heading)">
                 <template v-if="!unsearchableHeadings.includes(heading)">
-                    <a class="smart-table--link" :href="'/' + defaultContext + '?sortOrder=' + heading">{{formatFromCamelCase(heading)}}</a>
-                    <bit-icon icon-type="sort"></bit-icon>
+                    <a class="smart-table--link" :href="'/' + defaultContext + '?sortOrder=' + heading">{{formatFromCamelCase(heading)}}<bit-icon icon-type="sort"></bit-icon></a>
                 </template>
                 <template v-else>
                     {{formatFromCamelCase(heading)}}

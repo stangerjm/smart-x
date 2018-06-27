@@ -12,7 +12,7 @@
   display: inline-block;
   &:before {
     @include icon;
-    @include icon-url('sort', 20px, 20px);
+    @include icon-url('sort', 15px, 15px);
   }
 }
 

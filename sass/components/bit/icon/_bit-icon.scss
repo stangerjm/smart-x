@@ -11,6 +11,7 @@
 .bit-icon-sort {
   display: inline-block;
   &:after {
+    margin-left: 3px;
     @include icon;
     @include icon-url('sort', 15px, 15px);
   }

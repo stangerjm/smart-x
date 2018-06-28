@@ -184,6 +184,7 @@
 }
 
 .bit-icon-sort:after {
+    margin-left: 3px;
     content: " ";
     display: inline-block;
     background: url("/images/svg/sort.svg") no-repeat;
@@ -560,7 +561,7 @@
 }
 
 .smart-details--heading {
-    padding: 5px 10px;
+    padding: 10px;
     margin: 0;
 }
 

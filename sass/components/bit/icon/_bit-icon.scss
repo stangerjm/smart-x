@@ -22,3 +22,26 @@
     color: red;
   }
 }
+
+.bit-icon-details {
+  &:after {
+    @include icon;
+    @include icon-url('details', 17px, 15px);
+
+    margin-right: 0;
+  }
+}
+
+.bit-icon-delete {
+  &:after {
+    @include icon();
+    @include icon-url('delete');
+  }
+}
+
+.bit-icon-edit {
+  &:after {
+    @include icon;
+    @include icon-url('edit', 20px, 20px);
+  }
+}

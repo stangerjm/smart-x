@@ -41,11 +41,6 @@
   text-decoration: none;
 }
 
-/* Center links by setting line height to equal button height */
-a.bit-btn {
-  line-height: 35px;
-}
-
 .bit-btn-clickable {
   @include clickable;
 }
@@ -61,6 +56,8 @@ a.bit-btn {
 
 .bit-btn-add {
   @include clickable;
+  line-height: 2;
+
   &:before {
     @include icon("+");
     font-weight: bolder;
@@ -72,18 +69,6 @@ a.bit-btn {
   &:before {
     @include icon;
     @include icon-url('reset');
-  }
-}
-
-.bit-btn-details {
-  @include bit-btn-noBackground;
-  @include clickable-shadowless;
-
-  &:after {
-    @include icon;
-    @include icon-url('details', 17px, 35px);
-
-    margin-right: 0;
   }
 }
 
@@ -104,35 +89,12 @@ a.bit-btn {
   }
 }
 
-.bit-btn-delete {
-  @include bit-btn-noBackground;
-  @include clickable-shadowless;
-
-  &:after {
-    @include icon("+");
-    transform: scale(2) rotateZ(45deg);
-    color: red;
-    margin: 0;
-  }
-}
-
-.bit-btn-edit {
-  @include bit-btn-noBackground;
-  @include clickable-shadowless;
-
-  &:after {
-    @include icon;
-    @include icon-url('edit', 17px, 35px);
-  }
-}
-
 .bit-btn-exit {
   @include clickable;
 
   &:before {
-    @include icon("+");
-    transform: scale(2) rotateZ(45deg);
-    //font-size: 1.5em;
+    @include icon();
+    @include icon-url('exit');
   }
 }
 
@@ -157,8 +119,7 @@ a.bit-btn {
   border: none;
 
   &:before {
-    @include icon("+");
-    color: $theme-white;
-    transform: scale(2) rotateZ(45deg);
+    @include icon();
+    @include icon-url('exit');
   }
 }

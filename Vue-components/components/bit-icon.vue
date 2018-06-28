@@ -1,5 +1,6 @@
 <template>
-    <span :class="iconClass"></span>
+    <span v-if="!isLink" :class="iconClass"></span>
+    <a v-else :class="iconClass" v-bind="$attrs"></a>
 </template>
 
 <script>
@@ -18,6 +19,10 @@
       iconType: {
         type: String,
         required: true
+      },
+      isLink: {
+        type: Boolean,
+        default: false
       }
     },
     data: function () {
@@ -31,7 +36,7 @@
        * @param {string} type - icon style
        */
       getClass: function (type) {
-        let allowedTypes = ['user', 'sort'];
+        let allowedTypes = ['user', 'sort', 'delete', 'details', 'edit'];
         if (!type) {
           return 'bit-icon-error';
         } else if (allowedTypes.includes(type)) {

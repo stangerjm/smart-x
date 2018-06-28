@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.3 40.25">
+  <title>edit</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <polyline points="27.31 7.25 27.31 37.13 0.5 37.13 0.5 0.5 20.5 0.5" style="fill: #fff;stroke: #000;stroke-miterlimit: 10"/>
+    <polyline points="26.81 7.75 20 7.75 20 1" style="fill: #fff;stroke: #000;stroke-miterlimit: 10"/>
+    <line x1="20.15" y1="0.36" x2="27.47" y2="7.61" style="fill: none;stroke: #000;stroke-miterlimit: 10"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <rect x="39.46" y="29.61" width="4.31" height="23.7" transform="translate(14.49 -30.09) rotate(37.99)" style="fill: #fff;stroke: #000;stroke-miterlimit: 10"/>
+    <polyline points="16.18 39.2 12.97 39.68 12.46 36.24" style="fill: #fff;stroke: #000;stroke-miterlimit: 10"/>
+    <rect x="47.41" y="30.21" width="4.31" height="2.14" rx="0.7" ry="0.7" transform="translate(9.91 -37.14) rotate(37.99)" style="fill: #fff;stroke: #000;stroke-miterlimit: 10"/>
+  </g>
+</svg>

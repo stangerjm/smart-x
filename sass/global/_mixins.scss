@@ -18,7 +18,7 @@
 ///     @include icon-url("user.png", 13px);
 ///  }
 @mixin icon-url($iconName, $width: 15px, $height: 15px) {
-  background: url("/images/svg/sprites.svg#" + $iconName + "-usage");
+  background: url("/images/svg/" + $iconName + ".svg") no-repeat;
   width: $width;
   height: $height;
 }

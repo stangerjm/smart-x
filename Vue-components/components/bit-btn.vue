@@ -57,9 +57,6 @@
         switch(type) {
           case 'add':
           case 'exit':
-          case 'delete':
-          case 'details':
-          case 'edit':
           case 'expand':
           case 'plainExit':
           case 'plainSearch':

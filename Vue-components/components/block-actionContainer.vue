@@ -2,46 +2,46 @@
     <div class="block-actionContainer">
         <template v-if="detailsBtn">
             <template v-if="openModalDetails">
-                <bit-btn btn-style="details"
-                         btn-event="modal-open"
-                         :path="getActionPath('Details', detailsContext)">
-                </bit-btn>
+                <!--<bit-btn btn-style="details"-->
+                         <!--btn-event="modal-open"-->
+                         <!--:path="getActionPath('Details', detailsContext)">-->
+                <!--</bit-btn>-->
             </template>
             <template v-else>
-                <bit-btn btn-style="details"
+                <bit-icon icon-type="details"
                          :is-link="true"
                          :href="getActionPath('Details', detailsContext)">
-                </bit-btn>
+                </bit-icon>
             </template>
         </template>
 
         <template v-if="editBtn">
             <template v-if="openModalEdit">
-                <bit-btn btn-style="edit"
-                         btn-event="modal-open"
-                         :path="getActionPath('Edit', editContext)">
-                </bit-btn>
+                <!--<bit-btn btn-style="edit"-->
+                         <!--btn-event="modal-open"-->
+                         <!--:path="getActionPath('Edit', editContext)">-->
+                <!--</bit-btn>-->
             </template>
             <template v-else>
-                <bit-btn btn-style="edit"
-                         :is-link="true"
-                         :href="getActionPath('Edit', editContext)">
-                </bit-btn>
+                <bit-icon icon-type="edit"
+                          :is-link="true"
+                          :href="getActionPath('Edit', editContext)">
+                </bit-icon>
             </template>
         </template>
 
         <template v-if="deleteBtn">
             <template v-if="openModalDelete">
-                <bit-btn btn-style="delete"
-                         btn-event="modal-open"
-                         :path="getActionPath('Delete', deleteContext)">
-                </bit-btn>
+                <!--<bit-btn btn-style="delete"-->
+                         <!--btn-event="modal-open"-->
+                         <!--:path="getActionPath('Delete', deleteContext)">-->
+                <!--</bit-btn>-->
             </template>
             <template v-else>
-                <bit-btn btn-style="delete"
-                         :is-link="true"
-                         :href="getActionPath('Delete', deleteContext)">
-                </bit-btn>
+                <bit-icon icon-type="delete"
+                          :is-link="true"
+                          :href="getActionPath('Delete', deleteContext)">
+                </bit-icon>
             </template>
         </template>
     </div>

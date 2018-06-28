@@ -22,12 +22,6 @@
     text-decoration: none;
 }
 
-/* Center links by setting line height to equal button height */
-
-a.bit-btn {
-    line-height: 35px;
-}
-
 .bit-btn-clickable {
     box-shadow: 2px 1px 1px #0d0908;
 }
@@ -49,13 +43,14 @@ a.bit-btn {
 .bit-btn-search:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#search-usage");
+    background: url("/images/svg/search.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
 
 .bit-btn-add {
     box-shadow: 2px 1px 1px #0d0908;
+    line-height: 2;
 }
 
 .bit-btn-add:active {
@@ -81,26 +76,9 @@ a.bit-btn {
 .bit-btn-reset:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#reset-usage");
+    background: url("/images/svg/reset.svg") no-repeat;
     width: 15px;
     height: 15px;
-}
-
-.bit-btn-details {
-    background: none;
-}
-
-.bit-btn-details:active {
-    transform: translate(2px, 2px);
-}
-
-.bit-btn-details:after {
-    content: " ";
-    display: inline-block;
-    background: url("/images/svg/sprites.svg#details-usage");
-    width: 17px;
-    height: 35px;
-    margin-right: 0;
 }
 
 .bit-btn-expand {
@@ -124,38 +102,6 @@ a.bit-btn {
     background: #ffa103;
 }
 
-.bit-btn-delete {
-    background: none;
-}
-
-.bit-btn-delete:active {
-    transform: translate(2px, 2px);
-}
-
-.bit-btn-delete:after {
-    content: "+";
-    display: inline-block;
-    transform: scale(2) rotateZ(45deg);
-    color: red;
-    margin: 0;
-}
-
-.bit-btn-edit {
-    background: none;
-}
-
-.bit-btn-edit:active {
-    transform: translate(2px, 2px);
-}
-
-.bit-btn-edit:after {
-    content: " ";
-    display: inline-block;
-    background: url("/images/svg/sprites.svg#edit-usage");
-    width: 17px;
-    height: 35px;
-}
-
 .bit-btn-exit {
     box-shadow: 2px 1px 1px #0d0908;
 }
@@ -166,9 +112,11 @@ a.bit-btn {
 }
 
 .bit-btn-exit:before {
-    content: "+";
+    content: " ";
     display: inline-block;
-    transform: scale(2) rotateZ(45deg);
+    background: url("/images/svg/exit.svg") no-repeat;
+    width: 15px;
+    height: 15px;
 }
 
 .bit-btn-plainSearch {
@@ -182,7 +130,7 @@ a.bit-btn {
 .bit-btn-plainSearch:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#search-usage");
+    background: url("/images/svg/search.svg") no-repeat;
     width: 25px;
     height: 25px;
 }
@@ -196,10 +144,11 @@ a.bit-btn {
 }
 
 .bit-btn-plainExit:before {
-    content: "+";
+    content: " ";
     display: inline-block;
-    color: #f9f9f9;
-    transform: scale(2) rotateZ(45deg);
+    background: url("/images/svg/exit.svg") no-repeat;
+    width: 15px;
+    height: 15px;
 }
 
 /**************************
@@ -225,7 +174,7 @@ a.bit-btn {
 .bit-icon-user:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#user-usage");
+    background: url("/images/svg/user.svg") no-repeat;
     width: 20px;
     height: 20px;
 }
@@ -237,7 +186,7 @@ a.bit-btn {
 .bit-icon-sort:after {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/sprites.svg#sort-usage");
+    background: url("/images/svg/sort.svg") no-repeat;
     width: 15px;
     height: 15px;
 }
@@ -246,6 +195,31 @@ a.bit-btn {
     content: "!";
     display: inline-block;
     color: red;
+}
+
+.bit-icon-details:after {
+    content: " ";
+    display: inline-block;
+    background: url("/images/svg/details.svg") no-repeat;
+    width: 17px;
+    height: 15px;
+    margin-right: 0;
+}
+
+.bit-icon-delete:after {
+    content: " ";
+    display: inline-block;
+    background: url("/images/svg/delete.svg") no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.bit-icon-edit:after {
+    content: " ";
+    display: inline-block;
+    background: url("/images/svg/edit.svg") no-repeat;
+    width: 20px;
+    height: 20px;
 }
 
 /**************************
@@ -339,19 +313,11 @@ a.bit-btn {
 .block-actionContainer {
     height: 35px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
-@supports (display: grid) {
-    .block-actionContainer {
-        display: grid;
-        grid-auto-flow: column;
-    }
-}
-
-.block-actionContainer>[class*=bit-btn] {
+.block-actionContainer>[class*=bit-icon] {
     margin: 0;
     min-width: 30px;
 }

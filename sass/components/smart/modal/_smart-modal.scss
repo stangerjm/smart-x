@@ -74,4 +74,12 @@
 /// Sets styles for smart-modal footer section
 .smart-modal--footer {
   padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: $theme-generic;
+}
+
+.smart-modal--footerItem {
+  margin: 0 5px;
 }

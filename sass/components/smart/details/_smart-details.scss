@@ -5,17 +5,19 @@
   border-radius: 5px;
 }
 
-.smart-details--header {
-  border-radius: 5px 5px 0 0;
-  border-bottom: 1px solid $theme-black;
-  background: $theme-generic;
-
+.smart-details--headerLayout {
   display: flex;
   justify-content: space-between;
 
   @media screen and (max-width: $break-med) {
     flex-direction: column;
   }
+}
+
+.smart-details--header {
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid $theme-black;
+  background: $theme-generic;
 }
 
 .smart-details--heading {

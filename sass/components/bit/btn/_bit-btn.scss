@@ -56,7 +56,7 @@
 
 .bit-btn-add {
   @include clickable;
-  line-height: 2;
+  line-height: 35px;
 
   &:before {
     @include icon("+");

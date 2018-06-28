@@ -222,6 +222,14 @@
     height: 20px;
 }
 
+.bit-icon-back:after {
+    content: " ";
+    display: inline-block;
+    background: url("/images/svg/back.svg") no-repeat;
+    width: 25px;
+    height: 25px;
+}
+
 /**************************
  * BIT-DROPLIST STYLES
  *************************/

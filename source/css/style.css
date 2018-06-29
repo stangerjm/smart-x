@@ -51,6 +51,7 @@
 .bit-btn-add {
     box-shadow: 2px 1px 1px #0d0908;
     line-height: 35px;
+    display: block;
 }
 
 .bit-btn-add:active {
@@ -806,13 +807,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1024px) {
-    .smart-search--heading {
-        position: relative;
-        align-content: start;
-    }
+    position: relative;
+    align-content: start;
 }
 
 .smart-search--title {
@@ -826,46 +822,31 @@
 
 .smart-search--toggleContainer {
     overflow: hidden;
-}
-
-@media screen and (max-width: 1024px) {
-    .smart-search--toggleContainer {
-        position: absolute;
-        left: 0;
-        top: 60px;
-        padding: 10px;
-    }
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    padding: 10px;
 }
 
 .smart-search--fieldContainer {
     display: flex;
-    align-items: center;
-    transition: transform 700ms ease-in-out;
+    transition: transform 900ms ease-in-out;
     right: 75px;
     top: 0;
     padding-right: 10px;
-}
-
-@media screen and (max-width: 1024px) {
-    .smart-search--fieldContainer {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .smart-search--field {
-    padding: 0 10px;
-}
-
-@media screen and (max-width: 1024px) {
-    .smart-search--field {
-        padding: 10px 0;
-    }
+    padding: 10px 0;
+    width: 100%;
 }
 
 .is-hidden {
-    transform: translateX(1000px);
+    transform: translateY(-1000px);
 }
 
 /**************************

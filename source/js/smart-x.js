@@ -213,11 +213,10 @@ SmartSearch.prototype.resize = function() {
     var heading = this.smartSearch.querySelector('.smart-search--heading');
     var search = this.fieldContainer;
     var titleSegment = heading.querySelector('.smart-search--headingSegment');
-    var documentWidth = document.body.clientWidth;
 
     //do not add search height if screen is less than breakpoint
-    var searchHeight = documentWidth <= 1024 ? search.offsetHeight + 30 : 0;
-    var segmentHeight = documentWidth <= 1024 ? titleSegment.offsetHeight : 0;
+    var searchHeight = search.offsetHeight + 30;
+    var segmentHeight = titleSegment.offsetHeight;
 
     heading.style.minHeight = searchHeight + segmentHeight + 'px';
   }

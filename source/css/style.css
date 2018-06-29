@@ -580,11 +580,39 @@
 
 .smart-details--list {
     margin: 0;
+    width: 100%;
+}
+
+.smart-details--listTwo {
+    margin: 0;
+    width: 50%;
 }
 
 @media screen and (max-width: 768px) {
-    .smart-details--list {
-        width: 100% !important;
+    .smart-details--listTwo {
+        width: 100%;
+    }
+}
+
+.smart-details--listThree {
+    margin: 0;
+    width: 33.3%;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-details--listThree {
+        width: 100%;
+    }
+}
+
+.smart-details--listFour {
+    margin: 0;
+    width: 25%;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-details--listFour {
+        width: 100%;
     }
 }
 

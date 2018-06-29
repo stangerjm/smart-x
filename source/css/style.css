@@ -989,7 +989,7 @@
     }
     .record-is-expanded .smart-table--cell:first-child {
         /* Make room for collapse button */
-        padding-bottom: 10px;
+        padding: 30px 0 10px 0;
     }
     .record-is-expanded td:nth-last-of-type(2) {
         /* Hide last border */

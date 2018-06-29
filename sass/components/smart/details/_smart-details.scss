@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
 
-  @media screen and (max-width: $break-med) {
+  @media screen and (max-width: $break-sml) {
     flex-direction: column;
   }
 }

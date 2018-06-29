@@ -53,3 +53,10 @@
     @include icon-url('back', 25px, 25px);
   }
 }
+
+.bit-icon-calendar {
+  &:after {
+    @include icon;
+    @include icon-url('calendar', 20px, 20px);
+  }
+}

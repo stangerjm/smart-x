@@ -232,6 +232,14 @@
     height: 25px;
 }
 
+.bit-icon-calendar:after {
+    content: " ";
+    display: inline-block;
+    background: url("/images/svg/calendar.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
 /**************************
  * BIT-DROPLIST STYLES
  *************************/

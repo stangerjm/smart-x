@@ -102,11 +102,11 @@
           let heading = this.$el.querySelector('.smart-search--heading');
           let search = heading.querySelector('.smart-search--fieldContainer');
           let titleSegment = heading.querySelector('.smart-search--headingSegment');
-          let documentWidth = document.body.clientWidth + 15;
+          let documentWidth = document.body.clientWidth;
 
           //do not add search height if screen is less than breakpoint
-          let searchHeight = documentWidth < 1024 ? search.offsetHeight + 30 : 0;
-          let segmentHeight = documentWidth < 1024 ? titleSegment.offsetHeight : 0;
+          let searchHeight = documentWidth <= 1024 ? search.offsetHeight + 30 : 0;
+          let segmentHeight = documentWidth <= 1024 ? titleSegment.offsetHeight : 0;
 
           heading.style.minHeight = searchHeight + segmentHeight + 'px';
         }

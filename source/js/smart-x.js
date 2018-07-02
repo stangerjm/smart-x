@@ -269,3 +269,75 @@ function findAncestor (el, cls) {
   while ((el = el.parentElement) && !el.classList.contains(cls));
   return el;
 }
+
+/**
+ * smart-tabs
+ */
+
+function SmartTabs(tabs) {
+  this.tabs = tabs;
+
+  let contentItems = this.findElements('.smart-tabs--content > .smart-tabs--item');
+  if (contentItems.length > 0) {
+    //hide all elements by default
+    let defaultElements = this.findElements('.smart-tabs--default');
+    defaultElements.forEach(function(el) {
+      el.style.display = 'none';
+    });
+
+    //add click listeners
+    let tabs = this.findElements('.smart-tabs--tab');
+    tabs.forEach(function(tab) {
+      tab.onclick = this.switchTab.bind(this);
+    }, this);
+  }
+}
+
+SmartTabs.prototype.switchTab = function(e) {
+  let currentTab = e.target;
+
+  if (currentTab.classList.contains('smart-tabs--activeTab')) {
+    //don't switch tabs if the current tab is already active
+    return;
+  }
+
+  //deactivate previously active tab
+  this.deactivateItems('smart-tabs--activeTab');
+
+  //activate current tab
+  currentTab.classList.add('smart-tabs--activeTab');
+
+  //look up index of current tab
+  let tabList = [...currentTab.parentNode.children];
+  let index = tabList.indexOf(currentTab);
+
+  //deactivate previously active item
+  this.deactivateItems('smart-tabs--activeItem');
+
+  //find item at the same index as the current tab and activate it
+  let contentNodes = this.findElements('.smart-tabs--content > .smart-tabs--item');
+  let contentList = [...contentNodes];
+  contentList[index].classList.add('smart-tabs--activeItem');
+};
+
+SmartTabs.prototype.deactivateItems = function(className) {
+  let currentItems = this.findElements(`.${className}`);
+  currentItems.forEach(this.deactivateItem(className));
+};
+
+SmartTabs.prototype.deactivateItem = function(className) {
+  return (item) => {
+    item.classList.remove(className);
+  }
+};
+
+SmartTabs.prototype.findElements = function(selector) {
+  return this.tabs.querySelectorAll(selector);
+};
+
+let smartTabElements = document.querySelectorAll('.smart-tabs');
+if (smartTabElements.length > 0) {
+  smartTabElements.forEach(function(smartTab) {
+    new SmartTabs(smartTab);
+  });
+}

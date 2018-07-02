@@ -999,3 +999,86 @@
         display: inline;
     }
 }
+
+/**************************
+ * SMART-TABS STYLES
+ *************************/
+
+.smart-tabs--nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.smart-tabs--tabList {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-tabs--tabList {
+        flex-direction: column;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+}
+
+.smart-tabs--tab {
+    padding: 10px 40px;
+    margin-right: 3px;
+    background: #f3f3f3;
+    border-radius: 5px 5px 0 0;
+}
+
+.smart-tabs--tab:hover {
+    background: #e6e6e6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-tabs--tab {
+        border-radius: 0;
+        margin-right: 0;
+    }
+    .smart-tabs--tab:first-child {
+        border-radius: 5px 5px 0 0;
+    }
+    .smart-tabs--tab:last-child {
+        border-radius: 0 0 5px 5px;
+    }
+}
+
+.smart-tabs--action {
+    align-self: center;
+    margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .smart-tabs--action {
+        align-self: start;
+    }
+}
+
+.smart-tabs--content {
+    padding: 20px;
+    background: #d9d9d9;
+}
+
+.smart-tabs--item {
+    display: none;
+}
+
+.smart-tabs--activeItem {
+    display: block;
+}
+
+.smart-tabs--activeTab {
+    background: #d9d9d9;
+}
+
+.smart-tabs--activeTab:hover {
+    /* Ensure active tab stays the same color on hover */
+    background: #d9d9d9;
+}

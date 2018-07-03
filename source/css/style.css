@@ -1051,6 +1051,7 @@
 }
 
 .smart-tabs--action {
+    display: none;
     align-self: center;
     margin: 5px;
 }
@@ -1081,4 +1082,8 @@
 .smart-tabs--activeTab:hover {
     /* Ensure active tab stays the same color on hover */
     background: #d9d9d9;
+}
+
+.smart-tabs--activeAction {
+    display: block;
 }

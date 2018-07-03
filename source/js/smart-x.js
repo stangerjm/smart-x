@@ -311,6 +311,14 @@ SmartTabs.prototype.switchTab = function(e) {
   let tabList = [...currentTab.parentNode.children];
   let index = tabList.indexOf(currentTab);
 
+  //deactivate previously active actions
+  this.deactivateItems('smart-tabs--activeAction');
+
+  //find action at the same index as the current tab and activate it
+  let actionList = [...this.findElements('.smart-tabs--nav > .smart-tabs--action')];
+  console.log(actionList);
+  actionList[index].classList.add('smart-tabs--activeAction');
+
   //deactivate previously active item
   this.deactivateItems('smart-tabs--activeItem');
 

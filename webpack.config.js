@@ -134,6 +134,24 @@ const svgConfig = {
   ]
 };
 
+const jsConfig = {
+  name: 'smartXJS',
+  entry: './source/js/smart-x.js',
+  output: {
+    path: path.resolve(__dirname, 'source/js/dist'),
+    filename: 'smart-x.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
+    ]
+  }
+};
+
 if (process.env.NODE_ENV === 'production') {
   vueConfig.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
@@ -156,4 +174,4 @@ if (process.env.NODE_ENV === 'production') {
   ])
 }
 
-module.exports = [vueConfig, svgConfig];
+module.exports = [vueConfig, svgConfig, jsConfig];

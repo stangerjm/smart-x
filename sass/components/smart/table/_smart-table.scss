@@ -51,6 +51,10 @@
     background: $theme-main--light;
   }
 
+  &:not(.smart-table--head):nth-child(odd) {
+    background: white;
+  }
+
   @media screen and (max-width: $break-med) {
     &:not(.smart-table--head) {
       display: flex;

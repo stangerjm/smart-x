@@ -805,47 +805,33 @@
 
 .smart-search {
     background: #d9d9d9;
-    /* Ensure smart-search cannot cover other elements */
-    position: relative;
-    z-index: 10;
 }
 
 .smart-search--heading {
-    transition: min-height 500ms;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative;
-    align-content: start;
+    align-items: center;
 }
 
 .smart-search--title {
     margin: 0 10px;
 }
 
-.smart-search--headingSegment {
-    display: flex;
-    align-items: center;
+@media screen and (max-width: 768px) {
+    .smart-search--title {
+        max-width: 125px;
+    }
 }
 
-.smart-search--toggleContainer {
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 60px;
-    padding: 10px;
+.smart-search--action {
+    /* Align action button to the right */
+    margin-left: auto;
 }
 
 .smart-search--fieldContainer {
-    display: flex;
-    transition: transform 900ms ease-in-out;
-    right: 75px;
-    top: 0;
-    padding-right: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: min-height 600ms;
+    min-height: 0;
 }
 
 .smart-search--field {
@@ -853,8 +839,16 @@
     width: 100%;
 }
 
+.smart-search--toggleContainer {
+    position: absolute;
+    padding: 10px;
+    transition: transform 800ms ease-in-out;
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .is-hidden {
-    transform: translateY(-1000px);
+    transform: translateY(-800px);
 }
 
 /**************************
@@ -865,9 +859,6 @@
     width: 100%;
     border-spacing: 0;
     border: 1px solid #0d0908;
-    /* Ensure smart-table will not be covered by smart-search */
-    position: relative;
-    z-index: 20;
 }
 
 @media screen and (max-width: 1024px) {

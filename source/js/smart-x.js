@@ -13,22 +13,33 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 /**
  * block-navList
  */
-var inlineLists = document.querySelectorAll(".bit-dropList");
-if (inlineLists.length !== 0) {
-  inlineLists.forEach(function(inlineList) {
-    if (inlineList.hasChildNodes()) {
-      inlineList.parentNode.firstChild.classList.add("block-navList--sublistHeading");
+function NavList(navList) {
+  this.navList = navList;
+  var inlineLists = navList.querySelectorAll(".bit-dropList");
+  if (inlineLists.length !== 0) {
+    inlineLists.forEach(function(inlineList) {
+      if (inlineList.hasChildNodes()) {
+        inlineList.parentNode.firstChild.classList.add("block-navList--sublistHeading");
+      }
+    });
+  }
+
+  var list = navList.querySelector('.block-navList--list');
+  var expand = navList.querySelector('.block-navList--expand');
+
+  if (expand) {
+    expand.onclick = function() {
+      list.classList.toggle('nav-show');
     }
-  });
+  }
 }
 
-var list = document.querySelector('.block-navList--list');
-var expand = document.querySelector('.block-navList--expand');
-
-if (expand) {
-  expand.onclick = function() {
-    list.classList.toggle('nav-show');
-  }
+//Mount all nav lists
+let navLists = document.querySelectorAll('.block-navList');
+if (navLists.length > 0) {
+  navLists.forEach((navList) => {
+    new NavList(navList);
+  });
 }
 
 /**
@@ -138,8 +149,8 @@ function openModal() {
  * samrt-nav
  */
 
-function Clock(outputSelector) {
-  var outputArea = document.querySelector(outputSelector);
+function Clock(outputElement) {
+  var outputArea = outputElement;
   if (outputArea) {
     this.outputEl = outputArea;
     this.startClock();
@@ -175,21 +186,25 @@ Clock.prototype.getTime = function() {
   return month + "/" + day + "/" + year + " " + hours + ":" + minutes + ":" + seconds;
 };
 
-new Clock('.smart-nav--userTime');
+//mount all clocks
+let clocks = document.querySelectorAll('.smart-nav--userTime');
+if (clocks.length > 0) {
+  clocks.forEach((clock) => new Clock(clock));
+}
 
 /**
  * smart-search
  */
 
-function SmartSearch() {
-  this.smartSearch = document.querySelector('.smart-search');
+function SmartSearch(smartSearch) {
+  this.smartSearch = smartSearch;
 
   if (this.smartSearch) {
     window.addEventListener('resize', this.resize.bind(this));
-    this.searchBtn = this.smartSearch.querySelector('.smart-search--btnSearch');
-    this.exitBtn = this.smartSearch.querySelector('.smart-search--btnExit');
-    this.fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
-    this.isHidden = this.fieldContainer.classList.contains('is-hidden');
+    this.searchBtn = this.smartSearch.querySelector('[class*=bit-btn-plainSearch]');
+    this.exitBtn = this.smartSearch.querySelector('[class*=bit-btn-plainExit]');
+    this.toggleContainer = this.smartSearch.querySelector('.smart-search--toggleContainer');
+    this.isHidden = this.toggleContainer.classList.contains('is-hidden');
     this.initButtons();
   }
 }
@@ -210,20 +225,19 @@ SmartSearch.prototype.initButtons = function() {
 
 SmartSearch.prototype.resize = function() {
   if (!this.isHidden) {
-    var heading = this.smartSearch.querySelector('.smart-search--heading');
-    var search = this.fieldContainer;
-    var titleSegment = heading.querySelector('.smart-search--headingSegment');
+    let search = this.smartSearch.querySelector('.smart-search--toggleContainer');
+    let fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
 
     //do not add search height if screen is less than breakpoint
-    var searchHeight = search.offsetHeight + 30;
-    var segmentHeight = titleSegment.offsetHeight;
+    let searchHeight = search.offsetHeight;
 
-    heading.style.minHeight = searchHeight + segmentHeight + 'px';
+    fieldContainer.style.minHeight = searchHeight + 'px';
   }
 };
 
 SmartSearch.prototype.toggle = function() {
-  this.fieldContainer.classList.toggle('is-hidden');
+  console.log(this.isHidden);
+  this.toggleContainer.classList.toggle('is-hidden');
   if (this.isHidden) {
     this.isHidden = false;
     this.exitBtn.style.display = 'block';
@@ -234,10 +248,7 @@ SmartSearch.prototype.toggle = function() {
     this.resize();
   } else {
     this.isHidden = true;
-    let self = this;
-    setTimeout(function () {
-      self.smartSearch.querySelector('.smart-search--heading').style.minHeight = 0;
-    }, 400);
+    this.smartSearch.querySelector('.smart-search--fieldContainer').style.minHeight = 0;
     this.exitBtn.style.display = 'none';
     this.searchBtn.style.display = 'block';
     this.toggleDisabled(true);
@@ -245,29 +256,41 @@ SmartSearch.prototype.toggle = function() {
 };
 
 SmartSearch.prototype.toggleDisabled = function(isDisabled) {
-  let elsToDisable = this.fieldContainer.querySelectorAll('input, button');
+  let elsToDisable = this.toggleContainer.querySelectorAll('input, button');
   elsToDisable.forEach(function(el) {
     el.disabled = isDisabled;
   })
 };
 
-new SmartSearch();
+let smartSearches = document.querySelectorAll('.smart-search');
+if (smartSearches.length > 0) {
+  smartSearches.forEach((smartSearch) => new SmartSearch(smartSearch));
+}
 
 /**
  * smart-table
  */
+function SmartTable(smartTable) {
+  this.smartTable = smartTable;
+  let tableExpandBtns = this.smartTable.querySelectorAll('.smart-table--expand > .bit-btn-expand');
+  let self = this;
+  tableExpandBtns.forEach(function(btn) {
+    btn.onclick = function() {
+      let row = self.findAncestor(btn, 'smart-table--row');
+      row.classList.toggle('record-is-expanded');
+    };
+  });
+}
 
-let tableExpandBtns = document.querySelectorAll('.smart-table--expand > .bit-btn-expand');
-tableExpandBtns.forEach(function(btn) {
-  btn.onclick = function() {
-    let row = findAncestor(btn, 'smart-table--row');
-    row.classList.toggle('record-is-expanded');
-  };
-});
-
-function findAncestor (el, cls) {
+SmartTable.prototype.findAncestor = function (el, cls) {
   while ((el = el.parentElement) && !el.classList.contains(cls));
   return el;
+};
+
+//mount all smart-tables
+let smartTables = document.querySelectorAll('.smart-table');
+if (smartTables.length > 0) {
+  smartTables.forEach((smartTable) => new SmartTable(smartTable));
 }
 
 /**

@@ -13,10 +13,6 @@
   border-spacing: 0;
   border: 1px solid $theme-black;
 
-  /* Ensure smart-table will not be covered by smart-search */
-  position: relative;
-  z-index: $level-2;
-
   @media screen and (max-width: $break-lrg) {
     table-layout: fixed;
   }

@@ -1,34 +1,30 @@
 <template>
     <form :action="action" :method="method" class="smart-search">
         <div class="smart-search--heading">
-            <div class="smart-search--headingSegment">
-                <h2 class="smart-search--title">{{formTitle}}</h2>
-                <bit-btn btn-style="add" :is-link="true" :href="action + '/Create'">Add</bit-btn>
-            </div>
-            <div class="smart-search--headingSegment">
-                <div class="smart-search--toggleContainer">
-                    <div :class="['smart-search--fieldContainer', isHidden ? 'is-hidden' : '']">
-                        <bit-input
-                                class="smart-search--field"
-                                :disabled="isHidden"
-                                input-type="text"
-                                label-text="Find by ID/Name"
-                                input-name="searchField">
-                        </bit-input>
-                        <bit-input
-                                class="smart-search--field"
-                                :disabled="isHidden"
-                                input-type="number"
-                                label-text="Number of Results Per Page"
-                                input-name="pageNumber">
-                        </bit-input>
-                        <bit-btn :disabled="isHidden" type="submit" btn-style="search">Search</bit-btn>
-                    </div>
-                </div>
-                <bit-btn class="smart-search--btnSearch" btn-style="plainSearch" v-show="isHidden"
-                         @click.native="toggle()"></bit-btn>
-                <bit-btn class="smart-search--btnExit" btn-style="plainExit" v-show="!isHidden"
-                         @click.native="toggle()"></bit-btn>
+            <h2 class="smart-search--title">{{formTitle}}</h2>
+            <bit-btn btn-style="add" :is-link="true" :href="action + '/Create'">Add</bit-btn>
+            <bit-btn class="smart-search--action" btn-style="plainSearch" v-show="isHidden"
+                     @click.native="toggle()"></bit-btn>
+            <bit-btn class="smart-search--action" btn-style="plainExit" v-show="!isHidden"
+                     @click.native="toggle()"></bit-btn>
+        </div>
+        <div class="smart-search--fieldContainer">
+            <div :class="['smart-search--toggleContainer', isHidden ? 'is-hidden' : '']">
+                <bit-input
+                        class="smart-search--field"
+                        :disabled="isHidden"
+                        input-type="text"
+                        label-text="Find by ID/Name"
+                        input-name="searchField">
+                </bit-input>
+                <bit-input
+                        class="smart-search--field"
+                        :disabled="isHidden"
+                        input-type="number"
+                        label-text="Number of Results Per Page"
+                        input-name="pageNumber">
+                </bit-input>
+                <bit-btn :disabled="isHidden" type="submit" btn-style="search">Search</bit-btn>
             </div>
         </div>
     </form>
@@ -47,11 +43,7 @@
         /**
          * Flag indicating that the search is hidden.
          */
-        isHidden: true,
-        /**
-         * Class for the search container.
-         */
-        searchContainerClass: "smart-search--fieldContainer is-hidden"
+        isHidden: true
       }
     },
     props: {
@@ -87,10 +79,7 @@
           this.resize();
         } else {
           this.isHidden = true;
-          let self = this;
-          setTimeout(function () {
-            self.$el.querySelector('.smart-search--heading').style.minHeight = 0;
-          }, 400);
+          this.$el.querySelector('.smart-search--fieldContainer').style.minHeight = 0;
         }
       },
       /**
@@ -99,15 +88,13 @@
        */
       resize: function () {
         if (!this.isHidden) {
-          let heading = this.$el.querySelector('.smart-search--heading');
-          let search = heading.querySelector('.smart-search--fieldContainer');
-          let titleSegment = heading.querySelector('.smart-search--headingSegment');
+          let search = this.$el.querySelector('.smart-search--toggleContainer');
+          let fieldContainer = this.$el.querySelector('.smart-search--fieldContainer');
 
           //do not add search height if screen is less than breakpoint
-          let searchHeight = search.offsetHeight + 30;
-          let segmentHeight = titleSegment.offsetHeight;
+          let searchHeight = search.offsetHeight;
 
-          heading.style.minHeight = searchHeight + segmentHeight + 'px';
+          fieldContainer.style.minHeight = searchHeight + 'px';
         }
       }
     },

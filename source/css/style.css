@@ -810,15 +810,18 @@
 .smart-search--heading {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    padding-left: 10px;
 }
 
 .smart-search--title {
-    margin: 0 10px;
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 768px) {
     .smart-search--title {
-        max-width: 125px;
+        /* Force other items to next row */
+        width: 100%;
     }
 }
 
@@ -831,7 +834,6 @@
     overflow: hidden;
     position: relative;
     transition: min-height 600ms;
-    min-height: 0;
 }
 
 .smart-search--field {
@@ -848,6 +850,10 @@
 }
 
 .is-hidden {
+    min-height: 0;
+}
+
+.is-hidden>.smart-search--toggleContainer {
     transform: translateY(-800px);
 }
 

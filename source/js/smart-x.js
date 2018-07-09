@@ -203,8 +203,8 @@ function SmartSearch(smartSearch) {
     window.addEventListener('resize', this.resize.bind(this));
     this.searchBtn = this.smartSearch.querySelector('[class*=bit-btn-plainSearch]');
     this.exitBtn = this.smartSearch.querySelector('[class*=bit-btn-plainExit]');
-    this.toggleContainer = this.smartSearch.querySelector('.smart-search--toggleContainer');
-    this.isHidden = this.toggleContainer.classList.contains('is-hidden');
+    this.fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
+    this.isHidden = this.fieldContainer.classList.contains('is-hidden');
     this.initButtons();
   }
 }
@@ -226,7 +226,7 @@ SmartSearch.prototype.initButtons = function() {
 SmartSearch.prototype.resize = function() {
   if (!this.isHidden) {
     let search = this.smartSearch.querySelector('.smart-search--toggleContainer');
-    let fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
+    let fieldContainer = this.fieldContainer;
 
     //do not add search height if screen is less than breakpoint
     let searchHeight = search.offsetHeight;
@@ -236,8 +236,6 @@ SmartSearch.prototype.resize = function() {
 };
 
 SmartSearch.prototype.toggle = function() {
-  console.log(this.isHidden);
-  this.toggleContainer.classList.toggle('is-hidden');
   if (this.isHidden) {
     this.isHidden = false;
     this.exitBtn.style.display = 'block';
@@ -253,10 +251,13 @@ SmartSearch.prototype.toggle = function() {
     this.searchBtn.style.display = 'block';
     this.toggleDisabled(true);
   }
+
+  //this must toggle at the end, to ensure a smooth transition
+  this.fieldContainer.classList.toggle('is-hidden');
 };
 
 SmartSearch.prototype.toggleDisabled = function(isDisabled) {
-  let elsToDisable = this.toggleContainer.querySelectorAll('input, button');
+  let elsToDisable = this.fieldContainer.querySelectorAll('input, button');
   elsToDisable.forEach(function(el) {
     el.disabled = isDisabled;
   })
@@ -339,7 +340,6 @@ SmartTabs.prototype.switchTab = function(e) {
 
   //find action at the same index as the current tab and activate it
   let actionList = [...this.findElements('.smart-tabs--nav > .smart-tabs--action')];
-  console.log(actionList);
   actionList[index].classList.add('smart-tabs--activeAction');
 
   //deactivate previously active item

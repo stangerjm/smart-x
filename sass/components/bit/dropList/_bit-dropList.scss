@@ -10,16 +10,20 @@
   list-style: none;
   left: 0;
   right: 0;
+  background: darken($theme-generic, 5%);
 
   &--item {
     /* ensure children are not transparent */
-    background: $theme-main;
     padding: 3px 0;
     box-shadow: $theme-black 0 0 1px inset;
 
     &:hover {
       transition: border-top-width 100ms;
       border-top: 2px groove $theme-secondary--light;
+    }
+
+    & > .bit-link {
+      color: $theme-black;
     }
   }
 }

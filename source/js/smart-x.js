@@ -187,7 +187,7 @@ Clock.prototype.getTime = function() {
 };
 
 //mount all clocks
-let clocks = document.querySelectorAll('.smart-nav--userTime');
+let clocks = document.querySelectorAll('.smart-nav--clock');
 if (clocks.length > 0) {
   clocks.forEach((clock) => new Clock(clock));
 }
@@ -201,8 +201,8 @@ function SmartSearch(smartSearch) {
 
   if (this.smartSearch) {
     window.addEventListener('resize', this.resize.bind(this));
-    this.searchBtn = this.smartSearch.querySelector('[class*=bit-btn-plainSearch]');
-    this.exitBtn = this.smartSearch.querySelector('[class*=bit-btn-plainExit]');
+    this.searchBtn = this.smartSearch.querySelector('[class*=bit-icon-search]');
+    this.exitBtn = this.smartSearch.querySelector('[class*=bit-icon-exit]');
     this.fieldContainer = this.smartSearch.querySelector('.smart-search--fieldContainer');
     this.isHidden = this.fieldContainer.classList.contains('is-hidden');
     this.initButtons();

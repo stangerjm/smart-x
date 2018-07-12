@@ -1,40 +1,67 @@
+@mixin apply-gradient($direction) {
+  background: linear-gradient($direction, lighten($theme-main--dark, 25%), saturate($theme-main--light, 30%));
+}
+
 /// Sets layout and basic styles for a navigation
 .smart-nav {
   border-bottom: 1px solid $theme-secondary--deep;
   background-color: $theme-main;
   position: relative;
+
+  @include apply-gradient(to left);
+
+  @media screen and (max-width: $break-med) {
+    @include apply-gradient(to top);
+  }
 }
 
 .smart-nav--header {
   display: flex;
-  align-items: center;
-
-  @media screen and (max-width: $break-med) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 }
 
 .smart-nav--headerMain {
-  flex: 2;
   display: flex;
   align-items: center;
 
   @media screen and (max-width: $break-med) {
-    flex: none;
-    flex-direction: column;
+    justify-content: center;
   }
 }
 
+.smart-nav--title {
+  margin: 5px;
+}
+
 .smart-nav--headerAside {
-  flex: 1;
+  text-align: right;
+  background: #e6e6e6cc;
+
+  @media screen and (max-width: $break-med) {
+    text-align: center;
+    background: none;
+  }
 }
 
 .smart-nav--logo {
-  margin: 10px;
+  margin: 5px 10px;
+
+  @media screen and (max-width: $break-med) {
+    width: 70px;
+    height: 35px;
+  }
 }
 
 .smart-nav--list {
   @media screen and (max-width: $break-med) {
     margin: 10px;
+  }
+}
+
+.smart-nav--userTime {
+  padding: 10px;
+
+  @media screen and (max-width: $break-med) {
+    display: none;
   }
 }

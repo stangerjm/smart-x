@@ -98,29 +98,3 @@
     @include icon-url('exit');
   }
 }
-
-.bit-btn-plainSearch {
-  padding: 0;
-  background: $theme-main--deep;
-  border: none;
-  height: 60px;
-  width: 60px;
-
-  &:before {
-    @include icon;
-    @include icon-url('search', 25px, 25px);
-  }
-}
-
-.bit-btn-plainExit {
-  padding: 0;
-  height: 60px;
-  width: 60px;
-  background: $theme-main--deep;
-  border: none;
-
-  &:before {
-    @include icon();
-    @include icon-url('exit');
-  }
-}

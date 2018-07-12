@@ -60,3 +60,25 @@
     @include icon-url('calendar', 20px, 20px);
   }
 }
+
+.bit-icon-search {
+  padding: 0;
+  background: none;
+  border: none;
+
+  &:before {
+    @include icon;
+    @include icon-url('search-black', 25px, 25px);
+  }
+}
+
+.bit-icon-exit {
+  padding: 0;
+  background: none;
+  border: none;
+
+  &:before {
+    @include icon();
+    @include icon-url('exit');
+  }
+}

@@ -231,9 +231,9 @@
 .bit-icon-exit:before {
     content: " ";
     display: inline-block;
-    background: url("/images/svg/exit.svg") no-repeat;
-    width: 15px;
-    height: 15px;
+    background: url("/images/svg/exit-black.svg") no-repeat;
+    width: 20px;
+    height: 20px;
 }
 
 /**************************

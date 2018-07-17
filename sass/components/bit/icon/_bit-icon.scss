@@ -27,7 +27,7 @@
 .bit-icon-details {
   &:after {
     @include icon;
-    @include icon-url('details', 17px, 15px);
+    @include icon-url('details', 20px, 20px);
 
     margin-right: 0;
   }

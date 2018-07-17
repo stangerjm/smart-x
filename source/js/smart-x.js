@@ -169,9 +169,9 @@ Clock.prototype.formatTime = function(value) {
 
 Clock.prototype.getTime = function() {
   var currentTime = new Date();
-  var year = currentTime.getFullYear().toString().slice(-2);
-  var day = this.formatTime(currentTime.getDate());
-  var month = this.formatTime(currentTime.getMonth() + 1);
+  var year = currentTime.getFullYear().toString();
+  var day = currentTime.getDate();
+  var month = currentTime.getMonth() + 1;
   var hours = this.formatTime(currentTime.getHours());
   var minutes = this.formatTime(currentTime.getMinutes());
   var seconds = this.formatTime(currentTime.getSeconds());

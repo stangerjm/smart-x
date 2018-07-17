@@ -293,7 +293,7 @@
 }
 
 .bit-input--label {
-    margin: 10px 10px 10px 0;
+    margin: 5px 10px 5px 0;
     display: inline-block;
 }
 
@@ -306,7 +306,7 @@
     border: none;
     box-shadow: inset 1px 1px 4px #0d0908;
     border-radius: 3px;
-    min-height: 35px;
+    min-height: 30px;
     width: 100%;
 }
 
@@ -337,7 +337,7 @@
 
 .block-actionContainer>[class*=bit-icon] {
     margin: 0;
-    min-width: 30px;
+    padding: 5px;
 }
 
 /**************************
@@ -645,6 +645,10 @@
     box-sizing: border-box;
 }
 
+.smart-details--detailValue {
+    text-align: left;
+}
+
 .smart-details--detailKey {
     text-align: right;
     font-weight: bolder;
@@ -789,7 +793,7 @@
 
 .smart-nav--headerAside {
     text-align: right;
-    background: #e6e6e6cc;
+    background: rgba(230, 230, 230, 0.7);
 }
 
 @media screen and (max-width: 768px) {
@@ -864,7 +868,6 @@
 }
 
 .smart-search--field {
-    padding: 10px 0;
     width: 100%;
 }
 
@@ -951,6 +954,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
 }
 
 @media screen and (max-width: 768px) {
@@ -960,6 +964,10 @@
     .smart-table--cell:not(.smart-table--key) {
         display: none;
     }
+}
+
+.smart-table--centeredCell {
+    text-align: center;
 }
 
 .smart-table--key {

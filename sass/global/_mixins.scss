@@ -1,3 +1,5 @@
+@import "./_variables.scss";
+
 ////
 /// @author James Stanger
 /// @group Templates
@@ -18,7 +20,7 @@
 ///     @include icon-url("user.png", 13px);
 ///  }
 @mixin icon-url($iconName, $width: 15px, $height: 15px) {
-  background: url("/images/svg/" + $iconName + ".svg") no-repeat;
+  background: url($img-directory + "/" + $iconName + ".svg") no-repeat;
   width: $width;
   height: $height;
 }
@@ -144,4 +146,14 @@
 @mixin icon($content: " ") {
   content: $content;
   display: inline-block;
+}
+
+@mixin drop-arrow($position, $size, $top: 17px) {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 23px;
+  right: 10px;
+  top: $top;
+  background: url($img-directory + "/sort.svg") 0 $position unquote("/") $size no-repeat;
 }

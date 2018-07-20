@@ -1,22 +1,28 @@
+@mixin stack() {
+  display: block;
+
+  .bit-input--label {
+    display: block;
+  }
+}
+
 .bit-input {
   display: flex;
   align-items: center;
 
   @media screen and (max-width: $break-xs) {
-    flex-direction: column;
-    align-items: flex-start;
+    @include stack();
   }
 
   &-stacked {
-    @include flex-container;
-    flex-direction: column;
-    align-items: flex-start;
+    @include stack();
   }
 }
 
 .bit-input--label {
   margin: 5px 10px 5px 0;
   display: inline-block;
+  flex: 0 125px;
 }
 
 /// Styles different types of form inputs, namely input[type=text] and input[type=number].
@@ -29,6 +35,7 @@
     box-shadow: inset 1px 1px 4px $theme-black;
     border-radius: 3px;
     min-height: 30px;
+    flex: 1;
     width: 100%;
   }
 
@@ -39,4 +46,10 @@
   &[readonly] {
     background: lighten($theme-generic, 5%);
   }
+}
+
+.bit-input--date,
+.bit-input--date[readonly] {
+  background: url($img-directory + '/calendar.svg') 5px / 20px 20px no-repeat;
+  padding-left: 40px;
 }

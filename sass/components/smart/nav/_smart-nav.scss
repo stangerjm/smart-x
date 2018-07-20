@@ -45,6 +45,7 @@
 
 .smart-nav--logo {
   margin: 5px 10px;
+  @include icon-url("wspLogo", 125px, 60px);
 
   @media screen and (max-width: $break-med) {
     width: 70px;

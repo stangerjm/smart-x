@@ -12,6 +12,7 @@
   width: 100%;
   border-spacing: 0;
   border: 1px solid $theme-black;
+  border-collapse: separate;
 
   @media screen and (max-width: $break-lrg) {
     table-layout: fixed;

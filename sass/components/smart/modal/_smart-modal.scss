@@ -5,6 +5,9 @@
 
 /// Styles a responsive, accessible modal
 .smart-modal {
+  /* Hide by default */
+  display: none;
+
   position: fixed;
   z-index: $level-100;
   top: 0;
@@ -12,6 +15,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+
 
   /* fallback color */
   background-color: $theme-black;
@@ -25,7 +29,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: auto;
   width: 600px;
   max-height: 100%;
 
@@ -42,7 +45,7 @@
 }
 
 /// Styles Modal Close button
-.smart-modal--close {
+.smart-modal--close:not(.bit-btn) {
   height: 30px;
   width: 45px;
   padding: 0;
@@ -72,6 +75,7 @@
 .smart-modal--body {}
 
 /// Sets styles for smart-modal footer section
+
 .smart-modal--footer {
   padding: 5px;
   display: flex;

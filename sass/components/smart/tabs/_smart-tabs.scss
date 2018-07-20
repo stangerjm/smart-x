@@ -1,4 +1,7 @@
-.smart-tabs {}
+.smart-tabs {
+  display: flex;
+  flex-direction: column;
+}
 
 .smart-tabs--nav {
   display: flex;
@@ -55,6 +58,8 @@
 }
 
 .smart-tabs--content {
+  flex: 1 0 auto;
+
   padding: 20px;
   background: $theme-generic;
 }
@@ -65,7 +70,8 @@
 
 .smart-tabs--default {}
 
-.smart-tabs--activeItem {
+.smart-tabs--activeItem,
+.smart-tabs--activeAction {
   display: block;
 }
 
@@ -76,8 +82,4 @@
     /* Ensure active tab stays the same color on hover */
     background: $theme-generic;
   }
-}
-
-.smart-tabs--activeAction {
-  display: block;
 }

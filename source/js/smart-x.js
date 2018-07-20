@@ -47,7 +47,7 @@ if (navLists.length > 0) {
  */
 function Dialog(navDialogEl) {
   this.modal = navDialogEl;
-  var focusableEls = this.modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  var focusableEls = this.modal.querySelectorAll('a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
   this.focusableEls = Array.prototype.slice.call(focusableEls);
 
   this.firstFocusableEl = focusableEls[0];
@@ -57,7 +57,7 @@ function Dialog(navDialogEl) {
 Dialog.prototype.open = function () {
   var Dialog = this;
   Dialog.modal.removeAttribute('aria-hidden');
-  Dialog.modal.removeAttribute('style');
+  Dialog.modal.style.display = 'block';
 
   Dialog.focusedElBeforeOpen = document.activeElement;
 
@@ -135,7 +135,7 @@ Dialog.prototype.addEventListeners = function(openDialogSel, closeDialogSel) {
   }
 };
 
-function openModal() {
+function initSmartModal() {
   var navDialogEl = document.querySelector('.smart-modal');
 
   if (navDialogEl) {
@@ -144,6 +144,9 @@ function openModal() {
     modal.open();
   }
 }
+
+//export to window
+window.initSmartModal = initSmartModal;
 
 /**
  * samrt-nav

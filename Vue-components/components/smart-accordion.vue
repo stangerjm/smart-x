@@ -110,5 +110,6 @@
 
 <style scoped lang="scss">
     @import "../../sass/global/variables";
+    @import "../../sass/global/mixins";
     @import "../../sass/components/smart/accordion/smart-accordion";
 </style>

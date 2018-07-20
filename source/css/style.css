@@ -1,6 +1,160 @@
 @charset "UTF-8";
 /**********************************************************************
  *
+ *                         BASE
+ *
+ *********************************************************************/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* Fixes scrollbar bug on IE */
+    -ms-overflow-style: scrollbar;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvitica, Arial, FreeSans, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0d0908;
+}
+
+h1 {
+    font-size: 50px;
+    text-shadow: 1px 1px 0 #f9f9f9;
+    font-family: arial #0d0908, arial, sans-serif;
+}
+
+h2 {
+    font-size: 23px;
+}
+
+h3 {
+    font-size: 21px;
+}
+
+h4 {
+    font-size: 19px;
+}
+
+h5 {
+    font-size: 17px;
+}
+
+h6 {
+    font-size: 15px;
+}
+
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+/**********************************************************************
+ *
+ *                         LAYOUT
+ *
+ *********************************************************************/
+
+.layout-main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.layout-main--nav {
+    min-height: 100px;
+    flex: none;
+}
+
+.layout-main--search {
+    flex: none;
+}
+
+.layout-main--content {
+    flex: 1 auto;
+}
+
+.layout-main--footer {
+    flex: none;
+}
+
+@supports (display: grid) {
+    .layout-grid {
+        display: grid;
+        height: 100vh;
+    }
+    /*
+      1                    2
+    1 +--------------------+
+      |        auto        |
+    2 +--------------------+
+      |        auto        |
+    3 +--------------------+
+      |                    |
+      |        fill        |
+      |                    |
+    4 +--------------------+
+      |        50px        |
+    5 +--------------------+
+   */
+    .layout-main {
+        grid-template: "nav    " auto "search " auto "content" 1fr "footer " 50px / 1fr;
+    }
+    .layout-main--nav {
+        grid-area: nav;
+        min-height: auto;
+    }
+    .layout-main--search {
+        grid-area: search;
+    }
+    .layout-main--content {
+        grid-area: content;
+    }
+    .layout-main--footer {
+        grid-area: footer;
+    }
+}
+
+.layout-subsection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.layout-subsection--header {
+    flex: 0 auto;
+}
+
+.layout-subsection--main {
+    flex: 1 0 auto;
+}
+
+.layout-subsection--footer {
+    flex: 1 0 auto;
+    margin-top: 10px;
+}
+
+/**********************************************************************
+ *
  *                         BIT ELEMENTS
  *
  *********************************************************************/
@@ -51,7 +205,7 @@
 .bit-btn-add {
     box-shadow: 2px 1px 1px #0d0908;
     line-height: 35px;
-    display: block;
+    display: inline-block;
 }
 
 .bit-btn-add:active {
@@ -280,21 +434,25 @@
 
 @media screen and (max-width: 480px) {
     .bit-input {
-        flex-direction: column;
-        align-items: flex-start;
+        display: block;
+    }
+    .bit-input .bit-input--label {
+        display: block;
     }
 }
 
 .bit-input-stacked {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
+}
+
+.bit-input-stacked .bit-input--label {
+    display: block;
 }
 
 .bit-input--label {
     margin: 5px 10px 5px 0;
     display: inline-block;
+    flex: 0 125px;
 }
 
 .bit-input--field {
@@ -307,6 +465,7 @@
     box-shadow: inset 1px 1px 4px #0d0908;
     border-radius: 3px;
     min-height: 30px;
+    flex: 1;
     width: 100%;
 }
 
@@ -316,6 +475,12 @@
 
 .bit-input--field[readonly] {
     background: #e6e6e6;
+}
+
+.bit-input--date,
+.bit-input--date[readonly] {
+    background: url("/images/svg/calendar.svg") 5px/20px 20px no-repeat;
+    padding-left: 40px;
 }
 
 /**********************************************************************
@@ -511,7 +676,7 @@
     height: 23px;
     right: 10px;
     top: 17px;
-    background: url(/images/svg/sprites.svg#sort-usage) 0 -11px / 15px no-repeat;
+    background: url("/images/svg/sort.svg") 0 -11px / 15px no-repeat;
 }
 
 .smart-accordion--toggle.is-expanded {
@@ -527,7 +692,7 @@
     height: 23px;
     right: 10px;
     top: 10px;
-    background: url(/images/svg/sprites.svg#sort-usage) 0 10px / 15px no-repeat;
+    background: url("/images/svg/sort.svg") 0 10px / 15px no-repeat;
 }
 
 .smart-accordion--content {
@@ -680,6 +845,8 @@
  *************************/
 
 .smart-modal {
+    /* Hide by default */
+    display: none;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -698,7 +865,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: auto;
     width: 600px;
     max-height: 100%;
 }
@@ -715,7 +881,7 @@
     text-align: right;
 }
 
-.smart-modal--close {
+.smart-modal--close:not(.bit-btn) {
     height: 30px;
     width: 45px;
     padding: 0;
@@ -805,6 +971,9 @@
 
 .smart-nav--logo {
     margin: 5px 10px;
+    background: url("/images/svg/wspLogo.svg") no-repeat;
+    width: 125px;
+    height: 60px;
 }
 
 @media screen and (max-width: 768px) {
@@ -869,6 +1038,7 @@
 
 .smart-search--field {
     width: 100%;
+    padding: 5px;
 }
 
 .smart-search--toggleContainer {
@@ -895,6 +1065,7 @@
     width: 100%;
     border-spacing: 0;
     border: 1px solid #0d0908;
+    border-collapse: separate;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1040,6 +1211,11 @@
  * SMART-TABS STYLES
  *************************/
 
+.smart-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
 .smart-tabs--nav {
     display: flex;
     justify-content: space-between;
@@ -1099,6 +1275,7 @@
 }
 
 .smart-tabs--content {
+    flex: 1 0 auto;
     padding: 20px;
     background: #d9d9d9;
 }
@@ -1107,7 +1284,8 @@
     display: none;
 }
 
-.smart-tabs--activeItem {
+.smart-tabs--activeItem,
+.smart-tabs--activeAction {
     display: block;
 }
 
@@ -1120,6 +1298,14 @@
     background: #d9d9d9;
 }
 
-.smart-tabs--activeAction {
-    display: block;
+/**************************
+ * SMART-FOOTER STYLES
+ *************************/
+
+.smart-footer {
+    background: #a1bae1;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

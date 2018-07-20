@@ -1,0 +1,18 @@
+.layout-subsection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.layout-subsection--header {
+  flex: 0 auto;
+}
+
+.layout-subsection--main {
+  flex: 1 0 auto;
+}
+
+.layout-subsection--footer {
+  flex: 1 0 auto;
+  margin-top: 10px;
+}

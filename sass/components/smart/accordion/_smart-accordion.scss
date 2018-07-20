@@ -1,13 +1,3 @@
-@mixin drop-arrow($position, $size, $top: 17px) {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 23px;
-  right: 10px;
-  top: $top;
-  background: url(/images/svg/sprites.svg#sort-usage) 0 $position unquote("/") $size no-repeat;
-}
-
 .smart-accordion {
   width: 100%;
 }

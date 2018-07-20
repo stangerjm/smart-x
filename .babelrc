@@ -1,8 +1,6 @@
 {
   "presets": [
     ["@babel/preset-env", {
-      "debug": false,
-      "modules": false,
       "targets": {
         "browsers": [
           "Chrome >= 52",
@@ -17,8 +15,5 @@
   ],
   "ignore": [
     "node_modules"
-  ],
-  "plugins": [
-    "syntax-dynamic-import"
   ]
 }

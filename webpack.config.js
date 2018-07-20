@@ -153,9 +153,9 @@ const jsConfig = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  vueConfig.devtool = '#source-map'
+  //vueConfig.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  vueConfig.plugins = (vueConfig.plugins || []).concat([
+  jsConfig.plugins = (vueConfig.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
@@ -174,4 +174,5 @@ if (process.env.NODE_ENV === 'production') {
   ])
 }
 
-module.exports = [vueConfig, svgConfig, jsConfig];
+//module.exports = [vueConfig, svgConfig, jsConfig];
+module.exports = [jsConfig];

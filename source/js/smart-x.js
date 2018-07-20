@@ -47,10 +47,11 @@ if (navLists.length > 0) {
  */
 function Dialog(navDialogEl) {
   this.modal = navDialogEl;
-  var focusableEls = this.modal.querySelectorAll('a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]');
+  var focusableEls = this.modal.querySelectorAll('a[href], area[href], input:not([disabled]):not([type=hidden]):not([readonly]), select:not([disabled]):not([readonly]), textarea:not([disabled]), button:not([disabled]):not(.smart-modal--close), [tabindex="0"]');
   this.focusableEls = Array.prototype.slice.call(focusableEls);
 
   this.firstFocusableEl = focusableEls[0];
+
   this.lastFocusableEl = this.focusableEls[this.focusableEls.length - 1];
 }
 
@@ -75,6 +76,9 @@ Dialog.prototype.close = function() {
   if(this.focusedElBeforeOpen) {
     this.focusedElBeforeOpen.focus();
   }
+
+  //Destroy on close
+  this.__proto__ = null;
 };
 
 Dialog.prototype._handleKeyDown = function(e) {

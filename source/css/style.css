@@ -477,6 +477,11 @@ section {
     background: #e6e6e6;
 }
 
+.bit-input--field:focus {
+    box-shadow: 0 0 5px #1a2f50 inset;
+    border: 1px solid #fea104;
+}
+
 .bit-input--date,
 .bit-input--date[readonly] {
     background: url("/images/svg/calendar.svg") 5px/20px 20px no-repeat;
@@ -906,6 +911,12 @@ section {
 .smart-modal--warningTitle {
     text-align: center;
     color: red;
+}
+
+.smart-modal--body {
+    max-height: 75vh;
+    overflow: auto;
+    position: static;
 }
 
 .smart-modal--footer {

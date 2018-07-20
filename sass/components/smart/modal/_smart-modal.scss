@@ -72,7 +72,11 @@
 }
 
 /// Sets body section of a smart-modal
-.smart-modal--body {}
+.smart-modal--body {
+  max-height: 75vh;
+  overflow: auto;
+  position: static;
+}
 
 /// Sets styles for smart-modal footer section
 

@@ -46,6 +46,11 @@
   &[readonly] {
     background: lighten($theme-generic, 5%);
   }
+
+  &:focus {
+    box-shadow: 0 0 5px $theme-main--dark inset;
+    border: 1px solid $theme-secondary;
+  }
 }
 
 .bit-input--date,

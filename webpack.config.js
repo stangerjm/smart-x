@@ -155,7 +155,7 @@ const jsConfig = {
 if (process.env.NODE_ENV === 'production') {
   //vueConfig.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  jsConfig.plugins = (vueConfig.plugins || []).concat([
+  jsConfig.plugins = (jsConfig.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'

@@ -11,6 +11,29 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 /**
+ * bit-input
+ */
+function BitInput(input) {
+  let requiredInput = input.querySelector('[data-val-required], [required]');
+
+  if(requiredInput) {
+    //Add class bit-input--required to label of required fields
+    requiredInput
+      .parentElement
+      .querySelector('label')
+      .classList
+      .add('bit-input--required');
+  }
+}
+
+let inputs = document.querySelectorAll('.bit-input, .bit-input-stacked');
+if (inputs.length > 0) {
+  inputs.forEach(input => {
+    new BitInput(input);
+  });
+}
+
+/**
  * block-navList
  */
 function NavList(navList) {

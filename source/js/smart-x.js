@@ -11,6 +11,59 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 /**
+ * mount all date-pickers
+ */
+import flatpickr from 'flatpickr';
+require('../../node_modules/flatpickr/dist/flatpickr.min.css');
+
+let datePicker = flatpickr('.bit-input--date', {
+  allowInput: true,
+  //Equivalent to mm/dd/yyyy
+  dateFormat: 'm/d/Y',
+  minDate: '01/01/1900',
+  maxDate: '12/31/2099',
+  onClose: validateField,
+  //Disable opening by default to manually apply a click handler.
+  clickOpens: false
+});
+
+// Apply click handler
+if (datePicker.length > 1) {
+  datePicker.forEach(function (picker) {
+    picker.element.onclick = openDatePicker(picker);
+  });
+} else if (datePicker.element) {
+  datePicker.element.onclick = openDatePicker(datePicker);
+}
+
+window.addEventListener('scroll', closePicker(datePicker), true);
+
+function validateField(selectedDates, dateStr, instance) {
+  // Reset if date is invalid
+  if (!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateStr)) {
+    instance._input.value = null;
+  }
+}
+
+function openDatePicker(picker) {
+  return function open() {
+    picker.open();
+  }
+}
+
+function closePicker(datePicker) {
+  return function close() {
+    // if there is one datepicker, close it
+    if (datePicker.isOpen) {
+      datePicker.close();
+      // if there are multiple, iterate through them all and close each one
+    } else if (datePicker.length > 1) {
+      datePicker.forEach(picker => picker.close());
+    }
+  }
+}
+
+/**
  * bit-input
  */
 function BitInput(input) {
